@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>bees laugh in atbash</title>
+	<link href=".css" rel="stylesheet" type="text/css" media="all">
+	<style type="text/css">
+		@font-face{
+			font-family: 'SpiritPhone';
+			src: url('SpiritPhone.ttf') format('truetype');
+		}
+		body{
+			background-color:black;
+			height: 100%;
+			width:100%;
+			margin: 0px;
+		}
+		h1{
+			background-color: black;
+			font-family: 'SpiritPhone', Courier;
+			font-size: 5em;
+			font-weight: normal;
+			letter-spacing: 0.025em;
+			width: 100%;
+			margin: 0;
+		}
+		html{
+			font-family: Courier;
+			width: 100%;
+			height: 100%;
+			color: yellow;
+			line-height: 1.3;
+			text-align: center;
+		}
+		html a:link{
+			color: white;
+		}
+		html a:visited{
+			color: yellow;
+		}
+		content{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			position:fixed;
+			top:0;
+			bottom:0;
+			left:0;
+			right: 0;
+			max-width: 1000px;
+			margin:auto;
+		}
+		nav{
+			width: calc(100% - 24px);
+			background-color: black;
+			text-align: center;
+			padding: 0px 12px 6px;
+		}
+		#background{
+			position: fixed;
+			top:0;
+			left:0;
+			right: 0;
+			max-width: 1000px;
+			margin:auto;
+		}
+		#display{
+			width: 100%;
+			background-color: black;
+			border-top: 8px solid;
+			border-bottom: 4px solid;
+			border-color: #500050;
+		}
+		#viewmonster{
+			margin-top: 8em;
+			width: 90%;
+			max-width: 800px;
+			min-width:255px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="background" style="background-color: purple">
+	<img src="VMDisc.png" id="viewmonster">
+	<content>
+		<h1>LEMON DEMON</h1>
+		<div id="display"><h2>Coming soonish</h2><p>text will go here. Try scrolling up and down. It's a little broken right now but it will work better later.</p></div>
+		<nav><p><a href="">Graphics/Fonts</a> - <a href="">Commentary/Stems</a> - <a href="">Song Sorter</a> - <a href="">Discography Guide</a> - <a href="">CDs/Tapes/Vinyl</a> - <a href="">Official Site</a> - <a href="">Random Neil link</a></p></nav>
+	</content>
+	</div>
+</body>
+<div id="addscroll" style="position:relative;height: 4900px; z-index: -1"></div>
+
+
+<script type="text/javascript">
+		var slides = [
+		"<h2>Coming soonish</h2><p>text will go here. Try scrolling up and down. It's a little broken right now but it will work better later.</p>",
+		'<h2><a href="">Graphics/Fonts</a></h2><p>Filler text, explaining.</p>',
+		'<h2><a href="">Commentary/Stems</a></h2><p>Filler text, explaining.</p>',
+		'<h2><a href="">Song Sorter</a></h2><p>Filler text, explaining.</p>',
+		'<h2><a href="">Discography Guide</a></h2><p>Filler text, explaining.</p>',
+		'<h2><a href="">CD/Tapes/Vinyl</a></h2><p>Filler text, explaining.</p>',
+		'<h2><a href="">Official Site</a></h2><p>Filler text, explaining.</p>',
+		'<h2><a href="">Random Neil Link</a></h2><p>Spin the Wheel of Neil! Get a random link Neil-created content or obscure Lemon Demon song.</p>'
+		
+	];
+
+	var viewmonster = document.getElementById("viewmonster");
+	var toptext = document.getElementById("display");
+	var zero = 0;
+	;(function() {
+    var throttle = function(type, name, obj) {
+        var obj = obj || window;
+        var running = false;
+        var func = function() {
+            if (running) { return; }
+            running = true;
+            requestAnimationFrame(function() {
+                obj.dispatchEvent(new CustomEvent(name));
+                running = false;
+            });
+        };
+        obj.addEventListener(type, func);
+    };
+    throttle ("scroll", "optimizedScroll");
+})();
+	window.addEventListener("optimizedScroll", function() {
+    	viewmonster.style.transform = "rotate("+window.pageYOffset/11+"deg)";
+    	toptext.style.transform = "rotate("+zero+"deg)";
+    	var slideNo = Math.ceil(window.pageYOffset/11/51.5);
+    	if (slideNo < 8){
+    		toptext.innerHTML = slides[slideNo];
+    	}
+    	//viewmonster.style.transformStyle = "preserve-3d";
+	});
+
+	//thank you to http://thenewcode.com/279/Rotate-Elements-on-Scroll-with-JavaScript
+</script>
+
+</html>

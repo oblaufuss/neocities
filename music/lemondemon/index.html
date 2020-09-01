@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Lemonade Stand</title>
+	<link href="lemon.css" rel="stylesheet" type="text/css" media="all">
+	<style type="text/css">
+		content{
+			background-color:transparent;
+			position:fixed;
+			top:0;
+			bottom:0;
+			left:0;
+			right: 0;
+			pointer-events: none;
+		}
+		content div, p, a{
+			pointer-events: all;
+		}
+		#backgroundColor{
+			position: fixed;
+			top:0;
+			left:0;
+			right: 0;
+			max-width: 1000px;
+			margin:auto;
+			background-image: linear-gradient(#bd00bd, black);
+		}
+		#viewmonster{
+			position: relative;
+			margin-top: 8em;
+			width: 90%;
+			max-width: 800px;
+			min-width:255px;
+			filter: drop-shadow(3px 3px 2px rgba(0,0,0,0.3));
+			transition: transform 1.2s;
+			transform: rotate(0deg);
+			pointer-events: none;
+			user-select: none;
+		}
+		.slidelink{
+			position:absolute;
+			top: calc(8em + 7vw);
+			left:0;
+			right:0;
+			margin:auto;
+			width: 28vw;
+			height: 13vw;
+			transition: opacity 0.4s ease;
+			opacity: 0.75;
+			pointer-events: all;
+		}
+		.slidelink:hover{
+			opacity:1;
+		}
+		@media (min-width: 1000px){
+			.slidelink{
+				top: calc(8em + 65px);
+				height: 130px;
+				width: 250px;
+			}
+		}
+		.arrows2{
+			display: inline-block;
+			font-size: 200%;
+			font-weight: bolder;
+			color: white;
+			transition: text-shadow 0.2s ease;
+			text-shadow: none;
+			user-select: none;
+		}
+		.arrows2:hover{
+			text-shadow:0.0em -0.15em 0.2em yellow;
+			cursor:pointer;
+		}
+		@media (max-width: 600px){
+			.arrows2 {
+			display: none;
+			}
+			.divider{display: none;}
+			h2,p {margin:auto;}
+		}
+		.arrows1{
+			display: inline-block;
+			font-size: 400%;
+			font-weight: bolder;
+			color: white;
+			transition: text-shadow 0.2s ease;
+			text-shadow: none;
+			user-select: none;
+		}
+		.arrows1:hover{
+			text-shadow:0.0em -0.15em 0.2em yellow;
+			cursor:pointer;
+		}
+		@media (min-width: 600px){
+			.arrows1 {
+			display: none;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="backgroundColor">
+	<!--<div class="slidelink" style="background-color: #bd00bd; border-radius: 20px; box-shadow: 0 0 35px 15px #bd00bd;"></div>-->
+	
+	<a href="" class="slidelink" id="slidelinkID"><img src="highlight.png" style="height:100%;width:100%"></a>
+	<img src="VMDisc.png" id="viewmonster"> 
+	<content>
+		<div>
+			<h1>LEMON DEMON</h1>
+			<span class="arrows1" style="float:left" onclick="leftScroll()"> «</span> <span class="arrows1" style="float:right" onclick="rightScroll()">» </span>
+		</div>
+		<div id="display">
+			<h2 id="slideTitle"><span class="arrows2" style="float:left" onclick="leftScroll()"> «</span> Welcome to the Lemonade Stand <span class="arrows2" style="float:right" onclick="rightScroll()">» </span></h2>
+			<div class="divider"></div>
+			<p id="slideDescrip">A good old-fashioned fansite by <a href="https://bluef00t.neocities.org/">bluef00t</a> for the new World Wide Web!  Use the double arrows or the links below to navigate.</p>
+		</div>
+		<nav><p><a href="graphics.html">Graphics/Fonts</a> - <a href="extras.html">Commentary/Stems</a> - <a href="../lemondemonsorter.html">Song Sorter</a> - <a href="https://docs.google.com/spreadsheets/d/1ErJh2IGzZLAmC7XwQuvdF1pde8MiQX0-ayZWjkpRjcc/edit#gid=0">Discography Guide</a> - <a href="https://needlejuicerecords.com/artists/lemondemon/">CDs/Tapes/Vinyl</a> - <a href="http://www.lemondemon.com/">Official Site</a> - <a href="random.html">Random Neil link</a> - [<span id = "mute" style="text-decoration: underline; cursor:pointer;" onclick="muteButton();">SFX OFF</span>]</p></nav>
+	</content>
+	</div>
+
+<script type="text/javascript">
+	var slideTitles = [
+		'Welcome to the Lemonade Stand',
+		'<a href="graphics.html">Graphics/Fonts</a>',
+		'<a href="extras.html">Commentary/Stems</a>',
+		'<a href="../lemondemonsorter.html">Song Sorter</a>',
+		'<a href="https://docs.google.com/spreadsheets/d/1ErJh2IGzZLAmC7XwQuvdF1pde8MiQX0-ayZWjkpRjcc/edit#gid=0">Discography Guide</a>',
+		'<a href="https://needlejuicerecords.com/artists/lemondemon/">Physical Releases</a>',
+		'<a href="http://www.lemondemon.com/">Official Site</a>',
+		'<a href="random.html">What\'s In The Toaster?</a>'
+	]
+
+	var slideDescrips = [
+		'A good old-fashioned fansite by <a href="https://bluef00t.neocities.org/">bluef00t</a> for the new World Wide Web.',
+		'Icons, emotes, blinkies, and official fonts and logos.',
+		'Links to album extras and CD-exclusive content for albums no longer sold.',
+		'A sorting tool to rank songs off all your favorite LD albums.',
+		'A truly comprehensive spreadsheet compiled by <a href="https://www.youtube.com/channel/UC4ToGRJNQFPFAphVOEgg0ag">Viva Reverie</a>, tracking every song in Neil Cic\'s discography and where to find it.',
+		'Buy official Lemon Demon CDs, tapes, and vinyl at NeedleJuice Records.',
+		'The garish official home of Lemon Demon on the \'net.',
+		'Spin the Wheel of Neil! Get a random link to Neil Cicierega content or obscure Lemon Demon song.'
+	]
+
+	var SLIDES = 7; //total # of links
+	var slideNo = 0;
+	var timesTurned = 0;
+
+	var viewmonster = document.getElementById("viewmonster"); //disc graphic
+	var slideTitle = document.getElementById("slideTitle"); //link title
+	var slideDescrip = document.getElementById("slideDescrip"); //link description
+	var slidelink = document.getElementById("slidelinkID"); //glowing top 2 slides
+
+	function setCookie(cname, cvalue, exdays) {//from w3schools
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+	function getCookie(cname) {// from w3schools
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+	
+	var clickSound = new Audio('https://a.tumblr.com/tumblr_qausivzpQr1wlcwbpo1.mp3');
+	var sound = getCookie("sound");
+	//sound sourced from https://www.youtube.com/watch?v=Wm9BqasF7oo
+	if (sound == ""){
+		setCookie("sound","false", 365);
+		sound = getCookie("sound");
+	}
+	muteText();
+
+	function muteButton(){
+		if (sound == "true"){
+			setCookie("sound","false", 365);
+		}else{
+			setCookie("sound","true",365);
+		}
+		sound = getCookie("sound");
+		muteText();
+	}
+
+	function muteText(){
+	  var muteButton =  document.getElementById("mute");
+		if (sound == "true"){
+			muteButton.innerHTML = "SFX OFF";
+		}else{
+			muteButton.innerHTML = "SFX ON";
+		};
+	}
+
+	function leftScroll(){
+		slideNo++;
+		if (slideNo > SLIDES){//loop around but add to the # times around
+			slideNo = 0;
+			timesTurned++;
+		}
+		var newPosition = slideNo*360/SLIDES + 360*timesTurned;
+		if (slideNo != 0){ newPosition += -360/SLIDES/2; } //stop halfway between all but the top
+		viewmonster.style.transform = "rotate("+ newPosition + "deg)";
+		slideTextUpdate();
+		if (sound =="true"){clickSound.play();}
+	}
+
+	function rightScroll (){
+		slideNo--;
+		if (slideNo < 0){//loop around but subtract from the # times around
+			slideNo = SLIDES;
+			timesTurned--;
+		}
+		var newPosition = slideNo*360/SLIDES + 360*timesTurned;
+		if (slideNo != 0){ newPosition += -360/SLIDES/2; } //stop halfway between all but the top
+		viewmonster.style.transform = "rotate("+ newPosition + "deg)";
+		slideTextUpdate();
+		if (sound == "true"){clickSound.play();}
+	}
+
+	function slideTextUpdate(){
+		if (slideNo < 8){
+    		//replace text's title and description
+    		slideTitle.innerHTML = '<span class="arrows2" style="float:left" onclick="leftScroll()"> «</span> '+slideTitles[slideNo]+ ' <span class="arrows2" style="float:right" onclick="rightScroll()">» </span>';
+    		slideDescrip.innerHTML = slideDescrips[slideNo];
+    		//set the link at the top of the disc to the link in the description (if there is one)
+    		var getSlideLink = slideTitle.getElementsByTagName("a")[0];
+    		if(getSlideLink != null && getSlideLink != undefined){//if link exists
+    			slidelink.setAttribute('href', getSlideLink.getAttribute('href'));
+    		}
+    	}
+	}
+</script>
+</body>
+
+</html>

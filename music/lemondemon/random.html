@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Lemonade Stand</title>
+	<link href="lemon.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+	<content>
+		<h1><a href="index.html">THE LEMONADE STAND</a></h1>
+		<div id="display">
+			<h2>What's In The Toaster?</h2>
+			<p>Reload for a new link.</p>
+
+			<div class="divider"></div>
+			<p id="surprise" style="font-size: 150%"></p>
+			<div class="divider"></div>
+			<p></p>
+			<p>If this page is broken or you're just curious, a full list of all links can be found <a href="randomlist.html">here</a>.</p>
+				
+		</div>
+
+
+		<nav><p><a href="graphics.html">Graphics/Fonts</a> - <a href="extras.html">Commentary/Stems</a> - <a href="../lemondemonsorter.html">Song Sorter</a> - <a href="https://docs.google.com/spreadsheets/d/1ErJh2IGzZLAmC7XwQuvdF1pde8MiQX0-ayZWjkpRjcc/edit#gid=0">Discography Guide</a> - <a href="https://needlejuicerecords.com/artists/lemondemon/">CDs/Tapes/Vinyl</a> - <a href="http://www.lemondemon.com/">Official Site</a> - <a href="random.html">Random Neil link</a></p></nav>
+	</content>
+				<script type="text/javascript" src="links.js"></script>
+				<script type="text/javascript">
+				var index = Math.floor(Math.random() * links.length);
+				var surprise = document.getElementById('surprise');
+				surprise.innerHTML = links[index];
+				</script>
+</body>
+
+</html>
