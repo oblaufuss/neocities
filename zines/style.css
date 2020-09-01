@@ -1,0 +1,124 @@
+
+
+html, body {
+    width: 100%;
+  color: white;
+  background-color: black;
+  font-family: "Lucida Sans Unicode";
+  text-align: center;
+  margin-left: 70px;
+  margin-bottom: 50px;
+  max-width: 90%;
+  overflow-x: hidden;
+}
+
+p { padding: 0px 4px 0px;}
+
+a:link{
+  color: Aquamarine
+}
+
+a:visited{
+  color: Aqua
+}
+
+
+nav {
+  background-color:red;
+  position: fixed;
+  z-index:1;
+  padding:0;
+  margin:0;
+  top:10px;
+  left:5px;
+  font-family: "Lucida Sans Unicode";
+  text-align:center;
+}
+
+nav sidebar{
+  width:120px;
+}
+
+nav topbar{
+  width: 90%; padding: 10px;
+}
+
+nav a:link{
+  color:red;
+  text-decoration: none;
+}
+
+nav a:visited{
+  color:red;
+  text-decoration: none;
+}
+
+nav a:hover{
+  color:white;
+  text-decoration: none;
+}
+
+nav p{
+  background-color:black;
+  border: 1px white;
+  border-radius: 3px;
+  width:90%;
+  margin:4%;
+  padding:0;
+}
+
+table {
+  table-layout:fixed;
+  text-align: center;
+  border: 5px solid red;
+  border-spacing:2px;
+  margin: auto;
+  width: 80%
+}
+
+
+th{
+  text-align: center;
+  border: 1px solid red;
+  border-spacing:2px;
+}
+
+td{
+  text-align: left;
+  border: 1px solid red;
+  border-spacing:2px;
+}
+
+UL{
+  text-align:left;
+}
+
+.accordion{
+  color: Aquamarine;
+}
+
+.active, .accordion:hover{
+  color: Aqua;
+  cursor: pointer;
+}
+
+.panel {
+  overflow: hidden;
+  display: none;
+}
+
+.divider{
+	width: 60%;
+	border: 4px solid aqua;
+}
+
+footer {
+  position: fixed;
+  background: black;
+  font-size: 12px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
