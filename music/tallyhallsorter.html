@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<script>var __pbpa = true;</script>
+  <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+ 
+  <noscript></noscript><script type="text/javascript">
+  // ### Function - Simple Class ################################################# 1.00 ### 2008/08/18
+function gID(sID) {
+   return document.getElementById(sID);
+}
+
+function cE(sName) {
+   return document.createElement(sName);
+}
+
+function cT(sD) {
+   return document.createTextNode(sD);
+}
+
+function sC(oID, cN) {
+   oID.setAttribute('class', cN, 0);
+   oID.className = cN;
+}
+
+// ### Function - Create Gauge ################################################# 1.00 ### 2008/08/18
+// # sID = ElementID
+// # iGM = GaugeMAX
+// # iGT = GaugeThreshhold
+var sE = '　';
+function fCG(sID, iGM, iGT) {
+   var tblG = cE('table');
+   gID(sID).appendChild(tblG);
+   sC(tblG, 'gauge');
+   tblG.id = sID;
+
+   var tblGb = cE('tbody');
+   tblG.appendChild(tblGb);
+
+   newRow = tblGb.insertRow(tblGb.rows.length);
+
+   var sCN = 'normal';
+
+   for(iG = 0; iG<iGM; iG++) {
+      if(iG % 10 == 0)     {sCN = (iG < iGT) ? 'leftend' : 'leftendr';}
+      else if(iG % 5 == 0) {sCN = (iG < iGT) ? 'mid' : 'midr';}
+      else                 {sCN = (iG < iGT) ? 'normal' : 'normalr';}
+
+      // Col[-]
+      newCell = newRow.insertCell(newRow.childNodes.length);
+      newCell.appendChild(document.createTextNode(sE));
+      newCell.id = sID + iG;
+      sC(newCell, sCN);
+   }
+
+   // Col[End]
+   newCell = newRow.insertCell(newRow.childNodes.length);
+   newCell.appendChild(document.createTextNode(sE));
+   sC(newCell, 'rightend');
+}
+
+// ### Event - GaugeReflesh #################################################### 1.00 ### 2009/01/27
+function eGR(sID, iNow) {
+   for(i=0; i<iGM; i++) {
+      // 色ゲージ
+      if      (               i < iNow) {gID(sID + i).style.backgroundColor = "#9999ff";}
+      else                              {gID(sID + i).style.backgroundColor = "#ffffff";}
+   }
+}
+
+  </script>  
+  
+  <script type="text/javascript">
+  var ary_TempData   = new Array();
+var ary_SortData   = new Array();
+var ary_ParentData = new Array();
+var ary_EqualData  = new Array();
+var int_LeftList,  int_LeftID;
+var int_RightList, int_RightID;
+var ary_RecordData = new Array();
+var int_RecordID = 0;
+
+//bluef00t addition
+var excludedSongs = new Array();
+
+var csort = new Array();
+var csort2 = new Array();
+var csort3 = new Array();
+var csort4 = new Array();
+var csort5 = new Array();
+var csort6 = new Array();
+
+var int_Count = 0;
+var int_Total = 0;
+var int_Completed = 0;
+var int_Status = 0;
+var sID = 'GaGprog';
+var iGM = 100;
+
+var back_ary_SortData = new Array();
+var back_ary_EqualData = new Array();
+var back_ary_RecordData = new Array();
+var back_int_RecordID = 0;
+//var back_ary_TempData = new Array();
+var back_ary_ParentData = new Array();
+
+var back_int_Completed = 0;
+var back_int_Total = 0;
+var back_int_RightList = int_RightList;
+var back_int_RightID = int_RightID;
+var back_int_LeftList = int_LeftList;
+var back_int_LeftID = int_LeftID;
+
+// *****************************************************************************
+// * StartUp
+// * <BODY>Executed when tag reading is completed
+function startup() {
+   var tbl_Select = gID('optTable');
+   var tbl_body_Select = cE('tbody');
+   tbl_Select.appendChild(tbl_body_Select);
+
+   // Convert titles to selection checkbox
+   for (i=0; i<ary_TitleData.length; i++) {
+      // Row[i]
+      if ((i % int_Colspan) == 0) {
+         var new_row = tbl_body_Select.insertRow(tbl_body_Select.rows.length);
+         new_row.id = 'optSelRow' + i;
+      }
+      // Col[0]
+      var new_cell = new_row.insertCell(new_row.childNodes.length);
+      var new_CheckBox = cE('input');
+      new_CheckBox.setAttribute('type', 'checkbox', 0);
+      new_CheckBox.setAttribute('checked', 'true', 0);
+      new_CheckBox.value = ary_TitleData[i];
+      new_CheckBox.title = ary_TitleData[i];
+      new_CheckBox.id = 'optSelect' + i;
+      new_cell.appendChild(new_CheckBox);
+
+      var new_span = cE('span');
+      new_span.appendChild(cT(ary_TitleData[i]));
+      new_span.title = ary_TitleData[i];
+      new_span.id = i;
+      sC(new_span, 'cbox');
+      new_span.onclick = function() {chgFlag(this.id);}
+      new_cell.appendChild(new_span);
+   }
+
+
+   var tbl_foot_Select = cE('tfoot');
+   tbl_Select.appendChild(tbl_foot_Select);
+
+   // Row[0]
+   var new_row = tbl_foot_Select.insertRow(tbl_foot_Select.rows.length);
+   sC(new_row, "opt_foot");
+
+   var new_cell = new_row.insertCell(new_row.childNodes.length);
+   new_cell.setAttribute('colspan', int_Colspan, 0);
+   var new_CheckBox = cE('input');
+   new_CheckBox.setAttribute('type', 'checkbox', 0);
+   new_CheckBox.setAttribute('checked', 'true', 0);
+   new_CheckBox.value = "All";
+   new_CheckBox.title = "All boxes are checked/unchecked at the same time.";
+   new_CheckBox.id = 'optSelect_all';
+   new_CheckBox.onclick = function() {chgAll();}
+   new_cell.appendChild(new_CheckBox);
+
+   var new_span = cE('span');
+   new_span.appendChild(cT("Select or Deselect All"));
+   new_cell.appendChild(new_span);
+
+
+   if (!bln_ProgessBar) fCG(sID, iGM, iGM);
+}
+
+function chgAll() {
+   for (i=0; i<ary_TitleData.length; i++) {
+      gID('optSelect' + i).checked = gID('optSelect_all').checked;
+   }
+}
+
+// *****************************************************************************
+// * chgFlag
+// * Change the checkbox even if the title name is clicked.
+function chgFlag(int_id) {
+   var obj_Check = gID('optSelect' + int_id);
+   if (!obj_Check.disabled) {
+      obj_Check.checked = (obj_Check.checked) ? false :true;
+   }
+}
+
+// *****************************************************************************
+// * Initialize the array to be used and the counter
+// * Only works for the first time.
+function init(){
+   int_Total = 0;
+   int_RecordID = 0;
+
+   // Extract only sort targets
+   for (i=0; i<ary_CharacterData.length; i++) {
+      for (j=0; j<ary_TitleData.length; j++) {
+         if (gID('optSelect' + j).checked && (ary_CharacterData[i][2][j] == 1)) {
+            ary_TempData[int_Total] = ary_CharacterData[i];
+            int_Total++;
+            break;
+         }
+      }
+   }
+
+   if (int_Total == 0) {
+      alert("No songs selected to sort.");
+      return;
+   } else {
+      for (i=0; i<ary_TitleData.length; i++) {
+         gID('optSelect' + i).disabled = true;
+         gID('optSelect' + i).style.dsiplay = 'none';
+      }
+   }
+
+   int_Total = 0;
+
+   // Store ID in sort array
+   ary_SortData[0] = new Array();
+   for (i=0; i<ary_TempData.length; i++) {
+      ary_SortData[0][i] = i;
+
+      // Storage array
+      ary_RecordData[i] = 0;
+   }
+
+   var int_Pointer = 1;
+   for (i=0; i<ary_SortData.length; i++) {
+      // #Sorting diverts basic logic
+      // If the number of elements is 2 or more, split it into two,
+      // Add the split array to the end of ary_SortData
+      if (ary_SortData[i].length >= 2) {
+         var int_Marker = Math.ceil(ary_SortData[i].length / 2);
+         ary_SortData[int_Pointer] = ary_SortData[i].slice(0, int_Marker);
+         int_Total += ary_SortData[int_Pointer].length;
+         ary_ParentData[int_Pointer] = i;
+         int_Pointer++;
+
+         ary_SortData[int_Pointer] = ary_SortData[i].slice(int_Marker, ary_SortData[i].length);
+         int_Total += ary_SortData[int_Pointer].length;
+         ary_ParentData[int_Pointer] = i;
+         int_Pointer++;
+      }
+   }
+
+   // List to save the result of the draw
+   // key: value of link start point
+   // value: value of link end point
+   for (i=0; i<=ary_TempData.length; i++) {
+      ary_EqualData[i] = -1;
+   }
+
+   int_LeftList  = ary_SortData.length - 2;
+   int_RightList = ary_SortData.length - 1;
+   int_LeftID    = 0;
+   int_RightID   = 0;
+   int_Count     = 1;
+   int_Completed = 0;
+
+   //Change the status to 1 since initialization is completed
+   int_Status    = 1;
+
+   gID('fldMiddleT').innerHTML = str_CenterT;
+   gID('fldMiddleB').innerHTML = str_CenterB;
+
+   fnc_ShowData();
+}
+
+// *****************************************************************************
+
+// Undo previous choice (
+function fnc_Undo() {
+   if (int_Status == 0) {
+      fnc_Sort(0);
+	  return;
+   }
+   
+   if(int_Count > 2 && int_Completed != back_int_Completed){
+   
+   	//ary_TempData = back_ary_TempData.slice(0);
+	ary_SortData = back_ary_SortData.slice(0);
+	ary_RecordData = back_ary_RecordData.slice(0);
+	int_RecordID = back_int_RecordID;
+	ary_EqualData = back_ary_EqualData.slice(0);
+	ary_ParentData = back_ary_ParentData.slice(0);
+	
+	int_Completed = back_int_Completed;
+	int_Count = int_Count - 2;
+	int_Total = back_int_Total;
+	int_RightList = back_int_RightList;
+	int_RightID = back_int_RightID;
+	int_LeftList = back_int_LeftList;
+	int_LeftID = back_int_LeftID;
+	int_Status = (int_LeftList < 0) ? 2 : 1;
+
+   fnc_ShowData();
+   }
+}
+
+// *****************************************************************************
+// * Image Initialize
+// * 繝｡繝ｳ繝�リ繝ｳ繧ｹ逕ｨ繝ｪ繧ｹ繝�
+function imginit() {
+   var int_ImgCount = 0;
+   var int_ImgValue = 0;
+   var int_ImgMax = 0;
+
+   var tbl_Image_body = gID('imgTable');
+
+   for (i=0; i<ary_CharacterData.length; i++) {
+      new_row = tbl_Image_body.insertRow(tbl_Image_body.rows.length);
+
+      // Col[0]
+      new_cell = new_row.insertCell(new_row.childNodes.length);
+      new_cell.appendChild(cT(i));
+      sC(new_cell, 'resTableL');
+
+      // Col[1]
+      new_cell = new_row.insertCell(new_row.childNodes.length);
+      new_cell.appendChild(cT(ary_CharacterData[i][1]));
+      sC(new_cell, 'resTableR');
+
+      // Col[2]
+      new_cell = new_row.insertCell(new_row.childNodes.length);
+      for (j=0; j<ary_TitleData.length; j++) {
+         if (ary_CharacterData[i][2][j] == 1) {
+         new_cell.appendChild(cT(ary_TitleData[j]));
+         new_cell.appendChild(cE('br'));
+         }
+      }
+      sC(new_cell, 'resTableR');
+
+      // Col[3]
+      new_cell = new_row.insertCell(new_row.childNodes.length);
+      sC(new_cell, 'resTableR');
+
+      int_ImgMax++;
+   }
+
+   gID("lbl_imgCount").innerHTML = int_ImgCount;
+   gID("lbl_imgParcent").innerHTML = Math.floor((int_ImgValue / int_ImgMax) * 100);
+   gID("lbl_imgValue").innerHTML = int_ImgValue;
+   gID("lbl_imgMax").innerHTML = int_ImgMax;
+}
+
+/* Debugging purposes (simulates choosing Tie until completion)
+
+function fnc_TieRest(){
+	while(int_Status < 2){
+		fnc_Sort(0);
+	}
+}
+*/
+
+// *****************************************************************************
+// * Sort (-1: Left, 0: Tie, 1: Right)
+
+function fnc_Sort(int_SelectID) {
+
+	//back_ary_TempData = ary_TempData.slice(0);	
+	back_ary_SortData = ary_SortData.slice(0);
+	back_ary_RecordData = ary_RecordData.slice(0);
+	back_int_RecordID = int_RecordID;
+	back_ary_EqualData = ary_EqualData.slice(0);
+	back_ary_ParentData = ary_ParentData.slice(0);
+	
+	back_int_Completed = int_Completed;
+	back_int_Total = int_Total;
+	back_int_RightList = int_RightList;
+	back_int_RightID = int_RightID;
+	back_int_LeftList = int_LeftList;
+	back_int_LeftID = int_LeftID;
+	
+   // Branch processing according to status
+   switch (int_Status) {
+      case 0:
+         // Initialize sort information at first click.
+         init();
+      case 2:
+         // If the sorting has been completed, it is not performed again.
+         return;
+      default:
+   }
+
+   // Draw
+   if (int_SelectID == 0) {
+      ary_EqualData[ary_RecordData[int_RecordID-1]] = ary_SortData[int_RightList][int_RightID];
+   }
+
+
+      // Save to ary_RecordData
+   // Left Count
+   if (int_SelectID != 1) {
+      fnc_CountUp(0);
+      while (ary_EqualData[ary_RecordData[int_RecordID-1]] != -1) {
+         fnc_CountUp(0);
+      }
+   }
+
+   // Right Count
+   if (int_SelectID != -1) {
+      fnc_CountUp(1);
+      while (ary_EqualData[ary_RecordData[int_RecordID-1]] != -1) {
+         fnc_CountUp(1);
+      }
+   }
+
+   // Processing after scanning one list
+   if (int_LeftID < ary_SortData[int_LeftList].length && int_RightID == ary_SortData[int_RightList].length) {
+      // int_RightList traversed - copy rest of int_LeftList
+      while (int_LeftID < ary_SortData[int_LeftList].length){
+         fnc_CountUp(0);
+      }
+   } else if (int_LeftID == ary_SortData[int_LeftList].length && int_RightID < ary_SortData[int_RightList].length) {
+      // int_LeftList traversed - copy rest of int_RightList
+      while (int_RightID < ary_SortData[int_RightList].length){
+         fnc_CountUp(1);
+      }
+   }
+
+   //If you reach the end of both lists
+   // update parent list
+   if (int_LeftID == ary_SortData[int_LeftList].length && int_RightID == ary_SortData[int_RightList].length) {
+      for (i=0; i<ary_SortData[int_LeftList].length + ary_SortData[int_RightList].length; i++) {
+         ary_SortData[ary_ParentData[int_LeftList]][i] = ary_RecordData[i];
+      }
+
+      ary_SortData.pop();
+      ary_SortData.pop();
+      int_LeftList  = int_LeftList - 2;
+      int_RightList = int_RightList - 2;
+      int_LeftID    = 0;
+      int_RightID   = 0;
+
+      //Initialize ary_RecordData before making new comparison
+      if (int_LeftID == 0 && int_RightID == 0) {
+         for (i=0; i<ary_TempData.length; i++) {
+            ary_RecordData[i] = 0;
+         }
+         int_RecordID = 0;
+      }
+   }
+
+   // Exit check
+   int_Status = (int_LeftList < 0) ? 2 : 1;
+
+   fnc_ShowData();
+}
+
+// *****************************************************************************
+// * CountUp(0: left 1: right)
+// * Count up the selected one.
+function fnc_CountUp(int_Select) {
+   ary_RecordData[int_RecordID] = ary_SortData[((int_Select == 0) ? int_LeftList : int_RightList)][((int_Select == 0) ? int_LeftID : int_RightID)];
+
+   if (int_Select == 0) {
+      int_LeftID++;
+      console.log(ary_RecordData[int_RecordID]);
+   } else {
+      int_RightID++;
+      console.log(ary_RecordData[int_RecordID]);
+   }
+
+   int_RecordID++;
+   int_Completed++;
+}
+
+
+// * Remove(0: left 1: right)
+// * Remove the selected one.
+// added by 0 bluef00t
+function remove(int_Select) {
+	ary_RecordData[int_RecordID] = ary_SortData[((int_Select == 0) ? int_LeftList : int_RightList)][((int_Select == 0) ? int_LeftID : int_RightID)];
+	console.log(ary_TempData[ary_RecordData[int_RecordID]][1]);
+	excludedSongs.push(ary_TempData[ary_RecordData[int_RecordID]][1]);
+   if (int_Select == 0) {
+      fnc_Sort(1);
+   } else {
+      fnc_Sort(0);
+   }
+}
+
+// *****************************************************************************
+// * ShowData
+// * Show progress and name.
+function fnc_ShowData() {
+	
+	
+	
+   gID("lblCount").innerHTML = int_Count;
+   gID("lblProgress").innerHTML = Math.floor(int_Completed * 100 / int_Total);
+   if (!bln_ProgessBar) eGR(sID, Math.floor(int_Completed * 100 / int_Total));
+
+   if (int_Status == 2) {
+      // If sorting has been completed, the result is displayed.
+      var int_Result = 1;
+
+      var tbl_Result = cE('table');
+      tbl_Result.id = 'resTable';
+
+      var tbl_head_Result = cE('thead');
+      tbl_Result.appendChild(tbl_head_Result);
+
+      new_row = tbl_head_Result.insertRow(tbl_head_Result.rows.length);
+
+      // Col[0]
+      new_cell = new_row.insertCell(new_row.childNodes.length);
+      sC(new_cell, 'resTableH');
+      new_cell.appendChild(cT('Order'));
+      // Col[1]
+      new_cell = new_row.insertCell(new_row.childNodes.length);
+      sC(new_cell, 'resTableH');
+      new_cell.appendChild(cT('Name'));
+
+      var tbl_body_Result = cE('tbody');
+      tbl_Result.appendChild(tbl_body_Result);
+
+      var int_Same = 1;
+
+      for (i=0; i<ary_TempData.length; i++) {
+      	if(!excludedSongs.includes(ary_TempData[ary_SortData[0][i]][1])){
+	         new_row = tbl_body_Result.insertRow(tbl_body_Result.rows.length);
+
+	         // Col[0]
+	         new_cell = new_row.insertCell(new_row.childNodes.length);
+	         sC(new_cell, 'resTableL');
+	         new_cell.appendChild(cT(int_Result));
+			 
+			 csort2[i] = int_Result; // v2a
+			 
+	         // Col[1]
+	         new_cell = new_row.insertCell(new_row.childNodes.length);
+	         sC(new_cell, 'resTableR');
+
+	         var bln_imgFlag = false;
+	         if ((int_ResultImg != 0) && (i < int_ResultRank)) {
+	            var new_img = cE('img');
+	            var obj_TempData = ary_TempData[ary_SortData[0][i]];
+	         }
+
+	         if ((int_ResultImg == 2) || (!bln_imgFlag)) {
+	         
+	           	new_cell.appendChild(cT(ary_TempData[ary_SortData[0][i]][1]));
+	         }
+
+	         if (i < ary_TempData.length - 1) {
+	            if (bln_ResultMode == 0) {
+	               if (ary_EqualData[ary_SortData[0][i]] == ary_SortData[0][i + 1]) {
+	                  int_Result++;
+	               }
+	            } else {
+	               if (ary_EqualData[ary_SortData[0][i]] == ary_SortData[0][i + 1]) {
+	                  int_Same++;
+	               } else {
+	                  int_Result += int_Same;
+	                  int_Same = 1;
+	               }
+	           }
+            }
+         }else{
+        	console.log("Do NOT include");
+        	continue;
+        }
+      }
+      var obj_SelectItem = gID("resultField");
+      obj_SelectItem.innerHTML = "";
+      obj_SelectItem.appendChild(tbl_Result);
+
+      if (bln_ResultStyle == 1) {
+         gID("mainTable").style.display = 'none';
+      }
+	  if (bln_ResultStyle == 0) {
+         gID("ranTable").style.display = 'inline';
+      } // v2a
+	  
+
+   } else {
+      // If the judgment is not finished, update the options.
+      for (i=0; i<2; i++) {
+         var obj_SelectItem = gID((i == 0) ? "fldLeft" : "fldRight");
+         var obj_TempData = ary_TempData[ary_SortData[(i == 0)  ? int_LeftList : int_RightList][(i == 0)  ? int_LeftID : int_RightID]];
+         
+         console.log(excludedSongs.includes(obj_TempData[1]));
+
+         if(excludedSongs.includes(obj_TempData[1])){
+         	console.log(obj_TempData[1]);
+         	int_Count++;
+         	console.log("Resorting...");
+         	fnc_Sort((i == 0)? 1 : -1);
+         	return;
+         }
+         
+            var obj_Item = cE("span");
+            obj_Item.appendChild(cT(obj_TempData[1]));
+         
+         obj_Item.title = obj_TempData[1];
+         obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
+      }
+
+      int_Count++;
+      console.log("Displayed.")
+
+   }
+}
+
+function fnc_CC(sID, sClass) {
+
+   sC(gID(sID), sClass);
+}
+  </script>
+ 
+  <script type="text/javascript">
+  str_CenterT = 'No Opinion/I Like Both';
+str_CenterB = 'Undo last choice';
+ 
+str_ImgPath = 'http://i.imgur.com/';
+var bln_ResultMode = 1;
+var int_ResultImg = 2;
+var int_ResultRank = 3;
+ 
+var bln_ResultStyle = 0;
+ 
+var bln_ProgessBar = 1;
+ 
+var int_Colspan = 3;
+var ary_TitleData = [
+   "MMMM",
+   "Good & Evil",
+   "Admittedly Incomplete Demos",
+   "Hawaii Part II",
+   "Not A Trampoline",
+   "Joe Hawley Joe Hawley",
+   "sketches",
+   "Cojum Dip"
+];
+ 
+var ary_CharacterData = [
+//MMMM
+[1,"Good Day", [1,0,0,0,0,0,0,0],],
+[1,"Greener", [1,0,0,0,0,0,0,0],],
+[1,"Welcome to Tally Hall", [1,0,0,0,0,0,0,0],],
+[1,"Taken For A Ride", [1,0,0,0,0,0,0,0],],
+[1,"The Bidding", [1,0,0,0,0,0,0,0],],
+[1,"Be Born", [1,0,0,0,0,0,0,0],],
+[1,"Banana Man", [1,0,0,0,0,0,0,0],],
+[1,"Just Apathy", [1,0,0,0,0,0,0,0],],
+[1,"Spring and a Storm", [1,0,0,0,0,0,0,0],],
+[1,"Two Wuv", [1,0,0,0,0,0,0,0],],
+[1,"Haiku", [1,0,0,0,0,0,0,0],],
+[1,"The Whole World and You", [1,0,0,0,0,0,0,0],],
+[1,"13", [1,0,0,0,0,0,0,0],],
+[1,"Ruler of Everything", [1,0,0,0,0,0,0,0],],
+[1,"Hidden In The Sand", [1,0,0,0,0,0,0,0],],
+[1,"Mucka Blucka", [1,0,0,0,0,0,0,0],],
+[1,"Dream", [1,0,0,0,0,0,0,0],],
+
+//Good & Evil
+[1,"Never Meant To Know", [0,1,0,0,0,0,0,0],],
+[1,"&", [0,1,0,0,0,0,0,0],],
+[1,"You & Me", [0,1,0,0,0,0,0,0],],
+[1,"Cannibal", [0,1,0,0,0,0,0,0],],
+[1,"Who You Are", [0,1,0,0,0,0,0,0],],
+[1,"Sacred Beast", [0,1,0,0,0,0,0,0],],
+[1,"Hymn For A Scarecrow", [0,1,0,0,0,0,0,0],],
+[1,"A Lady", [0,1,0,0,0,0,0,0],],
+[1,"The Trap", [0,1,0,0,0,0,0,0],],
+[1,"Turn The Lights Off", [0,1,0,0,0,0,0,0],],
+[1,"Misery Fell", [0,1,0,0,0,0,0,0],],
+[1,"Out in the Twilight", [0,1,0,0,0,0,0,0],],
+[1,"You", [0,1,0,0,0,0,0,0],],
+[1,"Fate of the Stars", [0,1,0,0,0,0,0,0],],
+
+ //Demos
+ [1,"Another Minute (Live at the Frieze Basement, December 2002)", [0,0,1,0,0,0,0,0],],
+[1,"Mobile Phone Premonition (Live at the Frieze Basement, December 2002)", [0,0,1,0,0,0,0,0],],
+[1,"Welcome to Tally Hall (Acoustic Demo)", [0,0,1,0,0,0,0,0],],
+[1,"Marvin's SFX - Bohemian Rhapsody (Sample)", [0,0,1,0,0,0,0,0],],
+[1,"Banana Man (Lounge Version)", [0,0,1,0,0,0,0,0],],
+[1,"Blind Pig Introduction (January 2008)", [0,0,1,0,0,0,0,0],],
+[1,"Spring and a Storm (Original Demo feat. Ryan Scott)", [0,0,1,0,0,0,0,0],],
+[1,"Two Wuv (Alternate Bridges)", [0,0,1,0,0,0,0,0],],
+[1,"The Whole World and You (Punk Rehearsal)", [0,0,1,0,0,0,0,0],],
+[1,"Just a Friend", [0,0,1,0,0,0,0,0],],
+[1,"Songy Song", [0,0,1,0,0,0,0,0],],
+[1,"Keep Up The Good Work! Theme", [0,0,1,0,0,0,0,0],],
+[1,"Sea Cucumber (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"Tally Hall's Internet Show Theme", [0,0,1,0,0,0,0,0],],
+[1,"Spiced Rum Commercial (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"You & Me (Zubin Lead Vocal Rehearsal)", [0,0,1,0,0,0,0,0],],
+[1,"Cannibal (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"Who You Are (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"Sacred Beast (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"A Lady (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"The Trap (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"Turn the Lights Off (Alternate Bridge)", [0,0,1,0,0,0,0,0],],
+[1,"Out in the Twilight (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"Fate of the Stars (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"Light & Night (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"Love Track (Rehearsal)", [0,0,1,0,0,0,0,0],],
+[1,"Go (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"Color Be Gone (Demo)", [0,0,1,0,0,0,0,0],],
+[1,"The Minstrel Boy", [0,0,1,0,0,0,0,0],],
+
+//Hawaii pt II
+[1,"Introduction to the Snow", [0,0,0,1,0,0,0,0],],
+[1,"Isle Unto Thyself", [0,0,0,1,0,0,0,0],],
+[1,"Black Rainbows", [0,0,0,1,0,0,0,0],],
+[1,"White Ball", [0,0,0,1,0,0,0,0],],
+[1,"Murders", [0,0,0,1,0,0,0,0],],
+[1,"\u{5B87}\u{5B99}\u{30B9}\u{30C6}\u{30FC}\u{30B7}\u{30E7}\u{30F3}\u{306E}\u{30EC}\u{30D9}\u{30EB}7", [0,0,0,1,0,0,0,0],],//getting 宇宙ステーションのレベル7 to show up right was a real chore, let me tell you, thanks Unicode
+[1,"The Mind Electric", [0,0,0,1,0,0,0,0],],
+[1,"Labyrinth", [0,0,0,1,0,0,0,0],],
+[1,"Time Machine", [0,0,0,1,0,0,0,0],],
+[1,"Stranded Lullaby", [0,0,0,1,0,0,0,0],],
+[1,"Dream Sweet in Sea Major", [0,0,0,1,0,0,0,0],],
+
+//Not a Trampoline
+[1,"Ghost", [0,0,0,0,1,0,0,0],],
+[1,"Old Bike", [0,0,0,0,1,0,0,0],],
+[1,"Garden of Eden", [0,0,0,0,1,0,0,0],],
+[1,"The Rendezvous", [0,0,0,0,1,0,0,0],],
+[1,"I'm Gonna Win", [0,0,0,0,1,0,0,0],],
+[1,"All I Need Is You", [0,0,0,0,1,0,0,0],],
+[1,"Flamingo", [0,0,0,0,1,0,0,0],],
+[1,"La Telenovela", [0,0,0,0,1,0,0,0],],
+[1,"In Memoriam", [0,0,0,0,1,0,0,0],],
+[1,"Let Your Mother Know", [0,0,0,0,1,0,0,0],],
+[1,"Perfect", [0,0,0,0,1,0,0,0],],
+[1,"Lonely (But Not Alone)", [0,0,0,0,1,0,0,0],],
+
+//JHJH
+[1,"Joe Hawley Attacks", [0,0,0,0,0,1,0,0],],
+[1,"Black People White People", [0,0,0,0,0,1,0,0],],
+[1,"Bring Her Along", [0,0,0,0,0,1,0,0],],
+[1,"Crazy F***", [0,0,0,0,0,1,0,0],],
+[1,"Rotary Park", [0,0,0,0,0,1,0,0],],
+[1,"Your Mother is a Basketball", [0,0,0,0,0,1,0,0],],
+[1,"Hoods 'n the Woodz", [0,0,0,0,0,1,0,0],],
+[1,"The Apologue of Hot Rod Duncan", [0,0,0,0,0,1,0,0],],
+[1,"Aristotle's Denial", [0,0,0,0,0,1,0,0],],
+[1,"Bahamian Rap City", [0,0,0,0,0,1,0,0],],
+[1,"We are in Space", [0,0,0,0,0,1,0,0],],
+[1,"Go to Bed", [0,0,0,0,0,1,0,0],],
+[1,"White Rabbit", [0,0,0,0,0,1,0,0],],
+
+//edu
+[1,"miss melody", [0,0,0,0,0,0,1,0],],
+[1,"HEY YOU!", [0,0,0,0,0,0,1,0],],
+[1,"hummingbird", [0,0,0,0,0,0,1,0],],
+[1,"daisy fingers", [0,0,0,0,0,0,1,0],],
+[1,"have a nice day (interludinal)" , [0,0,0,0,0,0,1,0],],
+[1,"lemons and pears", [0,0,0,0,0,0,1,0],],
+[1,"at the end", [0,0,0,0,0,0,1,0],],
+[1,"nowhere else", [0,0,0,0,0,0,1,0],],
+[1,"the rainbow connection", [0,0,0,0,0,0,1,0],],
+
+//Cojum Dip
+[1, "Cell", [0,0,0,0,0,0,0,1],],
+[1, "4-LOM", [0,0,0,0,0,0,0,1],],
+[1, "Reverse Mullet", [0,0,0,0,0,0,0,1],],
+[1, "M54", [0,0,0,0,0,0,0,1],],
+[1, "Jabberwocky", [0,0,0,0,0,0,0,1],],
+[1, 'Waltz in E-major, Op. 15 "Moon Waltz"', [0,0,0,0,0,0,0,1],],
+[1, "Tap Tap Tap", [0,0,0,0,0,0,0,1],],
+[1, "Puzzle Dust", [0,0,0,0,0,0,0,1],],
+[1, "134340 Pluto", [0,0,0,0,0,0,0,1],]
+
+]
+
+  </script>
+ 
+<title>TALLY HALL SORTER</title>
+  <style type="text/css">
+ 
+#mainTable {
+	font-size: 16px;
+	font-family: 'MS PGothic',sans-serif;
+	text-align: center;
+	vertical-align: middle;
+	width: 410px;
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: separate;
+	border-spacing: 10px 5px;
+   
+}
+ 
+.tb_header {
+    padding-bottom: 10px;
+
+}
+ 
+#fldLeft    {
+    height: 180px;
+        text-align: center;
+        min-width: 120px;
+        border: 1px solid #000;
+        cursor:pointer;
+    padding:10px;
+
+}
+#fldRight   {
+    height: 180px;
+        text-align: center;
+    padding:10px;
+        min-width: 120px;
+        border: 1px solid #000;
+        cursor:pointer;
+    
+}
+#fldMiddleT {
+        text-align: center;
+        min-width: 150px;
+        height: 90px;
+        border: 1px solid #000;
+        cursor:pointer;
+    
+}
+.fldB, #fldMiddleB {
+        text-align: center;
+        width: 150px;
+        height: 50px;
+        padding:0px;
+        border: 1px solid #000;
+        cursor:pointer;
+   
+}
+ 
+.cbox {
+        cursor:pointer;
+       
+        font-size: 14px;
+}
+ 
+#resTable {
+        width:200px;
+        font-size:14px;
+    	height:180px;
+        line-height:100%;
+        margin-left:auto;
+        margin-right:auto;
+        border:1px solid #000;
+        border-collapse:collapse;
+        text-align: center;
+       
+}
+ 
+.resTableH {
+        color:#ffffff;
+        background-color:#000000;
+        text-align:center;
+}
+.resTableL {
+        color:#000000;
+        border:1px solid #000000;
+        text-align:right;
+        padding-right:5px;
+        
+}
+.resTableR {
+        color:#000000;
+        border:1px solid #000000;
+        padding-left:5px;
+       
+}
+ 
+a{
+	color: #174;
+	text-decoration : none;
+}
+a:hover{
+	color: #6b9;
+}
+<!--
+.style4 {
+        color: #000000;
+        font-weight: normal;
+    font-size:15px;
+}
+a{
+	color: #174;
+	text-decoration : none;
+}
+a:hover{
+	color: #6b9;
+}
+body {
+	width: 700px;
+	margin: 0 auto;
+	background: LightGray;
+}
+-->
+  </style>
+   
+ 
+
+ 
+</head><body onLoad="startup()">
+
+<p class="instructions" style="text-align:center;">
+
+<br>
+
+<img src="https://bluef00t.neocities.org/music/imgs/tallyhall.png" width="100px">
+
+<p>Get a ranking of your favorite Tally Hall songs (and songs from associated acts)! Select which albums you wish to include before beginning.</p>
+
+<p>Hitting 'no opinion/I like both' or 'I don't know this song' frequently will result in ties and unclear results.</p>
+
+
+
+</p>
+
+  <div align="center">
+   <table id="mainTable">
+    <thead>
+     <tr>
+      <td colspan="9" class="tb_header">Battle No. <span id="lblCount">-</span><br>
+<span id="lblProgress">0</span>% sorted.<br>
+       <div align="center"><span id="GaGprog"></span></div>
+      </td>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td id="fldLeft" onClick="fnc_Sort(-1);" rowspan="1">Song 1</td>
+          <td style="border: 0px; width: 7px;" rowspan="2"></td>
+      <td id="fldMiddleT" onClick="fnc_Sort(0);"><p>Check/Uncheck Albums Below</p>
+        </td>
+          <td style="border: 0px; width: 7px;" rowspan="2"></td>
+      <td id="fldRight" onClick="fnc_Sort(1);" rowspan="1">Song 2</td>
+     </tr>
+     <tr>
+     	<td class="fldB" onClick="remove(0);"> <p>I don't know this song</p></td>
+     	<td id="fldMiddleB" onClick="fnc_Undo();"> <p>Click to Start!</p></td>
+     	<td class="fldB" onClick="remove(1);"> <p>I don't know this song</p></td>
+     </tr>
+    </tbody>
+ 
+   </table>
+  </div>
+  <br>
+   <table id="optTable" align="center" width="450"></table>
+  <br>
+  <div id="ranTable" width="640px" align="center" class="tb">
+<div>  
+</div>
+</div>
+  <div class="style4" id="resultField" style="text-align:center;">Results will appear HERE when done.</div>
+    <p class="instructions" style="text-align:center; font-size:15px;">
+ 
+ 
+<b>CREDITS</b> <br>
+Original script by <a href="http://kouga.net">K-Factory</a>; butchered into its current form by <a href="/./me.html">me</a>, bluef00t. Original Touhou sorter by <a href="http://mainyan.sakura.ne.jp/">E-Phantasm</a>, translated into English <a href="http://www.freewebs.com/tohosort/">here</a>.</p>
+<br></div>
+  <p> &#60;-- Back to <a href="https://bluef00t.neocities.org/music">MUSIC</a></p>
+  <br>
+</body>
+</html>
