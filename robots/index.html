@@ -1,30 +1,74 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="UTF-8">
 	<title>bees laugh in atbash</title>
-	<!--fix this--><link href="style.css" rel="stylesheet" type="text/css">
+	<!--fix this--><link href="https://bluef00t.neocities.org/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	
-	<nav>
-		<!--fix this--><script type="text/javascript" src="sidebar.js"></script>
-	</nav>
+<nav>
+<div id=sidebar><script type="text/javascript" src="https://bluef00t.neocities.org/sidebar.js"></script></div>
+</nav>
 
 	<h2>ROBOTS</h2>
 	
-	<p>I'm a freshman currently majoring in robotics, unless I decide to switch to computer science, and I feel a little bit out of my league. Lots of the other students were on robotics teams and participated in FIRST and watch Battlebots religiously. I was rejected from my high school team twice because the team was already too big to fit more people. But I think I'll be able to catch up if I try. Here's what I've done this year.</p>
-	<p>
-		<table></table>
+	<p>I'm majoring in robotics, and I'm now done with my sophomore year. I took two robotics classes this year, and the second one dang near killed me. Still, I'm crossing my fingers that I'll still be able to do a practicum with the professor of musical robotics (really! it's a thing!) working in his lab next year.</p>
+	<br>
+	
+	<table></table>
+	<br>
+	<h3>DECEMBER 2019: Robotics 2002</h3>
+	<p>I wish I had photos or videos of this robot, but this bot was definitely the most work I had personally put into any of these projects, and I was so burned out by the end that I simply disassembled what we had and slept for a week instead. :/ Such is group projects.</p>
+	<p>In terms of the wheels/base/processor, it was identical to Argus. Its task was to traverse a grid of model buildings and streets, avoiding roadblocks and looking for a beacon in one of the buildings. It met these objectives okay, but was plagued by nonstop crashes, mystery null pointer errors, and restarts that made debugging a real nightmare.</p>
 
+	<table></table>
+	<br>
+	<h3>OCTOBER 2019: Musical Machines</h3>
+	<p>Our final project was fairly simple compared to a lot of other teams', but its unambitious physical design meant it was a lot more functional than other teams' by the time we had to demonstrate it. It was a wirelessly midi-controlled drumstick of adjustable height, using a Raspberry Pi with a piezo sensor to determine when it had struck the surface of the drum.</p>
+	<img src="drumbot.jpg" style="max-width:800px; max-width: 70%">
+	<p>The biggest strength of this design was that this minimalist robot "player" was not tied to its instrument; by adjusting the stand's height, it could be used to play a drum of any height, tilt, or orientation. The piezo sensor, pressed against the drum's surface, let the stick know when contact is made and instantly let it release all force and bounce back to avoid stalling. Like a human drummer, it didn't need to know any exact measurements ahead of time; it adjusted its velocity based on realtime feedback. Its design was supposed to be optimized for live performance with live players.</p>
+	<p>Here's a clip of it running a test pattern.</p>
+	<div style=""><iframe src="https://streamable.com/e/2ii1mk" frameborder="0" width="150%" height="100%" allowfullscreen style="width:100%;margin:auto"></iframe></div>
+	<p>Improvements that needed to be made: a compact housing for the electronics (we put them on a music stand so that the wiring would be accessible during building/debugging) and a backstop to ensure that the drumstick did not lose time between beats by swinging too far upwards (we simply ran out of time for that and had to return the motors). Altogether, it was a fun project.</p>
+	<p><a href="https://streamable.com/hhw0ua">Here's a video of another group's project</a> that I thought was neat. It's a simple sort of programmable music box design.</p>
+
+	<table></table>
+	<br>
+	<h3>SEPTEMBER 2019: Argus the Extraterrestrial</h3>
+	<p><a href="https://youtu.be/1-_YZcuSXEc">Video</a> of Argus in action</p>
+	<img src="argus.jpg" style="max-width:80%">
+	<p>The final project for Robotics 2001. The wheels and base were given to us as a kit to assemble, but the 4-bar lifting arm was designed and fabricated by us based on our calculations. The bot used an Arduino Uno and was programmed in C.</p>
+	<img src="argus_front.jpg" width=35%> <img src="argus_side.jpg" width=56%>
+	<p>Argus' task was to be a hypothetical helper bot on a world with two suns, where solar panels have to be mounted on a roof at two different angles. Argus had to take metal and plastic panels (the solar panels) and autonomously place/remove them on pegs at 45 and 25 degrees. <br>Basic instructions of which panel to take, which angle to drop it off at, and which side of the field to drop it off on were used to queue instructions for the state machine. The robot also paused for remote approval before taking or releasing a plate.</p>
+
+	<table></table>
+	<br>
+	<p><b>APRIL 2019: Tim the Pizza Bot</b></p>
+	<img src="tim_right.jpg" width=80%>
+	<p>The final project for Robotics 1001. Tim was constructed from laser-cut wood parts and VEX pieces. It had both autonomous and teleoperated modes, and ran off an Arduino Mega board.</p>
+	<img src="tim_front.jpg" width=33%> <img src="tim_left.jpg" width=58%>
+	<p>The task of the robot was to deliver "pizzas" (5in x 5in x 1in blocks of wood) to "dorms" (a series of shelves). The arm raised and lowered and the wheels on the grabber either drew in or expelled the "pizza".</p>
+	<p>Here's a <a href="https://streamable.com/f1vxb">video of one of the rounds</a>, in which Tim drops the last pizza moments before achieving the highest-scoring play of the game. :'( Please excuse the terrible camerawork and the meme-y title.</p>
+	<br>
+		
+  <table></table>
+  <br>
 	<p><b>SEPTEMBER 2018: Dozer's Revenge</b></p>
 	<img src="dozer_cad.jpg" width=80%>
 	<p>Built for a 48-hour combat robotics hackathon, this guy was modeled after unofficial FRC mascot <a href="https://www.youtube.com/watch?v=bm9nd-3hW_E">Dozer</a>, with an added vertical spinner.</p>
-	<img src="dozers_revenge.jpg" width=45%><img src="dozers_revenge_front.jpg" width=45%>
-	<p>Oh, and ANGRY EYEBROWS. Man, he's adorable. The wheel armoring had to be sheared off to fit weight requirements and get the wheels on in time, so we gave him silver "hubcaps", which were just <a href="dozer_busted_wheel.jpg"> spraypainted giant googly eyes</a>.</p>
+	<img src="dozers_revenge.jpg" width=45%> <img src="dozers_revenge_front.jpg" width=45%>
+	<p>Oh, and ANGRY EYEBROWS. Man, he's adorable. The wheel armoring had to be sheared off to fit weight requirements and get the wheels on in time, so we gave him silver "hubcaps", which were just <a href="dozer_busted_wheel.jpg"> spraypainted giant googly eyes</a>.<br>
+	By an accident of wiring, Dozer's steering was installed backwards, so he was sort of confusing and clumsy to drive, but he did alright for himself.</p>
 	<p>Videos of Dozer in action: (<a href="https://streamable.com/h5vsh">X</a>) (<a href="https://streamable.com/1snpx">X</a>) (<a href="https://streamable.com/qqtg6">X</a>) (<a href="https://streamable.com/d8ra0">X</a>) </p>
+	
+	<table></table>
+	<p>I just found out that Hebocon made a <a href="https://heboconsf.neocities.org/home.html">neocities page</a>, so if you found the faulty antics of Dozer interesting, then check out these even WORSE, FUNNIER robots!</p>
 
+<table></table>
+<p>If you like robot-bashin', there's always <a href="https://battlebots.com/">Battlebots</a>. The 2018 winner, <a href="https://battlebots.com/robot/bite-force-2018/">Bite Force</a>, was built by a guy from my school.</p>
 
 <footer>
 	Site born Friday the 13th, July 2018. --<a href="https://bluef00t.neocities.org/">GO HOME</a>--Site dies when the robot uprising begins.
