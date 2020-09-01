@@ -1,0 +1,173 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, u, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+	list-style-type: disc;
+}
+		html{
+			width: 100%;
+			height: 100%;
+		}
+		body{
+			max-width: calc(2 * 80vh);
+			margin:auto;
+			position: relative;
+			font-family: Lato, Arial;
+			font-weight: normal;
+			font-size: calc(13px + (26 - 12) * ((100vh - 300px) / (1600 - 300)));
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) inset;
+		}
+		header{
+			display: block;
+			align-content: center;
+			position: relative;
+			overflow: hidden;
+		}
+		#pink, #pink2{
+			display: block;
+			height: calc(100px + 10vh);
+			background-image: linear-gradient(#f784ba, #ffc9e2) 
+		}
+		#pink img{max-height:90px; max-width: 90%; display:block; margin:auto;}
+		/*a lot depends upon the image height (80vh) (aka 80% viewport height)*/
+		header img{
+			max-height: 99px;
+			margin-top: -99px;
+		}
+		.navbar{
+			width: 100%;
+			max-width: calc(2 * 80vh);
+			position: fixed;
+			padding: 16px 0px 16px;
+			bottom: 0;
+			margin-top: -5px;
+			background-color: #eeeeee;
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+		}
+		.topbar{
+			width: 100%;
+			padding: 16px 0px 16px;
+			bottom: 0;
+			margin-top: -5px;
+			background-color: #eeeeee;
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+		}
+		.navbar a, .topbar a{
+			flex: 1;
+			color: black;
+			font-weight: 900;
+			text-align: center;
+			text-decoration: none;
+			font-size: calc(22px + (26 - 20) * ((100vh - 300px) / (1600 - 300)));
+			padding: 10px;
+		}
+		.back a{
+			padding:10px;
+			font-size: 90%
+		}
+		.navbar, .topbar, a:hover, a:active{ color:#f165a6; }
+		.back{
+			display: block;
+			flex-basis: 100%;
+			text-align: center;
+		}
+		@media only screen and (max-width: 800px){
+			.navbar, .topbar{}
+			.navbar a, .topbar a{flex-basis: 40%;}
+		}
+
+		content{
+			display: block;
+			background-image: url(TMBG14pink.png);
+			padding: 20px;
+			line-height: 1.3;
+			background-color: #ffc9e2;
+		}
+		content img{max-width: 85%;}
+		.box{
+			font-family: Arial;
+			display: block;
+			min-width: 300px;
+			border: 2px solid white;
+			background: white;
+			margin: auto;
+			margin-bottom: 25px;
+			padding: 8px;
+			outline: 4px solid #f784ba;
+			max-width: 90%;
+		}
+		.box img{max-height: 20em;}
+		h1{
+			font-weight:600;
+			word-spacing: 0.05em;
+			letter-spacing: 0.025em;
+			background: #426955;
+			padding: 8px;
+			color: white;
+			margin-bottom: 15px;
+			font-weight: bold;
+			font-size: 125%;
+		}
+		h2{
+		  font-family: Lato, Arial;
+			font-weight:600;
+			letter-spacing: 0.015em;
+			background: #4b956c;
+			padding: 4px;
+			padding-left: 8px;
+			color: white;
+			margin-bottom: 8px;
+			font-size: 110%;
+		}
+		h1 a, h2 a{
+			color: white;
+		}
+		h1 a:hover, h1 a:active, h2 a:hover, h2 a:active{
+			color: white;
+			text-decoration-color: #f165a6;
+		}
+		.centerlink{
+			margin: auto;
+			width: 100%;
+			align-self: center;
+			text-align: center;
+			font-weight: bold;
+		}
+		p{padding: 5px 8px 5px;}
+		li{
+			display: list-item;
+			list-style-position: inside;
+			padding: 2px 8px 2px;
+		}
+		ol li{
+			list-style-type: decimal;
+		}
