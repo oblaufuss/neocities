@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link href="hexgenerator.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		.hexagon{
+			background-color: black;
+		}
+	</style>
+
+
+</head>
+<body>
+
+	<p></p>
+	<br>
+
+	<content>
+		<div id="hexHeader">
+		</div>
+	</content>
+	<script type="text/javascript" src="hexgenerator.js"></script>
+	<script type="text/javascript">
+		var hexs = document.getElementsByClassName("hexagon");
+		//console.log(hexs);
+		//console.log(hexs.length);
+
+		function calculateDistance(elem, mouseX, mouseY) {
+        	return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offsetLeft+(elem.offsetWidth/2)), 2) + Math.pow(mouseY - (elem.offsetTop+(elem.offsetHeight/2)), 2)));
+        }
+
+        document.getElementById("hexHeader").onmousemove = function(event){hexUpdate(event);}//only recalculate on mousemove
+
+
+        function hexUpdate(e){
+        	for (var i=0; i<hexs.length; i++){
+        		if (calculateDistance(hexs[i], e.clientX, e.clientY) > 60 && calculateDistance(hexs[i], e.clientX, e.clientY) < 100){
+        			hexs[i].style.background = "red";
+        		}else{
+        			hexs[i].style.background = "black";
+        		};
+			};
+        }
+
+		//console.log("end");
+	</script>
+
+</body>
+</html>

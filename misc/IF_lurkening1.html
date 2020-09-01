@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>bees laugh in atbash</title>
+	<!--fix this--><link href="https://bluef00t.neocities.org/style.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		.rec{
+			border: 2px inset red;
+			width: 45%;
+			margin: 15px 10px 15px;
+			min-width: 400px;
+			display: inline-block;
+		}
+		.game{
+			text-align: left;
+			margin: 25px 20px 30px;
+			color:#D5DEFF;
+		}
+		.commentary{
+			font-style:italic;
+		}
+	</style>
+</head>
+<body>
+	
+	<nav>
+		<!--fix this--><div id=sidebar><script type="text/javascript" src="https://bluef00t.neocities.org/sidebar.js"></script></div>
+	</nav>
+
+	<h2>THE LURKING HORROR II: THE LURKENING</h2>
+	<h4>A playthrough of Ryan Veeder's excellent puzzle game.</h4>
+	<table class="divider"></table>
+	<h4>DISCLAIMER: I encourage you to <a href="https://rcveeder.net/lurkening/">play this game yourself</a> first! It's a lot of fun, I promise!</h4>
+
+	<table id="top"></table>
+	<h4><a href="#1" rel="nofollow">Round 1</a> / <a href="#2" rel="nofollow">2</a> / <a href="#3" rel="nofollow">3</a> / <a href="#4" rel="nofollow">4</a> / <a href="#5" rel="nofollow">5</a> / <a href="#6" rel="nofollow">6</a> / <a href="#7" rel="nofollow">7</a> / <a href="#8" rel="nofollow">8</a> / <a href="#9" rel="nofollow">9</a> / <a href="#10" rel="nofollow">Recap</a> </h4>
+	<h4>Part 2 coming soon...</h4>
+	<table></table>
+	<br>
+	<img src="https://bluef00t.neocities.org/imgs/line1.gif">
+	<br>
+
+	<p>Mainstream text adventures and</p>
+	<p>So without further ado, let's let lurkening!</p>
+	
+	<table class="divider"></table>
+
+	<h3 id="1">- Round 1 -</h3>
+	<div class="game">—manage to foul things up again this time, which is a distinct possibility...
+ <p>
+<b>The Lurking Horror II: The Lurkening</b><br>
+An MIT Mystery Hunt Puzzle by Ryan Veeder, with apologies to Dave Lebling<br>
+Release 2 / Serial number 180118 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)
+ <p>
+<b>Alchemy Basement</b><br>
+Your vision clears, and you're back in the basement of the Alchemy building.
+ <p>
+This is one of your favorite haunts on the <a href="https://en.wikipedia.org/wiki/The_Lurking_Horror">G.U.E. campus</a>. It's a great place to curl up with a book—but you really don't have time for that right now.
+ <p>
+There's a stairway here that leads up to the Department of Alchemy lobby, and a well-lit tunnel leads north.
+ <p>
+You'd better start moving if you're going to get anything done this time.</div>
+
+<p>Whoa whoa there, don't rush me! Let's get our bearings.<br>
+An interesting opening, starting halfway through a sentence. Almost like... well, we'll see. We're in a basement, never a good sign. Only thing to it is the classic first move of any interactive fiction game.</i></p>
+
+<div class="game">
+	<i>>examine self</i><br>
+	Your body has no reason to feel tired, but your mind knows that this is the umpteenth time you've sent your consciousness back to try and correct the heinous mistake you made by summoning Ynf-Okh-Omm into this universe.
+	<p>
+	Maybe this is the loop where you finally banish Ynf-Okh-Omm. Maybe—hopefully—not likely—but maybe.
+</div>
+
+<p>
+	Time loop confirmed!<br>
+	This room description is pretty short on interesting nouns to examine, so let's head out and see what we find.
+</p>
+
+<div class="game">
+	<i>>go up</i><br>
+	<b>Department of Alchemy Lobby</b><br>
+	The Alchemy building feels small and defenseless in the face of the wild thunderstorm outside. Rain and howling wind pound at the doors to the north and east. A stairway leads down to the basement (and the tunnels).
+	<p>
+	This lobby is especially creepy because there's an informative poster depicting an Elder Horror hanging on the wall.
+</div>
+
+<p>Ooo, the poster: a noun! Let's look at that Elder Horror.</p>
+
+<div class="game">
+	<i>>examine poster</i><br>
+	Above the picture of the Elder Horror are the words "IF YOU SEE SOMETHING, SAY RAENFIDHRE." Smaller text below explains: "Elder Horrors are a nuisance—but you don't have to let them inconvenience you. The incantation 'Raenfidhre' sends Elder Horrors right back where they came from. (Don't ask!) When you run into an Elder Horror, just say 'Raenfidhre' and watch it disappear."
+	<p>
+	For years, students of the arcane arts struggled to find some logic or significance in the forms of these incantations. Eventually the experts reached the consensus that they're just random stupid words.
+</div>
+
+<p>
+	Incantation learned: <b>RAENFIDHRE</b><br>
+	Use: Banishes Elder Horrors<p>
+	Best to write that down for later. Note how good Veeder is about communicating the edges of his game's logic system to the player, even through an in-context joke. He doesn't want us banging our head against a brick wall trying to overanalyze something useless to game progression. Thanks, Ryan!<p>
+	Let's continue exploring. How about north?
+</p>
+
+<div class="game">
+	<i>>go north</i><br>
+	<b>Construction Site</b><br>
+	Torrents of rain lash at the earth in blind fury.
+	<p>
+		This is the future site of the Gentry Antiquarian Center. Right now it's a rectangular pit with concrete walls.
+	<p>
+		The Alchemy building is south. Another building—a despicable building—is further north.
+</div>
+
+<p>
+	A DESPICABLE building, you say??
+</p>
+
+<div class="game">
+	<i>>examine despicable building</i><br>
+	You can't see any such thing.
+</div>
+
+<p>
+	Booo! Well, guess I'll just go there and find out what makes this building so despicable.
+</p>
+
+<div class="game">
+	<i>>go north</i><br>
+	<b>Outside Department of Sorcery</b><br>
+The forboding building to the east houses the Department of Sorcery, which frequently competes with the Alchemy department for funding and is always reserving the best classrooms before Alchemy can get a chance. The rest of the campus is south from here.
+<p>
+Thunder rumbles nearby.
+</div>
+
+<p>
+	Just a hunch, but I think our player character is an Alchemy major.
+</p>
+
+<div class="game">
+	<i>>go east</i><br>
+	<b>Inside Department of Sorcery</b><br>
+You break out in gooseflesh as you contemplate the eldritch experiments performed within these walls on a daily basis. You don't like visiting this place unless you have to. It even smells pretentious.
+<p>
+The department head's office is down the hall to the east. The way back outside is west.
+<p>
+The only person here tonight is a grad student whom you kind of know.
+<p></p><br>
+<i>>talk to grad student</i><br>
+He's a sorcery student you've seen around campus, usually sitting down in a secluded study space you were hoping to use.
+<p>
+He squints at you. "What are you doing here?"
+<p>
+"None of your beeswax," you snap back. "What are you doing here?"
+<p>
+He curls his lip into an odious sneer. "The department head asked me to help with some research, so I'm on my way to his office."
+<p>
+"Well, great for you," you respond, facetiously.
+</div>
+
+<p>
+	Yeesh! Sorcery students, amirite?<br>
+	Well, onwards with the exploration. Let's see if the professors are any worse.
+</p>
+<div class="game">
+	<i>>go east</i><br>
+	You try to walk past the sorcery student, but he blocks your path: "The department head doesn't need another research assistant—especially not from the Department of Alchemy. He asked for me specifically."
+<p>
+You stare at each other like a pair of housecats that have just been introduced.
+<p>
+Then it happens. You hear something huge rousing itself from cosmic sleep. The thing groans, and the entire campus shakes. Ynf-Okh-Omm has awoken. Shortly it will consume G.U.E. Tech—and then the universe.
+<p></p><br>
+   <b> *** You have failed. ***</b>
+</div>
+
+<p>
+	Come on! Right when we were establishing our dramatic rivalry!<br>
+	So they weren't kidding about the hurrying part. This time loop we're stuck in seems to be only 9 moves long, so we'd better learn to scurry. But wait- we're not done yet...
+</p>
+<div class="game">If you RESTART, you might be able to fix this, unless you—<br>
+<i>>RESTART</i><br></div>
+
+<h3 id="2">- Round 2 -</h3>
+
+<div class="game">
+	—manage to foul things up again this time, which is a distinct possibility...
+<p>
+<b>The Lurking Horror II: The Lurkening</b><p>
+<b>Alchemy Basement</b>
+<p>
+Your vision clears, and you're back in the basement of the Alchemy building.
+<p>
+This is one of your favorite haunts on the G.U.E. campus. It's a great place to curl up with a book—but you really don't have time for that right now.
+<p>
+There's a stairway here that leads up to the Department of Alchemy lobby, and a well-lit tunnel leads north.
+<p>
+You'd better start moving if you're going to get anything done this time.
+</div>
+
+<p>
+	For everyone's sanity and the general size of this webpage, I'm going to do a nifty trick that works in any game written in Inform:
+</p>
+<div class="game">
+	<i>>brief</i><br>
+	The Lurking Horror II: The Lurkening is now in its "brief" printing mode, which gives long descriptions of places never before visited and short descriptions otherwise.
+</div>
+
+<p>
+	Much better. Now what?<br>
+	Well, I wasted a couple of turns looking at stuff, but I don't know if I can figure out how to get past Mr. Grouchy the Sorcery Grad Student in just two turns yet. So let's go a different direction—maybe out the other door from the Alchemy lobby—and see what else there is on campus.
+</p>
+<div class="game">
+	<i>>go up</i><br>
+	<b>Department of Alchemy Lobby</b><br>
+	The Alchemy building feels small and defenseless in the face of the wild thunderstorm outside. Rain and howling wind pound at the doors to the north and east. A stairway leads down to the basement (and the tunnels).
+	<p></p><br>
+	<i>>go east</i><br>
+	<b>Courtyard</b><br>
+	Normally, this grassy courtyard is a favorite spot for joggers and Ultimate Frisbee players—but what with the rain, and the lightning, there's nobody here right now.
+	<p>
+To the west is the Department of Alchemy. East is the Department of Necromancy. North is the Department of Linguistics.
+</div>
+
+<p>
+	NECROMANCY? LINGUISTICS?? How am I supposed to choose between such exciting choices?
+</p>
+
+<div class="game">
+	<i>>go north</i><br>
+	<b>Department of Linguistics</b><br>
+There's not much here—the Linguistics department was organized with a minimalist philosophy in mind. A likely-looking (and heavy-looking) grimoire rests on a pedestal in an alcove.
+<p>
+The way out is south.
+<p></p><br>
+<i>>examine grimoire</i><br>
+You reach out to inspect the grimoire. Your hand runs into something. Something squishy and invisible.
+<p>
+You hold still for a second: You think you can hear it breathing.
+</div>
+
+<p>
+	Uhhhhhhhhhh.	
+</p>
+
+<div class="game">
+	<i>>listen</i><br>
+You don't hear anything new.
+</div>
+
+<p>
+	Oh, sorry, I forgot. There's a department of Necromancy on this campus. I must hear invisible squishy things breathe heavily down my neck on a daily basis.<br>
+	Wait- we know a spell! What was it again? Oh, right:
+</p>
+
+<div class="game">
+	<i>>Raenfidhre</i><br>
+	You utter the incantation, the eldritch puissance of its awful phonemes flowing with hideous sweetness over your tongue.
+	<p>
+Did it work?
+<p>
+You reach out into space—and touch the horrid thing again. Darn.
+<p>
+You can use the abbreviation "R" the next time you want to cast this spell. But not if you travel back in time again. That's how time travel works.
+</div>
+
+<p>
+	Aw. <br>
+	Well, thanks for the game-rules tip again, Ryan. We're on command 6/9 (nice), so let's see if we can make it to the Necromancy department before the world ends.
+</p>
+
+<div class="game">
+	<i>>south</i><br>
+	<b>Courtyard</b>
+	<p></p><br>
+	<i>>east</i><br>
+	<b>Necromancy Hallway</b><br>
+You seem to be in a hallway—but it's too dark to see which way it leads, what it leads to, or what else is in here with you. The only thing you can see is the way outside, to the west.
+</div>
+
+<p>
+	Come on again! I think we're on our last turn, so let's try that spell one more time just in case there's something evil here that needs banishing.
+</p>
+
+<div class="game">
+	<i>>r</i><br>
+	You utter the incantation, the eldritch puissance of its awful phonemes flowing with hideous sweetness over your tongue.
+	<p>
+Nothing happens.
+<p>
+Then it happens. You hear something huge rousing itself from cosmic sleep. The thing groans, and the entire campus shakes. Ynf-Okh-Omm has awoken. Shortly it will consume G.U.E. Tech—and then the universe.
+<p></p><br>
+   <b> *** You have failed. ***</b>
+</div>
+
+<p>
+	So did nothing happen or did "it" happen? Make up your mind, game.<br>
+	Oh well, at least we know what's in these new areas.
+</p>
+<div class="game">If you RESTART, you might be able to fix this, unless you—<br>
+<i>>RESTART</i><br></div>
+
+<h3 id="3">- Round 3 -</h3>
+
+<div class="game">
+	—manage to foul things up again this time, which is a distinct possibility...<p>
+	<b>Alchemy Basement</b>
+</div>
+
+<p>
+	Okay. Your vision clears, better get moving, we know that part. You know what I think?
+</p>
+
+<div class="game">
+	There's a stairway here that leads up to the Department of Alchemy lobby, and a well-lit tunnel leads north.
+</div>
+
+<p>
+	I think it's time to explore some of these tunnels.
+</p>
+
+<div class="game">
+	<i>>go north</i><br>
+	<b>Typical Tunnel</b><br>
+Before you enrolled at G.U.E. Tech, you had this romantic idea that the tunnels would all be dingy, claustrophobic, and dangerous. But these tunnels—the tunnels that most people see—are really more like hallways with pipes.
+<p>
+This hallway and its pipes lead north and south.
+</div>
+
+<p>
+	Nothing like the <a href="https://web.mit.edu/facilities/maps/mit_Tunnel_map.pdf">tunnel system of an esteemed university</a>. Methinks I spy a noun here.
+</p>
+
+<div class="game">
+	<i>>examine pipes</i><br>
+	The pipes don't even lead to or from anywhere in particular. They're all the same, all along this level of the tunnels.
+</div>
+
+<p>
+	Booo-ring. This game is really skimping on the nouns and things to look at, which I guess makes sense, because we're in a hurry.<br>
+	Wait, this reminds me! I entirely forgot to do the classic SECOND move of playing any parser game!
+</p>
+
+<div class="game">
+	<i>>inventory</i><br>
+	You are carrying nothing.
+</div>
+
+<p>
+	Drat! If time travel hijinks keep us from accumulating useful items, and we don't have anything on us to begin with, then we're really on our own. I was hoping for at least a cell phone or a flashlight.
+</p>
+
+<div class="game">
+	<i>>go north</i><br>
+	<b>Eerie Corner</b><br>
+You've reached a bend in the tunnel where the lights don't quite reach. You can continue east or south.
+<p>
+But you can't just stand around, because an Elder Horror is flitting through the shadows here, gibbering in little shrieks.
+</div>
+
+<p>
+	See something, say "Raenfidhre", right?
+</p>
+<div class="game">
+	<i>>raenfidhre</i><br>
+	You utter the incantation, the eldritch puissance of its awful phonemes flowing with hideous sweetness over your tongue. The Elder Horror howls in response, as if to drown out your spell with its ululating tongues—but it is no use.
+<p>
+A hole opens in space, and the Elder Horror is dragged by unknown forces back to its native dimension.
+<p>
+Whatever the thing was holding falls to your feet: Looks like somebody's lecture notes.
+<p>
+You hear a hissing noise as a portion of the ambient atmosphere is sucked away before the aperture closes itself.
+<p></p><br>
+<i>>examine notes</i><br>
+A few pages of sparsely annotated Powerpoint slides. Is there anything good in here?
+<p>
+The annotator has indicated one slide with a series of exclamation marks: It alludes to the incantation "Jilxube," and describes its applications as "gross."
+</div>
+
+<p>
+	Incantation learned: <b>JILXUBE</b><br>
+	Use: ...Gross???<br>
+	That was satisfying. And now we have the power of.... grossness on our side! Let's check it out.
+</p>
+<div class="game">
+	<i>>jilxube</i><br>
+	You struggle to pronounce the abhorrent incantation properly. When you finally get it right, a huge mass of slime appears out of nowhere, draping its dreadful viscousness all over everything in the immediate area.
+</div>
+
+<p>
+	Ah.<br>
+	Moving on then.
+</p>
+<div class="game">
+	<i>>go east</i><br>
+	<b>Top of Ladder</b><br>
+	In the middle of this east-west strip of tunnel is an open grate. In the grate is a ladder. The ladder leads down to the sub-basement level.
+	<p></p><br>
+	<i>>go down</i><br>
+	<b>Bottom of Ladder</b><br>
+These are not the fun tunnels that they show you on campus tours. These are the old tunnels. The evil tunnels.
+<p>
+Ancient pipes clank and hiss, and beneath these noises—you wonder if you're imagining—the sound of something skittering behind you.
+<p></p>
+The ladder here goes up to the main basement level. Tunnels lead east, south, and west.
+<p></p>
+Then it happens. You hear something huge rousing itself from cosmic sleep...
+</div>
+
+<p>
+	Cool! Evil tunnels and a crossroads! But then the world ends. I need to stop examining every interesting object and sliming innocent tunnel portions. Good thing we can
+</p>
+<div class="game">
+	<i>>RESTART</i><br>
+</div>
+
+<h3 id="4">- Round 4 -</h3>
+
+<p>
+	Let's speedrun back to where we were.
+</p>
+<div class="game">
+	<i>>north</i><br>
+	<i>>north</i><br>
+	<i>>east</i><br>
+	<i>>down</i><p></p>
+	<b>Bottom of Ladder</b><br>
+These are not the fun tunnels that they show you on campus tours. These are the old tunnels. The evil tunnels.
+<p>
+Ancient pipes clank and hiss, and beneath these noises—you wonder if you're imagining—the sound of something skittering behind you.
+<p></p>
+The ladder here goes up to the main basement level. Tunnels lead east, south, and west.
+</div>
+
+<p>
+	I am tempted to examine the ancient pipes and listen for skittering. But we must forge ahead.
+</p>
+<div class="game">
+	<i>>west</i><br>
+	<b>Circular Tunnel</b><br>
+This damp tunnel looks like it used to be a sewer, or a pneumatic railroad. The curved floor makes it difficult to walk without keeping a hand on the damp curved walls.
+<p></p>
+The way back is east. The tunnel continues south, beyond a waterfall-like curtain of slime.
+</div>
+
+<p>
+	Hooray! More slime!
+</p>
+<div class="game">
+	<i>>south</i><br>
+	You reach tentatively at the curtain of slime, and the acrid substance burns your hand. Apparently walking through this stuff wouldn't just be disgusting; it could be deadly.
+	<p></p>
+So how do you get it to stop flowing?
+</div>
+
+<p>
+	Good question. Answer: I don't know. Maybe a closer look will help?
+</p>
+<div class="game">
+	<i>>examine slime</i><br>
+	The slime falls down in thick, globby rivulets, and the tunnel beyond is difficult to make out.
+</div>
+
+<p>
+	Nope! No gibbering horrors to banish, and MORE slime would hardly help us... Well, we'll just add this to our mental map and come back later.
+</p>
+<div class="game">
+	<i>>east</i><br>
+	<b>Bottom of Ladder</b><p></p>
+	<i>>east</i><br>
+	<b>Confusing Tunnel</b><br>
+Oh dear. This is one of those places.
+<p></p>
+The geometry in here is incorrect. All the surfaces are inside-out. The physical laws of some other dimension must be impinging on this space from somewhere outside space.
+<p></p>
+Dang.
+<p></p>
+Then it happens. You hear something huge rousing itself from cosmic sleep...
+</div>
+
+<p>
+	And as we're stuck in glitched-out-Stata-center-hell, the world ends and we're forced to
+</p>
+<div class="game">
+	<i>>RESTART</i><br>
+</div>
+
+<h3 id="5">- Round 5 -</h3>
+
+<p>
+	We saw the slimy tunnel and the inside-out tunnel, but there's one last creepy tunnel in there that we should check out. Again:
+</p>
+<div class="game">
+	<i>>north</i><br>
+	<i>>north</i><br>
+	<i>>east</i><br>
+	<i>>down</i><p></p>
+	<b>Bottom of Ladder</b><br>
+	Tunnels lead east, south, and west.<p></p>
+	<i>>south</i><br>
+	<b>Power Station</b>
+	<br>
+Thrumming all around you are hulks of decrepit machinery, sagging under the weight of decades, struggling to supply power to the university above. And twisting through their cables are the insidious tentacles of Ynf-Okh-Omm, worming their way through the ceiling from its chamber above. The Eldest Horror is leeching power from G.U.E.'s electrical system! This is your fault!
+<p></p>
+The tunnels continue north and south.
+</div>
+
+<p>
+	Our fault? Hang on, did we know this was our fault? Let's break our no-examining rule for a second to see if we can learn something useful from this.
+</p>
+<div class="game">
+	<i>>examine tentacles</i><br>
+	Ynf-Okh-Omm's tentacles are wired directly into the electrical systems. If you had some bolt cutters, you might be able to sever all of them in about half an hour—but you don't have that kind of time. And you don't have bolt cutters. And you'd probably get electrocuted.
+	<p></p><br>
+	<i>>examine machinery</i><br>
+	Some of these machines date back to the eighties.
+</div>
+
+<p>
+	Yikes. Well, college utilities are just like that.<br>
+	The tunnel keeps going, though.
+</p>
+<div class="game">
+	<i>>south</i><br>
+	<b>Dark Intersection</b><br>
+The lights have gone out in this chamber, and you can't see your own hand in front of your face, but you can just make out paths to the north, east, and west.
+<p></p>
+And you can definitely hear something slithering squamously nearby.
+</div>
+
+<p>
+	Hear something, say "Raenfidhre"!
+</p>
+
+<div class="game">
+	<i>>raenfidhre</i><br>
+You utter the incantation, the eldritch puissance of its awful phonemes flowing with hideous sweetness over your tongue. You hear something squeal in shock and inhuman pain. Then you hear a sharp squelching noise.
+<p></p>
+Then you hear something clank against the floor. What the heck was that?
+<p></p>
+Then it happens. You hear something huge rousing itself from cosmic sleep...
+</div>
+
+<p>
+	So that did something, and the clank seems interesting. I feel like we should come back once we know what to do about dark rooms first though. There's still more tunnels to explore.
+</p>
+
+<div class="game">
+	<i>>RESTART</i><br>
+</div>
+
+<h3 id="6">- Round 6 -</h3>
+
+<div class="game">
+	<i>>north</i><br>
+	<i>>north</i><br>
+	<i>>east</i><br>
+	<b>Top of Ladder</b>
+</div>
+
+<p>But instead of going down here, let's continue:</p>
+
+<div class="game">
+	<i>>east</i><br>
+	<b>Well-Lit Corner</b><br>
+The passage from the west turns here, at the top of a gentle slope leading south. This would be a great place to race office chairs, if other concerns weren't taking precedence.
+<p></p>
+A hacker is leaning against the wall here, taking a break from hacking.
+<p></p><br>
+<i>>talk to hacker</i><br>
+You can tell she's an accomplished hacker from the unrealistically heavy key ring hanging from her belt loop. Anyone who has that many keys isn't supposed to have all of them.
+<p></p>
+You wave to each other, and are about to exchange pleasantries when a massive peal of thunder from above shakes the tunnels. The lights go out.
+<p></p>
+The lights come back on. The two of you grimace.
+<p></p>
+"Hey," says the hacker. "If the lights ever go out for real, I know a spell that for seeing in the dark. It's 'kulehrif.' You say it just like that."
+<p></p>
+You nod. "Thanks. I probably should have known that already."
+<p></p>
+"It's okay. At least you only have to learn something for the first time once."
+<p></p>
+"That is <i>so true</i>," you say.
+</div>
+
+<p>
+	Incantation learned: <b>KULEHRIF</b><br>
+	Use: Dark Vision<br>
+	Great! We already have two places (Necromancy dept, southern spooky tunnel) where this could be useful. Speaking of useful, that ring of keys sets my text-adventurer-senses tingling.
+</p>
+
+<div class="game">
+	<i>>examine keyring</i><br>
+	You can tell she's an accomplished hacker from the unrealistically heavy key ring hanging from her belt loop. Anyone who has that many keys isn't supposed to have all of them.
+	<p></p>
+You smile at each other politely, but there isn't really anything else to talk about. You're kind of in a hurry.
+<p></p><br>
+<i>>take keyring</i><br>
+I don't suppose the hacker would care for that.
+</div>
+
+<p>
+	Or maybe not. Still, we know this person is a hardcore hacker in the <a href="http://hacks.mit.edu/misc/faq.html">classical MIT sense</a>, a fact which might be useful to us in the future. Onwards, then.
+</p>
+
+<div class="game">
+	<i>>south</i><br>
+	<b>Graffito</b><br>
+At this intersection, the tunnels go north, south—and west, to the chamber of your ill-advised project.
+<p></p>
+An old graffito is on the east wall.
+<p></p><br>
+<i>>read graffito</i><br>
+The names of the vandals are lost to campus history. All that we know is: Someone wrote something on a wall; then, before the message could be summarily painted over, someone else prepended an additional word. Now, and since time immemorial, the wall reads:
+<p></p>
+<b>NEVER<br>
+GIVE<br>
+ UP<br>
+</b>
+ <p></p>
+Then it happens. You hear something huge rousing itself from cosmic sleep...
+</div>
+
+<p>
+	We will not give up. We will NEVER give up. We will-
+</p>
+
+<div class="game">
+	<i>>RESTART</i><br>
+</div>
+
+<h3 id="7">- Round 7 -</h3>
+
+<div class="game">
+	<i>>north</i><br>
+	<i>>north</i><br>
+	<i>>east</i><br>
+	<i>>east</i><br>
+	<i>>south</i><br>
+	<b>Graffito</b><br>
+At this intersection, the tunnels go north, south—and west, to the chamber of your ill-advised project.
+</div>
+
+<p>
+	We race back to this intersection. Already, though, by the time we get here, we have only 4 moves left. Let's see what's up with this ill-advised project of ours.
+</p>
+
+
+<div class="game">
+	<i>>west</i><br>
+	It groans sluggishly. It shrugs its unthinkable head—No. That is not a head.
+	<p></p>
+The whitish, loathsome, incomprehensible thing that oozes before you is Ynf-Okh-Omm, the Eldest Horror. It is sleeping, for now. Soon (very soon), it will awaken, and this helpless universe will suffer the consequences.
+<p></p>
+The way out is east.
+</div>
+
+<p>
+	Oops. Did we do that?
+</p>
+
+<div class="game">
+	<i>>examine Eldest Horror</i><br>
+	This is Ynf-Okh-Omm, the Eldest Horror, the Thing that menaced G.U.E. Tech about thirty years ago. You thought it would be a cool project for your thesis if you summoned it again—and now you're in this mess.
+	<p></p>
+It would be nice if the restarting spell let you go a little further back, but as it stands, you have precious little time to banish this monstrosity before it wakes up.
+</div>
+
+<p>
+	I guess we did. That's the hubris of college students in action.<br>
+	(In case it wasn't already glaringly obvious, The Lurking Horror came out in 1987, so.... thirty years ago.)<p></p>
+	Well, say it with me, kids: see something, say "Raenfidhre"!
+</p>
+
+<div class="game">
+	<i>>raenfidhre</i><br>
+	You utter the incantation, the eldritch puissance of its awful phonemes flowing with hideous sweetness over your tongue.
+	<p></p>
+A crackle of eldritch power washes over the sleeping hulk, and your spell falls flat. How did it do that? Where is it getting this energy?
+</div>
+
+<p>
+	(flashback to the powerstation overrun by tentacles in the creepy tunnels) ....oops again?<br>
+	Let's try sliming it, just because we CAN.
+</p>
+
+
+<div class="game">
+	<i>>jilxube</i><br>
+	You struggle to pronounce the abhorrent incantation properly. When you finally get it right, a huge mass of slime appears out of nowhere, draping its dreadful viscousness all over everything in the immediate area.
+	<p></p>
+Ynf-Okh-Omm stirs. The Eldest Horror rolls over. Some hideous aspect of its body—an eye?—a mouth?—opens, and you are the first to be devoured.
+<p></p>
+<br>
+<b>*** You have failed. ***</b>
+</div>
+
+<p>
+	New death message. That's something, I guess.
+</p>
+
+<div class="game">
+	<i>>RESTART</i><br>
+</div>
+
+<h3 id="8">- Round 8 -</h3>
+
+<p>
+	So here's the reasoning for all the exploration we've been doing. We get nine moves, right? And then we're restarted right back where we came from. The game isn't keeping track of progress over multiple plays.
+</p>
+
+<div class="game">
+	<i>>north</i><br>
+	<i>>north</i><br>
+	<i>>east</i><br>
+	<i>>east</i><br>
+	<i>>south</i><br>
+	<b>Graffito</b><br>
+At this intersection, the tunnels go north, south—and west, to the chamber of your ill-advised project.</div>
+
+<p>
+	So we're on a sort of invisible teather. This world has definite bounds for us because we can't ever make more than 9 moves away, unless we learn how to give ourselves more time later. Exploring every direction lets us learn useful things, and it's this knowledge that we hold on to that determines our progression in the game, not anything internal to the game world.
+	<p></p>
+	We have the <i>ability</i> to win the game from that start position, and we've always had that ability. What we need first is to collect the knowledge we need.
+</p>
+
+<div class="game">
+	<i>>south</i><br>
+	<b>Odd Corner</b><br>
+The tunnel turns from north to west here, but the passage to the west is too dark to see where it goes.
+ <p></p>
+You take another step and slip on a piece of paper.
+<p></p><br>
+<i>>examine paper</i><br>
+The paper has disappeared—but you know you slipped on something.
+</div>
+
+<p>
+	Drat. But we know a new spell for seeing stuff that's hidden in darkness, and we haven't even tested it out yet. Now seems a good time.
+</p>
+
+<div class="game">
+	<i>>kulehrif</i><br>
+	You mutter the incantation, and a greenish haze swims in front of your eyes. Your knees buckle, and for a giddy moment you feel as though you may barf.
+	<p></p>
+But when you regain your faculties, you notice your vision has improved, and you can see easily what lurks in dark corners. You don't notice anything new right here, though.
+</div>
+
+<p>
+	Nuts. Maybe it slipped around the bend?
+</p>
+
+<div class="game">
+	<i>>west</i><br>
+	<b>Dead End</b><br>
+The tunnel from the east terminates here at a brick wall. There are no lights here because it would seem that there is nothing here to illuminate.
+<p></p>
+Apparently someone disagreed, and made this into their personal study space: A thick textbook lies forgotten on the floor.
+</div>
+
+<p>
+	A textbook: a noun! An obviously very important noun! Now to examine i-
+</p>
+
+<div class="game">
+	 Then it happens. You hear something huge rousing itself from cosmic sleep...
+</div>
+
+<p>COME ON</p>
+
+<div class="game">
+	<i>>RESTART</i><br>
+</div>
+
+<h3 id="9">- Round 9 -</h3>
+
+<div class="game">
+	<i>>north</i><br>
+	<i>>north</i><br>
+	<i>>east</i><br>
+	<i>>east</i><br>
+	<i>>south</i><br>
+	<i>>south</i><br>
+	<b>Odd Corner</b><br>
+The tunnel turns from north to west here, but the passage to the west is too dark to see where it goes.
+ <p></p>
+You take another step and slip on a piece of paper.<p></p><br>
+	<i>>west</i><br>
+	<b>Dark Hall</b><br>
+The tunnel continues further than the light can reach. All you can see is the way back to the east.
+</div>
+
+<p>Oh right, the lights.</p>
+
+<div class="game">
+	<i>>kulehrif</i><br>
+	You mutter the incantation, and a greenish haze swims in front of your eyes. Your knees buckle, and for a giddy moment you feel as though you may barf.
+	<p></p>
+But when you regain your faculties, you notice your vision has improved, and the room does not seem so dark now:
+ <p></p>
+<b>Dead End</b><br>
+The tunnel from the east terminates here at a brick wall. There are no lights here because it would seem that there is nothing here to illuminate.
+<p></p>
+Apparently someone disagreed, and made this into their personal study space: A thick textbook lies forgotten on the floor.
+</div>
+
+<p>
+	Yikes. With all the steps we have to go through, we only have one action left to-
+</p>
+
+<div class="game">
+	<i>>examine textbook</i><br>
+	The book's cover is immediately recognizable: This is the <i>Necronomicon</i>, by A. Alhazred, an infamous tome of dark magic. You flip through it a little bit.
+ <p></p>
+Here's a page that jogs your memory: A spell that conjures frigid wind from... It doesn't say where. The incantation is "bheishauph."
+ <p></p>
+Why would someone just leave a <i>Necronomicon</i> lying around? These books are expensive!
+ <p></p>
+Then it happens. You hear something huge rousing itself from cosmic sleep...
+</div>
+
+<p>
+	Incantation learned: <b>BHEISHAUPH</b><br>
+	Use: Frigid Wind<p>
+		Cool (literally), but I can't yet think of a use for it.
+</p>
+<br>
+
+<h3 id="9">- Recap -</h3>
+
+<p>Why don't we pause here between world-ending cycles to go over the spells we've learned:</p>
+
+<div class="game">
+	 <b>RAENFIDHRE:</b> Banishes Elder Horrors<br>
+	 <b>JILXUBE:</b> Gross<br>
+	 <b>KULEHRIF:</b> Dark Vision<br>
+	 <b>BHEISHAUPH:</b> Frigid Wind
+</div>
+
+<p>
+	Alright. I think we've explored all the obvious routes, unless I've forgotten something. We've been through the tunnel system and met the hacker and Ynf-Okh-Omm, the Eldest Horror. We've been through the under-tunnels and seen its dark roots drinking from the power supply, and also seen some slime. We've been to the Necromancy building, the Linguistics building, and the despicable Sorcery building with the rude grad student.
+</p>
+<p>Our next step should probably be to go back and see if we can't put these spells to use in any of those locations.<br>
+We'll do that in Part Two: coming soon...</p>
+
+	<br>
+	<img src="https://bluef00t.neocities.org/imgs/line1.gif">
+	<br>
+
+<h4><a href="#top">Back to Top</h4>
+
+<footer>
+	Site born Friday the 13th, July 2018. --<a href="https://bluef00t.neocities.org/">GO HOME</a>-- Site trapped in the circular hell of reincarnation.
+</footer>
+</body>
+
+</html>

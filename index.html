@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 
@@ -7,62 +9,149 @@
           <!-- The style.css file allows you to change the look of your web pages.
          If you include the next line in all your web pages, they will all share the same look.
          This makes it easier to make new pages for your site. -->
-    <link href="style2.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
     
     <style>
       .ascii{
+        font-family: monospace;
         border-collapse: collapse;
         text-align: center;
         display: inline-block;
+        white-space:pre;
       }
       .ascii pre{
         text-align:left;
+        max-width:508px;
       }
     </style>
     
   </head>
   <body>
-  
-<nav>
-	<div id=sidebar><script type="text/javascript" src="sidebar.js"></script></div>
-</nav>
 
-    <!--<img src="./imgs/construction.gif">-->
-    <br><img src="./imgs/welcome.gif"><br>
-     -- -- -- -- <i><b>Page Left Intentionally Retro</b></i> -- -- -- --<br><br>
+    <style type="text/css">
+      .recent{
+        float: auto;
+        margin: 20px;
+      }
+      .galleryheader{
+        float: left;
+        display: block;
+        font-size: 125%;
+        font-weight: bold;
+        margin: 25px 0px 10px 40px;
+        color:white;
+        text-decoration: underline;
+        text-decoration-color: red;
+      }
+      .gallerybar{
+      margin:auto;
+      padding: 16px 8px 16px;
+      width: 95%;
+      bottom: 0;
+      background-color: black;
+      display: flex;
+      justify-content: flex-start;
+      overflow-x: auto;
+    }
+    .gallerybar img{
+      max-height: 25vh;
+      flex: initial;
+      border: 1px solid red;
+      padding: 2px;
+      margin: 5px;
+    }
+    #title{
+      display:none;
+      margin:auto;
+    }
+
+    @media (max-width: 650px), (max-aspect-ratio: 3/4){
+      .ascii{
+        display: none;
+      }
+      #title{
+        display:block;
+        width: 85%;
+      }
+    }
+  
+    </style>
     
- 
-    <table>
-      <tr><th><img src="./imgs/featured.gif"></th></tr>
-      <tr><td>
-        <UL>
-          <LI> <img src="./music/imgs/chessmaster.png" width=40px> <a href="/music/chessmaster.html">Mojo Chessmaster guitar fanpage</a> and <a href= "/music/chessmasterpics.html">image gallery</a>!</LI>
-          <LI> <a href="/50nightmares">Photos and map of Salem, MA according to Neil Cic's 50 State Nightmares video.</a></LI>
-          <LI> <a href="/music/johnratings.html">List of TMBG caricatures, rated</a>. Still in progress!</LI>
-        </UL>
-      </td></tr>
-    </table>
+     <nav>
+      <div id=sidebar><script type="text/javascript" src="sidebar.js"></script></div>
+    </nav>
+
+  <!-- YES I know this next block is an absolute disaster but I think the net effect is worth it-->
+    <div class="ascii"><monospace><pre>
+██████<font color="aqua">╗</font> ██<font color="aqua">╗</font>     ██<font color="aqua">╗</font>   ██<font color="aqua">╗</font>███████<font color="aqua">╗</font>███████<font color="aqua">╗</font> ██████<font color="aqua">╗</font>  ██████<font color="aqua">╗</font> ████████<font color="aqua">╗</font>
+██<font color="aqua">╔══</font>██<font color="aqua">╗</font>██<font color="aqua">║</font>     ██<font color="aqua">║</font>   ██<font color="aqua">║</font>██<font color="aqua">╔════╝</font>██<font color="aqua">╔════╝</font>██<font color="aqua">╔═</font>████<font color="aqua">╗</font>██<font color="aqua">╔═</font>████<font color="aqua">╗╚══</font>██<font color="aqua">╔══╝</font>
+██████<font color="aqua">╔╝</font>██<font color="aqua">║</font>     ██<font color="aqua">║</font>   ██<font color="aqua">║</font>█████<font color="aqua">╗</font>  █████<font color="aqua">╗</font>  ██<font color="aqua">║</font>██<font color="aqua">╔</font>██<font color="aqua">║</font>██<font color="aqua">║</font>██<font color="aqua">╔</font>██<font color="aqua">║</font>   ██<font color="aqua">║</font>   
+██<font color="aqua">╔══</font>██<font color="aqua">╗</font>██<font color="aqua">║</font>     ██<font color="aqua">║</font>   ██<font color="aqua">║</font>██<font color="aqua">╔══╝</font>  ██<font color="aqua">╔══╝</font>  ████<font color="aqua">╔╝</font>██<font color="aqua">║</font>████<font color="aqua">╔╝</font>██<font color="aqua">║</font>   ██<font color="aqua">║</font>   
+██████<font color="aqua">╔╝</font>███████<font color="aqua">╗╚</font>██████<font color="aqua">╔╝</font>███████<font color="aqua">╗</font>██<font color="aqua">║     ╚</font>██████<font color="aqua">╔╝╚</font>██████<font color="aqua">╔╝</font>   ██<font color="aqua">║</font>   
+<font color="aqua">╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚═╝      ╚═════╝  ╚═════╝    ╚═╝</font>  
+    </pre></monospace></div>
+    <p><img id="title" src="title.png"></p>
+
+      <!--<img src="./imgs/construction.gif">-->
+      <p><img src="./imgs/welcome.gif"></p>
+    <table class="divider"></table>
     
     <br>
-    <img src="./imgs/update.gif"><br>
-    <b>RECENT ADDITIONS:</b><br>
-    <UL><UL>
-    <LI> Log of <a href="/music/tmbgdreams.txt">TMBG dreams</a> and <a href="/music/neildreams.txt">Lemon Demon/NKOTR dreams.</a></LI>
-    <LI> <a href="/music/johnratings.html">More TMBG fancontent</a>. This time: compiling different depictions of the Johns to compare them side by side.</LI>
-    <LI> Mobile navigation now gives a link to a sitemap instead of forcing you to use that terribly tiny sidebar.</LI>
-    <LI> Added a guestbook. If you see something you like, let me know there. It keeps me excited and updating.</LI>
-    <LI> I have a site button! Get it for your own site under <a href="blinkies.html">"blinkies".</a></LI>
-    </UL></UL>
+    
+    <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#2863e0', 'E1E11B7WO');kofiwidget2.draw();</script> 
+    
+<div class="accordion">
+  <label for="t1" class="accordionitem"><h4><img src="https://bluef00t.neocities.org/imgs/update.gif"> (click me)</h4></label>
+  <input type="checkbox" id="t1"/>
+      <UL style="list-style-position: inside;" class="hiddentext recent">
+        <LI>Slightly rearranged the <a href="music">Music</a> page and added a <a href="music/albums.html">favorite albums</a> page.</LI>
+        <LI>New collected <a href="/zines">comic zine</a>.</LI>
+        <LI>New <a href="robots">robot</a> from my Musical Machines class.</LI>
+        <LI>New <a href="misc/articles.html">article</a> showcasing some of my favorite artists.</LI>
+      </UL>
+  </div>
+
+  <table></table>
+
+  <a href="art.html"><h2 class="galleryheader">ART + ILLUSTRATION</h2></a>
+ <div class="gallerybar"> <a href="art.html"><img src="https://66.media.tumblr.com/936a25dde5b15e09734ad5b02519b2a9/c67bc59f049d192c-ea/s1280x1920/f1ea1fa5d7afacd2c74489b832f9d5d1e828e175.jpg"></a>  
+  <a href="art.html"><img src="https://66.media.tumblr.com/ae8c45c413841ef85a66260ab2ae3de4/tumblr_plce8s7zwq1wlcwbpo1_1280.png"></a>
+  <a href="art.html"><img src="https://66.media.tumblr.com/71b68280f7fb013c56462e62d56c03b7/e1251d3cff71f301-8f/s2048x3072/174f5fad407b86f1c064ca64fdc8a9bae1181ea7.png"></a>
+  <a href="art.html"><img src="https://66.media.tumblr.com/c3b6b0c69ecc2654cefc0fc9dd54fbe1/tumblr_ov9df8PAEZ1u330mco1_1280.jpg"></a>  
+  <a href="art.html"><img src="https://66.media.tumblr.com/b98c23c74318b80d67a6f6d6dd74c753/ca9c71024fd46c97-98/s2048x3072/8a35b609c210e9edf73a8bc5dc745a2c94edcf2b.png"></a> 
+  <a href="art.html"><img src="https://66.media.tumblr.com/c512756c3f76a0bea5e37aa71330c17e/tumblr_pwaef8ZSs21wlcwbpo1_1280.png"></a> 
+  <a href="art.html"><img src="https://66.media.tumblr.com/6cd5a9c38056f70303417a2b47160247/tumblr_pg6l9gi00M1wlcwbpo1_1280.png"></a>
+  <a href="art.html"><img src="https://66.media.tumblr.com/130af55a690b97dac1b3bc2eab6e993c/tumblr_p0z2uh4bmI1u330mco1_1280.png"></a> </div>
+
+  <a href="zines/index.html"><h2 class="galleryheader">COMICS + ZINES</h2></a>
+  <div class="gallerybar"> <a href="https://gumroad.com/bluef00t#lttbV"><img src="https://static-2.gumroad.com/res/gumroad/6644185738036/asset_previews/154f5a3f4c214f360ea8b5ea22dd0ed4/retina/IMG_20200622_160741279.jpg"></a> <a href="https://bluef00t.tumblr.com/post/187893520847/i-know-this-has-been-done-a-hundred-times-over"><img src="https://bluef00t.neocities.org/zines/iz.jpg"></a>  <a href="/zines/index.html"><img src="https://bluef00t.neocities.org/zines/kudzuthumb.jpg"></a> 
+    <a href="https://gumroad.com/bluef00t#iuAvj"><img src="https://bluef00t.neocities.org/zines/LNID.jpg"></a> 
+    <a href="https://bluef00t.tumblr.com/post/169447315847/thebfoot-boo-ive-had-a-very-busy-october-but"><img src="https://bluef00t.neocities.org/zines/nkotr2017.jpg"></a> 
+    <a href="https://12n-cr.tumblr.com/"><img src="https://bluef00t.neocities.org/zines/12ncr.png"></a> 
+    <a href="https://bogleech.com/creepy/creepy19icemenabridged.html"><img src="https://bluef00t.neocities.org/zines/rrhz7.png"></a>  </div>
+
+  <a href="robots/index.html"><h2 class="galleryheader">PROGRAMMING + FABRICATION</h2></a>
+  <div class="gallerybar">
+    <a href="https://bluef00t.neocities.org/robots/index.html"><img src="https://bluef00t.neocities.org/robots/argus.jpg"></a>
+    <a href="https://bluef00t.neocities.org/music/tmbg/chessmasterprojects.html#lasercuts"><img src="https://bluef00t.neocities.org/music/imgs/chessmaster/minimasters.jpg"></a> 
+    <a href="https://bluef00t.neocities.org/whatprimedirective/index.html"><img src="https://bluef00t.neocities.org/whatprimedirective/WPDirective.jpg"></a> 
+    <a href="https://bluef00t.neocities.org/robots/index.html"><img src="https://bluef00t.neocities.org/robots/dozer_cad.jpg"></a>
+    <a href="https://bluef00t.neocities.org/robots/index.html"><img src="https://bluef00t.neocities.org/robots/tim_right.jpg"></a> </div>
+    
     
     <p></p>
     <table></table>
-    <p>In the restless mood yet?<div class=ascii><pre><iframe style="border: 0; width: 150%; height: 42px; float:center;" src="https://bandcamp.com/EmbeddedPlayer/album=64447577/size=small/bgcol=333333/linkcol=0f91ff/track=3488324110/transparent=true/" seamless><a href="http://dandeacon.bandcamp.com/album/gliss-riffer">Gliss Riffer by Dan Deacon</a></iframe></pre></div>
-     </p>
+    <p> so hold on or we'll all fall down (<a href="https://bluef00t.neocities.org/music/backlog.txt">...</a>)</p>
+    <p><iframe style="border: 0; width: 65%; height: 42px; float:center;" src="https://bandcamp.com/EmbeddedPlayer/album=582418286/size=small/bgcol=333333/linkcol=0f91ff/track=2841354028/transparent=true/" seamless></iframe>
     <table></table>
+
+    <p>Site hand-coded by <a href="me.html">Owen B.</a> in HTML, Javascript, and CSS.</p>
     
-    <p><b>Pages/features possibly coming soon...</b> My zines, ability to switch to low-contrast theme, Wintergatan info/links, retro horror/scifi, Gravity Falls in-universe TV shows, and MORE...</p>
+    <a href="https://sturner-artblog.tumblr.com/post/185043540991/clickbait-ad-mimic-that-steals-your-personal"><img src="https://66.media.tumblr.com/5fb40b574fb56555d974a45a5c44db86/tumblr_prvcthVeko1xhfi6ao1_250.gif"></a>
     
-    <table></table>
+    <p><b>Pages/features possibly coming down the line...</b> Finalized Lemon Demon page, additonal comics, and MORE...</p>
+    
+    <table class="divider"></table>
     <p></p>
     <p>Proud to be a part of the</p>
     <img src="./imgs/worldwideweb_badge.gif">

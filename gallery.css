@@ -1,0 +1,25 @@
+.gallery{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+    margin: auto;
+    margin-bottom: 25px;
+    padding:8px;
+    max-width: 100%;
+    min-width: 500px;
+}
+
+.galleryBox{
+    text-align: center;
+    border-bottom: 2px solid red;
+}
+
+.galleryBox p{
+	padding: 0px 5px;
+}
+
+.galleryImg{
+	border: 1px solid red; 
+	padding: 5px;
+	margin:10px;
+}

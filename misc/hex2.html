@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link href="hexgenerator.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		body{background-color: blue;}
+		content{
+			--setRadius: 40px;
+			--radius: var(--setRadius);
+		}
+		.hexagon{
+			background-color: white;
+			transition: transform 0.3s ease-out;
+		}
+	</style>
+
+
+</head>
+<body>
+
+	<p></p>
+	<br>
+
+	<content>
+		<div id="hexHeader"></div>
+	</content>
+
+	<script type="text/javascript" src="hexgenerator.js"></script>
+	<script type="text/javascript">
+		//list all of the hexagons in an array called hex
+		var hexs = document.getElementsByClassName("hexagon");
+		console.log(hexs);
+		console.log(hexs.length);
+
+		//this function taken from  https://jsfiddle.net/L7g1ubkj/
+		function calculateDistance(elem, mouseX, mouseY) {
+        	return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offsetLeft+(elem.offsetWidth/2)), 2) + Math.pow(mouseY - (elem.offsetTop+(elem.offsetHeight/2)), 2)));
+        }
+
+        //when the mouse moves.....
+        document.getElementsByTagName("html")[0].onmousemove = function(event){hexUpdate(event);}
+
+        //update it
+        function hexUpdate(e){
+        		//min percentage size of the hexagon
+        		var minsize = 0.65;
+        		//the radius in which it takes effect
+        		var radius = 200;
+        		//percentage size change per pixels away
+        		var rate = (1-minsize)/radius;
+        	//for every hexagon set the radius to a percentage of setRadius
+        	for (var i=0; i<hexs.length; i++){
+        		var dist = calculateDistance(hexs[i], e.clientX, e.clientY);
+        		var scaledSize = minsize + rate*dist;
+
+        		if (dist < radius){
+        			//inside that radius, scale according to distance
+        			hexs[i].style.setProperty('transform', 'scale(' + scaledSize + ',' + scaledSize + ')');
+        		}else{
+        			hexs[i].style.setProperty('transform', 'scale(1)');
+        		}
+			};
+        }
+
+		console.log("end");
+	</script>
+
+</body>
+</html>

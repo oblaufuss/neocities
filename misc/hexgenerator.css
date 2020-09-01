@@ -1,0 +1,26 @@
+		content{
+			--radius: 40px;
+			margin-top: 200px;
+		}
+		#hexHeader{
+		}
+		.hexrow{
+			height: calc(2 * var(--radius) + 4px);
+			margin-top: calc(var(--radius)/-2);
+		}
+		.hexrow2{
+			height: calc(2 * var(--radius) + 4px);
+			margin-top: calc(var(--radius)/-2);
+			margin-left: calc((var(--radius) + 2px) * (97/56) / 2);
+		}
+		.hexcol{
+			float: left;
+			width: calc(var(--radius) * (97/56) + 4px);
+		}
+		.hexagon{
+			position: fixed;
+			width: calc(var(--radius) * (97/56));
+			height: calc(var(--radius) * 2);
+			clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
+		}
