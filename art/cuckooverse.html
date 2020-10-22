@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>bees laugh in atbash</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="../style.css" rel="stylesheet" type="text/css">
+	<link href="../lightbox.css" rel="stylesheet" type="text/css">
+
+	<style type="text/css">
+		body{
+			--char-col-width: 500px;
+		}
+		#char-container{
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.char-box{
+			flex: 0 45%;
+			margin:10px;
+			background-color:black;
+		}
+		.char-icon-container{
+			margin:auto;
+			padding:10px;
+			display:flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.char-icon{
+			margin:5px;
+			padding: 4px;
+			width: calc(var(--char-col-width)/3 - 30px);
+			height: calc(var(--char-col-width)/3 - 30px);
+			user-select: none;
+			-webkit-user-drag:none;
+		}
+		.active, .char-icon:hover {
+  			border: 2px solid red;
+  			padding: 2px;
+		}
+		.char-caption{
+			display: none;
+			text-align: left;
+			background-color: #444;
+			margin:5px;
+			padding: 0px 10px 0px;
+			width:90%;
+			height: auto;
+			transition: width 1s;
+		}
+		.char-caption img{
+			max-width:calc(var(--char-col-width)/3 - 30px);
+			float:left;
+			margin: 0px 20px 0px 0px;
+		}
+		.gallery-wrapper{
+			width: calc(90% + 20px);
+			align-items: center;
+			background-color: black;
+			margin:auto;
+			margin-top:10px;
+			padding: 10px;
+		}
+		@media (max-width: 1200px){
+			.char-box{
+				flex: 0 90%;
+			}
+		}
+		@media (max-width: 500px){
+			.char-box{
+				margin: 0px;
+				flex: 0 100%;
+			}
+			.char-icon{
+				width: calc(80vw/2 - 30px);
+    			height: calc(80vw/2 - 30px);
+			}
+		}
+	</style>
+</head>
+<body id="top">
+	
+	<nav>
+		<!--fix this--><div id=sidebar><script type="text/javascript" src="../sidebar.js"></script></div>
+	</nav>
+
+	<h2>Cuckooverse/Flugelverse</h2>
+	<h3>A sandbox universe inspired by the Rob Cantor song <a href="https://www.youtube.com/watch?v=GHGWyIh6ooI">Cuckoo</a>.</h3>
+
+	<table></table>
+
+	<div id="char-container">
+		<div class="char-box">
+			<h3>&#9881; 1870s (Eddie) &#9881;</h3>
+			<div class="char-icon-container">
+				<div class="char-caption" id="Maxmillien-Flugelmeyer"><p><strong>Maxmillien Flugelmeyer</strong>  is a weaselly clockmaker who is obsessed with the idea of being rich. 23 years old and probably 5 pounds soaking wet, Max spends all of his time designing elaborate deathtrap clocks to either hypnotize or maim their victims. The most fun do both. He is incredibly conceited and temperamental, and can be set off very easily. He is surprisingly gullible for a self-proclaimed "genius". His clocks work mostly by way of hypnotic music, written by the bellkeeper upstairs, Peter.</p></div>
+				<div class="char-caption" id="Behruz-Rostami"><p><strong>Behruz Rostami</strong>  is Max’s assistant. He’s an amputee by way of an industrial accident, and began working with max to pay for the intricate, delicate clockwork prosthetic that Max made for him. Behruz is a little bit of an enabler, only if its because he thinks its funny to watch Max fail miserably at something and nearly lose a finger from one of his own inventions. Behruz is much more approachable and friendly than Max, and while enabling him to create a new level of stupidity, also functions as a moral center for Max’s schemes.</p></div>
+				<div class="char-caption" id="Peter-Geiwitz"><p><strong>Peter Geiwitz</strong>  is the bellkeeper, who lives blissfully ignorant of the chaos below him. He writes the songs that Max then programs his clocks to play. Peter is a bit ethereal and lives seemingly untouched by time or gravity. He sees instruments as friends, and is very gentle with them. Peter is mostly unaware of the fact that he has a proto-superpower in the strange effects his music has on the listener. He spends most of his time playing instruments, caring for them, and thinking about the portions of his life past. Peter’s room in the tower has a window with segments missing to see the stars, a way to remind him of his lost partner and their influence on his life.</p></div>
+				<div class="char-caption" id="Penn-Russell"><p><strong>Penn Russell</strong>  is an apothecary/doctor who took care of Behruz after Behruz lost his arm. He’s caring and attentive, and allowed Behruz to live with him while he was healing, before Behruz became Max’s assistant and moved in with Max.</p></div>
+				<div class="char-caption" id="Kien-Connelly"><p><strong>Kien Connelly</strong>  is an Irish immigrant and a tailor, having come to the US with his impoverished family as a young boy to escape famine in his home country. He speaks with an Irish accent, though he intentionally suppresses it when talking to anyone other than his family and those he trusts. Through years of careful dedication and mentorship, Kien worked his way to being one of the most popular tailors among the high class society of the city. He is the only tailor who will see Max (out of pity), and he is typically working with clients or talking to the jeweler next door, who gifted him the purple brooch he often wears.</p></div>
+				<div class="char-caption" id="Emrah-Demir"><p><strong>Emrah Demir</strong>  is a jeweler who works in the shop beside Kien’s, and seems to be blissfully unaware of the fact that Kien has a (frankly very obvious) crush on him. He meets Max early on when he tries to strike a deal with Max to enhance his pocketwatches with precious stones, only to nearly lose a finger to one of Max’s trap clocks and decide that maybe Max is a little insane. The deal is back on later after Max grows up a little, but until then, he spends his days crafting and selling fine jewelry and metalwork.</p></div>
+				<img class="char-icon" src="thumbs/cuckoo-max.jpg" onclick="expandDescrip(this)" title="Maxmillien Flugelmeyer">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-behruz.jpg" title="Behruz Rostami">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-peter.jpg"  title="Peter Geiwitz">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-penn.jpg"  title="Penn Russell">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-kien.jpg"  title="Kien Connelly">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-emrah.jpg"  title="Emrah Demir">
+			</div>
+		</div>
+		<div class= "char-box">
+			<h3>&#9881; 2010s (<a href="https://www.instagram.com/quicksilverace/">QuicksilverAce</a>) &#9881;</h3>
+			<div class="char-icon-container">
+				<div class="char-caption" id="Howard-Flugelmeyer"><p><strong>Howard Flugelmeyer</strong>  is Max's great-grandson and a famed clockmaker. Once an idealistic inventor, nowadays he continues his business of hypnotizing the city’s orphans to work in subhuman conditions making clocks. He's cartoonishly evil, and his superpower is his hypnotic gaze which forces anyone who makes eye contact to obey his commands.</p></div>
+				<div class="char-caption" id="Ardalan-Aragona"><p><strong>Ardalan Aragona</strong>  is Howard's assistant, and he hates his job. Somehow, he's completely immune to Howard’s hypnosis, which is probably the only reason he's still alive. Alan keeps the business running smoothly almost singlehandedly, but is debating sabotaging his boss’ business from the inside. His only friend and drinking buddy is a man he knows as "Eddie" (David).</p></div>
+				<div class="char-caption" id="David-Andrews"><p><img src="thumbs/cuckoo-david.jpg" title="David Andrews"><strong>David Andrews</strong> (aka <strong>Edu</strong>)  is one of the city's prominent superheroes. His superpower is audiokinesis. His main concern is Howard Flugelmeyer, and has no idea how Alan hasn't figured out who he is yet. After helping bust a shady research lab that Howard owns he becomes roommates with the unfortunate Dr. Gard.</p></div>
+				<div class="char-caption" id='Jonathan-Slick'><p><img src="thumbs/cuckoo-jay.jpg" title="Jay Slick"><strong>Jonathan "Jay" Slick</strong> (aka <strong>Juno</strong>)  is the other half of the dysfunctional duo of heroes. His superpower is chronokinesis. He's a cynical, depressive stoner type and drives David up the wall with his antihero attitude and habit of breaking into David's apartment at weird hours. Jay is Joey's cousin.</p></div>
+				<div class="char-caption" id="Dr.-Stephen-Gard"><p><img src="thumbs/cuckoo-stevie1.jpg" title="Dr. Stephen Gard"><strong>Dr. Stephen "Stevie" Gard</strong> was a brilliant biologist who was forced by the Flugelmeyer company to do experiments involving phoenix DNA, using himself as the test subject. He now is a sort of mutant were-chicken who can turn into a giant humanoid rooster. He eventually learns to control his transformations and the phoenix-form's pyrokinesis, but he has to go "full chicken" to use it.</p><span style="clear:left"></span></div>
+				<div class="char-caption" id="Zarin-'Grip'-Lowell"><p><strong>Zarin Lowell</strong>, usually only known as <strong>Grip</strong>, is an investigative reporter. His superpower is the ability to stop time for 15 seconds at a time. Rumor has it he and Juno exchanged real names and then promtly forgot. He gets captured by Flugelmeyer for a while when trying to bust him for using child labor.</p></div>
+				<div class="char-caption" id="Joey-Lartigue"><p><strong>Joey Lartigue</strong> is Flugelmeyer's head of security and the guard assigned to making sure Grip doesn't escape. His superpower is telepathy, but usually doesn't tell anyone. He's paid well but has the attitude of every exhausted minimum wage worker. Like most significant workers at Flugelmeyer co, he only hasn't quit because he fears (with good reason) that Howard will kill him if he tries.</p></div>
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-howard.jpg" title="Howard Flugelmeyer">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-alan.jpg" title="Ardalan Aragona">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-edu.jpg" title="David Andrews">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-juno.jpg" title="Jonathan Slick">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-stevie2.jpg" title="Dr. Stephen Gard">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-grip.jpg" title="Zarin 'Grip' Lowell">
+				<img class="char-icon" onclick="expandDescrip(this)" src="thumbs/cuckoo-joey.jpg" title="Joey Lartigue">
+				
+		</div>
+		</div>
+	</div>
+
+	<h2 id="gal">Gallery</h2>
+	<table></table>
+	 <div class="gallery-wrapper">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/753456384455999529/max2.png" title="Maxmillien Flugelmeyer" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765294639791865886/image0-1.jpg" title = "Max" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764257421995671553/unknown.png" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764254448586981397/unknown.png" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765294639179366410/image2.png" title="Behruz" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765293928990769223/IMG_20200811_161051651.jpg" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/744591511538368623/unknown.png" title="Behruz and Alan" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/765291572102692965/IMG_20200919_213915725.jpg" title="Penn treating Behruz afer his accident" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245491067781190/IMG_20200902_210826799.jpg" title="Max and Peter" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/751257630080499802/unknown.png" title=" Peter and his partner" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/765291571712884756/IMG_20200902_134722904.jpg" title="A younger Peter and his partner" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764253984361807922/unknown.png" title="Emrah" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/761043150776303626/unknown.png" title="An overworked Kien" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/765281056479641670/image0.png" title="Max and Howard meeting via time travel shenanigans" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764258902203826206/unknown.png" title="Max hypnotizing Alan for revenge" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/745106636791873576/image0.jpg" title="David and Jay notice Max." class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764235128213864448/unknown.png" title="Howard Flugelmeyer" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764234374433603594/image0.png" title="Alan Aragona" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245491419578428/IMG_20200817_174123542.jpg" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764238775349805066/image2.jpg" title="Young intern Alan" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765293193938993152/IMG_20200927_085902892.jpg" title="Howard starts down the slippery slope of using his hypnosis for personal gain" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245799172308992/IMG_20200830_135525869.jpg" title="Max vs. Howard at his same age" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764238774527197184/image1.jpg" title="Child Howard in his hypnosis-proof glasses" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/760645591067394048/unknown.png" title="Child Howard in his hypnosis-proof glasses" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764236724322697226/chicken_man.png" title="Dr. Gard, held captive after his first transformation." class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765293194316742676/IMG_20200923_161938101.jpg" title="David meets the human Dr. Gard" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/755953780151025685/763590481602543626/image0.jpg" title="David meets the human Dr. Gard, part 2 (by <a href='https://ame-in-the-rain.tumblr.com/'>Ame</a>)" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245798854590514/IMG_20200921_114746658.jpg" title="Edu (David) and Juno (Jay) rescuing Steven Gard" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765294640223223809/image0.jpg" title="Joey the security guard" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/750182870894772265/unknown.png" title="Young cousins Jay and Joey" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://images-ext-1.discordapp.net/external/3nLcomKw4eU_Y2UOMWp99og5XkezvJofwotAoQTYniE/%3Fsize%3Dl/https/instagram.com/p/CDm2Qh3Dz0L/media?width=714&height=424" title="Young cousins Jay and Joey" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765299278024671232/117161216_1923064634494943_326749079965779413_n.jpg" title="Teenage Jay and Joey" class="gallery g1" onclick="showGallery('g1',this);">
+	 </div>
+
+	<h2 id="writing">Writing</h2>
+	<table></table>
+	<p>"<a href="https://www.quotev.com/quiz/13158135/What-Cuckooverse-character-are-you">What Cuckooverse character are you?</a>" personality quiz</p>
+	<table></table>
+	<p><a href="https://docs.google.com/document/d/1FweVCbXdDENc2fgAjbopHCN3CPAGWrfOKWUMos1jjVo/edit?usp=drivesdk">the only sane one</a> (by Ace, ~1,000 words): David gets to know his new enormous, feathered roommate. </p>
+	<p><a href="https://docs.google.com/document/d/16Pmn2M0p6xY8ZYcxFm-faPfjpvmL1ipIvqZQs7wBTeM/edit?usp=drivesdk">Coffee Break with "Eddie"</a> (by bluef00t, ~900 words): Ardalan and David have a little chat.</p>
+	<p><a href="https://docs.google.com/document/d/154rVvAgacpUN9ymONaIy2x-qv0uXJZUq3KDMi0nEjq8/edit?usp=drivesdk">The Bellkeeper's Partner</a> (by Eddie, ~1,600 words): Behruz finds out more about Peter's past.</p>
+	<p><a href="https://docs.google.com/document/d/1MQ3T4RfIB_0QmoFp8WP35FwUP_hZQB4Q4HtfTh4Hmys/edit?usp=sharing">Grip</a> (by bluef00t, ~8,800 words): How Grip got locked in a cell 8 stories beneath the Flugelmeyer building, and more importantly, how he gets out.</p>
+	<p></p>
+
+	
+	<h4><a href="#top" rel="nofollow">Back to top</a></h4>
+
+<p></p>
+<div class="container" id="imagebg" onclick="closeModal()">
+  <div id="imgtext"></div>
+      <a id="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a id="next" onclick="plusSlides(1)">&#10095;</a>
+        <img id="expandedImg" style="border:0px">
+    </div>
+
+<script type="text/javascript" src="../lightbox2.js"></script>
+
+<script type="text/javascript">
+
+	function expandDescrip(ico){
+		ico.classList.toggle("active");
+
+		var id = ico.title.replace(/\s+/g, '-');
+		var panel = document.getElementById(id);
+
+		//hide all other captions & deactivate
+    var captions = document.getElementsByClassName("char-caption");
+  	for (j=0; j < captions.length; j++){
+  		if (captions[j] !== panel && captions[j].style.display === "block"){
+  			captions[j].style.display = "none";
+  		} 
+  	}
+  	var icons = document.getElementsByClassName("char-icon");
+  	for (j=0; j < icons.length; j++){
+  		if (icons[j] !== ico && icons[j].classList.contains("active")){
+  			icons[j].classList.toggle("active");
+  		} 
+  	}
+
+    if (panel.style.display === "block") {
+    	panel.style.display = "none";
+    } else {
+    	panel.style.display = "block";
+    }
+	}
+</script>
+
+</body>
+
+</html>
