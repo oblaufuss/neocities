@@ -23,7 +23,7 @@ html += '<p><a href="https://bluef00t.neocities.org/links.html">links</a></p>';
 
 html += 'ME';
 html += '<p><a href="https://bluef00t.neocities.org/me.html">about</a></p>';
-html += '<p><a href="contact.html">my links</a></p>';
+html += '<p><a href="https://bluef00t.neocities.org/contact.html">my links</a></p>';
 html += '<p><a href="https://bluef00t.neocities.org/awards.html">webrings</a></p>';
 html += '<a href="https://neocities.org/"><img src="https://bluef00t.neocities.org/imgs/neocities.gif"></a>';
 

@@ -1,6 +1,4 @@
 
-
-
 html{
    width: 100%;
    background-color: black;
@@ -11,27 +9,43 @@ body {
   color: #EFEFEF;
   background-color: #242424;
   font-family: "Lucida Sans Unicode", "Trebuchet MS", Sans-Serif;
+  letter-spacing: 0.011em;
+  line-height: 1.4;
   text-align: center;
   margin-left: 140px;
   margin-right: 40px;
   margin-bottom: 50px;
   max-width: 1600px;
-  min-width: 500px;
   border:12px solid transparent;
   border-image: url(https://bluef00t.neocities.org/imgs/border.png) 14 round;
+  padding: 12px;
   overflow-x: hidden;
+}
+body img{
+  max-width:100%;
+}
+body iframe{
+  max-width:100%;
 }
 topbar{display:none;}
 @media (max-width: 900px), (max-aspect-ratio: 3/4) {
   body{
-    margin-left:20px;
-    margin-right:20px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   sidebar{display:none;}
   topbar{
     display:block;
     margin:auto;
     font-size: 200%
+  }
+}
+@media (max-width: 500px){
+  body{
+    margin-left:0px;
+    margin-right:0px;
+    border:10px solid transparent;
+  border-image: url(https://bluef00t.neocities.org/imgs/border.png) 14 round;
   }
 }
 
@@ -46,7 +60,7 @@ a:visited{
 }
 
 nav {
-  font-family: "Lucida Sans Unicode";
+  font-family: "Lucida Sans Unicode", "Trebuchet MS", Sans-Serif;
   text-align:center;
 }
 
@@ -134,6 +148,7 @@ UL{
 .divider{
   width: 60%;
   border: 4px solid aqua;
+  margin:auto;
 }
 
 footer {
