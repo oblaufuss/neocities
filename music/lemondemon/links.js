@@ -51,6 +51,5 @@ var links = [
 	'<a href="https://www.youtube.com/playlist?list=PL4Nm4rhtI5e7vXdVyDCgVOMf9ipX1L261">Not For Resale soundtrack</a>',
 	'<a href="https://www.youtube.com/watch?v=ygI-2F8ApUM">Brodyquest</a>',
 	'<a href="https://www.youtube.com/playlist?list=PL4OE-zkbHahzMB_WmYptQ2-ohM67JBqF4">Ernest Roulette</a>',
-	'<a href="https://www.youtube.com/watch?v=GMh7awqGpBo&feature=emb_title">Chocolate Sauce</a>',
-	'<a href="https://gumroad.com/bluef00t#DBCTN">bluef00t\'s Lemon Demon minizine</a>'
+	'<a href="https://www.youtube.com/watch?v=GMh7awqGpBo&feature=emb_title">Chocolate Sauce</a>'
 ]
