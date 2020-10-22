@@ -45,25 +45,44 @@
       }
       .gallerybar{
       margin:auto;
-      padding: 16px 8px 16px;
+      padding: 12px 0px 2px;
       width: 95%;
       bottom: 0;
       background-color: black;
       display: flex;
       justify-content: flex-start;
-      overflow-x: auto;
+      overflow-x: hidden;
     }
     .gallerybar img{
       max-height: 25vh;
+      max-width: 1000%;
       flex: initial;
-      border: 1px solid red;
-      padding: 2px;
+      border: 2px solid red;
+      padding: 0px;
       margin: 5px;
     }
     #title{
       display:none;
       margin:auto;
     }
+
+    .accordion {
+  background-color: black;
+  font-family:inherit;
+  font-size: inherit;
+  color:inherit;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px 24px 0px 24px;
+  border: 2px solid #444;
+  outline: none;
+  margin: 20px;
+  transition: 0.4s;
+}
+      .panel{
+  margin:auto;
+  max-width: 80%;
+}
 
     @media (max-width: 650px), (max-aspect-ratio: 3/4){
       .ascii{
@@ -73,7 +92,15 @@
         display:block;
         width: 85%;
       }
+      .panel{
+        max-width: none;
+      }
     }
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #444;
+}
   
     </style>
     
@@ -95,42 +122,39 @@
       <!--<img src="./imgs/construction.gif">-->
       <p><img src="./imgs/welcome.gif"></p>
     <table class="divider"></table>
-    
-    <br>
-    
-    <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#2863e0', 'E1E11B7WO');kofiwidget2.draw();</script> 
-    
-<div class="accordion">
-  <label for="t1" class="accordionitem"><h4><img src="https://bluef00t.neocities.org/imgs/update.gif"> (click me)</h4></label>
-  <input type="checkbox" id="t1"/>
-      <UL style="list-style-position: inside;" class="hiddentext recent">
-        <LI>Slightly rearranged the <a href="music">Music</a> page and added a <a href="music/albums.html">favorite albums</a> page.</LI>
-        <LI>New collected <a href="/zines">comic zine</a>.</LI>
-        <LI>New <a href="robots">robot</a> from my Musical Machines class.</LI>
-        <LI>New <a href="misc/articles.html">article</a> showcasing some of my favorite artists.</LI>
+  <button class="accordion"><h4>Updates (10/21/2020)</h4></button>
+  <div class="panel">
+     <UL style="list-style-position: inside;" class="hiddentext recent">
+        <LI>Reworked the <a href="art">art gallery</a></LI>
+        <LI>Page explaining the shared OC universe <a href="art/cuckooverse.html">Cuckooverse</a>.</LI>
+        <LI>I have a <a href="music/telephony.html">college radio show</a> now.</LI>
+        <LI>Article reviewing all of <a href="music/greentie.html">Andrew Horowitz's</a> Tally Hall songs.</LI>
+        <LI><a href="https://picrew.me/image_maker/270917">Sciencesona picrew</a> added to <a href="https://bluef00t.neocities.org/music/tmbg/tmbgstuff.html">TMBG stuff</a>.</LI>
+        <LI>New sidebar section: <a href="sites.html">code</a>. Currently contains neocities sites I've made.</LI>
       </UL>
   </div>
+  <script type="text/javascript" src="accordion.js"></script>
 
   <table></table>
 
-  <a href="art.html"><h2 class="galleryheader">ART + ILLUSTRATION</h2></a>
- <div class="gallerybar"> <a href="art.html"><img src="https://66.media.tumblr.com/936a25dde5b15e09734ad5b02519b2a9/c67bc59f049d192c-ea/s1280x1920/f1ea1fa5d7afacd2c74489b832f9d5d1e828e175.jpg"></a>  
-  <a href="art.html"><img src="https://66.media.tumblr.com/ae8c45c413841ef85a66260ab2ae3de4/tumblr_plce8s7zwq1wlcwbpo1_1280.png"></a>
-  <a href="art.html"><img src="https://66.media.tumblr.com/71b68280f7fb013c56462e62d56c03b7/e1251d3cff71f301-8f/s2048x3072/174f5fad407b86f1c064ca64fdc8a9bae1181ea7.png"></a>
-  <a href="art.html"><img src="https://66.media.tumblr.com/c3b6b0c69ecc2654cefc0fc9dd54fbe1/tumblr_ov9df8PAEZ1u330mco1_1280.jpg"></a>  
-  <a href="art.html"><img src="https://66.media.tumblr.com/b98c23c74318b80d67a6f6d6dd74c753/ca9c71024fd46c97-98/s2048x3072/8a35b609c210e9edf73a8bc5dc745a2c94edcf2b.png"></a> 
-  <a href="art.html"><img src="https://66.media.tumblr.com/c512756c3f76a0bea5e37aa71330c17e/tumblr_pwaef8ZSs21wlcwbpo1_1280.png"></a> 
-  <a href="art.html"><img src="https://66.media.tumblr.com/6cd5a9c38056f70303417a2b47160247/tumblr_pg6l9gi00M1wlcwbpo1_1280.png"></a>
-  <a href="art.html"><img src="https://66.media.tumblr.com/130af55a690b97dac1b3bc2eab6e993c/tumblr_p0z2uh4bmI1u330mco1_1280.png"></a> </div>
+  <a href="art"><h2 class="galleryheader">ART + ILLUSTRATION</h2></a>
+ <div class="gallerybar"> <a href="art"><img src="https://66.media.tumblr.com/936a25dde5b15e09734ad5b02519b2a9/c67bc59f049d192c-ea/s1280x1920/f1ea1fa5d7afacd2c74489b832f9d5d1e828e175.jpg"></a>  
+  <a href="art"><img src="https://66.media.tumblr.com/ae8c45c413841ef85a66260ab2ae3de4/tumblr_plce8s7zwq1wlcwbpo1_1280.png"></a>
+  <a href="art"><img src="https://66.media.tumblr.com/71b68280f7fb013c56462e62d56c03b7/e1251d3cff71f301-8f/s2048x3072/174f5fad407b86f1c064ca64fdc8a9bae1181ea7.png"></a>
+  <a href="art"><img src="https://66.media.tumblr.com/c3b6b0c69ecc2654cefc0fc9dd54fbe1/tumblr_ov9df8PAEZ1u330mco1_1280.jpg"></a>  
+  <a href="art"><img src="https://66.media.tumblr.com/b98c23c74318b80d67a6f6d6dd74c753/ca9c71024fd46c97-98/s2048x3072/8a35b609c210e9edf73a8bc5dc745a2c94edcf2b.png"></a> 
+  <a href="art"><img src="https://66.media.tumblr.com/c512756c3f76a0bea5e37aa71330c17e/tumblr_pwaef8ZSs21wlcwbpo1_1280.png"></a> 
+  <a href="art"><img src="https://66.media.tumblr.com/6cd5a9c38056f70303417a2b47160247/tumblr_pg6l9gi00M1wlcwbpo1_1280.png"></a>
+  <a href="art"><img src="https://66.media.tumblr.com/130af55a690b97dac1b3bc2eab6e993c/tumblr_p0z2uh4bmI1u330mco1_1280.png"></a> </div>
 
-  <a href="zines/index.html"><h2 class="galleryheader">COMICS + ZINES</h2></a>
+  <a href="zines"><h2 class="galleryheader">COMICS + ZINES</h2></a>
   <div class="gallerybar"> <a href="https://gumroad.com/bluef00t#lttbV"><img src="https://static-2.gumroad.com/res/gumroad/6644185738036/asset_previews/154f5a3f4c214f360ea8b5ea22dd0ed4/retina/IMG_20200622_160741279.jpg"></a> <a href="https://bluef00t.tumblr.com/post/187893520847/i-know-this-has-been-done-a-hundred-times-over"><img src="https://bluef00t.neocities.org/zines/iz.jpg"></a>  <a href="/zines/index.html"><img src="https://bluef00t.neocities.org/zines/kudzuthumb.jpg"></a> 
     <a href="https://gumroad.com/bluef00t#iuAvj"><img src="https://bluef00t.neocities.org/zines/LNID.jpg"></a> 
     <a href="https://bluef00t.tumblr.com/post/169447315847/thebfoot-boo-ive-had-a-very-busy-october-but"><img src="https://bluef00t.neocities.org/zines/nkotr2017.jpg"></a> 
     <a href="https://12n-cr.tumblr.com/"><img src="https://bluef00t.neocities.org/zines/12ncr.png"></a> 
     <a href="https://bogleech.com/creepy/creepy19icemenabridged.html"><img src="https://bluef00t.neocities.org/zines/rrhz7.png"></a>  </div>
 
-  <a href="robots/index.html"><h2 class="galleryheader">PROGRAMMING + FABRICATION</h2></a>
+  <a href="robots"><h2 class="galleryheader">PROGRAMMING + FABRICATION</h2></a>
   <div class="gallerybar">
     <a href="https://bluef00t.neocities.org/robots/index.html"><img src="https://bluef00t.neocities.org/robots/argus.jpg"></a>
     <a href="https://bluef00t.neocities.org/music/tmbg/chessmasterprojects.html#lasercuts"><img src="https://bluef00t.neocities.org/music/imgs/chessmaster/minimasters.jpg"></a> 
