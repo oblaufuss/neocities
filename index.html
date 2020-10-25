@@ -41,7 +41,7 @@
         margin: 25px 0px 10px 40px;
         color:white;
         text-decoration: underline;
-        text-decoration-color: red;
+        text-decoration-color: var(--accent);
       }
       .gallerybar{
       margin:auto;
@@ -57,7 +57,7 @@
       max-height: 25vh;
       max-width: 1000%;
       flex: initial;
-      border: 2px solid red;
+      border: 2px solid var(--accent);
       padding: 0px;
       margin: 5px;
     }
@@ -110,27 +110,32 @@
 
   <!-- YES I know this next block is an absolute disaster but I think the net effect is worth it-->
     <div class="ascii"><monospace><pre>
-██████<font color="aqua">╗</font> ██<font color="aqua">╗</font>     ██<font color="aqua">╗</font>   ██<font color="aqua">╗</font>███████<font color="aqua">╗</font>███████<font color="aqua">╗</font> ██████<font color="aqua">╗</font>  ██████<font color="aqua">╗</font> ████████<font color="aqua">╗</font>
-██<font color="aqua">╔══</font>██<font color="aqua">╗</font>██<font color="aqua">║</font>     ██<font color="aqua">║</font>   ██<font color="aqua">║</font>██<font color="aqua">╔════╝</font>██<font color="aqua">╔════╝</font>██<font color="aqua">╔═</font>████<font color="aqua">╗</font>██<font color="aqua">╔═</font>████<font color="aqua">╗╚══</font>██<font color="aqua">╔══╝</font>
-██████<font color="aqua">╔╝</font>██<font color="aqua">║</font>     ██<font color="aqua">║</font>   ██<font color="aqua">║</font>█████<font color="aqua">╗</font>  █████<font color="aqua">╗</font>  ██<font color="aqua">║</font>██<font color="aqua">╔</font>██<font color="aqua">║</font>██<font color="aqua">║</font>██<font color="aqua">╔</font>██<font color="aqua">║</font>   ██<font color="aqua">║</font>   
-██<font color="aqua">╔══</font>██<font color="aqua">╗</font>██<font color="aqua">║</font>     ██<font color="aqua">║</font>   ██<font color="aqua">║</font>██<font color="aqua">╔══╝</font>  ██<font color="aqua">╔══╝</font>  ████<font color="aqua">╔╝</font>██<font color="aqua">║</font>████<font color="aqua">╔╝</font>██<font color="aqua">║</font>   ██<font color="aqua">║</font>   
-██████<font color="aqua">╔╝</font>███████<font color="aqua">╗╚</font>██████<font color="aqua">╔╝</font>███████<font color="aqua">╗</font>██<font color="aqua">║     ╚</font>██████<font color="aqua">╔╝╚</font>██████<font color="aqua">╔╝</font>   ██<font color="aqua">║</font>   
-<font color="aqua">╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚═╝      ╚═════╝  ╚═════╝    ╚═╝</font>  
+██████<font style="color:var(--link2);">╗</font> ██<font style="color:var(--link2);">╗</font>     ██<font style="color:var(--link2);">╗</font>   ██<font style="color:var(--link2);">╗</font>███████<font style="color:var(--link2);">╗</font>███████<font style="color:var(--link2);">╗</font> ██████<font style="color:var(--link2);">╗</font>  ██████<font style="color:var(--link2);">╗</font> ████████<font style="color:var(--link2);">╗</font>
+██<font style="color:var(--link2);">╔══</font>██<font style="color:var(--link2);">╗</font>██<font style="color:var(--link2);">║</font>     ██<font style="color:var(--link2);">║</font>   ██<font style="color:var(--link2);">║</font>██<font style="color:var(--link2);">╔════╝</font>██<font style="color:var(--link2);">╔════╝</font>██<font style="color:var(--link2);">╔═</font>████<font style="color:var(--link2);">╗</font>██<font style="color:var(--link2);">╔═</font>████<font style="color:var(--link2);">╗╚══</font>██<font style="color:var(--link2);">╔══╝</font>
+██████<font style="color:var(--link2);">╔╝</font>██<font style="color:var(--link2);">║</font>     ██<font style="color:var(--link2);">║</font>   ██<font style="color:var(--link2);">║</font>█████<font style="color:var(--link2);">╗</font>  █████<font style="color:var(--link2);">╗</font>  ██<font style="color:var(--link2);">║</font>██<font style="color:var(--link2);">╔</font>██<font style="color:var(--link2);">║</font>██<font style="color:var(--link2);">║</font>██<font style="color:var(--link2);">╔</font>██<font style="color:var(--link2);">║</font>   ██<font style="color:var(--link2);">║</font>   
+██<font style="color:var(--link2);">╔══</font>██<font style="color:var(--link2);">╗</font>██<font style="color:var(--link2);">║</font>     ██<font style="color:var(--link2);">║</font>   ██<font style="color:var(--link2);">║</font>██<font style="color:var(--link2);">╔══╝</font>  ██<font style="color:var(--link2);">╔══╝</font>  ████<font style="color:var(--link2);">╔╝</font>██<font style="color:var(--link2);">║</font>████<font style="color:var(--link2);">╔╝</font>██<font style="color:var(--link2);">║</font>   ██<font style="color:var(--link2);">║</font>   
+██████<font style="color:var(--link2);">╔╝</font>███████<font style="color:var(--link2);">╗╚</font>██████<font style="color:var(--link2);">╔╝</font>███████<font style="color:var(--link2);">╗</font>██<font style="color:var(--link2);">║     ╚</font>██████<font style="color:var(--link2);">╔╝╚</font>██████<font style="color:var(--link2);">╔╝</font>   ██<font style="color:var(--link2);">║</font>   
+<font style="color:var(--link2);">╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚═╝      ╚═════╝  ╚═════╝    ╚═╝</font>  
     </pre></monospace></div>
     <p><img id="title" src="title.png"></p>
 
       <!--<img src="./imgs/construction.gif">-->
       <p><img src="./imgs/welcome.gif"></p>
-    <table class="divider"></table>
-  <button class="accordion"><h4>Updates (10/21/2020)</h4></button>
+    <img src="https://web.archive.org/web/20091027182058/http://ca.geocities.com/grisdale@rogers.com/goobar.gif">
+    <p>Currently improving mobile compatability. Progress:</p>
+    <div style="margin:auto;height:25px; width: 250px; background-color: var(--dk); outline: 1px solid white">
+      <div style="margin-left: 0px; height: 100%; width:5%; background-color:green"></div>
+    </div>
+  <button class="accordion"><h4>Updates (10/26/2020)</h4></button>
   <div class="panel">
      <UL style="list-style-position: inside;" class="hiddentext recent">
+        <LI>Who's <a href="#rollie">this</a>?</LI>
+        <LI>Made CSS easily re-themeable for Halloween! May break down on some side pages but that will be fixed going forwards.</LI>
         <LI>Reworked the <a href="art">art gallery</a></LI>
         <LI>Page explaining the shared OC universe <a href="art/cuckooverse.html">Cuckooverse</a>.</LI>
         <LI>I have a <a href="music/telephony.html">college radio show</a> now.</LI>
         <LI>Article reviewing all of <a href="music/greentie.html">Andrew Horowitz's</a> Tally Hall songs.</LI>
         <LI><a href="https://picrew.me/image_maker/270917">Sciencesona picrew</a> added to <a href="https://bluef00t.neocities.org/music/tmbg/tmbgstuff.html">TMBG stuff</a>.</LI>
-        <LI>New sidebar section: <a href="sites.html">code</a>. Currently contains neocities sites I've made.</LI>
       </UL>
   </div>
   <script type="text/javascript" src="accordion.js"></script>
@@ -138,12 +143,12 @@
   <table></table>
 
   <a href="art"><h2 class="galleryheader">ART + ILLUSTRATION</h2></a>
- <div class="gallerybar"> <a href="art"><img src="https://66.media.tumblr.com/936a25dde5b15e09734ad5b02519b2a9/c67bc59f049d192c-ea/s1280x1920/f1ea1fa5d7afacd2c74489b832f9d5d1e828e175.jpg"></a>  
+ <div class="gallerybar">
+  <a href="art"><img src="https://cdn.discordapp.com/attachments/722897840338239548/739292329864724600/mind_control.png"></a> 
+  <a href="art"><img src="https://66.media.tumblr.com/936a25dde5b15e09734ad5b02519b2a9/c67bc59f049d192c-ea/s1280x1920/f1ea1fa5d7afacd2c74489b832f9d5d1e828e175.jpg"></a>  
   <a href="art"><img src="https://66.media.tumblr.com/ae8c45c413841ef85a66260ab2ae3de4/tumblr_plce8s7zwq1wlcwbpo1_1280.png"></a>
-  <a href="art"><img src="https://66.media.tumblr.com/71b68280f7fb013c56462e62d56c03b7/e1251d3cff71f301-8f/s2048x3072/174f5fad407b86f1c064ca64fdc8a9bae1181ea7.png"></a>
   <a href="art"><img src="https://66.media.tumblr.com/c3b6b0c69ecc2654cefc0fc9dd54fbe1/tumblr_ov9df8PAEZ1u330mco1_1280.jpg"></a>  
-  <a href="art"><img src="https://66.media.tumblr.com/b98c23c74318b80d67a6f6d6dd74c753/ca9c71024fd46c97-98/s2048x3072/8a35b609c210e9edf73a8bc5dc745a2c94edcf2b.png"></a> 
-  <a href="art"><img src="https://66.media.tumblr.com/c512756c3f76a0bea5e37aa71330c17e/tumblr_pwaef8ZSs21wlcwbpo1_1280.png"></a> 
+  <a href="art"><img src="https://66.media.tumblr.com/b98c23c74318b80d67a6f6d6dd74c753/ca9c71024fd46c97-98/s2048x3072/8a35b609c210e9edf73a8bc5dc745a2c94edcf2b.png"></a>
   <a href="art"><img src="https://66.media.tumblr.com/6cd5a9c38056f70303417a2b47160247/tumblr_pg6l9gi00M1wlcwbpo1_1280.png"></a>
   <a href="art"><img src="https://66.media.tumblr.com/130af55a690b97dac1b3bc2eab6e993c/tumblr_p0z2uh4bmI1u330mco1_1280.png"></a> </div>
 
@@ -165,16 +170,18 @@
     
     <p></p>
     <table></table>
-    <p> so hold on or we'll all fall down (<a href="https://bluef00t.neocities.org/music/backlog.txt">...</a>)</p>
-    <p><iframe style="border: 0; width: 65%; height: 42px; float:center;" src="https://bandcamp.com/EmbeddedPlayer/album=582418286/size=small/bgcol=333333/linkcol=0f91ff/track=2841354028/transparent=true/" seamless></iframe>
+    <div style="display:flex;flex-direction: row; justify-content: center" id="rollie">
+      <img src="https://encounters-ltd.neocities.org/ween20/mon2.png" style="align-self: center;">
+      <p style="text-align: left"> You encounter a wild <strong>Rollie</strong>!<br>
+        "Rollie is both the thing I made for my robotics final, and the main reason I failed robotics. They were intended to act as a hospital assistant and help streamline the process of producing vaccines and antibiotics, but I didn't finish in time cause I was too busy fleshing out their neural network. All they can really do now, medical-wise, is give people the common cold when touched."<br>
+        Remember to <strong>wash your hands</strong>!
+        <br>
+        <small>Thank you <a href="https://encounters-ltd.neocities.org/">Encounters!</a></small>
+      </p>
+    </div>
     <table></table>
-
-    <p>Site hand-coded by <a href="me.html">Owen B.</a> in HTML, Javascript, and CSS.</p>
-    
-    <a href="https://sturner-artblog.tumblr.com/post/185043540991/clickbait-ad-mimic-that-steals-your-personal"><img src="https://66.media.tumblr.com/5fb40b574fb56555d974a45a5c44db86/tumblr_prvcthVeko1xhfi6ao1_250.gif"></a>
-    
-    <p><b>Pages/features possibly coming down the line...</b> Finalized Lemon Demon page, additonal comics, and MORE...</p>
-    
+    <p> I'm inspired by events to remember the exits in back of me (<a href="music/backlog.txt">...</a>)</p>
+    <p><iframe style="border: 0; width: 65%; height: 42px; float:center;" src="https://bandcamp.com/EmbeddedPlayer/album=2352129954/size=small/bgcol=333333/linkcol=e99708/track=2507888333/transparent=true/" seamless></iframe>
     <table class="divider"></table>
     <p></p>
     <p>Proud to be a part of the</p>

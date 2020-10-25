@@ -1,12 +1,12 @@
 
 .gallery{
-  border: 1px solid red; 
+  border: 1px solid var(--accent); 
     padding: 5px; 
     height: 200px;
 }
 #imgtext{
   padding: 5px 0px 10px;
-  background-color: black;
+  background-color: var(--dk);
 }
 .container{
   display: none;
@@ -49,5 +49,6 @@
 /* On hover, add a black background color with a little bit see-through */
 #prev:hover,
 #next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--link2);
+  background-color: var(--dk);
 }
