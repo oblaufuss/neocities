@@ -4,7 +4,7 @@
   --bg-dk: #242424;
   --lgt-txt: white;
   --bg-accent:purple;
-  --accent: #ea7700;
+  --accent: #ff8200;
   --link: yellow;
   --link2:#9eff6d;
 }
@@ -55,8 +55,8 @@ topbar{display:none;}
   body{
     margin-left:0px;
     margin-right:0px;
-    border:10px solid transparent;
-  border-image: url(https://bluef00t.neocities.org/imgs/border.png) 14 round;
+    border:8px solid var(--bg-accent);
+  border-image: url(borderpurple.png) 8 round;
   }
 }
 
