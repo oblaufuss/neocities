@@ -25,6 +25,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+body img, body iframe{
+	max-width: 100%;
+}
 ol, ul {
 	list-style: none;
 	list-style-type: disc;
@@ -39,8 +42,14 @@ ol, ul {
 			position: relative;
 			font-family: Lato, Arial;
 			font-weight: normal;
-			font-size: calc(13px + (26 - 12) * ((100vh - 300px) / (1600 - 300)));
+			font-size: calc(10px + (26 - 12) * ((100vh - 300px) / (1600 - 300)));
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) inset;
+		}
+		@media (orientation:portrait){
+			body{
+				max-width: 100%;
+				margin: 0px;
+			}
 		}
 		header{
 			display: block;
@@ -58,6 +67,7 @@ ol, ul {
 		header img{
 			max-height: 99px;
 			margin-top: -99px;
+			max-width: none;
 		}
 		.navbar{
 			width: 100%;
