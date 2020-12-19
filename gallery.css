@@ -5,13 +5,11 @@
     margin: auto;
     margin-bottom: 25px;
     padding:8px;
-    max-width: 100%;
-    min-width: 500px;
-}
+    max-width: 100%;}
 
 .galleryBox{
     text-align: center;
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid var(--accent);
 }
 
 .galleryBox p{
@@ -19,7 +17,7 @@
 }
 
 .galleryImg{
-	border: 1px solid red; 
+	border: 1px solid var(--accent); 
 	padding: 5px;
 	margin:10px;
 }

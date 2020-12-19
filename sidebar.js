@@ -8,8 +8,8 @@ html+= '<a href="https://bluef00t.neocities.org/"><img src="https://bluef00t.neo
 
 html += '<br>';
 html += 'CREATIONS';
-html += '<p><a href="https://bluef00t.neocities.org/art.html">art</a></p>';
-html += '<p><a href="https://bluef00t.neocities.org/sites.html">code</a><img src="https://bluef00t.neocities.org/imgs/comingsoon.gif"></p>';
+html += '<p><a href="https://bluef00t.neocities.org/art">art</a></p>';
+html += '<p><a href="https://bluef00t.neocities.org/sites.html">code</a></p>';
 html += '<p><a href="https://bluef00t.neocities.org/zines">zines</a></p>';
 html += '<p><a href="https://bluef00t.neocities.org/robots">robots</a></p>';
 html += '<p><a href="https://bluef00t.neocities.org/misc">miscellany</a></p>';
@@ -32,7 +32,7 @@ var desktop = '<sidebar>' + html + '</sidebar>';
 
 //plain navigation link code
 desktop += '<topbar>';
-desktop += '» <a href="https://bluef00t.neocities.org/navigation.html" style="text-decoration:underline;">NAVIGATION</a> «';
+desktop += '<a href="https://bluef00t.neocities.org/navigation.html" style="text-decoration:underline;">NAVIGATION</a>';
 desktop += '</topbar>';
 
 var path = window.location.pathname;
