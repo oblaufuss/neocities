@@ -2,11 +2,11 @@
   --dk: black;
   --second-dk: #0F0F0F;
   --bg-dk: #242424;
-  --lgt-txt: white;
-  --bg-accent:purple;
-  --accent: #ff8200;
+  --lgt-txt:#d1d1d1;
+  --bg-accent:red;
+  --accent: green;
   --link: yellow;
-  --link2:#9eff6d;
+  --link2:#b4f494;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
   margin-bottom: 10px;
   max-width: 1600px;
   border:12px solid var(--bg-accent);
-  border-image: url(borderpurple.png) 14 round;
+  border-image: url(borderred.png) 14 round;
   padding: 12px;
   overflow-x: hidden;
 }
@@ -55,8 +55,7 @@ topbar{display:none;}
   body{
     margin-left:0px;
     margin-right:0px;
-    border:8px solid var(--bg-accent);
-  border-image: url(borderpurple.png) 8 round;
+  border-image-width:8px;
   }
 }
 
@@ -143,7 +142,22 @@ UL{
   text-align:left;
 }
 
-.panel {
+.accordion {
+  background-color: black;
+  font-family:inherit;
+  font-size: inherit;
+  color:inherit;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px 24px 0px 24px;
+  border: 2px solid #444;
+  outline: none;
+  margin: 20px;
+  transition: 0.4s;
+}
+.panel{
+  margin:auto;
+  max-width: 80%;
   overflow: hidden;
   display: none;
 }
@@ -164,4 +178,62 @@ display:none;
   left: 0;
   padding: 1rem;
   text-align: center;
+}
+
+.header-link{
+  font-weight: bold;
+  color:white;
+        text-decoration: underline;
+        text-decoration-color: var(--accent);
+      }
+.header-link:hover{
+        transition: 0.25s;
+        color: var(--link);
+      }
+
+/* gallery stuff */
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+    margin: auto;
+    margin-bottom: 25px;
+    padding:8px;
+    max-width: 100%;}
+
+.galleryBox{
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+}
+
+.galleryBox p{
+  padding: 0px 5px;
+}
+
+.galleryImg{
+  border: 1px solid var(--accent); 
+  padding: 5px;
+  margin:10px;
+}
+
+/*index page stuff*/
+.li1{
+  text-align: left;
+  background-color: var(--second-dk);
+  padding: 1px 10px 20px 20px;
+  border-bottom: 4px solid var(--accent);
+  width: 85%;
+  margin:auto;
+  margin-bottom: 10px;
+}
+.li2{
+  border-bottom-color: var(--bg-accent);
+}
+.li1 img{
+  float: right;
+  object-fit: contain;
+  max-height: 150px;
+}
+.clear{
+  clear: right; display: block;
 }
