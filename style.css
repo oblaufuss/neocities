@@ -190,31 +190,6 @@ display:none;
         color: var(--link);
       }
 
-/* gallery stuff */
-.gallery{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-    margin: auto;
-    margin-bottom: 25px;
-    padding:8px;
-    max-width: 100%;}
-
-.galleryBox{
-    text-align: center;
-    border-bottom: 2px solid var(--accent);
-}
-
-.galleryBox p{
-  padding: 0px 5px;
-}
-
-.galleryImg{
-  border: 1px solid var(--accent); 
-  padding: 5px;
-  margin:10px;
-}
-
 /*index page stuff*/
 .li1{
   text-align: left;
