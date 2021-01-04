@@ -1,12 +1,12 @@
 :root {
   --dk: black;
   --second-dk: #0F0F0F;
-  --bg-dk: #242424;
+  --bg-dk: #1f1f1f;
   --lgt-txt:#d1d1d1;
-  --bg-accent:red;
-  --accent: green;
-  --link: yellow;
-  --link2:#b4f494;
+  --bg-accent:blue;
+  --accent: #9d4b93;
+  --link: Aquamarine;
+  --link2:Aqua;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
   margin-bottom: 10px;
   max-width: 1600px;
   border:12px solid var(--bg-accent);
-  border-image: url(borderred.png) 14 round;
+  border-image: url(borderblue.png) 14 round;
   padding: 12px;
   overflow-x: hidden;
 }
@@ -185,7 +185,7 @@ display:none;
         text-decoration: underline;
         text-decoration-color: var(--accent);
       }
-.header-link:hover{
+a .header-link:hover{
         transition: 0.25s;
         color: var(--link);
       }
@@ -198,7 +198,7 @@ display:none;
   border-bottom: 4px solid var(--accent);
   width: 85%;
   margin:auto;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .li2{
   border-bottom-color: var(--bg-accent);
@@ -206,6 +206,7 @@ display:none;
 .li1 img{
   float: right;
   object-fit: contain;
+  margin: 20px 10px 5px 15px;
   max-height: 150px;
 }
 .clear{

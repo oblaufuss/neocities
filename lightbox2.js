@@ -36,9 +36,12 @@ function expand(imgs) {//for single image
         var gallery = document.getElementsByClassName(getGallery);
         var slideNo = 0;
         for (var i = 0; i<gallery.length; i++){
-          if (gallery[i].src === expandImg.src) slideNo = i;
+          if (gallery[i].src === expandImg.src){
+            slideNo = i;
+          }
         }
-        console.log(slideNo+next);
+        //console.log(gallery);
+        //console.log(slideNo+next);
         if(slideNo+next > -1 && slideNo+next < gallery.length){
           showGallery(getGallery, gallery[slideNo+next]);
         }else{
