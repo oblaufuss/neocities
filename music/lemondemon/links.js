@@ -45,11 +45,13 @@ var links = [
 	'<a href="https://neilblr.com/post/58490668107">Ariel Needs Legs</a>',
 	'<a href="https://neilblr.com/post/80311441424">Adventure game soundtrack</a>',
 	'<a href="http://monsterbreeder.com/sound/">Monster Breeder soundtrack/effects</a>',
-	'<a href="https://www.youtube.com/watch?v=DQmhCrt78Zc">What\'s Dylan Grillin\'?</a>',
+	'<a href="https://www.youtube.com/watch?v=ZI4LGTXscR4">What\'s Dylan Grillin\'?</a>',
 	'<a href="https://www.youtube.com/watch?v=pvJUFGLVvGk">The McDonaldland 500</a>',
 	'<a href="https://www.youtube.com/watch?v=WRjQl5NUzDg">Clark Kent</a>',
 	'<a href="https://www.youtube.com/playlist?list=PL4Nm4rhtI5e7vXdVyDCgVOMf9ipX1L261">Not For Resale soundtrack</a>',
 	'<a href="https://www.youtube.com/watch?v=ygI-2F8ApUM">Brodyquest</a>',
 	'<a href="https://www.youtube.com/playlist?list=PL4OE-zkbHahzMB_WmYptQ2-ohM67JBqF4">Ernest Roulette</a>',
-	'<a href="https://www.youtube.com/watch?v=GMh7awqGpBo&feature=emb_title">Chocolate Sauce</a>'
+	'<a href="https://www.youtube.com/watch?v=GMh7awqGpBo&feature=emb_title">Chocolate Sauce</a>',
+	'<a href="https://www.youtube.com/watch?v=tpqtQFKql_w">GameCube Controller</a>',
+	'<a href="https://www.youtube.com/watch?v=LFCnZ4txsew&feature=youtu.be">MouthCraft (Wild Wild Fest)</a>'
 ]
