@@ -4,9 +4,9 @@
   --bg-dk: #1f1f1f;
   --lgt-txt:#d1d1d1;
   --bg-accent:blue;
-  --accent: #9d4b93;
-  --link: Aquamarine;
-  --link2:Aqua;
+  --accent: #008a2a;
+  --link: #e0a403;
+  --link2:#dad300;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
   margin-bottom: 10px;
   max-width: 1600px;
   border:12px solid var(--bg-accent);
-  border-image: url(borderblue.png) 14 round;
+  border-image: url(bordergreen.png) 14 round;
   padding: 12px;
   overflow-x: hidden;
 }
