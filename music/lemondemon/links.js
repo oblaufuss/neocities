@@ -53,5 +53,7 @@ var links = [
 	'<a href="https://www.youtube.com/playlist?list=PL4OE-zkbHahzMB_WmYptQ2-ohM67JBqF4">Ernest Roulette</a>',
 	'<a href="https://www.youtube.com/watch?v=GMh7awqGpBo&feature=emb_title">Chocolate Sauce</a>',
 	'<a href="https://www.youtube.com/watch?v=tpqtQFKql_w">GameCube Controller</a>',
+	'<a href="https://www.youtube.com/watch?v=uoS-mbJF8l4">Lemming Demon</a>',
+	'<a href="https://www.youtube.com/watch?v=uoS-mbJF8l4">You Deliver Like a Winner</a>',
 	'<a href="https://www.youtube.com/watch?v=LFCnZ4txsew&feature=youtu.be">MouthCraft (Wild Wild Fest)</a>'
 ]
