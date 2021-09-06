@@ -2,11 +2,11 @@
   --dk: black;
   --second-dk: #0F0F0F;
   --bg-dk: #1f1f1f;
-  --lgt-txt:#d1d1d1;
-  --bg-accent:#2c869a;
-  --accent: #008a2a;
-  --link: #e0a403;
-  --link2:#dad300;
+  --lgt-txt:#d2dfdd;
+  --bg-accent:darkblue;
+  --accent: rgb(0, 138, 42);
+  --link: aqua;
+  --link2:#64b6ff;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
   margin-bottom: 10px;
   max-width: 1600px;
   border:12px solid var(--bg-accent);
-  border-image: url(bordergreen.png) 14 round;
+  border-image: url(borderblue.png) 14 round;
   padding: 12px;
   overflow-x: hidden;
 }
@@ -211,4 +211,40 @@ a .header-link:hover{
 }
 .clear{
   clear: right; display: block;
+}
+
+.linkicons-block{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    padding: 8px;
+    max-width: 100%;
+}
+
+.linkicons-block a{
+  text-decoration: none;
+    font-weight: bold;
+    font-size: 150%;
+  }
+  .linkicons-block a:hover{
+    color:var(--link2);
+  }
+
+.iconblock{
+  text-align: center;
+  margin: 10px;
+  width: calc(50% - 20px);
+  max-width:250px;
+}
+.iconblock img{
+  background-color: var(--link);
+  margin:4px;
+  border: 1px solid var(--link);
+  width: 100%;
+}
+.iconblock:hover img{
+  background-color: var(--link2);
+  margin:3px;
+  border: 2px solid var(--link2);
 }
