@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -22,7 +22,6 @@
 		.char-box{
 			flex: 0 45%;
 			margin:10px;
-			background-color:var(--dk);
 		}
 		.char-icon-container{
 			margin:auto;
@@ -40,13 +39,12 @@
 			-webkit-user-drag:none;
 		}
 		.active, .char-icon:hover {
-  			border: 2px solid var(--accent);
+  			border: 2px solid var(--accent, blue);
   			padding: 2px;
 		}
 		.char-caption{
 			display: none;
 			text-align: left;
-			background-color: #444;
 			margin:5px;
 			padding: 0px 10px 0px;
 			width:90%;
@@ -64,7 +62,7 @@
 			align-items: center;
 			justify-content: center;
 			width: calc(90% + 20px);
-			background-color: var(--dk);
+			background-color: var(--dk, black);
 			margin:auto;
 			margin-top:10px;
 			padding: 10px;
@@ -72,16 +70,6 @@
 		@media (max-width: 1200px){
 			.char-box{
 				flex: 0 90%;
-			}
-		}
-		@media (max-width: 500px){
-			.char-box{
-				margin: 0px;
-				flex: 0 100%;
-			}
-			.char-icon{
-				width: calc(80vw/2 - 30px);
-    			height: calc(80vw/2 - 30px);
 			}
 		}
 		.text-section p{
@@ -92,17 +80,27 @@
 </head>
 <body id="top">
 	
-	<nav>
-		<div id=sidebar><script type="text/javascript" src="../sidebar.js"></script></div>
-	</nav>
+	<header>
+       <nav class="sitemap">
+          <ul>
+            <li><a href="../navigation.html">Sitemap</a></li>
+          </ul>
+          <hr>
+        </nav>
+      <h1>Cuckooverse</h1>
+          <h4>A sandbox universe inspired by the Rob Cantor song <a href="https://www.youtube.com/watch?v=GHGWyIh6ooI">Cuckoo</a>.</h4>
+    </header>
 
-	<h1>Cuckooverse/Flugelverse</h1>
-	<h3>A sandbox universe inspired by the Rob Cantor song <a href="https://www.youtube.com/watch?v=GHGWyIh6ooI">Cuckoo</a>.</h3>
-
-	<table></table>
-	<h2><a href="#char-container">Characters</a> / <a href="#gal">Gallery</a> / <a href="#writing">Writing</a> / <a href="#minorchars">Minor characters</a> / <a href="#aus">AUs</a></h2>
-	<table></table>
-
+    <nav class="pagemap">
+    <ul>
+      <li><a href="#char-container">Characters</a></li>
+      <li><a href="#gal">Gallery</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#minorchars">Minor characters</a></li>
+      <li><a href="#aus">AUs</a></li>
+    </ul>
+  </nav>
+	<hr>
 	<div id="char-container">
 		<div class="char-box">
 			<h3>&#9881; 1880s (Eddie) &#9881;</h3>
@@ -143,62 +141,63 @@
 		</div>
 	</div>
 
+	<hr>
+
 	<h2 id="gal">Gallery</h2>
-	<table></table>
-	 <div class="gallery-wrapper">
+	 <div >
 	 	<!--max-->
-	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765294639791865886/image0-1.jpg" title = "Maxmillien Flugelmeyer" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/753456384455999529/max2.png" title="Max" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793516524312330240/max.jpg" title="Max full body" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/784251215449948180/unknown.png" title="Older Max" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793521590625107998/dinner.jpg" title="Older Max & Behruz" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765293928990769223/IMG_20200811_161051651.jpg" title="Max & Behruz" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765294639791865886/image0-1.jpg" title = "Maxmillien Flugelmeyer" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/753456384455999529/max2.png" title="Max" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793516524312330240/max.jpg" title="Max full body" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/784251215449948180/unknown.png" title="Older Max" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793521590625107998/dinner.jpg" title="Older Max & Behruz" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765293928990769223/IMG_20200811_161051651.jpg" title="Max & Behruz" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 	<!--behruz-->
-	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765294639179366410/image2.png" title="Behruz Rostami" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/784192303996469268/unknown.png" title="Behruz with his hair pulled back" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793593585098031114/behruz.jpg" title="Behruz full body" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765294639179366410/image2.png" title="Behruz Rostami" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/784192303996469268/unknown.png" title="Behruz with his hair pulled back" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793593585098031114/behruz.jpg" title="Behruz full body" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 	<!--penn-->
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/765291572102692965/IMG_20200919_213915725.jpg" title="Penn treating Behruz afer his accident" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793528912558293002/penn.jpg" title="Penn" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/765291572102692965/IMG_20200919_213915725.jpg" title="Penn treating Behruz afer his accident" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793528912558293002/penn.jpg" title="Penn" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 	<!--peter-->
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245491067781190/IMG_20200902_210826799.jpg" title="Max and Peter" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/751257630080499802/unknown.png" title=" Peter and his partner" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/775150694088966160/image0.png" title="Peter" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245491067781190/IMG_20200902_210826799.jpg" title="Max and Peter" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/751257630080499802/unknown.png" title=" Peter and his partner" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/775150694088966160/image0.png" title="Peter" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 	<!--emrah-->
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764253984361807922/unknown.png" title="Emrah" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764253984361807922/unknown.png" title="Emrah" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 	<!--kien-->
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/775210410260299796/IMG_20201024_202208332.jpg" title="Emrah and Kien" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/765281056479641670/image0.png" title="Max and Howard meeting via time travel shenanigans" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/775210410260299796/IMG_20201024_202208332.jpg" title="Emrah and Kien" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/765281056479641670/image0.png" title="Max and Howard meeting via time travel shenanigans" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 	<!--2000s-->
 	 	<!--howard-->
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764235128213864448/unknown.png" title="Howard Flugelmeyer" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764234374433603594/image0.png" title="Alan Aragona" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245491419578428/IMG_20200817_174123542.jpg" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793588288237207622/highlighter.jpg" title="Young intern Alan" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245799172308992/IMG_20200830_135525869.jpg" title="Max vs. young Howard, pre descent into evil" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764238774527197184/image1.jpg" title="Child Howard in his hypnosis-proof glasses" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/760645591067394048/unknown.png" title="Child Howard in his hypnosis-proof glasses" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764235128213864448/unknown.png" title="Howard Flugelmeyer" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764234374433603594/image0.png" title="Alan Aragona" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245491419578428/IMG_20200817_174123542.jpg" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793588288237207622/highlighter.jpg" title="Young intern Alan" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245799172308992/IMG_20200830_135525869.jpg" title="Max vs. young Howard, pre descent into evil" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764238774527197184/image1.jpg" title="Child Howard in his hypnosis-proof glasses" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/760645591067394048/unknown.png" title="Child Howard in his hypnosis-proof glasses" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 	<!--dr gard-->
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/760212232872919050/stevie.png" title="Dr. Gard reference" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764236724322697226/chicken_man.png" title="Dr. Gard, held captive after his first transformation." class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765293194316742676/IMG_20200923_161938101.jpg" title="David meets the human Dr. Gard" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/755953780151025685/763590481602543626/image0.jpg" title="David meets the human Dr. Gard, part 2 (by <a href='https://ame-in-the-rain.tumblr.com/'>Ame</a>)" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/760212232872919050/stevie.png" title="Dr. Gard reference" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764236724322697226/chicken_man.png" title="Dr. Gard, held captive after his first transformation." class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765293194316742676/IMG_20200923_161938101.jpg" title="David meets the human Dr. Gard" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/755953780151025685/763590481602543626/image0.jpg" title="David meets the human Dr. Gard, part 2 (by <a href='https://ame-in-the-rain.tumblr.com/'>Ame</a>)" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 	<!--david-->
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/791373272296980509/image0.jpg" title="Edu (David) by Felix 3percentlemonjuice" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/760211878550044723/edu.png" title="Edu outfit reference" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/791373272296980509/image0.jpg" title="Edu (David) by Felix 3percentlemonjuice" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/760211878550044723/edu.png" title="Edu outfit reference" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 	<!--jay-->
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/791373605228511232/image0.jpg" title="Juno (Jay) by Felix 3percentlemonjuice" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/760212064668745810/junooo.png" title="Juno outfit reference (outdated character design)" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245798854590514/IMG_20200921_114746658.jpg" title="Edu (David) and Juno (Jay) rescuing Steven Gard" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/791373605228511232/image0.jpg" title="Juno (Jay) by Felix 3percentlemonjuice" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/760212064668745810/junooo.png" title="Juno outfit reference (outdated character design)" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/764245798854590514/IMG_20200921_114746658.jpg" title="Edu (David) and Juno (Jay) rescuing Steven Gard" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 	<!-- joey-->
-	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765294640223223809/image0.jpg" title="Joey the security guard" class="gallery g1" onclick="showGallery('g1',this);">
-	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/751819828163248138/unknown.png" title="Joey in casual clothes" class="gallery g1" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/275371719055769601/765294640223223809/image0.jpg" title="Joey the security guard" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
+	 	<img src="https://cdn.discordapp.com/attachments/743287801981698139/751819828163248138/unknown.png" title="Joey in casual clothes" class="gallery g1" height="200px" onclick="showGallery('g1',this);">
 	 </div>
 
+	 <hr>
+
 	<h2 id="writing">Writing</h2>
-	<table></table>
 	<p>"<a href="https://www.quotev.com/quiz/13158135/What-Cuckooverse-character-are-you">What Cuckooverse character are you?</a>" personality quiz</p>
-	<table></table>
 	<div class="text-section">
 		<p><a href="https://docs.google.com/document/d/1FweVCbXdDENc2fgAjbopHCN3CPAGWrfOKWUMos1jjVo/edit?usp=drivesdk">the only sane one</a> (by Ace, ~1,000 words): David gets to know his new enormous, feathered roommate. </p>
 		<p><a href="https://docs.google.com/document/d/16Pmn2M0p6xY8ZYcxFm-faPfjpvmL1ipIvqZQs7wBTeM/edit?usp=drivesdk">Coffee Break with "Eddie"</a> (by bluef00t, ~900 words): Ardalan and David have a little chat.</p>
@@ -206,20 +205,20 @@
 		<p><a href="https://docs.google.com/document/d/1MQ3T4RfIB_0QmoFp8WP35FwUP_hZQB4Q4HtfTh4Hmys/edit?usp=sharing">Grip</a> (by bluef00t, ~8,800 words): How Grip got locked in a cell 8 stories beneath the Flugelmeyer building, and more importantly, how he gets out.</p>
 		<p></p>
 	</div>
-	<br>
 
+	<hr>
 
 	<h2 id="minorchars">Minor characters</h2>
-	<table></table>
-	<button class="accordion au-icon">Pre-story events</button>
-	  <div class="panel">
-	   <p><strong>William Geiwitz:</strong> Peter's older brother, who took over the family farm when Peter moved to the city.</p>
+	<details>
+      <summary>Pre-story events</summary>
+      <p><strong>William Geiwitz:</strong> Peter's older brother, who took over the family farm when Peter moved to the city.</p>
 		<p><strong>Apricot Arbor:</strong> A mysterious, mischevious person of indeterminate gender who was married to Peter for a time. Their eventual terminal illness led Peter and Penn to first meet.</p>
 		<p><strong>Maxwell Flugelmeyer:</strong> Maxmillien's "son" (unbeknownst to most, he's actually a clone). Also Howard and Maxine's father. A lot of time and aging shenanigans are involved.</p>
-	</div>
-	<button class="accordion au-icon">2010s heroes/villains</button>
-	  <div class="panel">
-	   <p><strong>Maxine Flugelmeyer:</strong> Howard's older sister. Powers: a type of charmspeak that causes the listener to believe anything she says.</p>
+  	</details>
+
+  	<details>
+      <summary>2010s heroes/villains</summary>
+      <p><strong>Maxine Flugelmeyer:</strong> Howard's older sister. Powers: a type of charmspeak that causes the listener to believe anything she says.</p>
 		<p><strong>Lila (aka Belladonna):</strong> Howard's equally melodramatic villainous rival and eventually his wife. Powers: agrokinesis (the ability to control plant growth telepathically) and an immunity to plant-based poisons.</p>
 		<p><strong>Caitlyn Gard:</strong> Steven Gard's wife, also a brilliant biologist. After his transformation, she dedicates her time to finding a cure or at least a treatment for her husband.</p>
 		<p><strong>Miriam (aka Bee):</strong> One half of a popular duo of twin superheroes. Powers: a tranquilizing sting in her punch. She marries David post-story events.</p>
@@ -230,41 +229,16 @@
 		<p><strong>Mr. Moon:</strong> An antivillain who plunges the city into endless storms with a weather machine after the death of his daughter.</p>
 		<p><strong>Cannibal:</strong> A monster woman with love-potion venom. She's literally a maneater. Unfortunately, the effects of her poison are contaigous...</p>
 		<p><strong>A Lady:</strong> A mysterious figure whose kiss can (temporarily) reverse a key element of her target's personality.</p>
-	</div>
-	<button class="accordion au-icon">Post-story events</button>
-	  <div class="panel">
-	  <p><strong>Oleander "Ollie" Flugelmeyer:</strong> Howard and Lila's son. He also has agrokinesis, but is a rather laid-back guy who doesn't really want to become a villainous CEO.</p>
+	</details>
+	
+	<details>
+      <summary>Post-story events</summary>
+       <p><strong>Oleander "Ollie" Flugelmeyer:</strong> Howard and Lila's son. He also has agrokinesis, but is a rather laid-back guy who doesn't really want to become a villainous CEO.</p>
 		<p><strong>Caspian Aragona (aka Rostam):</strong> A factory orphan who unexpectedly develops extremely strong telekinesis. He's one of Alan's (many) adopted children post-story events and becomes the city's next flagship superhero training under Edu.</p>
 		<p><strong>Avery Gard:</strong> Steven and Caitlyn's daughter. She's born with a transformation and regeneration ability like Steven's.</p>
-	</div>
+	</details>
 
 	<style type="text/css">
-		.au-icon{
-			margin:5px;
-			width: calc(var(--char-col-width)/2 - 36px);
-			background-color: black;
-		  font-weight: bold;
-		  text-align:left;
-		  cursor: pointer;
-		  padding: 18px;
-		  border: 2px solid #444;
-		  outline: none;
-		  transition: 0.4s;
-		}
-		.au-icon:hover{
-			background-color: #444;
-		}
-		/* Style the accordion panel. Note: hidden by default */
-.panel {
-  letter-spacing: 0.012em;
-  line-height: 1.3;
-  padding: 0 18px;
-  background-color: black;
-  color:#DADADA;
-  display: none;
-  overflow: hidden;
-  text-align: left;
-}
 .au-gallery{
 	text-align:center;
 }
@@ -273,36 +247,38 @@
 }
 	</style>
 
+	<hr>
+
 	<h2 id="aus">Notable AUs</h2>
-	<table></table>
-	<button class="accordion au-icon">Bad End Alan</button>
-  <div class="panel">
-    <p>When one of Howard's immortality projects goes wrong, Ardalan gets de-aged to about six years old. But instead of fixing this, Howard quietly adopts him and raises him alongside his biological son Ollie as the perfect heir to the Flugelmeyer business.</p>
+
+	<details>
+      <summary>Bad End Alan</summary>
+      <p>When one of Howard's immortality projects goes wrong, Ardalan gets de-aged to about six years old. But instead of fixing this, Howard quietly adopts him and raises him alongside his biological son Ollie as the perfect heir to the Flugelmeyer business.</p>
     <p>Years later, new CEO Alan Flugelmeyer is a ruthless businessman who does his "father" proud. But he begins to become suspicious of his own adoption, and decides to investigate whether he's related to his father's old assistant who vanished under mysterious circumstances. What he finds scares him—enough that when a superpowered orphan named Caspian tries to destroy the factory, Alan teams up with the kid to ruin the company and exact revenge on dear old dad Howard.</p>
      <p>Writing: <a href="https://docs.google.com/document/d/1yfSbx7ExRzFhaIXCXulQjYcNqSzOil8yHjx_rP18hUk">uh oh you made a fucky wucky in the timeline</a> (by Ace, 330 words)</p>
     <div class="au-gallery">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/748553580570607757/IMG_20200827_101704064.jpg" title="(pg 1)" class="gallery auG1" onclick="showGallery('auG1',this);">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/748553591853416480/IMG_20200827_104341319.jpg" title="(pg 2)" class="gallery auG1" onclick="showGallery('auG1',this);">
-    	<img src="https://cdn.discordapp.com/attachments/275371719055769601/791393098798071838/image0-3.jpg" title="Howard with child Alan" alt="Alan sits in Howard's lap and happily draws as Howard works" class="gallery auG1" onclick="showGallery('auG1',this);">
-    	<img src="https://cdn.discordapp.com/attachments/275371719055769601/791393098180591636/image0-4.jpg" title="Child Alan" alt="Howard tells a young boy 'Ardalan, please get off the desk'" class="gallery auG1" onclick="showGallery('auG1',this);">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/748322446670561301/IMG_20200826_192441689.jpg" title="(pg 1)" class="gallery auG1" onclick="showGallery('auG1',this);">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/748322457823477760/IMG_20200826_192448055.jpg" title="(pg 2)" class="gallery auG1" onclick="showGallery('auG1',this);">
-    	<img src="https://cdn.discordapp.com/attachments/275371719055769601/791393099091410944/image0-2.jpg" title="Child Alan" alt="Alan asks 'Mr howard, why can't I play with the factory kids?'" class="gallery auG1" onclick="showGallery('auG1',this);">
-	    <img src="https://cdn.discordapp.com/attachments/743287801981698139/751158563543580752/unknown.png" title="Spoiled teen Alan" alt="spoiled teen alan holds a smartphone and says okay boomer" class="gallery auG1" onclick="showGallery('auG1',this);">
-	    <img src="https://cdn.discordapp.com/attachments/743287801981698139/790974089862316093/image0.jpg" title="Teen Alan in 2020" alt="teen alan wears a mask and says ugh, dad. Howard, also wearing a mask, looks on." class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/751197763190128711/unknown.png" title="Spoiled teen Alan" alt="teen alan says Can't wait to be running this place." class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/751068516475732028/unknown.png" title="CEO Alan" alt="Alan holds a champagne glass and smirks with a jacket over his shoulder. He has an eye-shaped pin on his lapel." class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/791027591049248788/unknown.png" title="CEO Alan" alt="Alan with a smug expression, wearing a jacket with rolled up sleeves and an eye pin." class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/790974170979631104/image0.png" title="CEO Alan (left) vs. assistant Alan (right)" alt="CEO Alan (no glasses, shorter hair, neat tie) vs. assistant Alan" class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/751153846306472177/unknown.png" title="Caspian confronts CEO Alan" alt="Caspian, a determined boy with a facial scar, stands backlit as he confronts CEO Alan" class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/754088719471870022/IMG_20200911_171909858.jpg" title="Caspian confronts CEO Alan" alt="Caspian holds up a fist and tells Alan 'beg for your life, old man.'" class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/754128850333728838/IMG_20200911_195753278.jpg" title="Caspian and Alan team up." alt="Caspian nervously sits in the passenger's seat as alan drives the two of them somewhere" class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/790973908911652904/image0.jpg" title="Alan post-patricide" alt="Alan, bloodsplattered, says 'Well this has been a great bonding experience!' while Caspian watches uncomfortably" class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/751145815136927744/unknown.png" title="Alan post-patricide" alt="Alan looks slighly manic and says 'wanna go grab lunch caspian?'" class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/791032142729052170/unknown.png" title="Alan post-patricide" alt="Alan is crying slightly, bloodstains on his jacket and face." class="gallery auG1" onclick="showGallery('auG1',this);">
-		<img src="https://cdn.discordapp.com/attachments/743287801981698139/754403225028788255/IMG_20200912_140546540.jpg" title="Post-storyline hero Caspian" alt="Caspian, a muscular superhero, looks embarrassed as his dad says 'I was the first villain my boy ever defeated!'." class="gallery auG1" onclick="showGallery('auG1',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/748553580570607757/IMG_20200827_101704064.jpg" title="(pg 1)" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/748553591853416480/IMG_20200827_104341319.jpg" title="(pg 2)" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+    	<img src="https://cdn.discordapp.com/attachments/275371719055769601/791393098798071838/image0-3.jpg" title="Howard with child Alan" alt="Alan sits in Howard's lap and happily draws as Howard works" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+    	<img src="https://cdn.discordapp.com/attachments/275371719055769601/791393098180591636/image0-4.jpg" title="Child Alan" alt="Howard tells a young boy 'Ardalan, please get off the desk'" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/748322446670561301/IMG_20200826_192441689.jpg" title="(pg 1)" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/748322457823477760/IMG_20200826_192448055.jpg" title="(pg 2)" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+    	<img src="https://cdn.discordapp.com/attachments/275371719055769601/791393099091410944/image0-2.jpg" title="Child Alan" alt="Alan asks 'Mr howard, why can't I play with the factory kids?'" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+	    <img src="https://cdn.discordapp.com/attachments/743287801981698139/751158563543580752/unknown.png" title="Spoiled teen Alan" alt="spoiled teen alan holds a smartphone and says okay boomer" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+	    <img src="https://cdn.discordapp.com/attachments/743287801981698139/790974089862316093/image0.jpg" title="Teen Alan in 2020" alt="teen alan wears a mask and says ugh, dad. Howard, also wearing a mask, looks on." class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/751197763190128711/unknown.png" title="Spoiled teen Alan" alt="teen alan says Can't wait to be running this place." class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/751068516475732028/unknown.png" title="CEO Alan" alt="Alan holds a champagne glass and smirks with a jacket over his shoulder. He has an eye-shaped pin on his lapel." class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/791027591049248788/unknown.png" title="CEO Alan" alt="Alan with a smug expression, wearing a jacket with rolled up sleeves and an eye pin." class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/790974170979631104/image0.png" title="CEO Alan (left) vs. assistant Alan (right)" alt="CEO Alan (no glasses, shorter hair, neat tie) vs. assistant Alan" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/751153846306472177/unknown.png" title="Caspian confronts CEO Alan" alt="Caspian, a determined boy with a facial scar, stands backlit as he confronts CEO Alan" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/754088719471870022/IMG_20200911_171909858.jpg" title="Caspian confronts CEO Alan" alt="Caspian holds up a fist and tells Alan 'beg for your life, old man.'" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/754128850333728838/IMG_20200911_195753278.jpg" title="Caspian and Alan team up." alt="Caspian nervously sits in the passenger's seat as alan drives the two of them somewhere" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/790973908911652904/image0.jpg" title="Alan post-patricide" alt="Alan, bloodsplattered, says 'Well this has been a great bonding experience!' while Caspian watches uncomfortably" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/751145815136927744/unknown.png" title="Alan post-patricide" alt="Alan looks slighly manic and says 'wanna go grab lunch caspian?'" class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/791032142729052170/unknown.png" title="Alan post-patricide" alt="Alan is crying slightly, bloodstains on his jacket and face." class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
+		<img src="https://cdn.discordapp.com/attachments/743287801981698139/754403225028788255/IMG_20200912_140546540.jpg" title="Post-storyline hero Caspian" alt="Caspian, a muscular superhero, looks embarrassed as his dad says 'I was the first villain my boy ever defeated!'." class="gallery auG1" height="200px" onclick="showGallery('auG1',this);">
 	</div>
-</div>
+</details>
 
 <!--
 <button class="accordion au-icon">Villain Steven AU</button>
@@ -337,10 +313,9 @@ Steven: A mortal who keeps being "blessed" with powers (regeneration, from Penn,
 	</div>
 </div>
 -->
-
-<button class="accordion au-icon">Genderswap AU</button>
-  <div class="panel">
-    <p>Exactly what it says on the tin. For the most part, canon events continue as normal.</p>
+<details>
+      <summary>Genderswap AU</summary>
+       <p>Exactly what it says on the tin. For the most part, canon events continue as normal.</p>
     <p>AU character names<br>
     	Maxmillien: Maxine Flugelmeyer; still usually called Max<br>
     	Behruz: Behnaz Rostami<br>
@@ -358,21 +333,19 @@ Steven: A mortal who keeps being "blessed" with powers (regeneration, from Penn,
     	Jay/Juno: Joanna Slick/Kronos<br>
     </p>
     <div class="au-gallery">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/793563515922153472/unknown.png" title="Max and Behnaz" class="gallery auG-gender" onclick="showGallery('auG-gender',this);">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/773935172634279966/IMG_20201105_100621793.jpg" title="Sarah" class="gallery auG-gender" onclick="showGallery('auG-gender',this);">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/773734559355240448/unknown.png" title="Sarah and Elmas" class="gallery auG-gender" onclick="showGallery('auG-gender',this);">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/773733992558100520/unknown.png" title="Kiera" class="gallery auG-gender" onclick="showGallery('auG-gender',this);">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/774442359551164416/image0.jpg" title="Helena" class="gallery auG-gender" onclick="showGallery('auG-gender',this);">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/774443561587310602/image0.jpg" title="Aryana" class="gallery auG-gender" onclick="showGallery('auG-gender',this);">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/773729958588973056/IMG_20201104_210522624.jpg" title="Grip & Josie" class="gallery auG-gender" onclick="showGallery('auG-gender',this);">
-    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/773728374627500062/unknown.png" title="Joanna" class="gallery auG-gender" onclick="showGallery('auG-gender',this);">
-    	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793576651032100914/image0.jpg" title="Rachel" class="gallery auG-gender" onclick="showGallery('auG-gender',this);">
-    	<img src="https://cdn.discordapp.com/attachments/433022344647147540/792860599649566751/IMG_20201112_213540659.jpg" title="Rachel (Miss Melody) and Joanna (Kronos)" class="gallery auG-gender" onclick="showGallery('auG-gender',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/793563515922153472/unknown.png" title="Max and Behnaz" class="gallery auG-gender" height="200px" onclick="showGallery('auG-gender',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/773935172634279966/IMG_20201105_100621793.jpg" title="Sarah" class="gallery auG-gender" height="200px" onclick="showGallery('auG-gender',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/773734559355240448/unknown.png" title="Sarah and Elmas" class="gallery auG-gender" height="200px" onclick="showGallery('auG-gender',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/773733992558100520/unknown.png" title="Kiera" class="gallery auG-gender" height="200px" onclick="showGallery('auG-gender',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/774442359551164416/image0.jpg" title="Helena" class="gallery auG-gender" height="200px" onclick="showGallery('auG-gender',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/774443561587310602/image0.jpg" title="Aryana" class="gallery auG-gender" height="200px" onclick="showGallery('auG-gender',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/773729958588973056/IMG_20201104_210522624.jpg" title="Grip & Josie" class="gallery auG-gender" height="200px" onclick="showGallery('auG-gender',this);">
+    	<img src="https://cdn.discordapp.com/attachments/743287801981698139/773728374627500062/unknown.png" title="Joanna" class="gallery auG-gender" height="200px" onclick="showGallery('auG-gender',this);">
+    	<img src="https://cdn.discordapp.com/attachments/275371719055769601/793576651032100914/image0.jpg" title="Rachel" class="gallery auG-gender" height="200px" onclick="showGallery('auG-gender',this);">
+    	<img src="https://cdn.discordapp.com/attachments/433022344647147540/792860599649566751/IMG_20201112_213540659.jpg" title="Rachel (Miss Melody) and Joanna (Kronos)" class="gallery auG-gender" height="200px" onclick="showGallery('auG-gender',this);">
 
 	</div>
-</div>
-
-<p>More coming soon...</p>
+</details>
 
 	
 	<h4><a href="#top" rel="nofollow">Back to top</a></h4>
@@ -420,6 +393,9 @@ Steven: A mortal who keeps being "blessed" with powers (regeneration, from Penn,
 	}
 </script>
 
-</body>
+<footer></footer>
+   <script type="text/javascript" src="../styling.js"></script>
+   <script type="text/javascript" src="../formatting.js"></script>
+  </body>
 
 </html>
