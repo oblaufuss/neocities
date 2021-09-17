@@ -35,22 +35,34 @@ img{
 summary{
     cursor: pointer;
 }
+details:not(summary){
+  padding-left: 40px;
+}
+
+
+footer, .sitemap{
+  font-size: 0.8em;
+  display: block;
+}
 
 /*icon for external links*/
-a[href^="https://"]:after {
+a[href^="https://"]:after,a[href^="http://"]:after {
     content: "➚";
     position: absolute;
-    margin-left: 0.20em;
+    margin-left: 0.10em;
     margin-top: 0;
     font-size: 90%;
     text-decoration: none;
 }
-a[href^="https://"]{
+a[href^="https://"], a[href^="http://"]{
   margin-right: calc(0.2em + 0.6em);
 }
 
 a[href^="https://bluef00t.neocities.org"]:after  {
     display: none;
+}
+a[href^="https://bluef00t.neocities.org"]{
+  margin-right: auto;
 }
 
 /*frontpage stuff*/
@@ -58,11 +70,7 @@ a[href^="https://bluef00t.neocities.org"]:after  {
   width: 24%;
 }
 
-.figure-gallery figure{
-  height: 200px;
-  width: auto;
-}
-.figure-gallery img{
-  height: calc(var(--width)/4);
-  width: auto;
+figure {
+  width: 250px;
+  display: inline-block;
 }
