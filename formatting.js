@@ -3,7 +3,7 @@ let url = window.location.href;
 const crumbs = url.split("/");
 
 let stepURL = 'https://bluef00t.neocities.org/';
-let crumbstring = '<li><a href="https://bluef00t.neocities.org">Home"</a> > <a href="https://bluef00t.neocities.org/navigation.html">Sitemap</a>';
+let crumbstring = '<li><a href="https://bluef00t.neocities.org">Home</a> > <a href="https://bluef00t.neocities.org/navigation.html">Sitemap</a>';
 for (let i = 3; i < crumbs.length-1; i++){
 	stepURL += '/' + crumbs[i];
 	crumbUppercase = crumbs[i].charAt(0).toUpperCase() + crumbs[i].slice(1)

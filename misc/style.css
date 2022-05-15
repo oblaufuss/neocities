@@ -126,6 +126,12 @@ UL{
   text-align:left;
 }
 
+dd {
+    display: list-item;
+    list-style-type: disc;
+    }
+
+
 .panel {
   overflow: hidden;
   display: none;
