@@ -1,5 +1,5 @@
 :root {
-  --width: 1000px;
+  --width: 1200px;
   --dk: rgb(36, 36, 36);
   --lgt-txt:#d2dfdd;
   --bg-accent:darkblue;
@@ -34,7 +34,7 @@ hr{
   margin: auto;
   margin-top: 16px;
   margin-bottom: 16px;
-  width: 80%;
+  width: 75%;
 }
 h1,h2{
   line-height:1.2;
@@ -166,8 +166,8 @@ footer{
 /*frontpage stuff*/
 .frontpage-gallery img, .figure-gallery img{
   margin: 0px;
-  width: calc(25% - 6px);
-  max-width: calc(var(--width)/4);
+  width: calc(20% - 6px);
+  max-width: calc(var(--width)/5);
   border: 1px solid var(--accent);
   padding: 3px;
 }
