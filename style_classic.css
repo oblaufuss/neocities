@@ -164,12 +164,27 @@ footer{
 }
 
 /*frontpage stuff*/
+.frontpage-gallery {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
 .frontpage-gallery img, .figure-gallery img{
   margin: 0px;
-  width: calc(20% - 6px);
-  max-width: calc(var(--width)/5);
-  border: 1px solid var(--accent);
-  padding: 3px;
+  /*width: calc(20% - 6px);*/
+  max-height: calc(var(--width)/5 - 6px);
+  max-width: 1000%;
+  border: 4px solid var(--accent);
+  padding: 0px;
+  /*margin: 5px;*/
+  transition: transform ease-in 0.2s;
+  position: relative;
+}
+
+.frontpage-gallery img:hover{
+  transform: translate(0, -25px);
+  transition: transform ease 0.4s;
 }
 
 .frontpage-section a:link, .frontpage-section a:visited{
