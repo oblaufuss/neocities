@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>bees laugh in atbash</title>
+	<link href="../../style/classic.css" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body id="top">
+	
+	<header>
+       <nav class="sitemap">
+          <ul>
+            <li><a href="../navigation.html">Sitemap</a></li>
+          </ul>
+          <hr>
+      </nav>
+      <h1>Vintage Print FX (in Krita)</h1>
+      <p>I spent a ridiculous amount of time futzing with the effects on the comic <a href="https://bluef00t.neocities.org/art/comics/whitehouses.pdf">In White Houses</a>, and here's what I learned. If you'd like to copy the technique, go right ahead; I did all of this in <a href="https://krita.org/en/">Krita,</a> a free, open-source art software which I'd reccommend to anyone.</p>
+    </header>
+
+    <p>Here's our starting point.</p>
+    <img src="imgs/vintage0.png" alt="Black and white lined comic panel.">
+    <p>Here's our ending point.</p>
+    <img src="imgs/vintage9.png" alt="Same comic panel with halftone, fading, texture, and bleedthrough effects.">
+    <p>Obviously, this will look best with thick black brush-style lineart. There's an unintentional texture bonus to my inks due to the fact that I used real ink on paper, then used a really crappy public library scanner which saved the images as PDFs. (Oops.)</p>
+
+	<nav class="pagemap">
+    <ul>
+    	<li><a href="#color" rel="nofollow">Coloring</a></li>
+    	<li><a href="#half" rel="nofollow">Halftone</a></li>
+    	<li><a href="#texture" rel="nofollow">Textures</a></li>
+    	<li><a href="#recap" rel="nofollow">Recap</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="color">Coloring</h2>
+  <img src="imgs/vintage1.png" alt="Comic panel with flat colors. Lines have been partially erased to show colors clearer.">
+  <p>First, I set the lineart to <strong>"Multiply"</strong> and blocked in colors on the layer below. I colorpicked my choices directly from Silver Age scans.</p>
+  <p>The limited, eye-searing pallettes of the time were actually quite carefully and practically chosen for the limitations of the medium. Silver Age colorists were limited to hues that printed well based on their Cyan-Magenta-Yellow breakdowns, which the curious can <a href="https://simonmaggots.medium.com/a-brief-and-broad-history-of-post-golden-age-pre-digital-comic-book-coloring-9fe9e386149a">read more about here.</a><br> Here's the full pallette of 64:</p>
+  <img src="imgs/vintage-64.jpg" style="max-height: 300px" alt="Printed pallette. There are 4 grids, representing 0%, 25%, 50% and 100% yellow. Each grid is 4 by 4 with 0 to 100% red going top to bottom and 0 to 100% cyan going left to right."><img src="imgs/vintage-edpiskor64.jpg" alt="Digitized 64-color pallette divided in the same 4x4x4 fashion.">
+  <p>(Print version from <a href="https://viewcomics.me/marvel-age/issue-13/22">Marvel Age #13 (1984)</a>; digitized version by <a href="http://www.edpiskor.com/">Ed Piskor.</a>)</p>
+  <p>I'd encourage you to do the colors by hand as much as possible rather than relying on the fill tool. Later in the process, I found that areas of color that hugged the lines with pixel-perfect perfection looked digital no matter what, while the gentle blunders of hand-applied color turned out more authentically organic. Fill in color behind black spaces (like Peter's sweater here) for even richer blacks in the final product.</p>
+  <p><strong>Confusing Color Terminology Note:</strong> Our goal here is to imitate the CMYK printing process in a digital file which is encoded in RGB format. CMYK is for inks, and works subtractively; RGB is for computer screens' pixels, and works additively. This conversion is a little counterintuitive, but here's how it'll work:<br>
+  	Blue = Yellow<br>
+  	Green = Magenta<br>
+  	Red = Cyan</p>
+
+  	<p>If this sounds weird... Yeah, I know, it is. Hopefully seeing it in action in the next step will make it click.</p>
+
+  	<h2 id="half">Halftone</h2>
+
+  	<p>Krita actually has its own built-in halftone filter! I didn't use it for this, because its results are far too computerized-perfect for my taste, but I might as well show you where it is.</p>
+  	<p>Go to <strong>Filter > Artistic > Halftone</strong>, and then select the <strong>"Independent Channels"</strong> mode. You can then mess with the <strong>"Transformation"</strong> settings to change the size, shape, and intensity of the dots, as well as the angles that each screen is at. (Tradition dictates 90° for Yellow/Blue, 75° for Magenta/Green, and 105° for Cyan/Red.)</p>
+  	<p>The result will be something like this.</p>
+  	<img src="imgs/vintage2.png" alt="Halftone dots applied to above image. Colors are preserved exactly and dots are very bright.">
+  	<p>This looks good! This looks <em>too</em> good.</p>
+  	<p>I believe in us. We can do worse.</p>
+  	<p>Instead, select the layer that you put the flat colors on, then go to <strong>Image > Separate Image</strong> to get the greyscale versions for each channel. This will create three new layers, named Red, Green, and Blue.</p>
+  	<p>Here's what my Red layer looks like. It's a little gunked up; don't worry about it.</p>
+  	<img src="imgs/vintage3.png" alt="Greyscale representation of all the areas of the image that require cyan ink.">
+
+  	<p>Next, we're going to hide the original color layer, put each one of these layers into its own folder, then change the blending mode of the folder to <strong>"Copy Red"</strong> (or blue, or green depending on layer), which can be found under <strong>"Misc"</strong>. (Make sure you have a solid white layer beneath these folders, which Separate Image may give you, called Alpha.)</p>
+  	<img src="imgs/vintage_instructions_copyred.png" alt="Screenshot of Krita layers panel. A folder containing layer Red has the blending mode, set with the dropdown list above, of Copy Red.">
+
+  	<p>Once all three layers have been set to the appropriate blending mode, it will look the same as the original color layer. This is the fun part. Click the <strong>"inherit alpha"</strong> icon and create a new layer beneath the greyscale one. Here's where we'll add the screentone pattern.</p>
+  	<img src="imgs/vintage_instructions_inheritalpha.png" alt="Screenshot of the layers panel. Inside a folder, the layer Green has the alpha-shaped icon to the right of the name crossed out. Below is a layer filled with screentone.">
+
+  	<p>The brush I use is one of the defaults, <strong>Screentone Pressure</strong>. To change the scale or pattern, open the brush options menu.</p>
+
+  	<img src="imgs/vintage_instructions_brushsettings.png" alt="Screenshot of the Krita brush editor. The checkbox section on the left selected is Pattern. The tab selected is Options. The Scale slider controls size.">
+
+  	<p>Make the brush real big and (on the layer beneath the greyscale) scribble over the entire page until everything is more or less covered in screentone. (Little bits of inconsistency are exactly what we want here, so don't worry too much about pressing too hard or covering every corner.)</p>
+
+  	<p><strong>Embarrassing Admission of Authorial Incompetence:</strong> I cannot figure out how to change the angle of the halftone pattern in the brush settings for the different color layers. If you know how, please tell me.<br>
+  		In the meantime, the easiest way to fake this is just to manually rotate the halftone layer after drawing the pattern in. The more complex way (and the method I chose) is to use tilted screentone patterns (here's my <a href="imgs/24-dynamic-screentone-C.png">30°</a> and <a href="imgs/24-dynamic-screentone-D.png">-30°</a> textures and <a href="https://docs.krita.org/en/reference_manual/resource_management/resource_patterns.html">simple instructions to add them</a>), switching between them in the <strong>"Texture"</strong> tab of the brush pattern editor.</p>
+
+  	<p>Here's what just my Green/Magenta layer looks like. I can erase, blur, texture, change opacity, or move around (misregister) this specific color component to my heart's content!</p>
+  	<img src="imgs/vintage4.png" alt="Image with only the Magenta layer screentone applied. It is not completely evenly applied, fading out in some places.">
+
+  	<p>When all three layers are done to taste, the final product should look something like this:</p>
+  	<img src="imgs/vintage5.png" alt="Image with all three layers visible, some misaligned with the lineart. Dots are partly faded.">
+  	<p>Note some of the interesting chromatic aberrations that happen in CMY dot printing. Yellow peeks out from underneath bright red; pink shows up in the faded edges of dark blue; dark green ink rubs off to reveal a surprising orange.</p>
+  	
+  	<p>Let's compare it to Krita's auto-generated halftone again for a moment.</p>
+  	<img src="imgs/vintage2.png" alt="Same image. Colors are preserved exactly and dots are very bright.">
+  	<p>Our version is worth the extra work, wouldn't you say?</p>
+
+
+  	<h2 id="texture">Textures</h2>
+  	<p>The last step is to up the grunge.</p>
+  	<p>First, I added some filters (I used <strong>"Levels"</strong> and <strong>"Burn"</strong>, but do what you'd like) to make the colors a little darker. Dark inks tend to come out muddy and saturated, and light ones more faded.</p>
+  	<img src="imgs/vintage6.png" alt="Image with reds, blues, and greens darker than before.">
+
+  	<p>Next, paper texture. You can find free to use high-resolution stock scans of newsprint online; set the blending layer to <strong>"Multiply"</strong> and see what you think.</p>
+  	<img src="imgs/vintage7.png" alt="Image with mottled paper texture visible through the colored regions. ">
+
+  	<p>While the colors are appropriately weathered, our ink is still supernaturally intact. Let's fade it out a little. I put all the art layers in a folder, clicked the folder's <strong>"inherit alpha"</strong> icon, and then use a textured brush (I had good results with the default <strong>Texture Big</strong> brush) to again fill in a new layer underneath.</p>
+  	<img src="imgs/vintage8.png" alt="Image with patchy faded spots, as though someone had rubbed their finger on a newsprint image.">
+
+  	<p>We're almost done! It's the last step that really <em>makes</em> it, in my opinion: ink bleedthrough. Take a different piece of art or (as I did) a newsprint page of advertisements, flip it backwards, and put it in the background at very low opacity.</p>
+
+  	<img src="imgs/vintage9.png" alt="Image with faint blotchy backwards text visible through colored regions. It looks very convincingly printed.">
+  	<p>Voilá!</p>
+
+  	<hr>
+
+
+  	<h2 id="recap">Recap</h2>
+  	<p>Just to see the consequences of each step lined up:</p>
+  	<img src="imgs/vintage0.png" alt="Black and white lined comic panel.">
+  	 <img src="imgs/vintage1.png" alt="Comic panel with flat colors. Lines have been partially erased to show colors clearer.">
+  	<img src="imgs/vintage5.png" alt="Manually halftoned comic panel.">
+  	<img src="imgs/vintage9.png" alt="Comic panel with color halftone and multiple texture effects.">
+  	<p>Pretty neat, eh?</p>
+
+	<hr>
+
+	<p><a href="#top" rel="nofollow">Back to top</a></p>
+<footer></footer>
+   <script type="text/javascript" src="../../styling.js"></script>
+   <script type="text/javascript" src="../../formatting.js"></script>
+</body>
+
+</html>
