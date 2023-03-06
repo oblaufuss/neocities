@@ -105,13 +105,15 @@ img:after{
   display: none;
 }
 
+a:hover, a:active, a:visited{
+  color: var(--accent2b);
+}
+
 a{
   color: var(--accent2);
 }
 
-a:hover, a:active, a:visited{
-  color: var(--accent2b);
-}
+
 
 /*list stuff*/
 ul, ol, dl, blockquote{
@@ -121,6 +123,15 @@ ul, ol, dl, blockquote{
 
 .directory{
   font-size: 115%;
+  
+}
+.directory a {
+  font-weight: bold;
+  color: white;
+  text-decoration-color: var(--accent);
+}
+.directory a:hover{
+  color: var(--accent2b);
 }
 
 article{
@@ -137,22 +148,35 @@ article{
   border-bottom-color: var(--bg-accent);
 }
 article img{
-  float: right;
+  float: right;font-weight: bold;
   object-fit: contain;
   margin: 20px 10px 5px 15px;
   max-height: 150px;
 }
 
-article a{
+article a, article a:visited{
   font-weight: bold;
   color: white;
   text-decoration: underline;
   text-decoration-color: currentcolor;
-  text-decoration-color: var(--accent);
+  text-decoration-color: var(--bg-accent);
   line-height: 1.4;
 }
 
+.odd-article a, .odd-article a:visited{
+  text-decoration-color: var(--accent);
+}
 
+article a:hover{
+  color: var(--accent2b);
+}
+
+@media (min-width: 600px){
+.double-wide article{
+  display: inline-block;
+  width: 45%;
+}
+}
 
 * {
   box-sizing: border-box;
@@ -200,6 +224,7 @@ article a{
 .sitemap li{
   display: inline-block;
 }
+
 
 
 /*copying accordion styling*/
@@ -332,6 +357,7 @@ figure img {
 
 .image-gallery img:hover{
   border: 2px solid var(--accent2b);
+  cursor: pointer;
 }
 
 
