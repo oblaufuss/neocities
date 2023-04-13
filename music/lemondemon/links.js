@@ -60,5 +60,6 @@ var links = [
 	'<a href="https://web.archive.org/web/20120130033747/http://www.youtube.com/user/NeilCicierega">Neiltube as of 2012</a>',
 	'<a href="https://www.youtube.com/watch?v=fu3ETgAvQrw">Redesign Your Logo live backing video</a>',
 	'<a href="https://www.youtube.com/watch?v=9YusD8iDR8k">G*V plays a very scary game</a>',
-	'<a href="https://twitter.com/neilcic/status/1181011711014383618">"mamma mia"</a>'
+	'<a href="https://twitter.com/neilcic/status/1181011711014383618">"mamma mia"</a>',
+	'<a href="https://twitter.com/RANGERSINSPACE">RangersInSpace</a>'
 ]
