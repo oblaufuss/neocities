@@ -1,0 +1,89 @@
+		:root{
+		--yellow: #fdd835;
+		--red: red;
+		--belt-width: 4px;
+		--belt-radius: 18px;
+		--offset: 6em;
+		--diamond-size: 60px;
+		}
+		body{
+			background-color:black;
+			background-image: url('https://64.media.tumblr.com/tumblr_mavlpvDQcV1rx4vxp.png');
+			font-family: Verdana;
+			color:white;
+		}
+		#content{
+			outline:none;
+			margin-left:var(--offset);
+			max-width:800px;
+			background-color: #791919;	
+		}
+		h1{
+			font-style:italic;
+			padding-left: 1em;
+			text-shadow: var(--belt-width) var(--belt-width) 0 black;
+			
+		}
+		h3{
+			text-shadow: 2px 2px 0 black;
+		}
+		h4{
+			text-shadow: 2px 2px 0 black;
+		}
+		a {
+			color: yellow;
+		}
+		a:visited{
+			color: var(--yellow);
+		}
+		.belt{
+			border: var(--belt-width) solid black;
+			outline: var(--belt-width) solid var(--yellow);
+			padding: 16px 30px;
+			border-radius: var(--belt-radius);
+		}
+		.b2{
+			border-radius: calc(2 * var(--belt-width) + var(--belt-radius));
+			padding: var(--belt-width);
+		}
+		.b3{
+			border-radius: calc(4 * var(--belt-width) + var(--belt-radius));
+			padding: var(--belt-width);
+		}
+		.b4{
+			border-radius: calc(6 * var(--belt-width) + var(--belt-radius));
+			padding: var(--belt-width);
+		}
+		
+		.diamond-shape {
+			position:absolute;
+			left: calc(2* var(--offset));
+			top: var(--offset);
+		  background: var(--yellow);
+		  border: var(--belt-width) solid black;
+		  height: var(--diamond-size);
+		  text-align: center;
+		  transform:rotate(45deg);
+			width:var(--diamond-size);
+			cursor:pointer;
+		}
+		
+		.diamond-spin {
+		  animation-duration: 1.4s;
+		  animation-iteration-count: 1;
+		}
+		
+		.diamond-spin:hover {
+			animation-name: diamond-spin;
+			animation-timing-function: ease;
+		}
+		
+		@keyframes diamond-spin {
+			0%   { transform: rotate(45deg); }
+			15%   { transform: rotate(10deg); }
+			100% { transform: rotate(225deg); }
+		}
+		
+		ul {
+			margin: 6px 0px;
+		}
