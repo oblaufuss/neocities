@@ -1,21 +1,49 @@
-//insert breadcrumbs on top bar
-let url = window.location.href;
-const crumbs = url.split("/");
+//add favicon
+document.getElementsByTagName("head").item(0).innerHTML +=  '<link rel="icon" href="http://bluef00t.neocities.org/favicon.ico" type="image/x-icon"/>';
 
-let stepURL = 'https://bluef00t.neocities.org';
-let crumbstring = '<li><a href="https://bluef00t.neocities.org">Home</a> > <a href="https://bluef00t.neocities.org/navigation.html">Sitemap</a>';
-for (let i = 3; i < crumbs.length-1; i++){
-	stepURL += '/' + crumbs[i];
-	crumbUppercase = crumbs[i].charAt(0).toUpperCase() + crumbs[i].slice(1)
-	crumbstring += ' > ';
-	crumbstring += '<a href="' + stepURL + '/">' + crumbUppercase + '</a>';
-}
-crumbstring += '</li>';
+var html = '';
 
-crumbInsertLocations = document.getElementsByClassName('sitemap');
-console.log(crumbInsertLocations)
-for (let insertHere of crumbInsertLocations){
-	insertHere.children[0].innerHTML = crumbstring;
+html+= '<a href="https://bluef00t.neocities.org/"><img src="https://bluef00t.neocities.org/imgs/bluef00t_button.gif"></a>';
+
+html += '<br>';
+html += '<a href="https://bluef00t.neocities.org/art">My Art</a>';
+html += '<li><a href="https://bluef00t.neocities.org/art/illustrations">illustration</a></li>';
+html += '<li><a href="https://bluef00t.neocities.org/art/comics">comics</a></li>';
+html += '<li><a href="https://bluef00t.neocities.org/art/zines">zines</a></li>';
+html += '<li><a href="https://bluef00t.neocities.org/art/blinkies">blinkies</a></li>';
+
+html += '<a href="https://bluef00t.neocities.org/music">Music</a>';
+html += '<li><a href="https://bluef00t.neocities.org/music/tmbg/">TMBG</a></li>';
+html += '<li><a href="https://bluef00t.neocities.org/music/lemondemon/">Neil Cic</a></li>';
+html += '<li><a href="https://bluef00t.neocities.org/music/tallyhall">tally hall</a></li>';
+
+html += '<a href="https://bluef00t.neocities.org/misc">Misc</a>';
+html += '<li><a href="https://bluef00t.neocities.org/misc">writing</a></li>';
+html += '<li><a href="https://bluef00t.neocities.org/comics/">comics</a></li>';
+html += '<li><a href="https://bluef00t.neocities.org/tech/sites">site design</a></li>';
+
+html += '<a href="https://bluef00t.neocities.org/me.html">about</a>';
+html += '<li><a href="https://bluef00t.neocities.org/contact.html">contact</a></li>';
+html += '<li><a href="https://bluef00t.neocities.org/awards.html">webrings</a></li>';
+html += '<p></p>'
+html += '<a href="https://neocities.org/"><img src="https://bluef00t.neocities.org/imgs/neocities.gif"></a>';
+
+//sidebar code
+var desktop = '<div id="sidebar">' + html + '</div>';
+
+//plain navigation link code
+desktop += '<div class="frontpage-section" id="topbar">';
+desktop += '<a href="https://bluef00t.neocities.org/navigation.html"> > Sitemap < </a>';
+desktop += '<hr>';
+desktop += '</div>';
+
+var path = window.location.pathname;
+var page = path.split("/").pop();
+
+if(page=='navigation.html'){ //if on the navigation page, show the full navigation.
+  document.getElementsByTagName("nav")[0].innerHTML = html;
+}else {
+  document.getElementsByTagName("nav")[0].innerHTML = desktop;
 }
 
 //build footer
