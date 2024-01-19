@@ -148,9 +148,10 @@ article{
   border-bottom-color: var(--bg-accent);
 }
 article img{
-  float: right;font-weight: bold;
+  float: right;
+  font-weight: bold;
   object-fit: contain;
-  margin: 20px 10px 5px 15px;
+  margin: 5px 10px 5px 15px;
   max-height: 150px;
 }
 
