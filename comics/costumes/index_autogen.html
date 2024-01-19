@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>bees laugh in atbash</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style type="text/css">
+		:root {
+			--rowheight:10px;
+		  --yearsize:60px;
+		  --sidebarwidth:300px;
+		}
+		#timeline{
+			padding-left: calc(var(--yearsize));
+			margin-right:calc(var(--sidebarwidth) + 20px);
+			table-layout: fixed;
+			text-align: center;
+			border-collapse: collapse;
+			padding: 20px 5px;
+		}
+		.year{
+      font-style: italic;
+      min-width: var(--yearsize);
+      max-width: var(--yearsize);
+			border-bottom: 2px dotted white;
+			border-right: 2px solid white;
+		}
+		#timeline tr td{
+			height: var(--rowheight);
+			width: var(--yearsize);
+			overflow: visible;
+			position: relative;
+		}
+
+		#infoPane{
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			background-color: grey;
+			padding: 15px;
+			width:340px;
+			text-align: center;
+		}
+		#infoPane img{
+			max-width: var(--sidebarwidth);
+			overflow: scroll;
+		}
+
+		.plainclothes td a{
+			background-color: lightblue;
+			display: block;
+		}
+		.plainclothes_masked td a{
+			background-color: blue;
+		}
+
+		.debutLabel{
+		  height: calc(var(--rowheight) * 1.5);
+		  width: calc(var(--rowheight) * 1.5);
+		  border: 4px solid black;
+		  border-radius: 50%;
+		  position:absolute;
+		  right:calc(var(--rowheight)/2);
+		  top:calc(var(--rowheight) * -0.5);
+		}
+		.minorLabel{
+			display: block;
+			width: 100%;
+			height:var(--rowheight);
+		}
+		.genreLabel{
+			background-color:white;
+			font-weight: bold;
+			height: var(--rowheight);
+			width: var(--yearsize);
+		}
+
+		body{
+			overflow: scroll;
+		}
+	</style>
+</head>
+<body id="top">
+	
+	<header>
+       <nav class="sitemap">
+          <ul>
+            <li><a href="../../navigation.html">Sitemap</a></li>
+          </ul>
+          <hr>
+      </nav>
+      <h1>...</h1>
+      <h4>Pulp adventure comics for the modern reader.</h4>
+    </header>
+
+	<p>Lorem ipsum sic dolor amet</p>
+
+	<table id="timeline">
+	</table>
+
+	<div id="infoPane" onclick="closeModal()">
+  <h4 id="imgtext">caption...</h4>
+  <a id="prev"  onclick="plusSlides(-1)" style="display:none">&#10094;</a>
+  <a id="next"  onclick="plusSlides(1)" style="display:none">&#10095;</a>
+  <img src="" alt="" id="expandedImg" style="border:0px">
+</div>
+
+
+<footer></footer>
+	<script type="text/javascript">
+
+		var startYear = 1900;
+		var endYear = 1940;
+		let timespan = endYear - startYear;
+
+		function Genre(name, data, color) {
+		  this.name = name;
+		  this.caption = data;
+		  this.color = color;
+		}
+		var genres = [
+			"plainclothes",
+			"plainclothes_masked",
+			"strongman_leotard",
+			"strongman_trunks",
+			"strongman_skins",
+			"antiquity"]
+
+		// empty array. This does not hold the actual entry info, only a pointer to each.
+		var genreData = {};
+		for (const genre of genres){
+			genreData[genre] = new Array(timespan);
+		}
+		/* There are four types of things that could live in a spot on the table:
+		(1) A genre label. (text size large and bold)
+		(2) An info label. (text size small)
+		(3) A debut entry. 
+		(4) A minor entry.
+		*/
+		const displayTypes = {
+			Genre : "genreLabel",
+			Info: "infoLabel",
+			Debut: "debutLabel",
+			Minor: "minorLabel"
+		}
+		class EntryPointer{
+			constructor (displayType, ref) {
+			  this.displayType = displayType;
+			  this.ref = ref;
+			}
+			displayHTML(){
+				var html = "<td";
+				if (this.displayType == displayTypes.Debut || this.displayType == displayTypes.Minor){
+					html += " title='" + this.ref + "'";
+				}
+				html += ">";
+				html += "<a class='" + this.displayType + "' onclick=\"display('" + this.ref + "')\">";
+				if (this.displayType == displayTypes.Genre || this.displayType == displayTypes.Info){
+					html += this.ref;
+				}
+				html += "</a></td>";
+				return html;
+			}
+		}
+
+		// populate data information
+		function addEntryRef(genre, year, type, name){
+			genreData[genre][year-startYear] = new EntryPointer(type, name);
+		}
+		addEntryRef("plainclothes", 1904, displayTypes.Genre, "Plainclothes")
+		addEntryRef("plainclothes", 1905, displayTypes.Debut, "Hugo Hercules (1905)")
+		addEntryRef("plainclothes", 1906, displayTypes.Minor, "Hugo Hercules (1905)")
+		addEntryRef("plainclothes", 1907, displayTypes.Minor, "Hugo Hercules (1905)")
+		addEntryRef("plainclothes", 1908, displayTypes.Minor, "Hugo Hercules (1905)")
+		addEntryRef("plainclothes_masked", 1919, displayTypes.Debut, "Zorro (1919)")
+
+
+		// create table timeline
+		var timeline = document.getElementById("timeline");
+		var tablebody = "<tr>";
+		// header row
+		for (let i = startYear; i < endYear + 1; i++){
+			let y = i%100;
+			if (y == 0){
+				tablebody += "<td class='year'>" + i + "</td>";
+			}else{
+				tablebody += "<td class='year'>'" + ("0" + y).slice(-2) + "</td>";
+			}
+		}
+
+		tablebody += "</tr>"
+		// populate body
+		for (const genre of genres){
+			var row = "<tr class='" + genre + "'>"
+			for (let i = startYear; i < endYear + 1; i++){
+				let lookup = genreData[genre][i - startYear];
+				if (lookup != null){
+					row += lookup.displayHTML();
+				}else{
+					row += "<td></td>";
+				}
+			}
+			row += "</tr>"
+			tablebody += row;
+		}
+		timeline.innerHTML = tablebody;
+
+		// This is the information needed to display on the sidebar.
+		class Entry{
+			constructor (img, caption, entry) {
+			  this.img = img;
+			  this.caption = caption;
+			  this.entry = entry;
+			}
+		}
+		
+		let entries = {};
+
+		entries['Hugo Hercules (1905)'] = new Entry("https://cdn.discordapp.com/attachments/275371719055769601/1193383348475789322/IMG_20240106_213843777.jpg?ex=65b5be5a&is=65a3495a&hm=3effbdcd7ee01be1d8cfdd62fd6a1566669bd0b5c729494771ef06afe962e3c1&", "image source and date", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?");
+
+		// TEST CODE
+		console.log("ENTRIES NOT FILLED:")
+		for (const genre of genres){
+			for (let i = startYear; i < endYear + 1; i++){
+				let lookup = genreData[genre][i - startYear];
+				if (lookup != null){
+					let lookupData = entries[lookup.ref];
+					if (lookupData == null){
+						console.log(lookup.ref);
+					}
+				}
+			}
+		}
+
+		function display(name){
+			var imgText = document.getElementById("imgtext");
+      imgText.innerHTML = name;
+			var displayObj = entries[name];
+			var expandImg = document.getElementById("expandedImg");
+      expandImg.src = displayObj.img;
+		};
+
+		function closeModal() {
+        document.getElementById("infoPane").style.display = "none";
+        document.getElementById("prev").style.display = "none";
+        document.getElementById("next").style.display = "none";
+     };
+
+	</script>
+   <script type="text/javascript" src="../../styling.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>bees laugh in atbash</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style type="text/css">
+		:root {
+			--rowheight:10px;
+		  --yearsize:60px;
+		}
+		#timeline{
+			width: 100%;
+			display:block;
+			text-align: center;
+			border-collapse: collapse;
+			padding: 20px 5px;
+		}
+		.year{
+      font-style: italic;
+      height: var(--yearsize);
+			border-bottom: 2px dotted white;
+			border-right: 2px solid white;
+		}
+		#timeline tr td{
+			height: var(--rowheight);
+			width: var(--yearsize);
+		}
+		#timeline tr td a{
+			display: block;
+			height: 100%;
+			width: 100%;
+			overflow: visible;
+		}
+
+		.infoText{
+			position:absolute;
+		}
+		.exampleBig{
+
+		}
+		.exampleSmall{
+
+		}
+
+		#infoPane{
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			background-color: grey;
+			padding: 15px;
+			width:340px;
+			text-align: center;
+		}
+		#infoPane img{
+			max-width: 300px;
+			overflow: scroll;
+		}
+
+		.plainclothes td a{
+			background-color: lightblue;
+		}
+		.plainclothes_masked td a{
+			background-color: blue;
+		}
+	</style>
+</head>
+<body id="top">
+	
+	<header>
+       <nav class="sitemap">
+          <ul>
+            <li><a href="../../navigation.html">Sitemap</a></li>
+          </ul>
+          <hr>
+      </nav>
+      <h1>...</h1>
+      <h4>Pulp adventure comics for the modern reader.</h4>
+    </header>
+
+	<p>Lorem ipsum sic dolor amet</p>
+
+	<table id="timeline">
+		<tr>
+			<td class="year">1900</td><td class="year">'05</td><td class="year">'10</td><td class="year">'15</td><td class="year">'20</td><td class="year">'25</td><td class="year">'30</td><td class="year">'35</td>
+		</tr>
+		<tr class="plainclothes">
+			<td></td>
+			<td><a onclick="show('Hugo Hercules (1905)')">o</a></td>
+		</tr>
+		<tr class="plainclothes_masked">
+			<td></td><td></td><td></td>
+			<td><a onclick="show('Zorro (1919)')">o</a></td>
+		</tr>
+		<tr class="robinhood">
+		</tr>
+		<tr class="strongman_leotard">
+		</tr>
+		<tr class="strongman_trunks">
+		</tr>
+		<tr class="strongman_skins">
+		</tr>
+		<tr class="antiquity">
+		</tr>
+	</table>
+
+	<div id="infoPane" onclick="closeModal()">
+  <h4 id="imgtext">caption...</h4>
+  <a id="prev"  onclick="plusSlides(-1)" style="display:none">&#10094;</a>
+  <a id="next"  onclick="plusSlides(1)" style="display:none">&#10095;</a>
+  <img src="" alt="" id="expandedImg" style="border:0px">
+</div>
+
+
+<footer></footer>
+	<script type="text/javascript">
+
+		function Entry(img, caption, entry) {
+		  this.img = img;
+		  this.caption = caption;
+		  this.entry = entry;
+		}
+
+		let entries = {};
+
+		entries['Hugo Hercules (1905)'] = new Entry("https://cdn.discordapp.com/attachments/275371719055769601/1193383348475789322/IMG_20240106_213843777.jpg?ex=65b5be5a&is=65a3495a&hm=3effbdcd7ee01be1d8cfdd62fd6a1566669bd0b5c729494771ef06afe962e3c1&", "image source and date", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?");
+
+		function show(name){
+			var imgText = document.getElementById("imgtext");
+      imgText.innerHTML = name;
+			var displayObj = entries[name];
+			var expandImg = document.getElementById("expandedImg");
+      expandImg.src = displayObj.img;
+		};
+	</script>
+   <script type="text/javascript" src="../../styling.js"></script>
+   <script type="text/javascript" src="../formatting.js"></script>
+</body>
+
+</html>
