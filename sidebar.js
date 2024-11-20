@@ -27,19 +27,18 @@ html += '<p><a href="https://bluef00t.neocities.org/contact.html">my links</a></
 html += '<p><a href="https://bluef00t.neocities.org/awards.html">webrings</a></p>';
 html += '<a href="https://neocities.org/"><img src="https://bluef00t.neocities.org/imgs/neocities.gif"></a>';
 
-//sidebar code
-var desktop = '<sidebar>' + html + '</sidebar>';
-
-//plain navigation link code
-desktop += '<topbar>';
-desktop += '<a href="https://bluef00t.neocities.org/navigation.html" style="text-decoration:underline;">NAVIGATION</a>';
-desktop += '</topbar>';
-
 var path = window.location.pathname;
 var page = path.split("/").pop();
 
-if(page=='navigation.html'){ //if on the navigation page, show the full navigation.
+if (page == 'navigation.html' || page == 'navigation'){ //if on the navigation page, show the full navigation.
   document.getElementById("sidebar").innerHTML = html;
-}else {
+} else {
+  //sidebar code
+  var desktop = '<sidebar>' + html + '</sidebar>';
+
+  //plain navigation link code
+  desktop += '<topbar>';
+  desktop += '<a href="https://bluef00t.neocities.org/navigation.html" style="text-decoration:underline;">NAVIGATION</a>';
+  desktop += '</topbar>';
   document.getElementById("sidebar").innerHTML = desktop;
 }
