@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>truth or sandwiches</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="pink.css" rel="stylesheet" type="text/css" media="all">
+	<style type="text/css">
+.gallery{
+  border: 1px solid red; 
+    padding: 5px; 
+    height: 200px;
+}
+.container{
+  display: none;
+  text-align: center;
+  position: fixed;
+  padding-top: 1em;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.75);
+}
+
+/* Next & previous buttons */
+#prev,
+#next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+#next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+#prev:hover,
+#next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#imgtext{
+	font-size: 120%;
+	font-weight: bold;
+}
+
+details {
+	border: 2px solid #ffc9e2;
+	padding: 4px;
+	margin: 4px;
+	padding-left:8px;
+}
+details summary {
+}
+
+table {
+	text-align: center;
+	margin: 4px 0px;
+	background-color: white;
+}
+
+td h2{
+	padding: 4px 8px;
+	margin-bottom: 0px;
+	white-space: nowrap;
+}
+
+tr.alt td, td.alt{
+	background-color: #eeeeee;
+}
+
+.label{
+	font-weight: bold;
+	text-align: left;
+
+}
+
+	</style>
+</head>
+<body>
+	<header>
+		<div id="pink"></div>
+		<img src="pink-top.png">
+	</header>
+	<div class="topbar">
+		<a href="tmbglinks.html">Links</a>
+		<a href="tmbgstuff.html">Fun Stuff</a>
+		<a href="tmbgraphics.html">Graphics</a>
+		<a href="chessmaster.html">Chessmaster</a>
+		<div class="back"><a href="index.html">TMBG Home</a>/<a href="https://bluef00t.neocities.org/music">Music Home</a></div>
+	</div>
+	<content>
+
+		<h1>X&Y GO D&D</h1>
+
+		<div class="box">
+			<p>Recently, I was asked to take part in a friendly Dungeons & Dragons game where each player got to design a team of two characters for an arena battle—TO THE DEATH. You can surely guess who I went for.</p>
+			<p>They did not win—I maintain that They were doing <em>too</em> well, and the others teamed up against Them—but they fought valiantly and died interestingly and were an absolute pleasure to play, so I thought I'd share their builds here. (Many thanks to my friend IgpayAtenlay, who knows far more about TTRPGs than I, and was a huge help in putting together these strategies.)</p>
+			<p><b>Note:</b> These characters were built in DND 5e with some minor homebrewed allowances. They were super-optimized for (1) teamwork, (2) pure combat, and (3) dying spectacularly in a one-shot scenario. I have no idea how either of them would fare alone or in a long-term campaign, but I've tried to offer ideas for potential tweaks.</p>
+			<br>
+			<h2><a href="#Y">JOHN Y.</a> (<a href="#equipmentY">Equipment</a> - <a href="#spellsY">Spells</a> - Strats) / JOHN X. (Equipment, Spells, Notes) / NOTES</h2>
+		</div>
+
+		<div class="box">
+			<h1 id="Y">John Y. The Giant-Killer</h1>
+			<img src="https://cdn.discordapp.com/attachments/1310434201887178833/1324100901430099968/IMG_20241225_225243609.jpg?ex=6777954f&is=677643cf&hm=75ada8525446411032dba8eaac723d47b46528309e42bb53f2ce8ac9ee5be0e2&" style="float:left;margin: 5px 20px">
+			<p><b>Variant Human <a href="https://dnd5e.wikidot.com/artificer">Artificer</a> (<a href="https://dnd5e.wikidot.com/artificer:armorer">Armorer</a>)<br>Level 6</b></p>
+			<p>DND Beyond character sheet (PDF)</p>
+			<table>
+				<tr>
+					<td><h2>STR</h2></td>
+					<td><h2>DEX</h2></td>
+					<td><h2>CON</h2></td>
+					<td><h2>INT</h2></td>
+					<td><h2>WIS</h2></td>
+					<td><h2>CHA</h2></td>
+				</tr>
+				<tr>
+					<td><p>10</p></td>
+					<td>12</td>
+					<td>14</td>
+					<td>18</td>
+					<td>12</td>
+					<td>10</td>		
+				</tr>
+				<tr class="alt" style="font-weight: bold;">
+					<td><p>+0</p></td>
+					<td>+1</td>
+					<td>+2</td>
+					<td>+4</td>
+					<td>+1</td>
+					<td>+0</td>
+				</tr>
+			</table>
+			<p><span class="label">Saving throw proficiencies:</span> CON, INT<br>
+			<span class="label">Skill proficiencies:</span> Perception,  Persuasion, Sleight of Hand, Performance, Athletics</span><br>
+			<span class="label">Feat:</span> Magic Initiate
+			</p>
+			<table>
+				<tr>
+					<td><h2>HP</h2></td>
+					<td><h2>AC</h2></td>
+					<td><h2>SP ATK</h2></td>
+				</tr>
+				<tr>
+					<td><p>45</p></td>
+					<td><p>21-27</p></td>
+					<td><p>+7; DC15</p></td>
+				</tr>
+			</table>
+			<details style="font-style: italic;">
+				<summary>Click here for notes on how these stats were constructed.</summary>
+				<table>
+					<tr>
+						<td></td>
+						<td><h2>STR</h2></td>
+						<td><h2>DEX</h2></td>
+						<td><h2>CON</h2></td>
+						<td><h2>INT</h2></td>
+						<td><h2>WIS</h2></td>
+						<td><h2>CHA</h2></td>
+					</tr>
+					<tr class="alt">
+						<td><p class="label">Point buy:</p></td>
+						<td><p>10</p></td>
+						<td>12</td>
+						<td>14</td>
+						<td>15</td>
+						<td>12</td>
+						<td>9</td>
+					</tr>
+					<tr>
+						<td><p class="label">Human Variant bonus:</p></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><p>+1</p></td>
+						<td></td>
+						<td><p>+1</p></td>
+					</tr>
+					<tr class="alt">
+						<td><p class="label">L4 ability improvement:</p></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><p>+2</p></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+				<p>Perception and Sleight of Hand skills come from the class; Persuasion comes from <a href="https://dnd5e.wikidot.com/lineage:human-variant">Variant Human</a>; Performance and Athletics come from a gracious DM letting me tweak the <a href="https://dnd5e.wikidot.com/background:entertainer">Entertainer</a> background.</p>
+				<p>The lower AC value assumes Plate Armor (+18) plus a held shield (+2) with Repulsion Shield (+1).<br>
+				The max value includes Enhanced Defense (+1) and the effects of a Shield spell (+5), available through the feat <a href="https://dnd5e.wikidot.com/feat:magic-initiate">Magic Initiate</a>.<br>
+				He could easily have yet another +1 AC if Xander gave him a Resistance Elixr, but I'm trying to be reasonable here.</p>
+			</details>
+
+			<br>
+			<p>This build was designed to make it possible to fight toe-to-toe with a Level 8 Paladin superhero. York's job is to confidently handle up-close and personal confrontations with heavy hitters, buying Xander room to breathe while harboring a surprising variety of ranged capabilities himself.</p>
+
+			<span style="clear:left;display: block; height: 1em;"></span>
+			<h2 id="equipmentY">Equipment and Infusions</h2>
+			<p><b><a href="https://dnd5e.wikidot.com/artificer:armorer#toc2">Arcane Armor</a> (Guardian)</b> — <i>"Indestructible, indefensible..."</i></p>
+			<blockquote>
+				<p>Use plate armor (AC 18) for an EPIC MECH SUIT that skips the usual STR requirement. Comes with <b>Defensive Field</b> to pad his HP and melee-capable <b>Thunder Gauntlets</b>.</p>
+
+				<p>Pick just one <b>Infusion</b> to apply here, though York can switch between them after a long rest:
+					<ul>
+						<li><a href="https://dnd5e.wikidot.com/artificer:infusions#toc1">Armor of Magical Strength</a>. If someone might try to restrain or shove him, you'll want this one.</li>
+						<li><a href="https://dnd5e.wikidot.com/artificer:infusions#toc14">Resistant Armor</a>. Excellent if you know he'll encounter a specific type of damage that can bypass AC or CON saves.</li>
+						<li><a href="https://dnd5e.wikidot.com/artificer:infusions#toc5">Enhanced Defense</a>. If you're really going for a cartoonishly high base AC.</li>
+					</ul></p>
+			</blockquote>
+			<p><b>The Chessmaster</b> — <i>A "highly misguided" custom shield/electric guitar.</i></p>
+			<blockquote>
+				<p>Infused with <a href="https://dnd5e.wikidot.com/artificer:infusions#toc13">Repulsion Shield</a>, it provides a total of +3 to AC and lets York act as a bouncer when someone gets too close and personal. This is the focus through which York can mechanically produce magical effects.</p>
+					<p>(While it's less satisfying from a flavor text point of view, he can always switch to using the armor as a focus if something happens to the shield.)</p>
+			</blockquote>
+
+			<br>
+			<h2>Attacks and Spells</h2>
+
+			<p class="label">Attacks:</p>
+			<blockquote>
+				<p><a href="https://dnd5e.wikidot.com/artificer:armorer#toc3" class="label">Thunder Gauntlets</a> — <i>"That crazy bastard wants to hit me!"</i><br>
+				<!--Melee, +7, 1d8+4 Thunder damage.<br>-->
+				York delivers a thunderous punch with one comically oversized homemade hand.</p>
+				<details style="font-style: italic;">
+				<summary>Click here for further notes.</summary>
+					<p>Armorers get multiattack at level 5, so York can attempt two punches per turn for a not-too-shabby 2d8+8 combined damage. If a gauntlet punch lands, the target has disadvantage on attacks trying to target anyone other than York. He's hard to look away from, what else can he say?</p>
+				</details>
+			</blockquote>
+	
+			<p class="label">Cantrips:</p>
+			<blockquote>
+				<p><a href="https://dnd5e.wikidot.com/spell:fire-bolt" class="label">Fire Bolt</a> — <i>"People in the back, I'd like to ask you to disregard the fire laws..."</i><br>
+				<!--120ft ranged spell attack, 2d10 Fire damage.<br>-->
+			A jet of flame shoots from the shield's "headstock".</p>
+
+				<!--<p><a href="https://dnd5e.wikidot.com/spell:shocking-grasp" class="label">Shocking Grasp</a> — <i>"Gird yourself for a short, sharp shock"</i><br>
+				Melee, 2d8 Lightning damage.<br>
+				.</p>-->
+
+				<p><a href="https://dnd5e.wikidot.com/spell:toll-the-dead" class="label">Toll The Dead</a>* — <i>"TIME... Is marching on..."</i><br>
+				<!--60ft range, WIS save, 2d8 Necrotic damage (or 2d12 on an already wounded enemy.)<br>-->
+			He plucks a single string, and the ominous note fills you with soul-sucking existential dread.</p>
+
+				<p> <a href="https://dnd5e.wikidot.com/spell:mind-sliver" class="label">Mind Sliver</a>* — <i>"Like a volume beyond comprehension..."</i><br>
+				<!--60ft range, INT save, 2d6 Psychic damage.<br>-->
+				He turns one of the guitar dials all the way up, and a disorienting screech of feedback seems to pierce your brain, leaving you disoriented.</p>
+
+				<p> <a href="https://dnd5e.wikidot.com/spell:booming-blade" class="label">Booming Blade</a> — <i>"You can't get away, you can't really hide..."</i><br>
+					He throws a super-charged punch with his Thunder Gauntlets, getting a second guaranteed hit in if you try to move afterwards.
+				<!--Adds 1d8 damage to the Thunder Gauntlet punch, plus <i>another</i> 2d8 if the target tries moving in the next turn.</p>-->
+				
+				
+				<details style="font-style: italic;">
+				<summary>Click here for further notes.</summary>
+					<p>(*) Spells marked with an asterisk are Wizard spells learned via <a href="https://dnd5e.wikidot.com/feat:magic-initiate">Magic Initiate</a>. These are still cast with INT.</p>
+					<p>York is quite versatile: Thunder, Fire, Psychic, and Necrotic damage are all represented here. Use <b>Fire Bolt</b> against the AC of squishy wizards who think they're standing at a safe distance, while the Wizard spells can target the dump-stat INT or WIS of any high-AC meathead chasing him down. <b>Toll the Dead</b>'s 2d12 is quite high damage for a cantrip.</p>
+
+					<p><b>Booming Blade</b> is less efficient damagewise than just punching someone twice, but the movement control part is valuable for teamwork (punishing them for trying to escape an environmental hazard or breaking off melee to harass Xander). I've also played York solo with this one subsitutued for <a href="https://dnd5e.wikidot.com/spell:shocking-grasp">Shocking Grasp</a>—it gets advantage against opponents with metal armor and lets York reposition himself afterward without triggering an opportunity attack. Plus, very mad-science flavorful. KA-ZAP!</p>
+				</details>
+			</blockquote>
+
+			<p class="label">Level 1 <i>(4 slots)</i>:</p>
+			<blockquote>
+				<p><a href="https://dnd5e.wikidot.com/spell:shield" class="label">Shield</a>*<br>
+				<!--Reaction. Blocks Magic Missile and grants +5 to AC for the rest of the round. (This gets one extra use, thanks to Magic Initiate.)<br>-->
+				A forcefield crackles out from his communicator-watch, temporarily blocking the blow.</p>
+
+				<p><a href="https://dnd5e.wikidot.com/spell:magic-missile" class="label">Magic Missile</a> — <i>"Let's get those missiles ready to destroy the universe!"</i><br>
+				<!--120ft range, 1d4+1 Force damage to multiple targets.<br>-->
+				Panels pop open in the shoulders of his armor, tiny launchers swiveling towards their targets.</p>
+
+				<p><a href="https://dnd5e.wikidot.com/spell:thunderwave" class="label">Thunderwave</a> — <i>"If the bass doesn't get you..."</i><br>
+				<!--15 foot radius, STR save, 2d8 Thunder damage or half as much on a save. Targets that fail a save ar pushed 10 feet back.<br>-->
+				He strums a gnarly chord and the force of the reverb blows everyone nearby physically backwards.</p>
+				<details style="font-style: italic;">
+				<summary>Click here for further notes.</summary>
+					<p><b>Shield</b> is York's last borrowed Wizard spell, and it's really that on which the Giant-Killer build hangs. 
+					<br><a href="https://dnd5e.wikidot.com/feat:magic-initiate">Magic Initiate</a> gives him one bonus use of this spell, so that gives him</p>
+					<p>York <i>can</i> know more spells than the above, though, so here are some other spells that are either useful or flavorful enough to consider:</p>
+					<ul>
+						<li><a href="https://dnd5e.wikidot.com/spell:cure-wounds" >Cure Wounds</a>. Good for emergencies, but actually less efficient than taking an action to drink one of Xander's health potions. Cast this at L2 or not at all.</li>
+						<li><a href="https://dnd5e.wikidot.com/spell:disguise-self">Disguise Self</a>. York loooves the concept of going undercover, but he's miserable at both stealth and deception.
+						</li>
+						<li><a href="https://dnd5e.wikidot.com/spell:identify">Identify</a>. Slightly expensive material component, but this just seems like an ability York should have despite his middling Arcana skill. He's a gearhead!</li> 
+					</ul>
+			</blockquote>
+
+			<br>
+			<h2>Strategies and Warnings</h2>
+			<ul>
+				<li><b>The difference between a villain and a supervillain? Presentation!</b> Roleplay it up, people! York may not be mechanically "charismatic", but he is mechanically loud, unpredictable, and difficult to ignore. Talking is a free action. That makes it a resource, and York never leaves resources on the table.</li>
+				<li><b>Don't fall for your own hype.</b> York simulates power through cleverness and consumable effects. His build makes up-close and personal violence lots of fun, but he's ultimately an INT-based character. Forget that, and the real heavy hitters will eat him alive.</li>
+				<li><b>Give John X. his personal space.</b> Xander can take care of himself! Separate so you can't both be targeted by area effects. You're both ranged casters; you can support each other from a distance.</li>
+				<li><b>Sharing's great, sharing's neat.</b> York only really has two important pieces of equipment to worry about; his third infusion can go to Xander. Magic items that don't require attunement are an easy one. (See Xander's equipment for a suggestion.)</li>
+				<li><b>Watch out for:</b> darkness (darn nightvision-less human eyeballs!), environmental hazards that someone could drag you into, WIS saves (especially ones that block you from taking reactions, like Slow or Confusion) and AC-bypassing damage like Heat Metal or Cloud of Daggers.</li>
+			</ul>
+		</div>
+
+				<div class="box">
+			<h1 id="X">John X. Professor Psychofuckup</h1>
+			<img src="https://cdn.discordapp.com/attachments/1310434201887178833/1324100901736153120/IMG_20241225_225255307.jpg?ex=677c328f&is=677ae10f&hm=0b0f32a79fb878f20b143dfa3a8ead26520616a9d89a822277d17e284aefe95d&" style="float:left;margin: 5px 20px">
+			<p><b>Variant Human <a href="https://dnd5e.wikidot.com/artificer">Artificer</a> (<a href="https://dnd5e.wikidot.com/artificer:alchemist">Alchemist</a>)<br>Level 6</b></p>
+			<p>DND Beyond character sheet (PDF)</p>
+			<table>
+				<tr>
+					<td><h2>STR</h2></td>
+					<td><h2>DEX</h2></td>
+					<td><h2>CON</h2></td>
+					<td><h2>INT</h2></td>
+					<td><h2>WIS</h2></td>
+					<td><h2>CHA</h2></td>
+				</tr>
+				<tr>
+					<td><p>8</p></td>
+					<td>16</td>
+					<td>12</td>
+					<td>18</td>
+					<td>14</td>
+					<td>8</td>		
+				</tr>
+				<tr class="alt" style="font-weight: bold;">
+					<td><p>-1</p></td>
+					<td>+3</td>
+					<td>+1</td>
+					<td>+4</td>
+					<td>+2</td>
+					<td>-1</td>
+				</tr>
+			</table>
+			<p><span class="label">Saving throw proficiencies:</span> CON, INT, WIS<br>
+			<span class="label">Skill proficiencies:</span> Perception,  Performance, History, Arcana, Sleight of Hand</span><br>
+			<span class="label">Feat:</span> Resilient
+			</p>
+			<table>
+				<tr>
+					<td><h2>HP</h2></td>
+					<td><h2>AC</h2></td>
+					<td><h2>SP ATK</h2></td>
+				</tr>
+				<tr>
+					<td><p>39</p></td>
+					<td><p>19-21</p></td>
+					<td><p>+7; DC15</p></td>
+				</tr>
+			</table>
+			<details style="font-style: italic;">
+				<summary>Click here for notes on how these stats were constructed.</summary>
+				<p>The lower AC value assumes Scale Mail (+14, +2 DEX) plus a held shield (+2) with Repulsion Shield (+1).<br>
+				The max value includes Enhanced Defense (+1) and a Resilience Elixr (+1).<br>
+			</details>
+		</div>
+
+
+		<div class="box">
+			<h1 id="Notes">Notes + Strategies</h1>
+			<p>Spend time in the studio. Spell slots are expensive.</p>
+			<p>Note to self: 4 + 3 spell slots, not including the pre-prepared ones.</p>
+			<p>
+				York only really has two important pieces of equipment to worry about; his third infusion can go to Xander. Magic items that don't require attunement are an easy one.
+			</p>
+			<p>John X. is split between savant-level natural skills with some truly embarrassing low spots; John Y. gets decent skill bonuses to just about everything.</p>
+
+							<p><a href="https://dnd5e.wikidot.com/spell:feather-fall" class="label">Feather Fall</a> — <i>"Sweetly as I fall backwards in slow motion..."</i><br>
+				<!--Reaction. 60ft range. Target (or self) takes no fall damage.<br>-->
+				An oversized parachute suddenly deploys, slowing his fall.</p>
+		</div>
+
+		
+
+			<br>
+		<div class="box">
+			<p><a href="tmbgstuff.html">Back to Fun Stuff</a></p>
+		</div>
+
+		<br style="clear: both; line-height:0"/>
+	</content>
+
+</body>
+
+</html>
