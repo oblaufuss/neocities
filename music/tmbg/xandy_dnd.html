@@ -5,40 +5,23 @@
 	<meta charset="UTF-8">
 	<title>truth or sandwiches</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="pink.css" rel="stylesheet" type="text/css" media="all">
+	<link href="pink.css#jan25" rel="stylesheet" type="text/css" media="all">
 	<style type="text/css">
-		details {
-			border: 2px solid #ffc9e2;
-			padding: 4px;
-			margin: 4px;
-			padding-left:8px;
-		}
-		details summary {
-		}
+		.gallery{
+    height: 250px;
+}
 
-		table {
-			text-align: center;
-			margin: 4px 0px;
-			background-color: white;
-		}
-
-		td h2{
-			padding: 4px 8px;
-			margin-bottom: 0px;
-			white-space: nowrap;
-		}
-
-		tr.alt td, td.alt{
-			background-color: #eeeeee;
-		}
-
-		.label{
-			font-weight: bold;
-			text-align: left;
-
-		}
-
-	</style>
+.label{
+	font-weight: bold;
+	text-align: left;
+}
+ .portrait{
+float:left;
+margin: 5px 20px 6px 10px;
+height: auto!important;
+max-height: 450px!important
+ }
+</style>
 </head>
 <body>
 	<header>
@@ -53,20 +36,20 @@
 		<div class="back"><a href="index.html">TMBG Home</a>/<a href="https://bluef00t.neocities.org/music">Music Home</a></div>
 	</div>
 	<content>
-		<h1>X&Y GO D&D</h1>
+		<h1>X&Y go D&D</h1>
 
 		<div class="box">
-			<p>Recently, I was asked to take part in a friendly Dungeons & Dragons game where each player got to design a team of two characters for an arena battle—TO THE DEATH. You can surely guess who I went for.</p>
-			<p>They did not win—I maintain that They were doing <em>too</em> well, and the others teamed up against Them—but they fought valiantly and died interestingly and were an absolute pleasure to play, so I thought I'd share their builds here. (Many thanks to my friend IgpayAtenlay, who knows far more about TTRPGs than I, and was a huge help in putting together these strategies.)</p>
-			<p><b>Note:</b> These characters were built in DND 5e with some minor homebrewed allowances. They were super-optimized for (1) teamwork, (2) combat, and (3) dying spectacularly in a one-shot scenario. I have no idea how either of them would fare alone or in a long-term campaign, but I've tried to offer ideas for potential tweaks.</p>
+			<p>Recently, I was asked to take part in a friendly Dungeons & Dragons game where each player got to design a team of two characters for a multi-way arena battle—TO THE DEATH. You can surely guess who I went for.</p>
+			<p>They did not win—I maintain that They were doing <em>too</em> well, and the others players teamed up to bring Them down—but they fought valiantly and died interestingly and were a blast to play, so I thought I'd share their builds here. (Many thanks to my IRL friend <a href="https://www.reddit.com/user/IgpayAtenlay/">IgpayAtenlay</a>, who knows far more about TTRPGs than I, and was a huge help in putting together these strategies.)</p>
+			<p><b>Note:</b> These characters were built in DND 5e with some homebrewed allowances. They were super-optimized for (1) teamwork, (2) combat, and (3) dying spectacularly in a one-shot scenario. I have no idea how well either of them would fare without the other in a long-term campaign, but I've tried to offer ideas for potential tweaks.</p>
 			<br>
-			<h2><a href="#Y">JOHN Y</a> (Newton York): <a href="#equipmentY">Equipment</a> - <a href="#spellsY">Spells</a> - <a href="#stratsY">Strats</a></h2>
-			<h2><a href="#X">JOHN X</a> (Xander Lincoln): <a href="#equipmentX">Equipment</a> - <a href="#inventoryX">Inventory</a> - <a href="#spellsX">Spells</a> - <a href="#stratsX">Strats</a></h2>
+			<h2><a href="#Y">JOHN Y</a> (Newton York): <a href="#equipmentY">Equipment</a> - <a href="#spellsY">Spells</a> - <a href="#stratsY">Strats</a> - <a href="#galleryY">Gallery</a></h2>
+			<h2><a href="#X">JOHN X</a> (Xander Lincoln): <a href="#equipmentX">Equipment</a> - <a href="#inventoryX">Inventory</a> - <a href="#spellsX">Spells</a> - <a href="#stratsX">Strats</a> - <a href="#galleryX">Gallery</a></h2>
 		</div>
 
 		<div class="box">
 			<h1 id="Y">John Y: The Giant-Killer</h1>
-			<img src="https://cdn.discordapp.com/attachments/957825295329681458/1323496003847852183/artificery.png?ex=67868574&is=678533f4&hm=1b4d40785dc19416903abe383957abdf4dcbf754775a2541ca008de7c48a34f9&" style="float:left;margin: 5px 20px">
+			<img src="johns/artificerYsmall.png" class="gallery Y portrait" onclick="showGallery('Y', this);">
 			<p><b>Newton York<br>Variant Human <a href="https://dnd5e.wikidot.com/artificer">Artificer</a> (<a href="https://dnd5e.wikidot.com/artificer:armorer">Armorer</a>)<br>Level 6</b></p>
 			<p>DND Beyond character sheet (PDF)</p>
 			<table>
@@ -96,7 +79,7 @@
 				</tr>
 			</table>
 			<p><span class="label">Saving throw proficiencies:</span> CON, INT<br>
-				<span class="label">Skill proficiencies:</span> Perception,  Persuasion, Sleight of Hand, Performance, Athletics</span>
+				<span class="label">Skill proficiencies:</span> Perception, Persuasion, Sleight of Hand, Performance, Athletics
 			</p>
 			<table>
 				<tr>
@@ -110,9 +93,9 @@
 					<td><p>+7; DC15</p></td>
 				</tr>
 			</table>
-			<details style="font-style: italic;">
-				<summary>Click here for notes on how these stats were constructed.</summary>
-				<table>
+			<details style="font-style: italic; display: inline-block">
+				<summary>Click here for further notes on these stats.</summary>
+				<table style="display:block; overflow-x:auto">
 					<tr>
 						<td></td>
 						<td><h2>STR</h2></td>
@@ -171,6 +154,10 @@
 						<li><a href="https://dnd5e.wikidot.com/artificer:infusions#toc14">Resistant Armor</a>. Excellent if you know he'll encounter a specific type of damage that can bypass AC or CON saves.</li>
 						<li><a href="https://dnd5e.wikidot.com/artificer:infusions#toc5">Enhanced Defense</a>. If you're really going for a cartoonishly high base AC.</li>
 					</ul></p>
+					<details style="font-style: italic;">
+						<summary>Click here for further notes.</summary>
+						<p>York's armor model can actually be changed to the <a href="https://dnd5e.wikidot.com/artificer:armorer#toc2">Infiltrator</a> type after a short or long rest, so he does have a more subtle mode. I've never tried using it, though!</p>
+					</details>
 				</blockquote>
 				<p><b>The Chessmaster</b> — <i>A "highly misguided" custom shield/electric guitar.</i></p>
 				<blockquote>
@@ -179,7 +166,7 @@
 				</blockquote>
 				<p><b>Night-Vision Spex</b> — <i>"I see you through my spyglass, baby..."</i></p>
 				<blockquote>
-					<p>York's third and last infusion can be used to supplement his sorry human eyeballs by applying <a href="https://dnd5e.wikidot.com/wondrous-items:goggles-of-night">Goggles of Night</a> to his glasses. However, infusions can be applied to other people's equipment, and Xander might actually need the vision boost more! (<a href="#equipmentX">More notes on that here.</a>)</p>
+					<p>York's third and final infusion can be used to supplement his sorry human eyeballs by applying <a href="https://dnd5e.wikidot.com/wondrous-items:goggles-of-night">Goggles of Night</a> to his glasses. However, infusions can be applied to other people's equipment, and Xander might actually need the vision boost more! (<a href="#equipmentX">More notes on that here.</a>)</p>
 				</blockquote>
 
 				<br>
@@ -288,16 +275,28 @@
 					<li><b>Give John X. his personal space.</b> Xander can take care of himself! Separate so you can't both be targeted by area effects. You're both ranged casters; you can support each other from a distance.</li>
 					<li><b>Watch out for:</b> environmental hazards that someone could drag you into, WIS saves (especially ones that block you from taking reactions, like Slow or Confusion) and AC-bypassing damage like Heat Metal or Cloud of Daggers.</li>
 				</ul>
+
+				<br>
+				<h2 id="galleryY">Concept Art Gallery</h2>
+				<p>Early/alternate takes on the character gear. Click any image to enlarge.</p>
+				<div style="margin:5px;text-align: center;">
+					<img src="https://lh3.googleusercontent.com/pw/AP1GczPt30GhiBqeEBbFOLAoBpkkJXDnmh9dgElkZcl5oFMZ-GdPB2SbZ7OZReEIrjKDQMQY4fjv7w_77q4hLNSPbeyTqAiO6B01nYC0b-n7LkJSa7936eixpV8gH16XthTmDwzheesAZPpEZKnIfI8pgjX2Jg=w659-h879-s-no?authuser=0" alt="" class="gallery g1" onclick="showGallery('g1', this);">
+					<img src="https://lh3.googleusercontent.com/pw/AP1GczNpfYhDq13xlm434l3hBNgEIrblSTcDT0cnco09Cu8I5E9dRCM4qs2Ge5U1zb4qR1HlP-HWe-4kHyrW6q77wlISZTNpoUcSue8fi1RPCYPvBnbBxAKU0zAnhMjMGWvxn3hcAzd_MMOQOAw3H4Qyyx2MxA=w600-h800-s-no?authuser=0" alt="" title="by Felix" class="gallery g1" onclick="showGallery('g1', this);">
+					<img src="https://lh3.googleusercontent.com/pw/AP1GczOF5llbQA3Y4PiIcTYuGXiXU86GS-QGeSJLbn5qihQyJyzUSwAETaAplHyTn1i620hdRj2ms6VFalNmV3DD4Mwwsn1EwgspOyUh5JslTRNekha4UmzhIFi6wr-l_HX5LQOW2P-Rs6HFLfwtVZvsQYtQPA=w1055-h879-s-no?authuser=0" alt="" title="by Felix" class="gallery g1" onclick="showGallery('g1', this);">
+					<img src="https://lh3.googleusercontent.com/pw/AP1GczOl6NwxHUtBPzxg57PqA5PQymnjSeGsIA1zkvu7XSV08TNY_wHnic3Ue3B5drq_nk98v0wxw1J4KtcaQ21PZLp4C24_UpXzTFcerjbptHLDkoloJ1z-qdK44rvrcLtFnyP1RFDT0B5gax4ftmLs7icxqA=w1077-h808-s-no?authuser=0" alt="" class="gallery g1" onclick="showGallery('g1', this);">
+					<img src="https://lh3.googleusercontent.com/pw/AP1GczOzxzfmpqfbasZg_IPCJOsWB_sScHq4HDEYe-_6eqzrg-dLRVLpRWc3ACeDVsTB8vZOfXaqThf0nHg6-iUgmzCWqe1FGxcnwfZoI4CYQD7mDoeb3PhXqLZKjiRBvIWQngQBZzTySu0aXQbYUL1GHduEPQ=w659-h879-s-no?authuser=0" alt="" class="gallery g1" onclick="showGallery('g1', this);">
+					<img src="https://lh3.googleusercontent.com/pw/AP1GczNuhxDvPtx9hsy6tvbK8l0ajfTi6QB66NEJJLbmUIjUyFeH-QmjWM8rU_Hgc2RPXq1vmb4CSrY6F33KK72BEP3ZdsJ-v6vuOTAQ7YIEQfBEoWKMied8uGANbY72MdDfQChNUIP7Aknu-076YaAyuRaCxw=w659-h879-s-no?authuser=0" alt="" class="gallery g1" onclick="showGallery('g1', this);">
+				</div>
 			</div>
 
 			<div class="box">
-				<p><a href="#pink">^ Back to Top</a></p>
+				<p><a href="#pink">↑ Back to Top</a></p>
 			</div>
 
 			<div class="box">
-				<h1 id="X">John X: The Professor</h1>
-				<img src="https://cdn.discordapp.com/attachments/1194088562929442867/1327855930196623391/artificer-x.png?ex=67868ff4&is=67853e74&hm=57e1c09b7972729e1d4fe67a4facabf35799d980639a7a6206e59ee52f740d99&" style="float:left;margin: 5px 20px">
-				<p><b>Xander Lincoln<br>Variant Human <a href="https://dnd5e.wikidot.com/artificer">Artificer</a> (<a href="https://dnd5e.wikidot.com/artificer:alchemist">Alchemist</a>)<br>Level 6</b></p>
+				<h1 id="X">John X: Professor Poisonousness</h1>
+				<img src="johns/artificerXsmall.png" class="gallery X portrait" onclick="showGallery('X', this);">
+				<p style="min-width:"><b>Alexander Lincoln<br>Variant Human <a href="https://dnd5e.wikidot.com/artificer">Artificer</a> (<a href="https://dnd5e.wikidot.com/artificer:alchemist">Alchemist</a>)<br>Level 6</b></p>
 				<p>DND Beyond character sheet (PDF)</p>
 				<table>
 					<tr>
@@ -340,9 +339,9 @@
 						<td><p>+7; DC15</p></td>
 					</tr>
 				</table>
-				<details style="font-style: italic;">
-					<summary>Click here for notes on how these stats were constructed.</summary>
-					<table>
+			<details style="font-style: italic; display: inline-block;">
+				<summary>Click here for further notes on these stats.</summary>
+					<table style="display:block; overflow-x:auto">
 						<tr>
 							<td></td>
 							<td><h2>STR</h2></td>
@@ -389,108 +388,103 @@
 							<td></td>
 						</tr>
 					</table>
-					<p>Arcana and Sleight of Hand skills come from the class; Performance comes from <a href="https://dnd5e.wikidot.com/lineage:human-variant">Variant Human</a>; History and Perception come from the <a href="https://dnd5e.wikidot.com/background:rune-carver">Rune Carver</a> background, which a gracious DM let me tweak to replace the extra tool proficiency with wind instruments. The boost to WIS saves comes from the <a href="https://dnd5e.wikidot.com/feat:resilient">Resilient</a> feat.</p>
+					<p>Arcana and Sleight of Hand skills come from the class; Performance comes from <a href="https://dnd5e.wikidot.com/lineage:human-variant">Variant Human</a>; History and Perception come from the <a href="https://dnd5e.wikidot.com/background:rune-carver">Rune Carver</a> background, which a gracious DM let me tweak to replace the extra tool proficiencies with instrument proficiencies. The boost to WIS saves comes from the <a href="https://dnd5e.wikidot.com/feat:resilient">Resilient</a> feat.</p>
 					<p>The lower AC value assumes Breastplate or Scale Mail (+14, +2 DEX) plus a held shield (+2).<br>
-					The max value includes Repulsion Shield (+1), Enhanced Defense (+1) and a Resilience Elixir (+1). This is a pretty boring way to use his infusions, though, so I'd reccommend getting that extra AC boost by instead seeking half cover when you can.</p>
+					The max value includes Repulsion Shield (+1), Enhanced Defense from York (+1) and a temporary Resilience Elixir (+1). To use his infusions more interestingly, I'd reccommend augmenting his AC just by seeking partial cover when you can.</p>
 				</details>
 
-				<p>Beneath all the fiddly little gadgets this build gets to play with, Xander's true job is to stand quietly back and look for the perfect opening to melt someone's face clean off. If his strengths are a little overly specific, York's jack-of-all-trades nature can pick up the slack.</p>
-
-				<p>Xander benefits greatly from the creative use (and possibly abuse) of item effects, so there will be several "check with your DM" moments here.</p>
+				<br>
+				<p>This build was originally designed to evade Charisma-based spellcasters while watching for the perfect moment to step in and melt someone's face clean off. In the meantime, find Xander standing around the back of the battlefield, happily fiddling with one of his many strange gadgets.</p>
 
 				<span style="clear:left;display: block; height: 1em;"></span>
 
 				<h2 id="equipmentX">Equipment and Infusions</h2>
-				<p>Remember, he has to <b>pick three</b> to use at a time, but these can be swapped out every long rest. <br>Suggestions that use York's third infusion are marked with double asterisks (**) below.</p>
+				<p>Remember, he can only pick <b>three Infusions</b> to use at a time, but they can be swapped around every long rest. <br>Suggestions which use York's extra infusion instead are marked with double asterisks (**).</p>
 				<br>
-				<p><b><a href="https://roll20.net/compendium/dnd5e/Bag%20of%20Holding#content">Accordion Bellows of Holding</a></b> — <i>"Can't just ask some perfect stranger what they're hiding in their accordion case"</i></p>
+				<p><b>Bellows <a href="https://roll20.net/compendium/dnd5e/Bag%20of%20Holding#content">of Holding</a></b> — <i>"Can't just ask some perfect stranger what they're hiding in their accordion case"</i></p>
 				<blockquote>
-					<p>Carry a whole laboratory's worth of gadgetry on <strike>the subway</strike> any quest. Let his hands fly over the buttons and switches, and out of his accordion comes whatever he needs. The hand held blunderbuss-bell is the focus with which he aims attacks.</p>
+					<p>This infused accordion can carry a whole laboratory's worth of supplies on <strike>the subway</strike> any quest. Use the buttons and switches to magically dial up whatever object he needs. (Yes, <a href="https://disney.fandom.com/wiki/Honey_Lemon%27s_Chem-Purse">I know</a>.) The attached blunderbuss-bell is the focus through which he aims attacks.</p>
 					<details style="font-style: italic;">
-							<summary>Click here for further notes.</summary>
-							<p>Yes, <a href="https://disney.fandom.com/wiki/Honey_Lemon%27s_Chem-Purse">I know</a>.</p>
-					<p>This is the one infusion I'd set and forget. Fetching an item from hammerspace takes a full action, but Xander should only need to retrieve the kind of small, light objects he'd have in a normal backpack during combat. A DM will probably let you flavor text his cantrips and accessible inventory as also being "dialed up" through the accordion, though.</p>
-					<p>The "blunderbuss" element can be considered part of his alchemist's kit to give him the +4 <a href="https://dnd5e.wikidot.com/artificer:alchemist#toc3">Alchemical Savant</a> damage bonus.</p>
-				</details>
+						<summary>Click here for further notes.</summary>
+						<p>This is the one infusion I'd set and forget. Properly pulling an item from hammerspace takes a full action, but Xander usually only needs to retrieve the sort of small objects that fit in his accessible inventory during combat. A DM will probably still let you describe this, and his cantrips, as also being dispensed via accordion just as fun flavor text.</p>
+						<p>Treating the handheld "blunderbuss" as part of his alchemist's kit gives him a +4 <a href="https://dnd5e.wikidot.com/artificer:alchemist#toc3">Alchemical Savant</a> damage bonus.</p>
+					</details>
 				</blockquote>
 
-				<p><b>Shield of Mystery</b> — <i>"I'm going to die if you touch me one more time / (Well, I guess that I'm going to die no matter what)"</i></p>
+				<p><b>Shield of Mystery</b> — <i>"I'm going to die if you touch me one more time (well, I guess that I'm going to die no matter what)"</i></p>
 				<blockquote>
-					<p>Maintain Xander's highly valued personal space with an infused <a href="https://dnd5e.wikidot.com/artificer:infusions#toc13">Repulsion Shield</a>: a total of +3 to AC, plus the ability to push melee attackers back out of range, no STR check needed.</p>
-					<p>**One of the <a href="#equipmentY">armor infusions York didn't use</a> could be applied to Xander if defense is still a concern.</p>
+					<p>Maintain Xander's personal space bubble with an infused <a href="https://dnd5e.wikidot.com/artificer:infusions#toc13">Repulsion Shield</a>. On top of the AC bonus, he can push attackers back out of range as a reaction, no STR check or save required.</p>
+					<p>**One of the <a href="#equipmentY">infusions York didn't use</a> can be applied to Xander's armor, too, if AC is a serious concern.</p>
 				</blockquote>
 
-				<p><b>Alchemist's Goggles</b> — <i>"Unboxing my new x-ray vision scope..."</i></p>
+				<p><b>Safety Goggles</b> — <i>"Unboxing my new x-ray vision scope..."</i></p>
 				<blockquote>
-					<p>If your DM is <strike>foolish</strike> nice as mine, they may let Xander's goggles have <a href="https://www.dandwiki.com/wiki/Aviator%27s_Goggles_(5e_Equipment)">some inherent mechanical benefits</a>. If not, there are other options:</p>
+					<p>If your DM is as nice as mine, they may let Xander's goggles have some <a href="https://www.dandwiki.com/wiki/Aviator%27s_Goggles_(5e_Equipment)">inherent mechanical benefits</a>. If not, he has some infusion-based options:</p>
 					<ul>
-						<li>**<a href="https://dnd5e.wikidot.com/wondrous-items:goggles-of-night">Goggles of Night</a>. Xander (as a ranged spellcaster) may benefit more from a boost to his sorry human eyeballs than York does, believe it or not.</li>
-						<li><a href="https://dnd5e.wikidot.com/wondrous-items:eyes-of-charming">Eyes of Charming</a>. Low charisma? Offset it with the power of INTENSE, UNSETTLING EYE CONTACT. Unfortunately, this will tend to make people think he's a creep afterwards.</li>
+						<li>**<a href="https://dnd5e.wikidot.com/wondrous-items:goggles-of-night">Goggles of Night</a>. Look, ONE of Them has got to be "the guy with the glasses"—and lack of Darkvision is the killer of ranged spellcasting.</li>
+						<li><a href="https://dnd5e.wikidot.com/wondrous-items:eyes-of-charming">Eyes of Charming</a>. Offset Xander's low CHA with the disarming power of INTENSE, UNSETTLING EYE CONTACT. Unfortunately, this tends to make people think he's a creep afterward.</li>
 					</ul>
 				</blockquote>
 
 				<p><b><a href="https://roll20.net/compendium/dnd5e/Pipes%20of%20Haunting#content">Pipes of Haunting</a></b> — <i>"Clarinet solo!"</i></p>
 				<blockquote>
-					<p>Of course, sometimes "unsettling" is the goal. Turn the tide of battle by busting out a hip-hip horrific woodwind solo that makes everyone think twice about approaching you.</p>
-					<details style="font-style: italic;">
-							<summary>Click here for further notes.</summary>
-							<p>I actually strongly reccommend this one as a crowd control measure. They don't have a lot of abilities that can apply to a large number of enemies at a time; this will hopefully buy Them several rounds as enemies have to shake off the frightened condition one by one.</p>
-					</details>
+					<p>Of course, sometimes "unsettling" is the goal. This infusion can turn the tide of battle by letting him bust out such a hip-hip horrific woodwind solo that everyone thinks twice about approaching or attacking him.</p>
 				</blockquote>
 
 				<p><b><a href="https://dnd5e.wikidot.com/artificer:infusions#toc8">Blue Canary</a></b> — <i>"Homunculus is by your side"</i></p>
 				<blockquote>
-					<p>A fragile mechanical bird who watches over you. A lover, not a fighter, the Canary makes for an excellent scout or spy, can deliver small objects and short messages, and can channel touch-range spells for Xander without him having to actually <i>touch</i> anyone.</p>
+					<p>A fragile mechanical bird who watches over you. More a lover than a fighter, the Canary makes for an excellent scout or spy, can deliver small objects and short messages, and can channel touch-range spells without forcing Xander to actually <i>touch</i> anyone.</p>
 					<table>
-					<tr>
-						<td><h2>STR</h2></td>
-						<td><h2>DEX</h2></td>
-						<td><h2>CON</h2></td>
-						<td><h2>INT</h2></td>
-						<td><h2>WIS</h2></td>
-						<td><h2>CHA</h2></td>
-					</tr>
-					<tr class="alt">
-						<td><p>4</p></td>
-						<td>15</td>
-						<td>12</td>
-						<td>10</td>
-						<td>10</td>
-						<td>7</td>		
-					</tr>
-					<tr  style="font-weight: bold;">
-						<td><p>-3</p></td>
-						<td>+2</td>
-						<td>+1</td>
-						<td>0</td>
-						<td>0</td>
-						<td>-2</td>
-					</tr>
-				</table>
-				<table>
-				<tr>
-					<td><h2>HP</h2></td>
-					<td><h2>AC</h2></td>
-					<td><h2>Skills</h2></td>
-				</tr>
-				<tr>
-					<td><p>11</p></td>
-					<td><p>13</p></td>
-					<td><p>+6 Perception, +5 Stealth</p></td>
-				</tr>
-			</table>
+						<tr>
+							<td><h2>STR</h2></td>
+							<td><h2>DEX</h2></td>
+							<td><h2>CON</h2></td>
+							<td><h2>INT</h2></td>
+							<td><h2>WIS</h2></td>
+							<td><h2>CHA</h2></td>
+						</tr>
+						<tr class="alt">
+							<td><p>4</p></td>
+							<td>15</td>
+							<td>12</td>
+							<td>10</td>
+							<td>10</td>
+							<td>7</td>		
+						</tr>
+						<tr  style="font-weight: bold;">
+							<td><p>-3</p></td>
+							<td>+2</td>
+							<td>+1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>-2</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td><h2>HP</h2></td>
+							<td><h2>AC</h2></td>
+							<td><h2>Skills</h2></td>
+						</tr>
+						<tr>
+							<td><p>11</p></td>
+							<td><p>13</p></td>
+							<td><p>+6 Perception, +5 Stealth</p></td>
+						</tr>
+					</table>
 
-				<details style="font-style: italic;">
-					<summary>Click here for further notes.</summary>
-					<p>HP is 1 + 4 (INT modifier) + 6 (level). Carrying capacity is 4 (raw STR) x 15 = 60lbs.</p>
-					<p>For character theming it's tempting to call the Canary's gemstone heart blue sapphire, but for roleplay reasons, using a gem that valuable in your very killable bird servant may be a bad idea. It's worth sending into battle for an emergency diversion or application of Cure Wounds, but just know you'll probably have to re-make it tomorrow.<br>If you're really worried about its safety, it can stow itself in Xander's accordion.</p>
-					<p>A fun possiblity here is to use <a href="https://dnd5e.wikidot.com/artificer#toc5">Magical Tinkering</a>, which lets York and Xander record 4 short audio clips each, to give the Canary a built-in soundboard with buttons that it can activate with its beak. They can record some helpful phrases (yes, no, maybe, I don't know, can you repeat the question?) and send it off to stealthily communicate with someone They can't easily reach, or use the recordings as a diversion, luring guards away to check on the mumbling of voices they just can't seem to find the source of...</p>
-				</details>
+					<details style="font-style: italic;">
+						<summary>Click here for further notes.</summary>
+						<p>HP is 1 + 4 (INT modifier) + 6 (level). Carrying capacity is 4 (raw STR) x 15 = 60lbs.</p>
+						<p>It's tempting to call the Canary's gemstone heart a blue sapphire, but using a gem <a href="https://dnd5e.wikidot.com/currency#toc2">that valuable</a> in a very killable bird servant may be a bad idea.<br>The Canary can be remade every day, so don't feel too bad if it doesn't make it to the end of a battle. If you'll really need it later, it can stow itself safely in Xander's accordion.</p>
+						<p>A fun possibility here is to use <a href="https://dnd5e.wikidot.com/artificer#toc5">Magical Tinkering</a> to prep built-in soundboard buttons for the Canary to activate with its beak. Record some helpful phrases (yes/no/maybe/I don't know/can you repeat the question?) and send it off to stealthily communicate with someone They can't easily reach, or use the recordings as a diversion, luring guards away to check on the mumbling of voices they just can't seem to find the source of...</p>
+					</details>
 				</blockquote>
 
-				<p><b>**<a href="https://roll20.net/compendium/dnd5e/Bag%20of%20Holding#content">Demon Core of Holding</a></b> — <i>"Too bad my greatest trick can only be performed one time..."</i></p>
+				<p><b>**<a href="https://dnd5e.wikidot.com/wondrous-items:bag-of-holding">Demon Core of Holding</a></b> — <i>"Too bad my greatest trick can only be performed one time..."</i></p>
 				<blockquote>
-					<p>A oneshot-only use of York's third infusion: the murder-suicide pill.<br>This second, smaller Bag of Holding is kept in Xander's pocket. If York's down and there's no hope of lasting long enough to bring things home, he can get up close to his target and put the small bag inside the accordion. This tears a hole in the universe that will swallow everything in a 10-foot radius. In the words of many a memorable villain: <i>If I can't win, no one can</i>.</p>
+					<p>The murder-suicide pill: a nuclear option to be prepared only for one-shots and impossible odds.</p>
+						<p>If something has taken out York and isn't slowing down, Xander can wait until they get close and place this second, smaller Bag of Holding into his accordion's hammerspace. This will tear a hole in the universe that sucks everything in a 10-foot radius into the Astral Plane, no saving throws, no nothin'.<br>In the words of many a memorable villain: <i>If I can't win, no one can</i>.</p>
 				</blockquote>
 
 				<br>
@@ -500,13 +494,13 @@
 				<blockquote>
 					<p><a href="https://roll20.net/compendium/dnd5e/Sling#content" class="label">Sling</a> — <i>"I'd like to change your mind / by hitting it with a rock"</i><br>
 						<!--30ft range, +6, 1d4+3 Thunder damage.<br>-->
-						Xander pulls back a lever on the brass blunderbuss, loads his ammunition, and pulls the trigger, flinging it at you.</p>
-						<details style="font-style: italic;">
-							<summary>Click here for further notes.</summary>
-							<p>1d4+3 Bludgeoning isn't so exciting, but it's all in what's loaded into it. See the <a href="inventoryX">inventory</a> section.</p>
-							<p>Without a melee option, Xander can't actually take opportunity attacks—anyone can brush past him and he won't attempt to engage. I thought this was pretty funny and in-character, but if it seems like an actual problem, he can be equipped with a dagger too.</p>
-						</details>
-					</blockquote>
+					Xander pulls back a lever, spring-loading his blunderbuss to toss his ammunition of choice towards you.</p>
+					<details style="font-style: italic;">
+						<summary>Click here for further notes.</summary>
+						<p>1d4+3 Bludgeoning isn't so exciting, but it's all in what's loaded into it. See the <a href="inventoryX">inventory</a> section.</p>
+						<p>Without a melee option, Xander can't actually take opportunity attacks—anyone can brush past him and he won't attempt to engage. I thought this was pretty funny and in-character, but if it seems like an actual problem, he can be equipped with a dagger too.</p>
+					</details>
+				</blockquote>
 
 				<p class="label">Cantrips:</p>
 				<blockquote>
@@ -517,185 +511,171 @@
 						Xander presses a key on the blunderbuss, and lenses flip up to focus a brilliantly hot point of light which erupts into flame.
 					</p>
 					<details style="font-style: italic;">
-							<summary>Click here for further notes.</summary>
-							<p>Yes, most artificers only get two cantrips. York is just a freak.<br>Both of these are DEX saves; the main difference is range, <b>Acid Splash</b>'s ability to hit two targets, and damage type. Don't forget Xander's +4 <a href="https://dnd5e.wikidot.com/artificer:alchemist#toc3">Alchemical Savant</a> damage bonus!</p>
-							<p>Try using <b>Create Bonfire</b> after a successful <b>Booming Blade</b> from York to force a damned-if-you-do-move, damned-if-you-don't situation.</p>
-						</details>
+						<summary>Click here for further notes.</summary>
+						<p>Yes, most artificers only get two cantrips. York is just an overachiever.<br>Both of these are DEX saves; the main difference is <b>Acid Splash</b>'s ability to hit two targets and the damage type. Don't forget Xander's +4 <a href="https://dnd5e.wikidot.com/artificer:alchemist#toc3">Alchemical Savant</a> damage bonus to both!</p>
+						<p>Try setting up <b>Create Bonfire</b> under enemies that are restrained or unwilling to move from a spot, or after a successful <b>Booming Blade</b> from York to force a damned-if-you-do move, damned-if-you-don't move situation.</p>
+					</details>
 				</blockquote>
 
 				<p class="label">Level 1 <i>(4 slots)</i>:</p>
 				<blockquote>
-					<p><a href="https://dnd5e.wikidot.com/spell:catapult" class="label">Catapult</a> — <i>"I already know the ending, it's the part that makes your face implode"</i><br>
-						Xander uses his accordion buttons to dial up some 
+					<p><a href="https://dnd5e.wikidot.com/spell:entangle" class="label">Entangle</a>* — <i>"In the overgrowth, of the underbrush..."</i><br>
+						A jet of water from the mouth of the blunderbuss causes strange, twisting plants to sprout where it falls, rooting anyone nearby to the spot.
 					</p>
-					<p><a href="https://dnd5e.wikidot.com/spell:flaming-sphere" class="label">Flaming Sphere</a> — <i>"The sun is a mass of incandescent gas..."</i><br>
+					<p><a href="https://dnd5e.wikidot.com/spell:catapult" class="label">Catapult</a> — <i>"Directly I'll gooooooooooooooo-"</i><br>
+						Xander uses his accordion to dial up his ammunition of choice, and a burst of compressed air shoots it out of the blunderbuss at an incredible speed.
 					</p>
-					<p><a href="https://dnd5e.wikidot.com/spell:comprehend languages" class="label">Comprehend Languages</a> — <i>"Mehyoodnat khoss dham vek Dehlinkwangt meeveh."</i><br>
+					<p><a href="https://dnd5e.wikidot.com/spell:comprehend languages" class="label">Comprehend Languages</a>* — <i>"Mehyoodnat khoss dham vek Dehlinkwangt meeveh."</i><br>
+						A little ticker-tape printout begins to unspool from a slot in the accordion's top, letting Xander look up any words he's unfamiliar with.
 					</p>
 					<details style="font-style: italic;">
-							<summary>Click here for further notes.</summary>
-							<p>It's decidedly less fun or coherent to flavor text, but it may be useful to know that the Catapult spell can pick up small objects (or small creatures!) at a distance and launch <i>them</i>, dealing damage to both the target and the object thrown.</p>
-							<p>Remember that Flaming Sphere doesn't do damage when it appears. It makes for a pretty good diversion, though.</p>
-							<p>All of these attacks are ALSO DEX saves.</p>
-							<p>Xander will know a couple more spells than the above, so here are some others I consider reasonably useful and on-theme:</p>
-							<ul>
-								<li></li>
-							</ul>
-					<ul>
-						<li><a href="https://dnd5e.wikidot.com/spell:cure-wounds" >Cure Wounds</a>. Good for emergencies, but less efficient than taking an action to drink a Healing Elixir.</li>
-					</ul>
-						</details>
+						<summary>Click here for further notes.</summary>
+						<p>(*) Spells marked with an asterisk are learned via <a href="https://dnd5e.wikidot.com/feat:rune-shaper">Rune Shaper</a> and can be cast once per long rest without expending a spell slot.</p>
+						<p>Xander's ability to do damage continues to hinge on his enemies failing DEX saves. <b>Entangle</b>'s DC15 STR save can tie down several frustratingly dextrous enemies at once.
+							<br>If your DM let you take <a href="https://www.dandwiki.com/wiki/Aviator%27s_Goggles_(5e_Equipment)">Aviator's Goggles</a>, consider switching this to <a href="https://dnd5e.wikidot.com/spell:fog-cloud">Fog Cloud</a>. The protective power of an area Xander can see (and attack!) out of but nobody else can see into beats any set of armor.</p>
+						<p><b>Catapult</b> has 120ft of range, and when its 3d8 bludgeoning (4d8, if cast at L2) is stacked with the effects of the chosen <a href="inventoryX">ammunition</a>... you already know the ending; it's the part that makes your face implode. If possible, use this after York's <a href="https://dnd5e.wikidot.com/spell:mind-sliver">Mind Sliver</a> sabotages the target's saving throw.</p>
+						<h2></h2>
+						<p>Xander will know a couple more spells than the above, so here are some others I consider reasonably useful and on-theme:</p>
+						<ul>
+							<li><a href="https://dnd5e.wikidot.com/spell:magic-missile">Magic Missile</a>. Weaker than his cantrips, but the guaranteed hit can break an opponents' concentration in a hurry.</li>
+							<li><a href="https://dnd5e.wikidot.com/spell:cure-wounds">Cure Wounds</a>. Good to heal a buddy in a pinch, but less efficient than taking an action to drink a Healing Elixir.</li>
+							<li><a href="https://dnd5e.wikidot.com/spell:feather-fall">Feather Fall</a>. Sweetly as I fall backwards in slow motion... Let's just say They've installed parachutes in Their gear for emergencies.</li>
+						</ul>
+					</details>
 				</blockquote>
 
 				<p class="label">Level 2 <i>(2 slots)</i>:</p>
 				<blockquote>
-					<p><a href="https://dnd5e.wikidot.com/spell:" class="label">Spell</a> — <i>"..."</i><br>
+					<p><a href="https://dnd5e.wikidot.com/spell:flaming-sphere" class="label">Flaming Sphere</a> — <i>"Woah, your head's on fire!"</i><br>
+						A flaming mass of incandescent gas erupts from the mouth of the blunderbuss and, somehow, just keeps going.
+					</p>
+					<p><a href="https://dnd5e.wikidot.com/spell:rope-trick" class="label">Rope Trick</a> — <i>"Where did the end of it go?"</i><br>
 					</p>
 					<details style="font-style: italic;">
-							<summary>Click here for further notes.</summary>
-						</details>
+						<summary>Click here for further notes.</summary>
+						<p>If you're really trying to kill something big fast (a Giant, perhaps) your most destructive option is still upcasting <b>Catapult</b>.</p>
+						<p><b>Flaming Sphere</b> does no damage when it first appears, but if he's found a safe hiding place, it can provide several rounds' worth of distracting damage while Xander makes other plans from afar.</p>
+						<p><b>Rope Trick</b> gives Xander somewhere to hide (and maybe even take a nap! It sticks around long enough for a short rest). Spells can't exit the space, but the Canary can. And there's nothing stopping you from pouring oil onto the ground right below you. And then maybe dropping a bit of nonmagical tinder. Or, you know, leaning outside to take a potshot and then ducking back in.<br>
+						The rope used should.</p>
+					</details>
 				</blockquote>
 
 				<br>
 				<h2 id="inventoryX">Suggested Inventory</h2>
-				<p><b>Ammunition</b> — <i>"..."</i></p>
+				<p><i>"Walking stick, lobster shell, cellophane, acid bath, legal pad, nitrogen, avocado, sleeping bag, rope..."</i></p>
+				<p><b>Damage-increasing ammunition:</b></p>
 				<blockquote>
-					<p>Easy-to-get damage-increasers:</p>
 					<ul>
-						<li><a href="https://www.dndbeyond.com/equipment/63-oil-flask?srsltid=AfmBOopb6rIl5vJGU2T5OOHYwyF3iBz-e8kF5e21X9pmQIu-qrnDU535" class="label">Oil flask</a>, 1sp. On a hit, adds +5 to any subsequent fire damage.</li>
-						<li><a href="https://roll20.net/compendium/dnd5e/Acid#content" class="label">Acid vial</a>, 25gp. On a hit, deals 2d6 additional acid damage.</li>
+						<li><a href="https://www.dndbeyond.com/equipment/63-oil-flask?srsltid=AfmBOopb6rIl5vJGU2T5OOHYwyF3iBz-e8kF5e21X9pmQIu-qrnDU535" class="label">Oil flask</a>, 1sp. Adds +5 to any fire damage dealt afterwards.</li>
+						<li><a href="https://roll20.net/compendium/dnd5e/Acid#content" class="label">Acid vial</a>, 25gp. Deals 2d6 additional acid damage.</li>
 					</ul>
-					<p>Potentially useful poisons:</p>
+					<details style="font-style: italic;">
+						<summary>Click here for further notes.</summary>
+						<h2></h2>
+						<p>You should be able to stack these effects on top of the base damage of hitting your target with Sling or Catapult. Both York and Xander have fire-based attacks, and acid makes Catapult into an absolute killer.</p>
+						<p>The too-boring-to-mention-above <a href="https://dnd5e.wikidot.com/wondrous-items:alchemy-jug" class="label">Alchemy Jug</a> infusion option can generate either 2 vials' worth of acid or 2 flasks' worth of oil a day for free. You'll need empty <a href="https://www.dndbeyond.com/equipment/93-vial?srsltid=AfmBOoquVY-BQxoZ0lAdqQN-tKQioFFjg5hqRUOFMKMSJQ17iLHJP5H6">vials</a> (1gp) or <a href="https://www.dndbeyond.com/equipment/45-flask-or-tankard?srsltid=AfmBOooPJ24DD6QdRIX17GHiQ1QzY6hL31nvw5ZLrxljR41NdDPWzezk">flasks</a> (2cp) to decant them into, but your DM may be more or less forgiving about the accounting there.</p>
+					</details>
+				</blockquote>
+				<p><b>Poison-gas ammunition:</b></p>
+				<blockquote>
 					<ul>
 						<li><a href="https://dnd5e.wikidot.com/poisons:malice" class="label">Malice</a>, 250gp — <i>"I guess you must be goin' blind / there's nothing left but the smoke that's comin' off the mind"</i></li>
 						<li><a href="https://dnd5e.wikidot.com/poisons:essence-of-ether" class="label">Ether</a>, 300gp — <i>"Little vials full of knock-out drops..."</i></li>
 					</ul>
 					<details style="font-style: italic;">
-							<summary>Click here for further notes.</summary>
-							<h2></h2>
-							<p>This is one of those "check with your DM" type things, but most should let you stack these effects with the projectile attack.</p>
-							<p>Xander has one last infusion I haven't mentioned yet: the <a href="https://dnd5e.wikidot.com/wondrous-items:alchemy-jug" class="label">Alchemy Jug</a>. This boring-sounding magic object can generate 2 vials-worth of acid or 2 flasks-worth of oil a day. Both York and Xander have fire-based attack options, and 2d6 acid damage can stack on a L2 Catapult spell for a whopping 48 max damage in one hit.</p>
-							<p>The high expense of the poisons make them more niche, but both are inhalation poisons, which means even if your shot misses due to a DEX save (they duck and it breaks on the ground) or high AC (it breaks harmlessly on their armor), it still forces a DC15 CON save.</p>
-							<p><b>Malice</b> is particularly powerful against magic users: most can only cast spells on targets they can either see or touch, and even if they have <a href="https://dnd5e.wikidot.com/spell:lesser-restoration">Lesser Restoration</a> themselves, it'll cost them a round and a L2 spell slot to shake the effect off.</p>
-							<p><b>Ether</b> is particularly powerful against individual enemies: until someone shakes them awake or injures them, they're down for the count, and you're out of combat turn order!</p>
-							<p>Still, I suggest pairing the poisons with a <a href="https://dnd5e.wikidot.com/spell:mind-sliver">Mind Sliver</a> from York to sabotage their saving throw, just to minimize the chance of wasting a resource. (If you do this, make sure to throw the poison with the Sling; Catapult forces a DEX save first.)</p>
+						<summary>Click here for further notes.</summary>
+						<h2></h2>
+						<p>Their high expense makes them more niche, but even if your shot misses due to a DEX save (target dodges and it breaks on the ground) or high AC (it breaks harmlessly against the target's armor), these inhalation poisons still force a DC15 CON save-or-suck.</p>
+						<p><b>Malice</b> is particularly powerful against magic users: most spells can only be cast on a visible target, and even if they have <a href="https://dnd5e.wikidot.com/spell:lesser-restoration">Lesser Restoration</a>, it costs a round and a L2 spell slot to shake the effect off.</p>
+						<p><b>Ether</b> is particularly powerful against individual enemies: until someone shakes them awake or injures them, they're down for the count, and you're out of combat turn order!</p>
+						<p>Try using the poisons directly after a successful <a href="https://dnd5e.wikidot.com/spell:mind-sliver">Mind Sliver</a> from York to sabotage their saving throw. (If you do this, make sure to throw it via Sling; Catapult forces a DEX save first.)</p>
 					</details>
 				</blockquote>
 
-				<p><b>Odds & Ends</b> — <i>"Swimming goggles, penicillin, needle-nose pliers, lighter fluid, sasparilla, magnet, axe, woolen blanket, 1997 calendar, potato peeler..."</i></p>
+				<p><b><a href="https://dnd5e.wikidot.com/artificer:alchemist#toc2">Experimental Elixirs:</a></b></p>
 				<blockquote>
-					<p>Props! Not a gimmick, just a clever way to put on a big show with small resources. Here are some cheap but useful items worth picking up at a shop:</p>
+					<p>Xander can make two of these every long rest. Some of the effects (<b>Healing</b>, <b>Swiftness</b>, <b>Resilience</b>, <b>Boldness</b>, <b>Flight</b>, and <b>Transformation</b>) will be super useful; others apply in ways that are more... weird. And no, he can't decide which one you're going to get before he makes it. That's the creative process for you.</p>
+					<details style="font-style: italic;">
+						<summary>Click here for further notes.</summary>
+						<h2></h2>
+						<p>This also hypothetically requires empty flasks, but drinking out of them instead of throwing them at people makes these ones re-useable.</p>
+						<p>I'd hoard all the health potions you can get and hang onto 2 of each of the other types for emergencies. Extras can be given away or used for trade or barter—see <a href="#stratsX">suggested downtime activities</a> below.</p>
+					</details>
+				</blockquote>
+
+				<p><b>Odds & Ends:</b></p>
+				<blockquote>
 					<ul>
-						<li><a href="https://www.dndbeyond.com/equipment/69-pole-10-foot?srsltid=AfmBOorXOfkM33AToikiiAcKKpeq9O4kTHSWgdSeBMbZ0MfWQT5Cywys" class="label">10 Foot Pole</a>, 5cp. THE STICK!!! For poking potential traps and other things you wouldn't touch without one.</li>
-						<li><a href="https://roll20.net/compendium/dnd5e/Bullseye%20Lantern#content" class="label">Bullseye Lantern</a>, 10gp. For dividing an audience between People and Apes. Seriously, though, since neither of Them have Darkvision, this is a pretty high priority item.</li>
-						<li><a href="https://roll20.net/compendium/dnd5e/Caltrops#content" class="label">Caltrops</a>, 1gp. Deter pursuers through narrow passageways.</li>
-						<li><a href="https://roll20.net/compendium/dnd5e/Crowbar#content" class="label">Crowbar</a>, 2gp. Advantage to STR checks, since Xander is such a stunning physical specimen.</li>
-						<li><a href="https://roll20.net/compendium/dnd5e/Tinderbox#content" class="label">Tinderbox</a>, 5sp. Sometimes it's good to be able to start fires nonmagically.</li>
+						<li><a href="https://www.dndbeyond.com/equipment/69-pole-10-foot?srsltid=AfmBOorXOfkM33AToikiiAcKKpeq9O4kTHSWgdSeBMbZ0MfWQT5Cywys" class="label">10 Foot Pole</a>. THE STICK!!! For poking potential traps and other things you wouldn't touch without one.</li>
+						<li><a href="https://roll20.net/compendium/dnd5e/Bullseye%20Lantern#content" class="label">Bullseye Lantern</a>. For dividing an audience between People and Apes. Seriously, though, since neither of Them have Darkvision, this is a pretty high priority item.</li>
+						<li><a href="https://roll20.net/compendium/dnd5e/Caltrops#content" class="label">Caltrops</a>. Deter pursuers through narrow passageways.</li>
+						<li><a href="https://roll20.net/compendium/dnd5e/Crowbar#content" class="label">Crowbar</a>. Advantage to STR checks, since Xander is such a stunning physical specimen.</li>
+						<li><a href="https://roll20.net/compendium/dnd5e/Tinderbox#content" class="label">Tinderbox</a>. Sometimes it's good to be able to start fires nonmagically.</li>
 					</ul>
+					<details style="font-style: italic;">
+						<summary>Click here for further notes.</summary>
+						<h2></h2>
+						<p>Props! Not a gimmick, just a clever way to put on a big show with small resources. Many of these items already come in the <a href="https://dnd5e.wikidot.com/adventuring-gear">starting equipment packs</a> that characters rarely think to look in. Knowing what you have and what it does is a superpower.</p>
+					</details>
 				</blockquote>
 
 
-					<br>
-					<h2 id="stratsX">Strategies and Warnings</h2>
+				<br>
+				<h2 id="stratsX">Strategies and Warnings</h2>
 				<ul>
 					<li><b>Play to your strengths, but make sure to play.</b> It's tempting to let York's more well-rounded stat block handle most skill rolls, only jumping in when one of Xander's freakishly high bonuses apply. But either one may nat 1 or roll unexpectedly high. Mathematically, approaching a problem together is like approaching it with advantage!</li>
 					<li><b>Don't wander too far off.</b></li>
 					<li><b>Value your downtime.</b> If Xander doesn't rest up, he'll burn out. Having a checklist of things to do and resources to stock up on between adventures should, paradoxically, make playing him feel <i>less</i> like an inventory-management problem in the field.
-					<details>
-							<summary style="font-style: italic;">Click here for some helpful downtime activities.</summary>
+						<details>
+							<summary style="font-style: italic;">Click here for suggested downtime activities.</summary>
 							<h2></h2>
+							<p>I have to admit I've never played these characters in an extended campaign, but this is how I would make Xander's rate of object consumption sustainable:</p>
 							<ul>
-								<li>Use the <a href="https://dnd5e.wikidot.com/wondrous-items:alchemy-jug">Alchemy Jug</a> on any day he doesn't need all his infusions active to refresh his acid or oil supplies, 2 units/day.</li>
-								<li>Make extra <a href="https://dnd5e.wikidot.com/artificer:alchemist#toc2">Elixirs</a> with the spell slots he won't be using otherwise in his downtime.</li>
-								<li>If in a town, he can try busking with York to pick up some extra silver and possibly goodwill from the townspeople.</li>
-								<li>If in a city or somewhere with more shops, he can try selling or trading his extra Elixirs for poisons or other supplies.</li>
+								<li>Make extra <a href="https://dnd5e.wikidot.com/artificer:alchemist#toc2">Elixirs</a> with the spell slots he won't be using otherwise.</li>
+								<li>Use the <a href="https://dnd5e.wikidot.com/wondrous-items:alchemy-jug">Alchemy Jug</a> on any day he has a spare infusion to refresh his supply of acid or oil.</li>
+								<li>If in a town, try busking with York to pick up some extra silver and possibly goodwill from the townspeople.</li>
+								<li>If in a city or somewhere with markets or potion shops, try selling or trading his extra Elixirs for poisons, empty vials, or other supplies.</li>
 								<ul style="margin-left:2em">
-									<li>Magic item prices are a little crazy to try calculating, but your healing elixir is slightly better than the <a href="https://roll20.net/compendium/dnd5e/Potion%20of%20Healing#content">standard 50gp one</a>, and the others might fetch 100-250gp depending on DM ruling.</li>
-									<li>Honestly, the kindest thing you might do for your DM is have York help strike up some kind of deal with a major <strike>record company</strike> alchemist's guild to streamline this step if you're going to do it a lot.</li>
+									<li>(Magic item prices are a little crazy to calculate, but his Healing Elixir is slightly better than the <a href="https://roll20.net/compendium/dnd5e/Potion%20of%20Healing#content">standard 50gp one</a>, and the others might fetch 100-200gp depending on DM ruling or his + York's persuasion rolls.)</li>
+									<li>Honestly, the kindest thing you might do for your DM is have Them strike up some standardized deal with a major <strike>record company</strike> alchemist's guild to streamline this step if you're going to do it often.</li>
 								</ul>
 								<li>Try to learn about the place! Xander's excellent History and Arcana rolls might help clue him in to what infusions will be useful to pick in the coming days.</li>
 							</ul>
 						</details></li>
 						
-					<li><b>Watch out for:</b> opponents with high DEX saves, situations where York is surrounded by multiple attackers, and anyone getting within melee range of you.</li>
-				</ul>
-			</div>
+						<li><b>Watch out for:</b> Darkness, anyone getting within melee range of you.</li>
+					</ul>
+					<br>
+					<h2 id="galleryX">Concept Art Gallery</h2>
+					<p>Early/alternate takes on the character gear. Click any image to enlarge.</p>
+					<div style="margin:5px;text-align: center;">
+						<img src="https://lh3.googleusercontent.com/pw/AP1GczPS1Dn2UTwvX02SA37eVZ7d2U8Y9qtGeo4z3tOTzQl6eXie8wRdJbnGQU1dutT8QN5BwAuraVaQFAYESl-FU9sqv8OC1JXBXLnKWY0hKydMStnjiBPm43TtyUdMBUlYL726UTVO5q3olIvFc58YkBdV1w=w659-h879-s-no?authuser=0" alt="" class="gallery g2" onclick="showGallery('g2', this);">
+						<img src="https://lh3.googleusercontent.com/pw/AP1GczPTs1wi6SkcUV72XaX1vPJAQ6YhMkKK5L9dlTsNm5Mtg9VdTVVZLzbmpeBPyzuq2DJhDI0z9IIQNU1PorhBgWxuL7JOALLFAVVWCuWlhZUeSIJ_mADyWrdkn-5H2cvm-QdnuLGcchDRxwRQDxj4ucwekQ=w1172-h879-s-no?authuser=0" alt=""  class="gallery g2" onclick="showGallery('g2', this);">
+						<img src="https://lh3.googleusercontent.com/pw/AP1GczPnm4P20uJMuSY3YBuNwnPHONisVZapS3LabNh2VibkbwOE4Wm1XNNsc6XtG26jxLxAvYQU6KsfFhUsI7MWZJ4DlRF2Y1jyFgZb-i_SjIvE7KxUauMAymPxrb1iVBiT7jrGSr4bLCIXHDEEiH_TWw6sXg=w1172-h879-s-no?authuser=0" alt="" class="gallery g2" onclick="showGallery('g2', this);">
+						<img src="https://lh3.googleusercontent.com/pw/AP1GczNiGXfo9V-1LMzr8qLEa9iM8u-wM02BUU1MupNtWgvBCvCOjYmH8P2wkddGNodLVrRQ26ynP7Mxg9FxA6d9JgDV3GIqYrXr17-zdOfSRVo2Fp1bgnnXvN-Oynewcz1ACpqOSUpH3AWOown5UzbsbLuAHA=w659-h879-s-no?authuser=0" alt=""  class="gallery g2" onclick="showGallery('g2', this);">
+						<img src="https://lh3.googleusercontent.com/pw/AP1GczN_MKJKEr85FbPxrxySpGWrC7sQw-LGHOnuOnDyTJgY2LEgbX0EQULqH5goMSgqAhwfkyD8nguWAxmSPT-LdXtn0Ty9N2dKeDV5iF7HagbsFvcnWoEww6VMnYwyL_GOPtytAyz9goMq_571W63XryRUpQ=w659-h879-s-no?authuser=0" alt=""  class="gallery g2" onclick="showGallery('g2', this);">
+					</div>
+				</div>
 
 
-		<div class="box">
-			<h1 id="Notes">Notes + Strategies</h1>
-			<p>If your DM to let Xander buy these <a href="https://www.dandwiki.com/wiki/Aviator%27s_Goggles_(5e_Equipment)">homebrew goggles</a>, (1) DO IT, and (2) go swap out Inflict Wounds for <a href="https://dnd5e.wikidot.com/spell:fog-cloud">Fog Cloud</a> as the runic spell you know.</p>
 
-			<p>Spend time in the studio. Spell slots are expensive.</p>
-			<p>Note to self: 4 + 3 spell slots, not including the pre-prepared ones.</p>
-			<h2>Suggested combo moves:</h2>
-			<ul>
-				<li>Get York to hit a target with Mind Sliver before Xander uses a L2 spell slot to hit them with Catapult, sabotaging their DEX save and making it unlikely that the expensive high-damage move will miss.</li>
-				<li>Or get York to hit a target with Mind Sliver before Xander slings a poison at them. (It's important to <i>sling</i> the poison rather than Catapult it here, or the debuff will apply to their DEX save again.)</li>
-				<li>If Xander is going to do something attention-grabbing, the turn after York hits the most dangerous player with the Thunder Gauntlets is a good moment. If they're tempted to attack Xander with disadvantage applied, it's more likely they won't hit anyone.</li>
-				<li>If York gets a successful hit with Booming Blade (forcing 2d8 damage if the target moves), that's a good time for Xander to Create Bonfire under the target (threatening 2d8 damage if they <i>don't</i> move).</li>
-			</ul>
+				<br>
+				<div class="box">
+					<p><a href="xandy.html">← Back to X&Y's page</a> / <a href="#pink">↑ Back to Top</a></p>
+				</div>
 
-			<table>
-					<tr>
-						<td><h2>Item</h2></td>
-						<td><h2>Volume</h2></td>
-						<td><h2>Cost</h2></td>
-					</tr>
-					<tr>
-						<td>Empty Vial</td>
-						<td>4 oz</td>
-						<td>1gp</td>
-					</tr>
-				</table>
+				<div class="container" id="imagebg" onclick="closeModal()">
+					<div id="imgtext" class="box"></div>
+					<a id="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a id="next" onclick="plusSlides(1)">&#10095;</a>
+					<img id="expandedImg" style="border:0px">
+				</div>
 
-			<table>
-					<tr>
-						<td><h2>Elixir</h2></td>
-						<td><h2>Closest Match</h2></td>
-						<td><h2>Notes</h2></td>
-					</tr>
-					<tr>
-						<td><p>Healing</p></td>
-						<td><p><a href="https://roll20.net/compendium/dnd5e/Potion%20of%20Healing#content">Potion of Healing</a> (50 gp)</p></td>
-						<td><p>Your +4 bonus is slightly better. Might be upsellable, 60gp?.</p></td>
-					</tr>
-					<tr>
-						<td><p>Swiftness</p></td>
-						<td><p><a href="https://roll20.net/compendium/dnd5e/Potion%20of%20Speed#content">Potion of Speed</a></p></td>
-						<td><p>Smaller speed bonus, MUCH longer duration. Maybe 1/2 or 3/4 price?</p></td>
-					</tr>
-					<tr>
-						<td><p>Resilience</p></td>
-					</tr>
-					<tr>
-						<td><p>Boldness</p></td>
-					</tr>
-					<tr>
-						<td><p>Flight</p></td>
-						<td><p><a href="https://roll20.net/compendium/dnd5e/Potion%20of%20Flying#content">Potion of Flying</a> (2500+ gp)</p></td>
-						<td><p>1/6 the duration and 1/3 the speed. Maybe 150gp?</p></td>
-					</tr>
-					<tr>
-						<td><p>Transform</p></td>
-					</tr>
-				</table>
+				<script type="text/javascript" src="../../lightbox2.js"></script>
 
-			<p><a href="https://dnd5e.wikidot.com/spell:feather-fall" class="label">Feather Fall</a> — <i>"Sweetly as I fall backwards in slow motion..."</i><br>
-				<!--Reaction. 60ft range. Target (or self) takes no fall damage.<br>-->
-			An oversized parachute suddenly deploys, slowing his fall.</p>
-		</div>
+				<br style="clear: both; line-height:0"/>
+			</content>
 
-		
+		</body>
 
-		<br>
-		<div class="box">
-			<p><a href="tmbgstuff.html">Back to Fun Stuff</a></p>
-		</div>
-
-		<br style="clear: both; line-height:0"/>
-	</content>
-
-</body>
-
-</html>
+		</html>
