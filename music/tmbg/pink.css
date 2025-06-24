@@ -25,7 +25,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-body img, body iframe{
+body img, body iframe, body video{
 	max-width: 100%;
 }
 ol, ul {
