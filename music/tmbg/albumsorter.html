@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <head>
-   <title>Sorter</title>
+   <title>TMBG Album Sorter</title>
    <meta charset="UTF-8">
    <meta name="author" content="0. Bluefoot">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <script type="text/javascript">
       /****************************
-      Bluef00t's Thing-Sorter Code
-
-      Checklist of things to change/add to:
-      [ ] The page title (in the <title></title> tags above)
-      [ ] The settings variables below
-      [ ] The checkbox categories in map_Categories
-      [ ] The sorting data in array_ThingData
-      [ ] The page "heading" and "subheading" text
-      [ ] Any additional notes or links you want to add to "instructions"
-      [ ] The page color settings
+         Bluef00t's Thing-Sorter
+                README
        ***************************/
       var settings = {
          usingCategoryCheckboxes: true,   // Lets users select what to sort by category
@@ -24,42 +16,68 @@
          usingLinks: true,                // Adds informational link (to wiki, timestamp, etc)
          usingYouTubeLookup: false,        // Adds auto-link to the first youtube result (for song sorters)
 
-         imagePrefixURL: "https://upload.wikimedia.org/wikipedia/commons/", // (image host prefix, if applicable)
+         imagePrefixURL: "https://tmbw.net/wiki/images/thumb/", // (image host prefix, if applicable)
          searchPrefixYouTube: "", // (band name or other search terms to guide youtube results)
 
-         debug: false // print sort tree state in console
+         debug: false
       }
 
-      // If using categories, set them here. Each one is formatted as follows:
-      // [index#, ["CategoryName", "imageURL.png"]],
-      //   ^                        ^
-      //   |                     (Optional)
-      // Checkboxes will appear in order of set index. Negative numbers and decimals are allowed.
       var map_Categories = new Map([
-         [0, ["Rainbow"]], 
-         [1, ["Primaries"]],
-         [2, ["Secondaries"]],
-         [3, ["CMYK", "8/8a/CMYK_Color_Swatches.svg"]],
-         [4, ["Shades"]],
+         [0, ["Main Albums"]],
+         [1, ["Compilations"]], 
+         [2, ["Kids Albums"]],
+         [2.5, ["EPs"]],
+         [3, ["Other Projects"]],
+         [2.3, ["Solo Albums"]],
       ]);
 
-      // The entries to be sorted. Each one is formatted as follows:
       // ["Name", [index1#, index2#], "imageURL.png", "whatever.wiki/infoURL"],
       //              ^                   ^               ^
       //          (Category #(s))       (Optional)      (Optional)
       var array_ThingData = [
-         ["White", [4]],  
-         ["Grey", [4]],
-         ["Black", [4,3]],
-         ["Cyan", [3]],  
-         ["Magenta", [3]],
-         ["Red", [0,1]],   
-         ["Orange", [0,2], "4/43/Ambersweet_oranges.jpg", "https://en.wikipedia.org/wiki/Orange_(fruit)"],
-         ["Yellow", [0,1,3]],
-         ["Green", [0,2]],
-         ["Blue", [0,1]],
-         ["Indigo", [0]],
-         ["Violet", [0,2] , "https://en.wikipedia.org/wiki/Viola_(plant)"],
+         ["They Might Be Giants (Album)", [0], "0/0e/PinkAlbum.png/240px-PinkAlbum.png"],
+         ["Lincoln", [0], "4/43/Lincoln.png/240px-Lincoln.png"],
+         ["Flood", [0], "f/f7/Flood.png/240px-Flood.png"],
+         ["Istanbul (Not Constantinople) (EP)", [2.5], "6/68/IstanbulEP.png/240px-IstanbulEP.png"],
+         ["Miscellaneous T", [1], "b/b7/Miscellaneous_T.png/240px-Miscellaneous_T.png"],
+         ["The Statue Got Me High (EP)", [2.5], "8/80/StatueEP.png/240px-StatueEP.png"],
+         ["Apollo 18", [0], "4/4c/Apollo18.png/240px-Apollo18.png"],
+         ["I Palindrome I (EP)", [2.5], "3/3f/PalindromeEP.png/272px-PalindromeEP.png"],
+         ["The Guitar (The Lion Sleeps Tonight) (EP)", [2.5], "c/cf/GuitarEP.png/271px-GuitarEP.png"],
+         ["Why Does The Sun Shine (EP)", [2.5], "6/69/WDTSS_EP.png/180px-WDTSS_EP.png"],
+         ["Back To Skull", [2.5], "d/da/BackToSkull.png/180px-BackToSkull.png"],
+         ["John Henry", [0], "f/f8/JohnHenry.png/240px-JohnHenry.png"],
+         ["Factory Showroom", [0], "6/67/Factoryshowroom.png/240px-Factoryshowroom.png"],
+         ["S-E-X-X-Y (EP)", [2.5], "e/e8/SexxyCover.png/180px-SexxyCover.png"],
+         ["Long Tall Weekend", [0], "a/a2/LongTallWeekend.png/244px-LongTallWeekend.png"],
+         ["They Might Be Giants vs. McSweeney's", [3], "7/70/McSweeneys.png/320px-McSweeneys.png"],
+         ["Working Undercover For The Man (EP)", [2.5], "9/9b/Working_Undercover_For_The_Man.png/180px-Working_Undercover_For_The_Man.png"],
+         ["Mink Car", [0], "c/ce/MinkCar.png/242px-MinkCar.png"],
+         ["They Might Be Giants In Holidayland", [2.5], "a/a4/Holidayland.jpg/180px-Holidayland.jpg"],
+         ["No!", [2], "5/5c/No.jpg/240px-No.jpg"],
+         ["Indestructible Object", [2.5], "8/88/IndestructibleObject.png/180px-IndestructibleObject.png"],
+         ["The Spine", [0], "9/9c/TheSpine.jpg/240px-TheSpine.jpg"],
+         ["The Spine Surfs Alone (EP)", [2.5], "9/92/The_Spine_Surfs_Alone.png/180px-The_Spine_Surfs_Alone.png"],
+         ["Here Come the ABCs", [2], "e/ee/Here_Come_The_ABCs.png/242px-Here_Come_The_ABCs.png"],
+         ["Venue Songs", [3], "https://tmbw.net/wiki/images/6/68/Venue_Songs_Cover.jpg"],
+         ["The Else", [0], "c/cd/The_Else_CD.png/240px-The_Else_CD.png"],
+         ["Cast Your Pod To The Wind", [1], "6/65/CYPTTW_iTunes.png/245px-CYPTTW_iTunes.png"],
+         ["Here Come The 123s", [2], "7/7d/Here_Come_The_123s.jpg/241px-Here_Come_The_123s.jpg"],
+         ["Here Comes Science", [2], "9/92/Here_Comes_Science.png/264px-Here_Comes_Science.png"],
+         ["Join Us", [0], "f/fe/Join_Us.png/240px-Join_Us.png"],
+         ["Album Raises New And Troubling Questions", [1], "2/25/ARNATQ.png/240px-ARNATQ.png"],
+         ["Nanobots", [0], "2/2c/Nanobots.png/240px-Nanobots.png"],
+         ["Glean", [0], "a/ac/Glean_Cover.jpg/240px-Glean_Cover.jpg"],
+         ["Why?", [2], "e/ef/Why.jpg/240px-Why.jpg"],
+         ["Phone Power", [1], "3/3a/Phone_Power.png/240px-Phone_Power.png"],
+         ["I Like Fun", [0], "6/66/I_Like_Fun.jpg/240px-I_Like_Fun.jpg"],
+         ["My Murdered Remains", [1], "1/15/MMR_COVER_FINAL.jpg/240px-MMR_COVER_FINAL.jpg"],
+         ["The Escape Team", [3], "7/7a/Escape_Team.jpg/240px-Escape_Team.jpg"],
+         ["The Pamphlet EP", [2.5], "d/dc/Pamphlet.png/180px-Pamphlet.png"],
+         ["BOOK", [0], "5/57/BookCover.jpg/240px-BookCover.jpg"],
+         ["Unsupervised", [2.3], "6/66/Unsupervised.png/210px-Unsupervised.png"],
+         ["It's Fun To Steal", [2.3], "4/46/It%27s_Fun_To_Steal.png/210px-It%27s_Fun_To_Steal.png"],
+         ["State Songs", [2.3], "f/fc/StateSongs.png/210px-StateSongs.png"],
          ];
 
       class Thing{
@@ -76,7 +94,10 @@
       }
 
       function getLink(thing) { 
-         return thing.links[0]; // Or replace this with a lookup on your wiki of choice.
+         var tmbw = "https://tmbw.net/wiki/Special:Search?search=";
+         var searchTerm = thing.name.split(' ').join('+');
+         var xny = '&x=0&y=0';
+         return tmbw + searchTerm + xny;
       }
 
       function getYouTube(thing) { // Returns I'm Feeling Lucky link to first Youtube result from google.
@@ -91,56 +112,129 @@
    </script>
    <style type="text/css">
       /* Color settings. */
-      :root {
-         --lines:black;
-         --text:black;
-         --bg-color:darkGrey;
-         --main-color:lightGrey;
-         --outline:grey;
-         --main-accent:teal;
-         --active-accent:darkGreen;
+      html{
+         background-color: #589dad;
+         /*background: radial-gradient(#b3e0e6, #589dad);*/
       }
-      body{
-         color: var(--text);
-         background: var(--bg-color);
-         font-family: "Calibri", sans-serif;
-         font-size: 14.5px;
+      /* kudos to https://stackoverflow.com/questions/27526851/sunburst-effect-with-css3-gradient */
+      #wikibackground::after, #wikibackground::before {
+         content: '';
+         position: fixed;
+         background:
+            linear-gradient(90deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(86deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(77deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(68deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(60deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(52deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(45deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(38deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(31deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(24deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(17deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(10deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(3deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-4deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-10deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-17deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-24deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-31deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-38deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-45deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-52deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-60deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-68deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-77deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-86deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-90deg, transparent 50%, #b3e0e6 50%, #b3e0e6);
+         mask-image: radial-gradient(at right, black, transparent);
+         background-position: 0% 0%;
+        background-size: 200% 100%;
+        height: 100%;
+        width: 50%;
+        z-index: -1;
+       }
+      #wikibackground::before {
+         left: 50%;
+         transform: rotate(180deg);
       }
-       #wrapper {
-         background: var(--main-color);
-         border: 4px solid var(--outline);
-         border-top: 0px;
+      #wrapper {
+         max-width: 700px;
+         min-width: 350px;
+         margin: 0 auto;
+         box-shadow: 0px 0px 2px 7px rgba(0, 0, 0, 0.25);
+         box-sizing: border-box;
+         font-family: "Lucida Grande", "Lucida Sans Regular", Helvetica, Geneva, Verdana, sans-serif;
       }
-      a {
+      #pageheader, .instructions, #content {
+         overflow: auto;
+      }
+      #pageheader {
+         background-color: #e64708;
+         color: #d7f4f6;    
+      }
+      #pageheader h1 {
+         text-align: left;
+         padding: 1em 0.5em 0.5em 0.5em;
+         margin: 0px;
+         font-size: 2em;
+         font-weight: normal;
+      }
+      #content {
+         background: #d7f4f6;
+         font-size: 15px;
+         height: 100%;
+         margin: 0 auto;
+         padding: 0 min(1.2em, 3%);
+         text-align: center;
+      }
+       @media (max-width: 550px) {
+         #wrapper {
+            box-shadow: none;
+         }
+       }
+      .instructions{
+         padding: 1em;
+         font-size: 14px;
+         background-color: #deaf97;
+         color:  #e64708;
+         font-weight:bold;
+      }
+      body a {
+         color: #275d6e;
          text-decoration: none;
+      }
+      body a:hover {
+         text-decoration: underline;
+      }
+      .emphasis a {
          font-weight: bold;
-         color: var(--main-accent);
       }
-      a:hover {
-         color: var(--active-accent);
+      .emphasis a:hover {
+         color: #e64708;
+         text-decoration: none;
       }
-      .optionRow a:hover {
-         color: var(--active-accent);
-      }
-      #credits, #subheading {
-         background: var(--bg-color);
-         font-style: italic;
+      #credits p {
+         margin: 0px auto 1em auto;
+         line-height: 1.5em;
       }
       .button {
-         border: 1px solid var(--lines);
+         border: 1px solid #000;
       }
-      .button:hover {
-         background-color: var(--bg-color);
+      .button:hover{
+         background-color: #b3e0e6;
+      }
+      .exclude:hover{
+         background-color: #b3e0e6!important;
       }
       input[type=checkbox] {
-        accent-color: var(--main-accent);
+        accent-color: #e64708;
       }
-      input[type=checkbox]:hover {
-        accent-color: var(--active-accent);
+      .optionRow a:hover {
+         color: #e64708;
       }
       #restart:hover{
-         background-color: pink;
-         color: firebrick;
+         color: #e64708;
       }
       #results {
          background-color: ghostWhite;
@@ -153,20 +247,19 @@
       #resultTable td {
          border:1px solid grey;
       }
-      #subheading h2{
-         font-size: 1.2em;
-         font-weight: normal;
-      }
    </style>
 </head>
 <body onLoad="startup()">
-
+   <div id="wikibackground"></div>
    <div id="wrapper">
-      <div id="heading"><h1>Thing-Sorter 2.0</h1></div>
-   <div id="subheading">
-      <h2>Save or download this page to edit the data and create your own.</h2>
+   <div id="pageheader">
+      <h1>tmbg album sorter</h1>
+   </div>
+   <div class="instructions">
+      Create a ranked list of your favorite albums and/or EPs.
    </div>
 
+   <div id="content">
    <div id="sorter">
       <div id="progress">
          <p>Battle No. <span id="lblCount">-</span>
@@ -215,12 +308,13 @@
          <p>I want to start over!</p>
       </div>
    </div>
-   <div class="instructions">
-   </div>
-
+   <img src="https://bluef00t.neocities.org/music/imgs/waw.png" width="80px" style="margin:10px">
    <div id="credits">
-      <p>Scripted by <a href="https://bluef00t.neocities.org/">0. Blaufuss</a>. Inspired by the <a href="https://tohosort.frelia.my/">Touhou Project Sorter</a>.</p>
+      <p>
+         <span class="emphasis"><a href="https://bluef00t.neocities.org/music/tmbg/songsorter" class >TMBG Song Sorter</a> · <a href="https://bluef00t.neocities.org/music/tmbg/tmbgstuff">Truth or Sandwiches</a> · <a href="https://bluef00t.neocities.org/tech/sorter">Sorter Source</a></span>
+      <br>Thank you to <a href="https://tmbw.net/">TMBW</a> and <a href="https://jonuleis.com/">Jon Uleis</a>. Inspired by the <a href="https://tohosort.frelia.my/">Touhou Project Sorter</a>.</p>
    </div>
+</div>
 </div>
 </body>
 <style type="text/css">
@@ -228,22 +322,11 @@
       body, html {
          margin: 0px;
          padding: 0px;
-         box-sizing: border-box;
-      }
-      div:not(#sorter div){
-         overflow: auto;
-      }
-      #wrapper {
-         max-width: 700px;
-         min-width: 350px;
-         margin: 0 auto;
-         text-align: center;
       }
       #sorter{
          max-width: 550px;
          min-width: 350px;
          font-size: 16px;
-         padding: 0 min(1.2em, 3%);
          margin: 0 auto;
       }
       .sorterLayout {
@@ -305,9 +388,6 @@
       .ytlogo {
          padding: 0 0.3em;
       }
-      .youtube:hover {
-         text-decoration: none;
-      }
       .youtube:hover .ytlogo {
          background: firebrick;
          border-radius: 0.2em;
@@ -318,7 +398,7 @@
          grid-column:start/end;
       }
       #selectCategories {
-         font-size:85%;
+         font-size:90%;
          padding: 1.5em 0;
          max-width: 450px;
          display: grid;
@@ -327,23 +407,15 @@
          gap: 0.4em 1em;
          margin: auto;
       }
-      #selectCategories label {
-         text-align: left;
-         display: flex;
-         align-items: flex-start;
-         place-items: start start;
-         gap: 2px;
-      }
       #selectCategories > .fullwidth {
          text-align:left;
          width: 100%;
          padding-top: 0.2em;
          padding-bottom: 0.6em;
-         border-bottom: 1px solid var(--lines);
+         border-bottom: 1px solid #000;
       }
       #restart{
          margin:auto;
-         margin-bottom: 1em;
          max-width: 40%;
          height: 50px;
          transition: ease 0.15s;
@@ -383,6 +455,9 @@
       }
       #resultTable td {
          padding: 0.25em;
+      }
+      .instructions {
+         padding-top: 1em;
       }
    </style>
 <script type="text/javascript">
@@ -451,23 +526,17 @@
 
    // for saving your place between page refreshes
    function save_session(isInitialization = false){
-      if (isInitialization) {
+      if (isInitialization){
          localStorage.setItem("saved_SortData", JSON.stringify(array_SortData));
-         localStorage.setItem("checksum", array_ThingData.length)
       }
       localStorage.setItem("saved_HEAD", JSON.stringify(tree_HEAD));
       localStorage.setItem("saved_SortPath", JSON.stringify(tree_SortPath)) 
       localStorage.setItem("saved_SortProgress", int_SortProgress);
       localStorage.setItem("saved_SortExclude", int_SortExclude);
       localStorage.setItem("saved_Battles", int_Battles);
-
-      if (settings.usingImages) localStorage.setItem("saved_ShowCovers", getID("showImages").checked);
    }
 
    function load_session(){
-      if (Number(localStorage.getItem("checksum")) !== array_ThingData.length) {
-         alert("This sorter has changed since you were using it last! If these changes have corrupted your save, please click the 'start over' button at the bottom of the page.");
-      }
       int_SortProgress = Number(localStorage.getItem("saved_SortProgress"));
       int_SortExclude = Number(localStorage.getItem("saved_SortExclude"));
       int_Battles = Number(localStorage.getItem("saved_Battles"));
@@ -481,8 +550,6 @@
          tree_Placeholder = recoverPlace(tree_HEAD, tree_SortPath);
          tree_Next = new TreeNode(array_SortData[int_SortProgress]);
       }
-
-      if (settings.usingImages) getID("showImages").checked = JSON.parse(localStorage.getItem("saved_ShowCovers"));
    }
 
    function recoverPlace(headNode, path){

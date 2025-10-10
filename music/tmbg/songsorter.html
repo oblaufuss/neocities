@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<head>
+   <title>TMBG Song Sorter</title>
+   <meta charset="UTF-8">
+   <meta name="author" content="0. Bluefoot">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script type="text/javascript">
+      /****************************
+         Bluef00t's Thing-Sorter
+                README
+       ***************************/
+      var settings = {
+         usingCategoryCheckboxes: true,   // Lets users select what to sort by category
+         usingImages: true,               // Displays image thumbnails (for character, album, movie, etc sorters)
+         usingImagesDefault: false,
+         usingLinks: true,                // Adds informational link (to wiki, timestamp, etc)
+         usingYouTubeLookup: true,        // Adds auto-link to the first youtube result (for song sorters)
+
+         imagePrefixURL: "https://tmbw.net/wiki/images/thumb/", // (image host prefix, if applicable)
+
+         includeEPs: true,
+
+         debug: false
+      }
+
+      var cat_Albums = new Map([
+         [101, ["Pink Album", "0/0e/PinkAlbum.png/240px-PinkAlbum.png"]],
+         [102, ["Lincoln", "4/43/Lincoln.png/240px-Lincoln.png"]],
+         [103, ["Flood", "f/f7/Flood.png/240px-Flood.png"]],
+         [105, ["Apollo 18", "4/4c/Apollo18.png/240px-Apollo18.png"]],
+         [106, ["John Henry", "f/f8/JohnHenry.png/240px-JohnHenry.png"]],
+         [107, ["Factory Showroom", "6/67/Factoryshowroom.png/240px-Factoryshowroom.png"]],
+         [108, ["Long Tall Weekend", "a/a2/LongTallWeekend.png/244px-LongTallWeekend.png"]],
+         [109, ["Mink Car", "c/ce/MinkCar.png/242px-MinkCar.png"]],
+         [111, ["The Spine", "9/9c/TheSpine.jpg/240px-TheSpine.jpg"]],
+         [113, ["The Else", "c/cd/The_Else_CD.png/240px-The_Else_CD.png"]],
+         [115, ["Join Us", "f/fe/Join_Us.png/240px-Join_Us.png"]],
+         [117, ["Nanobots", "2/2c/Nanobots.png/240px-Nanobots.png"]],
+         [118, ["Glean", "a/ac/Glean_Cover.jpg/240px-Glean_Cover.jpg"]],
+         [120, ["I Like Fun", "6/66/I_Like_Fun.jpg/240px-I_Like_Fun.jpg"]],
+         [122, ["The Escape Team", "7/7a/Escape_Team.jpg/240px-Escape_Team.jpg"]],
+         [123, ["BOOK", "5/57/BookCover.jpg/240px-BookCover.jpg"]],
+         ]);
+      var cat_Comps = new Map([
+         [102.5, ["The Earlier Years", "a/ab/Then_The_Earlier_Years.jpg/210px-Then_The_Earlier_Years.jpg"]],
+         [104, ["Miscellaneous T", "b/b7/Miscellaneous_T.png/240px-Miscellaneous_T.png"]],
+         [110, ["They Got Lost", "5/52/TheyGotLost.png/210px-TheyGotLost.png"]],
+         [110.5, ["McSweeny's", "7/70/McSweeneys.png/210px-McSweeneys.png"]],
+         [112, ["Venue Songs", "https://tmbw.net/wiki/images/6/68/Venue_Songs_Cover.jpg"]],
+         [112.5, ['Venue Songs (In Situ)', "b/bb/Venuesongscover.jpg/210px-Venuesongscover.jpg"]],
+         [114.3, ["Cast Your Pod", "6/65/CYPTTW_iTunes.png/245px-CYPTTW_iTunes.png"]],
+         [116, ["New & Troubling", "2/25/ARNATQ.png/240px-ARNATQ.png"]],
+         [119, ["Phone Power", "3/3a/Phone_Power.png/240px-Phone_Power.png"]],
+         [121, ["Murdered Remains", "1/15/MMR_COVER_FINAL.jpg/240px-MMR_COVER_FINAL.jpg"]],
+         [114.1, ["TMBG Unlimited", "4/4d/UnLtd2.jpg/240px-UnLtd2.jpg"]],
+         [114.2, ["TMBG Podcast", "7/73/Tmbglogotransparent.png/120px-Tmbglogotransparent.png"]],
+         //[120.5, ["Songs About Coffee", "2/20/Songs_About_Coffee.jpg/120px-Songs_About_Coffee.jpg"]]
+         ]);
+      var cat_Kids = new Map([
+         [301, ["No!", "5/5c/No.jpg/240px-No.jpg"]],
+         [302, ["Here Come the ABCs", "e/ee/Here_Come_The_ABCs.png/242px-Here_Come_The_ABCs.png"]],
+         [303, ["Here Come The 123s", "7/7d/Here_Come_The_123s.jpg/241px-Here_Come_The_123s.jpg"]],
+         [304, ["Here Comes Science", "9/92/Here_Comes_Science.png/264px-Here_Comes_Science.png"]],
+         [305, ["Why?", "e/ef/Why.jpg/240px-Why.jpg"]]
+         ]);
+      var cat_Solo = new Map([
+         [-401, ["The Turtlenecks", "5/5e/Turtlenecks_original_cover.jpg/120px-Turtlenecks_original_cover.jpg"]],
+         [400, ["House of Mayors", "0/03/House_Of_Mayors.png/210px-House_Of_Mayors.png"]],
+         [401, ["Unsupervised", "6/66/Unsupervised.png/210px-Unsupervised.png"]],
+         [402, ["It's Fun To Steal", "4/46/It%27s_Fun_To_Steal.png/210px-It%27s_Fun_To_Steal.png"]],
+         [403, ["State Songs", "f/fc/StateSongs.png/210px-StateSongs.png"]],
+         [405, ["Roman Songs", "4/4e/Roman_Songs.jpg/210px-Roman_Songs.jpg"]],
+         //[406, ["Forest/Trees", "6/63/ForestTrees.jpg/210px-ForestTrees.jpg"]]
+         ]);
+      var cat_EPs = new Map([
+         [501, ["Istanbul (EP)", "6/68/IstanbulEP.png/240px-IstanbulEP.png"]],
+         //[502, ["The Statue Got Me High (EP)", "8/80/StatueEP.png/240px-StatueEP.png"]],
+         [503, ["I Palindrome I (EP)", "3/3f/PalindromeEP.png/272px-PalindromeEP.png"]],
+         [504, ["The Guitar (EP)", "c/cf/GuitarEP.png/271px-GuitarEP.png"]],
+         [505, ["Why Does The Sun Shine (EP)", "6/69/WDTSS_EP.png/180px-WDTSS_EP.png"]],
+         [506, ["Back To Skull", "d/da/BackToSkull.png/180px-BackToSkull.png"]],
+         [507, ["S-E-X-X-Y (EP)", "e/e8/SexxyCover.png/180px-SexxyCover.png"]],
+         //[508, ["Working Undercover For The Man (EP)", "9/9b/Working_Undercover_For_The_Man.png/180px-Working_Undercover_For_The_Man.png"]],
+         [509, ["Holidayland", "a/a4/Holidayland.jpg/180px-Holidayland.jpg"]],
+         [509.5, ["The Avatars of They", "5/59/Avatars_Of_They_Twitter_Pic.jpg/120px-Avatars_Of_They_Twitter_Pic.jpg"]],
+         [510, ["Indestructible Object", "8/88/IndestructibleObject.png/180px-IndestructibleObject.png"]],
+         [511, ["The Spine Surfs Alone", "9/92/The_Spine_Surfs_Alone.png/180px-The_Spine_Surfs_Alone.png"]],
+         [512, ["The Pamphlet EP", "d/dc/Pamphlet.png/180px-Pamphlet.png"]]
+         ]);
+
+      var map_SuperCategories = new Map([]);
+      map_SuperCategories.set("Albums", cat_Albums);
+      map_SuperCategories.set("Compilations", cat_Comps);
+      map_SuperCategories.set("EPs", cat_EPs);
+      map_SuperCategories.set("Kids Albums", cat_Kids);
+      map_SuperCategories.set("Solo Releases", cat_Solo);
+
+      var map_Categories = new Map([]);
+      for (var catContent of map_SuperCategories.values()) {
+         catContent.forEach((value, key) => {
+            map_Categories.set(key, value);
+         })
+      }
+
+      var map_CategoryImgs = new Map([]);
+
+      // ["Name", [index1#, index2#], "imageURL.png", "whatever.wiki/infoURL"],
+      //              ^                   ^               ^
+      //          (Category #(s))       (Optional)      (Optional)
+      var array_ThingData = [
+         //Pink
+         ["Everything Right is Wrong Again",[101, 102.5]],
+         ["Put Your Hand Inside the Puppet Head",[101, 102.5]],
+         ["Number Three",[101, 102.5]],
+         ["Don't Let's Start",[101, 102.5, 104]],
+         ["Hide Away Folk Family",[101, 102.5]],
+         ["32 Footsteps",[101, 102.5]],
+         ["Toddler Hiway",[101, 102.5]],
+         ["Rabid Child",[101, 102.5]],
+         ["Nothing's Gonna Change My Clothes",[101, 102.5]],
+         ["(She Was A) Hotel Detective",[101, 102.5, 104]],
+         ["She's an Angel",[101, 102.5]],
+         ["Youth Culture Killed My Dog",[101, 102.5]],
+         ["Boat of Car",[101, 102.5]],
+         ["Absolutely Bill's Mood",[101, 102.5]],
+         ["Chess Piece Face",[101, 102.5]],
+         ["I Hope That I Get Old Before I Die",[101, 102.5]],
+         ["Alienation's For the Rich",[101, 102.5]],
+         ["The Day",[101, 102.5]],
+         ["Rhythm Section Want Ad",[101, 102.5]],
+
+         //Lincoln
+         ["Ana Ng", [102, 102.5]],
+         ["Cowtown", [102, 102.5]],
+         ["Lie Still Little Bottle", [102, 102.5]],
+         ["Purple Toupee", [102, 102.5]],
+         ["Cage and Aquarium", [102, 102.5]],
+         ["Where Your Eyes Don't Go", [102, 102.5]],
+         ["Piece of Dirt", [102, 102.5]],
+         ["Mr. Me", [102, 102.5]],
+         ["Pencil Rain", [102, 102.5]],
+         ["The World's Address", [102, 102.5]],
+         ["I've Got a Match", [102, 102.5]],
+         ["Santa's Beard", [102, 102.5, 509]],
+         ["You'll Miss Me", [102, 102.5]],
+         ["They'll Need a Crane", [102, 102.5]],
+         ["Shoehorn with Teeth", [102, 102.5]],
+         ["Stand On Your Own Head", [102, 102.5]],
+         ["Snowball in Hell", [102, 102.5]],
+         ["Kiss Me, Son of God", [102, 102.5]],
+
+         //"'Then', disc 1
+         ["Critic Intro", [102.5]],
+         ["Now That I Have Everything", [102.5]],
+         ["Mainstream U.S.A.", [102.5]],
+         ["Fake Out In Buenos Aires", [102.5]],
+         ["Greek Number Three", [102.5]],
+         ["I'm Def", [102.5, 502]],
+
+         //'Then' disc 2
+         ["Kitten Intro", [102.5]],
+         ["Weep Day", [102.5]],
+         ["The Big Big Whoredom", [102.5]],
+         ["I'm Gettin' Sentimental Over You", [102.5]],
+         ["Become A Robot", [102.5]],
+         ["Swing Is A Word", [102.5]],
+         ["Doris Cunningham", [102.5]],
+         ["Counterfeit Fake", [102.5]],
+         ["Schoolchildren Singing Particle Man", [102.5]],
+
+         //  "Flood",
+         ["Theme From Flood", [103]],
+         ["Birdhouse In Your Soul", [103]],
+         ["Lucky Ball & Chain", [103]],
+         ["Istanbul (Not Constantinople)", [103, 501]],
+         ["Dead", [103]],
+         ["Your Racist Friend", [103]],
+         ["Particle Man", [103]],
+         ["Twisting", [103]],
+         ["We Want A Rock", [103]],
+         ["Someone Keeps Moving My Chair", [103]],
+         ["Hearing Aid", [103]],
+         ["Minimum Wage", [103]],
+         ["Letterbox", [103]],
+         ["Whistling In The Dark", [103]],
+         ["Hot Cha", [103]],
+         ["Women and Men", [103]],
+         ["Sapphire Bullets of Pure Love", [103]],
+         ["They Might Be Giants", [103]],
+         ["Road Movie To Berlin", [103]],
+
+         // Misc T
+         ["Hey, Mr. DJ, I Thought You Said We Had A Deal", [104, 102.5]],
+         ["Lady Is A Tramp", [104, 102.5]],
+         ["Birds Fly", [104, 102.5]],
+         ["The World's Address (Joshua Fried Remix)", [104, 102.5]],
+         ["Nightgown Of The Sullen Moon", [104, 102.5]],
+         ["I'll Sink Manhattan", [104, 102.5]],
+         ["It's Not My Birthday", [104, 102.5]],
+         ["Hello Radio", [104, 102.5]],
+         ["Mr. Klaw", [104, 102.5]],
+         ["Kiss Me, Son Of God (Alternate Version)", [104, 102.5]],
+         ["The Biggest One", [104, 102.5]],
+         ["For Science", [104, 102.5]],
+         ["The Famous Polka", [104, 102.5]],
+         ["When It Rains It Snows", [104, 102.5]],
+         ["We're The Replacements", [104, 102.5]],
+
+         //   "Apollo 18",
+         ["Dig My Grave", [105]],
+         ["I Palindrome I", [105, 503]],
+         ["She's Actual Size", [105, 502]],
+         ["My Evil Twin", [105]],
+         ["Mammal", [105]],
+         ["The Statue Got Me High", [105, 502]],
+         ["Spider", [105]],
+         ["The Guitar (The Lion Sleeps Tonight)", [105, 504]],
+         ["Dinner Bell", [105]],
+         ["Narrow Your Eyes", [105]],
+         ["Hall of Heads", [105]],
+         ["Which Describes How You're Feeling", [105, 102.5, 502]],
+         ["See the Constellation", [105]],
+         ["If I Wasn't Shy", [105]],
+         ["Turn Around", [105]],
+         ["Hypnotist of Ladies", [105]],
+         ["Fingertips", [105]],
+         ["Space Suit", [105]],
+
+         //   "John Henry",
+         ["Subliminal", [106]],
+         ["Snail Shell", [106, 506]],
+         ["Sleeping In The Flowers", [106]],
+         ["Unrelated Thing", [106]],
+         ["AKA Driver", [106]],
+         ["I Should Be Allowed To Think", [106]],
+         ["Extra Savoir-Faire", [106]],
+         ["Why Must I Be Sad?", [106]],
+         ["Spy", [106, 505]],
+         ["O, Do Not Forsake Me", [106]],
+         ["No One Knows My Plan", [106]],
+         ["Dirt Bike", [106]],
+         ["Destination Moon", [106]],
+         ["A Self Called Nowhere", [106]],
+         ["Meet James Ensor", [106]],
+         ["Thermostat", [106]],
+         ["Window", [106]],
+         ["Out of Jail", [106]],
+         ["Stomp Box", [106]],
+         ["The End Of The Tour", [106]],
+
+         //   "Factory Showroom",
+         ["S-E-X-X-Y", [107, 507]],
+         ["Till My Head Falls Off", [107]],
+         ["How Can I Sing Like a Girl?", [107]],
+         ["Exquisite Dead Guy", [107]],
+         ["Metal Detector", [107, 114.3]],
+         ["New York City", [107]],
+         ["Your Own Worst Enemy", [107]],
+         ["XTC vs. Adam Ant", [107]],
+         ["Spiraling Shape", [107]],
+         ["James K. Polk", [107, 501]],
+         ["Pet Name", [107]],
+         ["I Can Hear You", [107]],
+         ["The Bells are Ringing", [107]],
+         ["Unforgotten", [107, 507]],
+         ["Sensurround", [107, 507]],
+
+         //   "Long Tall Weekend",
+         ["Drinkin'", [108, 110.5]],
+         ["(She Thinks She's) Edith Head", [108, 110.5]],
+         ["Maybe I Know", [108]],
+         ["Rat Patrol", [108, 110]],
+         ["Token Back To Brooklyn", [108, 107, 110]],
+         ["Older", [108]],
+         ["Operators Are Standing By", [108]],
+         ["Dark And Metric", [108]],
+         ["Reprehensible", [108, 110]],
+         ["Certain People I Could Name", [108, 110]],
+         ["Counterfeit Faker", [108]],
+         ["They Got Lost", [108, 110], "https://tmbw.net/wiki/They_Got_Lost_(Song)"],
+         ["Lullabye To Nightmares", [108]],
+         ["On Earth My Nina", [108]],
+         ["The Edison Museum", [108]],
+
+         //"Unsupervised"
+         ["Guitar Was The Case", [401]],
+         ["Unsupervised, I Hit My Head", [401]],
+         ["Don't Break The Heart", [401]],
+         ["Distant Antenna", [401]],
+         ["The Devil Went Down To Newport", [401]],
+         ["What Bothers The Spaceman?", [401]],
+         ["Hello Hello", [401]],
+         ["Dr. Kildare", [401]],
+         ["So Long, Mockingbird", [401]],
+         ["Careless Santa", [401, 509]],
+         ["Don't I Have The Right?", [401]],
+         ["To Serve Mankind", [401]],
+         ["Nixon's The One", [401]],
+
+         //"It's Fun To Steal"
+         ["Hidden Track", [402]],
+         ["Creepy", [402]],
+         ["It's Fun To Steal", [402], "https://tmbw.net/wiki/It%27s_Fun_To_Steal_(Song)"],
+         ["Poison Flowers", [402]],
+         ["Mr. Hughes Says", [402]],
+         ["Imaginary Friend", [402]],
+         ["Taste The Bass", [402]],
+         ["Extra Krispy", [402]],
+         ["Dedicated", [402]],
+         ["Backstabbing Liar", [402]],
+         ["Hillbilly Drummer Girl", [402]],
+         ["Dashiki Lover", [402]],
+         ["Pretty Fly", [402]],
+         ["I Just Found Out What Everybody Knows", [402]],
+         ["Night Security", [402]],
+
+         //"State Songs"
+         ["Illinois", [403]],
+         ["The Songs Of The 50 States", [403]],
+         ["West Virginia", [403, 110.5]],
+         ["South Carolina", [403]],
+         ["Idaho", [403]],
+         ["Montana", [403]],
+         ["Pennsylvania", [403]],
+         ["Utah", [403]],
+         ["Arkansas", [403]],
+         ["Iowa", [403]],
+         ["Mississippi", [403]],
+         ["Maine", [403]],
+         ["Oregon", [403]],
+         ["Michigan", [403]],
+         ["New Hampshire", [403]],
+         ["Nevada", [403]],  
+         // bonus state songs bc why not
+         ["Louisiana", [403]],
+         ["California Über Alles", [403]],
+         ["Nebraska", [403]],
+         ["North To Alaska", [403, 114.1]],
+         ["Maryland My Maryland", [403]],
+
+         //   "Mink Car",
+         ["Bangs", [109, 110.5]],
+         ["Cyclops Rock", [109]],
+         ["Man, It's So Loud In Here", [109]],
+         ["Mr. Xcitement", [109]],
+         ["Another First Kiss", [109]],
+         ["I've Got A Fang", [109]],
+         ["Hovering Sombrero", [109]],
+         ["Yeh Yeh", [109]],
+         ["Hopeless Bleak Despair", [109]],
+         ["Drink!", [109]],
+         ["My Man", [109]],
+         ["Older (Mink Car version)", [109]],
+         ["Mink Car", [109], "https://tmbw.net/wiki/Mink_Car_(Song)"],
+         ["Wicked Little Critta", [109]],
+         ["Finished With Lies", [109]],
+         ["She Thinks She's Edith Head", [109]],
+         ["Working Undercover For The Man", [109, 508]],
+
+         //   "No!",
+         ["Fibber Island", [301]],
+         ["Four Of Two", [301]],
+         ["Robot Parade", [301]],
+         ["No!", [301]],
+         ["Where Do They Make Balloons?", [301]],
+         ["In The Middle, In The Middle, In The Middle", [301]],
+         ["Violin", [301]],
+         ["John Lee Supertaster", [301]],
+         ["The Edison Museum", [301]],
+         ["The House At The Top Of The Tree", [301]],
+         ["Clap Your Hands", [301]],
+         ["I Am Not Your Broom", [301]],
+         ["Wake Up Call", [301]],
+         ["I Am A Grocery Bag", [301]],
+         ["Lazyhead And Sleepybones", [301]],
+         ["Bed Bed Bed", [301]],
+         ["Sleepwalkers", [301]],
+
+         //   "They Got Lost" (several moved to McSweeny's)
+         ["Rest Awhile", [110, 508]],
+         ["On The Drag", [110, 508]],
+         ["All Alone", [110, 114.1]],
+         ["I'm Sick (Of This American Life)", [110]],
+         ["Words Are Like", [110, 114.1, 114.2]],
+         ["I Am A Human Head", [110, 114.2, 508]],
+         ["Oranges", [110, 114.1]],
+         ["Empty Bottle Collector", [110, 508]],
+         ["Disappointing Show", [110, 114.1, 114.2]],
+         ["Oranges Testimonial", [110, 114.1]],
+
+         //McSweeny's 
+         ["Theme To McSweeney's", [110, 110.5]],
+         ["The Ballad Of Timothy McSweeney", [110.5]],
+         ["MOR", [110.5]],
+         ["Dollar For Dollar", [110, 110.5, 114.1]],
+         ["Oprah", [110.5]],
+         ["Garden Of Eden", [110.5]],
+         ["Koenigstein", [110.5]],
+         ["It's Getting Late", [110.5]],
+         ["Mr. And Mrs. Nuclear", [110.5]],
+         ["Faster Better Now", [110.5]],
+         ["Be Patient", [110.5]],
+         ["God's Sister Jessica", [110.5]],
+         ["Grassroots Internet Revolution", [110.5]],
+         ["Mosh Momken Abadon", [110, 110.5, 114.1]],
+         ["Even My T-Shirt", [110.5]],
+         ["The Army's Tired Now", [110, 114.1]],
+         ["Gazing Out Toward", [110.5]],
+         ["I Am 40: Memories of West St. and Lepke", [110.5]],
+         ["Lincoln, Washington, And That Jefferson Guy", [110.5]],
+         ["Down To The Bottom Of The Sea", [110, 110.5]],
+         ["Art Mover", [110.5]],
+         ["People Died Today", [110.5]],
+         ["Truth In Your Words", [110, 114.1, 110.5]],
+         ["C-Town", [110.5]],
+         ["Softly", [110.5]],
+         ["Slow", [110.5]],
+         ["Be Kind And Gentle", [110.5]],
+         ["Candy Stripers", [110.5]],
+         ["Girls In Their Turning", [110.5]],
+         ["The Life of Doug", [110.5]],
+         ["R U Together", [110.5]],
+         ["Mona Lisa", [110.5]],
+
+         //   "The Spine",
+         ["Experimental Film", [111]],
+         ["Spine", [111]],
+         ["Memo To Human Resources", [111, 510]],
+         ["Wearing A Raincoat", [111]],
+         ["Prevenge", [111]],
+         ["Thunderbird", [111]],
+         ["Bastard Wants To Hit Me", [111]],
+         ["The World Before Later On", [111]],
+         ["Museum Of Idiots", [111]],
+         ["It's Kickin' In", [111]],
+         ["Spines", [111]],
+         ["Au Contraire", [111, 510]],
+         ["Damn Good Times", [111]],
+         ["Broke In Two", [111]],
+         ["Stalk Of Wheat", [111]],
+         ["I Can't Hide From My Mind", [111]],
+         ["Renew My Subscription", [111]],
+
+         // Venue Songs (DVD)
+         ["Dallas (Trees)", [112], "https://tmbw.net/wiki/Dallas_(Studio)"],
+         ["Albany (The Egg)", [112], "https://tmbw.net/wiki/Albany_(Studio)"],
+         ["Hollywood", [112], "https://tmbw.net/wiki/Los_Angeles_(Studio)"],
+         ["Anaheim", [112], "https://tmbw.net/wiki/Anaheim_(Studio)"],
+         ["Vancouver", [112], "https://tmbw.net/wiki/Vancouver_(Studio)"],
+         ["Pittsburgh (Mr. Small's)", [112], "https://tmbw.net/wiki/Pittsburgh_(Studio)"],
+         ["Asheville (The Orange Peel)", [112], "https://tmbw.net/wiki/Asheville"],
+         ["Glasgow", [112], "https://tmbw.net/wiki/Glasgow_(Studio)"],
+         ["Charlottesville (Starr Hill Music Hall)", [112], "https://tmbw.net/wiki/Charlottesville_(Studio)"],
+         ["Asbury Park (Stone Pony)", [112], "https://tmbw.net/wiki/Asbury_Park_(Studio)"],
+         ["Brooklyn", [112], "https://tmbw.net/wiki/Brooklyn_(Studio)"],
+
+         // Venue Songs (In Situ)
+         ["Omaha", [112.5]],
+         ["Houston", [112.5]],
+         ["Leeds", [112.5]],
+         ["New Orleans", [112.5]],
+         ["Columbia", [112.5]],
+         ["Santa Cruz", [112.5]],
+         ["Minneapolis", [112.5]],
+         ["Tucson", [112.5]],
+         ["San Francisco", [112.5]],
+         ["Memphis", [112.5]],
+         ["Charleston", [112.5]],
+         ["Atlanta", [112.5]],
+         ["Farmingdale", [112.5]],
+         ["New Haven", [112.5]],
+         ["London", [112.5]],
+         ["Raleigh", [112.5]],
+         ["Towson", [112.5]],
+         ["St. Louis", [112.5]],
+         ["Philadelphia", [112.5]],
+         ["Austin", [112.5]],
+
+         //   "Here Come the ABCs",
+         ["Here Come the ABCs", [302]],
+         ["Alphabet of Nations", [302]],
+         ["E Eats Everything", [302]],
+         ["Flying V", [302]],
+         ["Q U", [302]],
+         ["Go for G!", [302]],
+         ["Pictures of Pandas Painting", [302]],
+         ["D & W", [302]],
+         ["Fake-Believe", [302]],
+         ["Can You Find It?", [302]],
+         ["The Vowel Family", [302]],
+         ["Letter / Not a Letter", [302]],
+         ["Alphabet Lost and Found", [302]],
+         ["I C U", [302]],
+         ["Letter Shapes", [302]],
+         ["Who Put the Alphabet in Alphabetical Order?", [302]],
+         ["Rolling O", [302]],
+         ["L M N O", [302]],
+         ["C Is For Conifers", [302]],
+         ["Fake-Believe (Type B)", [302]],
+         ["D Is for Drums", [302]],
+         ["Z Y X", [302]],
+         ["Goodnight My Friends", [302]],
+
+         //   "The Else",
+         ["I'm Impressed", [113]],
+         ["Take Out The Trash", [113]],
+         ["Upside Down Frown", [113]],
+         ["Climbing The Walls", [113]],
+         ["Careful What You Pack", [113]],
+         ["The Cap'm", [113]],
+         ["With The Dark", [113]],
+         ["The Shadow Government", [113]],
+         ["Bee Of The Bird Of The Moth", [113]],
+         ["Withered Hope", [113]],
+         ["Contrecoup", [113]],
+         ["Feign Amnesia", [113]],
+         ["The Mesopotamians", [113]],
+
+         //  "Here Come the 123s",
+         ["Here Come The 123s", [303]],
+         ["Zeroes", [303]],
+         ["One Everything", [303]],
+         ["Number Two", [303]],
+         ["Triops Has Three Eyes", [303]],
+         ["Apartment Four", [303]],
+         ["High Five!", [303]],
+         ["The Secret Life Of Six", [303]],
+         ["Seven", [303]],
+         ["I Never Go To Work", [303]],
+         ["Figure Eight", [303]],
+         ["Pirate Girls Nine", [303]],
+         ["Nine Bowls Of Soup", [303]],
+         ["Ten Mississippi", [303]],
+         ["One Dozen Monkeys", [303]],
+         ["Eight Hundred And Thirteen Mile Car Trip", [303]],
+         ["Infinity", [303]],
+         ["I Can Add", [303]],
+         ["Nonagon", [303]],
+         ["Even Numbers", [303]],
+         ["Ooh La! Ooh La!", [303]],
+         ["Heart Of The Band", [303]],
+         ["Hot Dog!", [303]],
+         ["Mickey Mouse Clubhouse Theme", [303]],
+
+         //   "Here Comes Science",
+         ["Science Is Real", [304]],
+         ["Meet The Elements", [304]],
+         ["I Am A Paleontologist", [304]],
+         ["The Bloodmobile", [304]],
+         ["Electric Car", [304]],
+         ["My Brother The Ape", [304]],
+         ["What Is A Shooting Star?", [304]],
+         ["How Many Planets?", [304]],
+         ["Why Does The Sun Shine?", [304], "https://tmbw.net/wiki/Why_Does_The_Sun_Shine%3F_(Science_Version)"],
+         ["Why Does The Sun Really Shine?", [304]],
+         ["Roy G. Biv", [304]],
+         ["Put It To The Test", [304]],
+         ["Photosynthesis", [304]],
+         ["Cells", [304]],
+         ["Speed And Velocity", [304]],
+         ["Computer Assisted Design", [304]],
+         ["Solid Liquid Gas", [304]],
+         ["Here Comes Science", [304]],
+         ["The Ballad Of Davy Crockett (In Outer Space)", [304]],
+
+         // Cast Your Pod
+         ["Put Your Hand On The Computer", [114.3]],
+         ["I'm Your Boyfriend Now", [114.3]],
+         ["Why Did You Grow A Beard?", [114.3]],
+         ["We Live In A Dump", [114.3]],
+         ["Brain Problem Situation", [114.3]],
+         ["Sketchy Galore", [114.3]],
+         ["Microphone", [114.3]],
+         ["Vestibule", [114.3]],
+         ["Greasy Kid Stuff", [114.3]],
+         ["Employee Of The Month", [114.3]],
+         ["Homunculus", [114.3]],
+         ["No Plan B", [114.3]],
+         ["Morgan In The Morning ID", [114.3]],
+         ["Kendra McCormick", [114.3]],
+         ["Yeah, The Deranged Millionaire", [114.3]],
+         ["My Other Phone Is A Boom Car", [114.3]],
+         ["I Hear A New World", [114.3]],
+         ["(She Was A) Hotel Detective In The Future", [114.3]],
+         ["Haunted Floating Eye", [114.3]],
+         ["Scott Bower", [114.3]],
+         ["The Mexican Drill", [114.3]],
+         ["Cast Your Pod To The Wind", [114.3], "https://tmbw.net/wiki/Cast_Your_Pod_To_The_Wind_(Song)"],
+
+
+         //   "Join Us",
+         ["Can't Keep Johnny Down", [115]],
+         ["You Probably Get That A Lot", [115]],
+         ["Old Pine Box", [115]],
+         ["Canajoharie", [115]],
+         ["Cloisonn\u{E9}", [115, 116]],
+         ["Let Your Hair Hang Down", [115]],
+         ["Celebration", [115]],
+         ["In Fact", [115]],
+         ["When Will You Die", [115]],
+         ["Protagonist", [115]],
+         ["Judy Is Your Viet Nam", [115]],
+         ["Never Knew Love", [115]],
+         ["The Lady And The Tiger", [115]],
+         ["Spoiler Alert", [115]],
+         ["Dog Walker", [115]],
+         ["2082", [115]],
+         ["Three Might Be Duende", [115]],
+         ["You Don't Like Me", [115]],
+
+         // New & Troubling Questions
+         ["O We", [116]],
+         ["Authenticity Trip", [116]],
+         ["You Probably Get That A Lot (Elegant Too Remix)", [116]],
+         ["Marty Beller Mask", [116]],
+         ["Now I Know", [116]],
+         ["How Now Dark Cloud?", [116]],
+         ["The Fellowship Of Hell", [116]],
+         ["Mountain Flowers", [116]],
+         ["Doom Doom", [116]],
+         ["Money For Dope", [116]],
+         ["Read A Book", [116]],
+         ["Havalina", [116]],
+         ["Tubthumping", [116]],
+         ["Electronic Istanbul", [116]],
+         ["200 Sbemails", [116]],
+
+         //   "Nanobots",
+         ["You're On Fire", [117]],
+         ["Nanobots", [117]],
+         ["Black Ops", [117]],
+         ["Lost My Mind", [117]],
+         ["Circular Karate Chop", [117]],
+         ["Call You Mom", [117]],
+         ["Tesla", [117]],
+         ["Sleep", [117]],
+         ["Stone Cold Coup d'Etat", [117]],
+         ["Sometimes A Lonely Way", [117]],
+         ["Destroy The Past", [117]],
+         ["9 Secret Steps", [117]],
+         ["Hive Mind", [117]],
+         ["Decision Makers", [117]],
+         ["Nouns", [117]],
+         ["There", [117]],
+         ["Insect Hospital", [117]],
+         ["Tick", [117]],
+         ["Replicant", [117]],
+         ["The Darlings Of Lumberland", [117]],
+         ["Great", [117]],
+         ["Stuff Is Way", [117]],
+         ["Icky", [117]],
+         ["Too Tall Girl", [117]],
+         ["Didn't Kill Me", [117]],
+
+         //   "Glean",
+         ["Erase", [118]],
+         ["Good To Be Alive", [118]],
+         ["Underwater Woman", [118]],
+         ["Music Jail, Pt. 1 & 2", [118]],
+         ["Answer", [118]],
+         ["I Can Help The Next In Line", [118]],
+         ["Madam, I Challenge You To A Duel", [118]],
+         ["End Of The Rope", [118]],
+         ["All The Lazy Boyfriends", [118]],
+         ["Unpronounceable", [118]],
+         ["Hate The Villanelle", [118]],
+         ["I'm A Coward", [118]],
+         ["Aaa", [118]],
+         ["Let Me Tell You About My Operation", [118]],
+         ["Glean", [118]],
+
+         //   "Why?",
+         ["Oh You Did", [305]],
+         ["Omnicorn", [305]],
+         ["I Am Invisible", [305]],
+         ["Definition of Good", [305]],
+         ["And Mom and Kid", [305]],
+         ["I Made a Mess", [305]],
+         ["Moles, Hounds, Bears, Bees, and Hares", [305]],
+         ["Walking My Cat Named Dog", [305]],
+         ["Or So I Have Read", [305]],
+         ["Elephants", [305]],
+         ["Long White Beard", [305]],
+         ["I Just Want to Dance", [305]],
+         ["Thinking Machine", [305]],
+         ["So Crazy for Books", [305]],
+         ["I Haven't Seen You in Forever", [305]],
+         ["Out of a Tree", [305]],
+         ["Hello Mrs Wheelyke", [305]],
+         ["Then the Kids Took Over", [305]],
+
+         //   "Phone Power",
+         ["Apophenia", [119]],
+         ["I Love You For Psychological Reasons", [119]],
+         ["To A Forest", [119]],
+         ["I Am Alone", [119]],
+         ["Say Nice Things About Detroit", [119]],
+         ["Trouble Awful Devil Evil", [119]],
+         ["Ecnalubma", [119]],
+         ["Daylight", [119]],
+         ["Sold My Mind To The Kremlin", [119]],
+         ["It Said Something", [119]],
+         ["Impossibly New", [119]],
+         ["I'll Be Haunting You", [119]],
+         ["Got Getting Up So Down", [119]],
+         ["What Did I Do To You?", [119]],
+         ["Shape Shifter", [119]],
+         ["Bills, Bills, Bills", [119]],
+         ["Black Ops Alt", [119]],
+         ["I Wasn't Listening", [119]],
+
+         //   "I Like Fun",
+         ["Let's Get This Over With", [120]],
+         ["I Left My Body", [120]],
+         ["All Time What", [120]],
+         ["By The Time You Get This", [120]],
+         ["An Insult To The Fact Checkers", [120]],
+         ["Mrs Bluebeard", [120]],
+         ["I Like Fun", [120]],
+         ["Push Back The Hands", [120]],
+         ["This Microphone", [120]],
+         ["The Bright Side", [120]],
+         ["When The Lights Come On", [120]],
+         ["Lake Monsters", [120]],
+         ["McCafferty's Bib", [120]],
+         ["The Greatest", [120, 121]],
+         ["Last Wave", [120]],     
+
+         //MMR
+         ["The Communists Have The Music", [121]],
+         ["I've Been Seeing Things", [121]],
+         ["Gudetama's Busy Days", [121]],
+         ["Dog", [121]],
+         ["Ampersand", [121]],
+         ["Applause Applause Applause", [121]],
+         ["The Neck Rolls Aren't Working", [121]],
+         ["Selectionist", [121]],
+         ["I Haven't Been Right Yet", [121]],
+         ["Unctuous Robot", [121]],
+         ["The Bullies", [121]],
+         ["Tractor", [121]],
+         ["Rowboat Mayor", [121]],
+         ["Tick Tick Tick Tick", [121]],
+         ["Last Wave (Alternative Version)", [121]],
+         ["Best Regrets", [121]],
+         ["This Is Only Going To Go One Way", [121]],
+         ["Prepare", [121]],
+         ["No Cops", [121]],
+         ["Starry Eyes", [121]],
+         ["The Velvet Ape", [121]],
+         ["Tesla (2 4 6 8 Remix)", [121]],
+         ["Whole Lot Of Glean", [121]],
+         ["I Was Dancing In The Lesbian Bar", [121]],
+         ["Rock Club", [121]],
+         ["Thankful For Your Service", [121]],
+         ["The Summer Breeze", [121]],
+         ["Another Weirdo", [121]],
+         ["Door To Door Minotaur", [121]],
+         ["Christmas In The Big House", [121]],
+         ["The Power Of Dial-A-Song", [121]],
+
+         // Escape Team
+         ["Jackie The Clipper", [122]],
+         ["Chip The CHiP", [122]],
+         ["Burnice", [122]],
+         ["Dr. Sy Fly", [122]],
+         ["Dunkin Of Course Of Course", [122]],
+         ["Mr. Mischief Night", [122]],
+         ["John Postal", [122]],
+         ["Flo Wheeler", [122]],
+         ["Corrupted Lyle", [122]],
+         ["Re-PETE Offender", [122]],
+         ["The Poisonousness", [122]],
+
+         // BOOK
+         ["Synopsis For Latecomers", [123]],
+         ["Moonbeam Rays", [123]],
+         ["I Broke My Own Rule", [123]],
+         ["Brontosaurus", [123]],
+         ["Lord Snowdon", [123]],
+         ["If Day For Winnipeg", [123]],
+         ["I Can't Remember The Dream", [123]],
+         ["Drown The Clown", [123]],
+         ["Darling, The Dose", [123]],
+         ["I Lost Thursday", [123]],
+         ["Part Of You Wants To Believe Me", [123]],
+         ["Super Cool", [123]],
+         ["Wait Actually Yeah No", [123]],
+         ["Quit The Circus", [123]],
+         ["Less Than One", [123]],
+
+         // Roman Songs
+         ["TECVM CIRCVMAMBVLARE NOLO", [405]],
+         ["NVNC AVT NVMQVAM", [405]],
+         ["HAEC QVOQVE EST RES", [405]],
+         ["CATENAS MEAS AMISI", [405]],
+
+         //   "TMBG Unlimited",
+         ["Theme From Unlimited", [114.1]],
+         ["Clowntown", [114.1]],
+         ["Monsters Of Mud", [114.1]],
+         ["Ram On", [114.1]],
+         ["All MacGyver On It", [114.1]],
+         ["Tigerella", [114.1]],
+         ["Somebody Took My Eyeball", [114.1]],
+         ["North To Alaska", [114.1]],
+         ["Tender Is The Mind", [114.1]],
+         ["Sally Boy Candy Bar", [114.1]],
+         ["Concrete And Clay", [114.1]],
+         ["Outboard Part Of Man", [114.1]],
+         ["Somebody's Body", [114.1]],
+         ["Kings Of The Cave", [114.1]],
+         ["7-11", [114.1]],
+         ["Hi Honey I'm Home", [114.1]],
+         ["Happy", [114.1]],
+         ["Indian Ocean", [114.1]],
+         ["Rocket Ship", [114.1]],
+         ["Chaos By Design", [114.1]],
+         ["Save Your Life", [114.1]],
+         ["Headless", [114.1]],
+         ["Too + 3 R One", [114.1]],
+         ["Cut The Strings", [114.1]],
+         ["Blind", [114.1]],
+         ["Something You'd Like To See", [114.1]],
+         ["Kids Are Different Now", [114.1]],
+         ["To The Bubblecraft!", [114.1]],
+         ["Tiny Doctors", [114.1]],
+         ["Too Cool Girls", [114.1]],
+         ["Lines Upon A Tranquil Brow", [114.1]],
+
+         // Misc Podcast (minus themes, live, demos, released elsewhere, or Songs About Coffee for now)
+         ["It Was A Very Good Year", [114.2]],
+         ["I Enjoy Being A Boy", [114.2]],
+         ["Turtle Songs Of North America", [114.2]],
+         ["Teenagers Are Going", [114.2]],
+         ["Valentine", [114.2]],
+         ["Miniature Sidewalk Whirlwind", [114.2]],
+         ["P.S.O.K.", [114.2]],
+         ["Diving Board", [114.2]],
+         ["Lesson 16", [114.2]],
+         ["I'm A Little Airplane", [114.2]],
+         ["Free To Be You And Me", [114.2]],
+         ["What Are We Doin' To Pigs?", [114.2]],
+         ["Demarais Parker", [114.2]],
+         ["No Country In Europe", [114.2]],
+         ["Tango Distorto", [114.2]],
+         ["Trap Door", [114.2]],
+         ["Prisoners Of Graphic Design", [114.2]],
+         ["No Left Turn", [114.2]],
+         ["Crystal Fortress", [114.2]],
+         ["Vote Or Don't", [114.2]],
+         ["Paper Jam", [114.2]],
+         ["Up The Junction", [114.2]],
+         ["Penguine", [114.2]],
+         ["Goatee", [114.2]],
+
+         // The Turtlenecks EP
+         ["Julie's Tune", [-401]],
+         ["It's Cold Outside", [-401]],
+         ["In A World Without Food", [-401]],
+         ["Where Are All The People In The World?", [-401]],
+         ["I Slept With This Thing All The Way Back From Baltimore", [-401]],
+         ["Indiana Wants Me", [-401, 114.1]],
+         ["Spin Art", [-401]],
+         ["Mr. And Mrs. Enormous", [-401]],
+
+         // House of Mayors
+         ["Preamble: Fernando Wood", [400]],
+         ["Processional 1", [400]],
+         ["DeWitt Clinton", [400]],
+         ["Processional 2", [400]],
+         ["John Purroy Mitchel", [400]],
+         ["Will You Love Me In December As You Do In May?", [400]],
+         ["Processional 3", [400]],
+         ["Fiorello LaGuardia", [400]],
+         ["David Dinkins", [400]],
+         ["House Of Mayors", [400], "https://tmbw.net/wiki/House_Of_Mayors_(Song)"],
+
+                  //EP B-sides:
+         //Istanbul
+         ["Stormy Pinkness", [501]],
+         ["Ant", [501]],
+         ["Istanbul (Not Constantinople) (Brownsville Mix)", [501]],
+         //Statue (All repeats)
+         //Palindrome
+         ["Cabbagetown", [503]],
+         ["Siftin'", [503]],
+         ["Larger Than Life", [503]],
+         //Guitar
+         ["Welcome to the Jungle", [504]],
+         ["I Blame You", [504]],
+         ["Moving To The Sun", [504]],
+         //WDTSS
+         ["Why Does The Sun Shine?", [505]],
+         ["Jessica", [505]],
+         ["Whirlpool", [505]],
+         //Back 2 Skull
+         ["Ondine", [506]],
+         ["She Was A Hotel Detective", [506]],
+         ["Mrs. Train", [506]],
+         ["Snail Dust", [506]],
+         //SEXXY
+         ["We've Got A World That Swings", [507]],
+         //Holidayland
+         ["Santa Claus", [509]],
+         ["Feast Of Lights", [509]],
+         ["O Tannenbaum", [509]],
+         //Avatars
+         ["He's Loco", [509.5]],
+         ["Ratcatcher Day", [509.5]],
+         ["Goatee", [509.5]],
+         ["3 Chords, 2 Teeth, 1 Eye", [509.5]],
+         //Indestructible
+         ["Am I Awake?", [510]],
+         ["Ant", [510], "https://tmbw.net/wiki/Ant_(Indestructible_Object_Version)"],
+         ["Caroline, No", [510]],
+         //Surfs Alone
+         ["The Spine Surfs Alone", [511]],
+         ["Now Is Strange", [511]],
+         ["I'm All You Can Think About", [511]],
+         ["Fun Assassin", [511]],
+         ["Skullivan", [511]],
+         ["The Other Side Of The World", [511]],
+         ["Canada Haunts Me", [511]],
+         //Pamphlet
+         ["Helicopters Of Elves", [512]],
+         ["Buckle Down, Winsocki", [512]],
+         ["There Will Be Sad", [512]],
+         ["Fortnight", [512]],
+
+         //Working Undercover
+         //["Robot Parade (Adult Version)", [508]],
+         ];
+
+      class Thing{
+         constructor(name, categories, ...urls){
+            this.name = name;
+            this.categories = categories;
+            if (settings.usingImages && urls.length > 0){
+               [this.image, this.links] = getImgUrl(urls);
+            } else {
+               this.image = "";
+               this.links = urls;
+            } 
+         }
+      }
+
+      function getLink(thing) {
+         if (thing.links.length < 1){
+            var tmbw = "https://tmbw.net/wiki/Special:Search?search=";
+            var searchTerm = thing.name.split(' ').join('+');
+            var xny = '&x=0&y=0';
+            return tmbw + searchTerm + xny;
+         }
+        return thing.links[0];
+      }
+
+      function getYouTube(thing) { // Returns I'm Feeling Lucky link to first Youtube result from google.
+         var googleTube = 'https://www.google.com/search?q=site:youtube.com+"'
+         var artist = "TMBG";
+         switch (thing.categories[0]){
+            case -401:
+               artist = "Julie+Kantner"; // sorry Flans it works best with her name lol
+               break;
+            case 400:
+            case 403:
+            case 405:
+               artist = "John+Linnell"; 
+               break;
+            case 401:
+            case 402:
+               artist = "Mono+Puff";
+               break;
+            case 112.5:
+               artist = 'ParticleMen';
+               break;
+         }
+         var album = map_Categories.get(thing.categories[0])[0].split(' ').join('+');
+         var searchTerm = thing.name.split(' ').join('+');
+         var lucky = "&btnI=I";
+         return googleTube + searchTerm + '"+' + album + '+' + artist + lucky;
+      }
+
+      // All other code can be found at the bottom of the page.
+   </script>
+   <style type="text/css">
+      /* Color settings. */
+      html{
+         background-color: #589dad;
+         /*background: radial-gradient(#b3e0e6, #589dad);*/
+      }
+      /* kudos to https://stackoverflow.com/questions/27526851/sunburst-effect-with-css3-gradient */
+      #wikibackground::after, #wikibackground::before {
+         content: '';
+         position: fixed;
+         background:
+            linear-gradient(90deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(86deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(77deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(68deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(60deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(52deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(45deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(38deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(31deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(24deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(17deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(10deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(3deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-4deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-10deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-17deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-24deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-31deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-38deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-45deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-52deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-60deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-68deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-77deg, transparent 50%, #b3e0e6 50%, #b3e0e6),
+            linear-gradient(-86deg, transparent 50%, #589dad 50%, #589dad),
+            linear-gradient(-90deg, transparent 50%, #b3e0e6 50%, #b3e0e6);
+         mask-image: radial-gradient(at right, black, transparent);
+         background-position: 0% 0%;
+        background-size: 200% 100%;
+        height: 100%;
+        width: 50%;
+        z-index: -1;
+       }
+      #wikibackground::before {
+         left: 50%;
+         transform: rotate(180deg);
+      }
+      #wrapper {
+         max-width: 700px;
+         min-width: 350px;
+         margin: 0 auto;
+         box-shadow: 0px 0px 2px 7px rgba(0, 0, 0, 0.25);
+         box-sizing: border-box;
+         font-family: "Lucida Grande", "Lucida Sans Regular", Helvetica, Geneva, Verdana, sans-serif;
+      }
+      #pageheader, .instructions, #content {
+         overflow: auto;
+      }
+      #pageheader, #restart {
+         background-color: #e64708;
+         color: #d7f4f6;    
+      }
+      #pageheader h1 {
+         text-align: left;
+         padding: 1em 0.5em 0.5em 0.5em;
+         margin: 0px;
+         font-size: 2em;
+         font-weight: normal;
+      }
+      #content {
+         background: #d7f4f6;
+         font-size: 15px;
+         height: 100%;
+         margin: 0 auto;
+         padding: 0 min(1.2em, 3%);
+         text-align: center;
+      }
+       @media (max-width: 550px) {
+         #wrapper {
+            box-shadow: none;
+         }
+       }
+      .instructions{
+         padding: 1em;
+         font-size: 14px;
+         background-color: #deaf97;
+         color:  #e64708;
+         font-weight:bold;
+      }
+      body a {
+         color: #275d6e;
+         text-decoration: none;
+      }
+      body a:hover {
+         text-decoration: underline;
+      }
+      .emphasis a {
+         font-weight: bold;
+      }
+      .emphasis a:hover {
+         color: #e64708;
+         text-decoration: none;
+      }
+      #credits p {
+         margin: 0px auto 1em auto;
+         line-height: 1.5em;
+      }
+      .button {
+         border: 1px solid #000;
+      }
+      .button:hover{
+         background-color: #b3e0e6;
+      }
+      .exclude:hover{
+         background-color: #b3e0e6!important;
+      }
+      .optionRow a:hover {
+         color: #e64708;
+      }
+      #restart:hover{
+         background-color: #deaf97;
+         color:  #e64708;
+      }
+      #results {
+         background-color: ghostWhite;
+      }
+      #resultTable th{
+         color: white;
+         background-color: black;
+         border:1px solid black;
+      }
+      #resultTable td {
+         border:1px solid grey;
+      }
+   </style>
+</head>
+<body onLoad="startup()">
+   <div id="wikibackground"></div>
+   <div id="wrapper">
+   <div id="pageheader">
+      <h1>tmbg song sorter</h1>
+   </div>
+   <div class="instructions">
+      This sorter includes <span style="text-decoration: underline;">700+ songs</span>. Your progress is autosaved, but depending on the number of releases selected, sorting may take several hours!
+   </div>
+
+   <div id="content">
+
+   <div id="sorter">
+      <div id="progress">
+         <p>Battle No. <span id="lblCount">-</span>
+            <br>
+         <span id="lblPercent">-</span> % sorted.</p>
+      </div>
+
+      <table id="resultTable">
+         <thead><tr><th>#</th><th>Results</th></tr></thead>
+         <tbody id="results">
+         </tbody>
+      </table>
+
+      <div id="sorterButtons" class="sorterLayout">
+         <div id="leftChoice" class="button disabled" onclick="decision(enum_Choice.Left)">
+            <p>Option 1</p>
+         </div>
+         <div id="tieChoice" class="button" onclick="decision(enum_Choice.Tie)">
+            <p>Select Category Checkboxes Below</p><p>Then Click Here To Start</p>
+         </div>
+         <div id="rightChoice" class="button disabled" onclick="decision(enum_Choice.Right)">
+            <p>Option 2</p>
+         </div>
+
+         <div id="leftOptions" class="optionRow">
+            <div class="exclude button disabled" style="flex: auto" onclick="exclude(enum_Choice.Left)">
+               <p>Exclude</p>
+            </div>
+         </div>
+
+         <div id="undo" class="button disabled" onclick="undo_sort()"></div>
+
+         <div id="rightOptions" class="optionRow">
+            <div class="exclude button disabled" style="flex: auto" onclick="exclude(enum_Choice.Right)">
+               <p>Exclude</p>
+            </div>
+         </div>
+      </div>
+
+      <div id="resultTable">
+      </div>
+
+      <div id="selectCategories"></div>
+
+      <div id="restart" class="button hide" style="display:none" onclick="restart_sort()">
+         <p>I want to start over!</p>
+      </div>
+   </div>
+   <img src="https://bluef00t.neocities.org/music/imgs/waw.png" width="80px" style="margin:10px">
+   <div id="credits">
+      <p>
+         <span class="emphasis"><a href="https://bluef00t.neocities.org/music/tmbg/albumsorter.html" class >TMBG Album Sorter</a> · <a href="https://bluef00t.neocities.org/music/tmbg/tmbgstuff">Truth or Sandwiches</a> · <a href="https://bluef00t.neocities.org/tech/sorter">Sorter Source</a></span>
+      <br>Thank you to <a href="https://tmbw.net/">TMBW</a> and <a href="https://jonuleis.com/">Jon Uleis</a>. Inspired by the <a href="https://tohosort.frelia.my/">Touhou Project Sorter</a>.</p>
+   </div>
+</div>
+</div>
+</body>
+<style type="text/css">
+      /* Layout CSS. */
+      body, html {
+         margin: 0px;
+         padding: 0px;
+      }
+      #sorter{
+         max-width: 550px;
+         min-width: 350px;
+         font-size: 16px;
+         margin: 0 auto;
+      }
+      .sorterLayout {
+         display: grid;
+         place-items: stretch;
+         grid-template-columns: [start] 1fr 1.5fr 1fr [end];
+         grid-template-rows: 220px 50px;
+         column-gap: min(1.2em, 3%);
+         row-gap: 0.4em;
+      }
+      .activeSort{
+         grid-template-columns: [start] 1fr 1fr 1fr [end];
+      }
+      #leftChoice, #rightChoice {
+         font-weight: bold;
+      }
+      #tieChoice:empty::after {
+         content: "No Opinion / Tie";
+      }
+      #undo::after{
+         content: "Undo Last Battle";
+      }
+      .button {
+         cursor: pointer;
+         padding: 0 1em;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+      }
+      .button > img {
+         max-height: 50%;
+         max-width: 100%;
+         object-fit: contain;
+         aspect-ratio: 1/1;
+      }
+      .disabled{
+         pointer-events: none;
+         cursor: default;
+         color: grey;
+      }
+      .optionRow {
+         font-size: 90%;
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         margin-left: 1px;
+      }
+      .optionRow > .button {
+         padding: 0 0.5em;
+         background-color: inherit;
+         margin-left: -1px;
+      }
+      .optionRow a {
+         padding: 0 0.3em;
+         text-decoration: none;
+         font-weight: bold;
+         color: inherit;
+      }
+      .ytlogo {
+         padding: 0 0.3em;
+      }
+      .youtube:hover {
+         text-decoration: none;
+      }
+      .youtube:hover .ytlogo {
+         background: firebrick;
+         border-radius: 0.2em;
+         color: #d7f4f6;
+         transition: ease 0.15s;
+      }
+      .fullwidth {
+         grid-column:start/end;
+      }
+      #selectCategories {
+         font-size: 0.8em;
+         padding: 1.5em 0 0 0;
+         max-width: 500px;
+         display: grid;
+         place-items: center start;
+         grid-template-columns: [start] 1fr 1fr 1fr [end];
+         gap: 0.4em 1em;
+         margin: auto;
+      }
+      #selectCategories > .fullwidth {
+         text-align:left;
+         width: 100%;
+         padding-top: 0.4em;
+         padding-bottom: 0.6em;
+         border-bottom: 1px solid #000;
+         margin-bottom: 0.6em;
+      }
+      .selectAllSetting {
+         font-style: italic;
+      }
+      .selectSetting {
+         font-weight:bold;
+      }
+      input[type=checkbox] {
+        accent-color: #e64708;
+      }
+      #selectCategories label {
+         text-align: left;
+         display: flex;
+         align-items: flex-start;
+         place-items: start start;
+         gap: 2px;
+      }
+      #restart{
+         margin:auto;
+         max-width: 40%;
+         height: 50px;
+         transition: ease 0.15s;
+      }
+      @media (max-width: 550px) {
+         .activeSort{
+            grid-template-columns: [start] 1.5fr 1fr 1.5fr [end];
+         }
+         #tieChoice:empty::after {
+            content: "Tie";
+         }
+         #undo::after{
+            content: "Undo";
+         }
+      }
+      #resultTable {
+         display: none;
+         /*box-sizing: content-box;
+         width: 200px;*/
+         font-size:14px;
+         margin: 0 auto 2em auto;
+         border-collapse:collapse;
+         text-align: center;
+      }
+      #results {
+         margin-left: -0.5em;
+      }
+      #resultTable th{
+         font-size: 16px;
+         font-weight: normal;
+         text-align: center;
+         font-style: italic;
+      }
+      #resultTable td {
+         padding: 0.25em 0.5em;
+      }
+      #resultTable td:nth-child(odd) {
+         text-align: right;
+         padding-left: 0.5em;
+         padding-right: 0.25em;
+      }
+      .instructions {
+         padding-top: 1em;
+      }
+   </style>
+<script type="text/javascript">
+   /**************************
+   // Contents:
+   // * Helper functions
+   // * User sort progress data
+   // * Initialization functions
+   // * Checkbox / linkbox generation
+   // * Image display functions
+   // * Sorter logic
+   // * Binary tree controls
+   //
+   ***************************/
+
+   // ****************************************************************************
+   // Shorthand helper functions.
+   function getID(sID) {
+      return document.getElementById(sID);
+   }
+
+   function create(sName) {
+      return document.createElement(sName);
+   }
+
+   function text(sD) {
+      return document.createTextNode(sD);
+   }
+
+   // *****************************************************************************
+   // User sort progress data storage.
+
+   var array_SortData; // data selected to be sorted
+   var int_SortProgress; // how far through the data we have progressed
+   var int_SortExclude; // how many data points have been excluded or tied
+   var int_Battles; // # of matchups so far
+
+   var tree_HEAD = null; // current head of binary tree
+
+   var undoHistory = []; // for short-term undo history. does not persist between refreshes
+   class Snapshot {
+      constructor(){
+         this.HEAD = structuredClone(tree_HEAD);
+         this.battles = int_Battles - 1;
+         this.sortProgress = int_SortProgress;
+         this.sortExclude = int_SortExclude;
+         this.path = structuredClone(tree_SortPath);
+         if (settings.debug) console.log(this)
+      }
+   }
+
+   function undo_sort(){
+      var savedState = undoHistory.pop();
+      if (settings.debug) console.log(savedState);
+      tree_HEAD = savedState.HEAD;
+      int_Battles = savedState.battles;
+      int_SortProgress = savedState.sortProgress;
+      int_SortExclude = savedState.sortExclude;
+      tree_SortPath = savedState.path;
+      save_session();
+
+      tree_Placeholder = recoverPlace(tree_HEAD, tree_SortPath);
+      tree_Next = new TreeNode(array_SortData[int_SortProgress]);
+      update_display();
+   }
+
+   // for saving your place between page refreshes
+   function save_session(isInitialization = false){
+      if (isInitialization) {
+         localStorage.setItem("saved_SortData", JSON.stringify(array_SortData));
+         localStorage.setItem("checksum", array_ThingData.length)
+      }
+      localStorage.setItem("saved_HEAD", JSON.stringify(tree_HEAD));
+      localStorage.setItem("saved_SortPath", JSON.stringify(tree_SortPath)) 
+      localStorage.setItem("saved_SortProgress", int_SortProgress);
+      localStorage.setItem("saved_SortExclude", int_SortExclude);
+      localStorage.setItem("saved_Battles", int_Battles);
+
+      if (settings.usingImages) localStorage.setItem("saved_ShowCovers", getID("showImages").checked);
+   }
+
+   function load_session(){
+      if (Number(localStorage.getItem("checksum")) !== array_ThingData.length) {
+         alert("This sorter has changed since you were using it last! If these changes have corrupted your save, please click the 'start over' button at the bottom of the page.");
+      }
+      int_SortProgress = Number(localStorage.getItem("saved_SortProgress"));
+      int_SortExclude = Number(localStorage.getItem("saved_SortExclude"));
+      int_Battles = Number(localStorage.getItem("saved_Battles"));
+      array_SortData = JSON.parse(localStorage.getItem("saved_SortData"));
+      tree_HEAD = JSON.parse(localStorage.getItem("saved_HEAD"));
+      tree_SortPath = JSON.parse(localStorage.getItem("saved_SortPath"));
+      if (!tree_SortPath){
+         tree_SortPath = [];
+         getNext();
+      } else {
+         tree_Placeholder = recoverPlace(tree_HEAD, tree_SortPath);
+         tree_Next = new TreeNode(array_SortData[int_SortProgress]);
+      }
+
+      if (settings.usingImages) getID("showImages").checked = JSON.parse(localStorage.getItem("saved_ShowCovers"));
+   }
+
+   function recoverPlace(headNode, path){
+      if (path.length < 1){
+         return headNode; // this is where we left off
+      }
+      if (headNode.left && headNode.left.data == path[0]){ // follow left branch
+         return recoverPlace(headNode.left, path.slice(1));
+      }
+      if (headNode.right && headNode.right.data == path[0]){ // follow right branch
+         return recoverPlace(headNode.right, path.slice(1));
+      }
+      // if we can't follow the path down the tree, accept the small loss and start from the top of the last round
+      if (settings.debug) console.log("Could not recover place in round. Starting from top of round.")
+      return tree_HEAD;
+   }
+
+   function load_results(){
+      int_Battles = Number(localStorage.getItem("saved_Battles"));
+      tree_HEAD = JSON.parse(localStorage.getItem("saved_SortResults")); 
+   }
+
+   function checkForSortInProgress(){
+      var get_Results = localStorage.getItem("saved_SortResults")
+      var get_Progress = localStorage.getItem("saved_SortProgress");
+      if (get_Results){
+         load_results();
+         int_Status = enum_Status.Done;
+      } else if (get_Progress){
+         load_session();
+         int_Status = enum_Status.InProgress;
+      } else{
+         int_Status = enum_Status.Pending;
+      }
+      return int_Status;
+   }
+
+   function startup() {
+      init_checkboxes();
+      init_imgcache();
+      switch(checkForSortInProgress()) {
+      case enum_Status.Pending:
+         sortClear();
+         break;
+      case enum_Status.InProgress:
+         init_display();
+         update_display();
+         break;
+      case enum_Status.Done:
+         showResults(); 
+         break;
+      }
+   }
+
+   function restart_sort(){
+      if (int_Status == enum_Status.InProgress && confirm("Are you sure you want to lose your progress and restart?")){
+         sortClear();
+         return;
+      }
+      if (int_Status == enum_Status.Done && confirm("Are you sure you want to clear your results and start over?")){
+         sortClear();
+         getID("resultTable").innerHTML = "<thead><tr><th>#</th><th>Results</th></tr></thead><tbody id='results'></tbody>"
+         getID("resultTable").style.display = "none";
+         getID("sorterButtons").style.display = "grid";
+         getID("selectCategories").style.display = "grid";
+         return;
+      }
+   }
+
+   function sortClear(){
+      int_Status = enum_Status.Pending;
+      int_Battles = 0;
+      array_SortData = new Array();
+      tree_SortPath = [];
+      localStorage.clear();
+      reset_display();
+   }
+
+   // ****************************************************************************
+   // Initialization functions
+   function init_sort(){
+      int_SortProgress = 0;
+      int_SortExclude = 0;
+      int_Battles = 0;
+      array_SortData = new Array();
+      int_Total = 0;
+      if (settings.usingCategoryCheckboxes){ // Extract only sort targets in selected categories
+         for (i=0; i<array_ThingData.length; i++) {
+            for (var cat of array_ThingData[i][1]){ // category array
+               try {
+                  if (getID('catSelect' + cat).checked) {
+                  array_SortData[int_Total] = i;
+                  int_Total++;
+                  break;
+                  }
+               } catch (e) {
+                  console.log("Category #" + cat +", found in " + array_ThingData[i][0] +", is not defined.")
+                  break;
+               }
+            }
+         }
+      } else { // Otherwise, sort everything
+         array_SortData = array_ThingData;
+         int_Total = array_SortData.length;
+      }
+
+      // Alert if nothing is selected and do not proceed.
+      if (int_Total < 2) {
+         alert("Not enough categories selected to sort.");
+         return;
+      }
+
+      // randomly shuffle array
+      if(getID("shuffle").checked){
+         var n = array_SortData.length, i = -1, j;
+           while (++i < n) {
+             j = Math.floor(Math.random() * n);
+             t = array_SortData[j];
+             array_SortData[j] = array_SortData[i];
+             array_SortData[i] = t;
+            }
+      }
+     
+      // initialize sort
+      int_Status = enum_Status.InProgress;
+      tree_SortPath = [];
+      tree_HEAD = new TreeNode(array_SortData[0]);
+      tree_Placeholder = tree_HEAD;
+      tree_Next = new TreeNode(array_SortData[1]);
+      int_SortProgress = 1;
+
+      // create first localStorage save
+      save_session(true);
+
+      // set up first battle
+      update_choices(tree_Placeholder, tree_Next);
+      init_display();
+   }
+
+   function init_checkbox_bank(catList, catName, catOrder, addTo){
+      // transform to columns of rows of 3
+      var maxRows = Math.floor(catList.size / 3);
+      var needsExtraRow = catList.size % 3 > 0;
+      if (needsExtraRow) maxRows ++;
+      var categoriesInOrder = [...catList.entries()].sort((a, b) => a[0] - b[0]);
+      for (i=0, row=0, col=1; i<categoriesInOrder.length; i++, row++) {
+         var catData = categoriesInOrder[i];
+         var id = 'catSelect' + catData[0];
+         if (row >= maxRows) {
+            row = 0;
+            col ++;
+         }
+         var order = (catOrder*100) + row;
+         var catBox = createCheckbox(id, catData[1][0], order, true);
+         catBox.style.gridColumn = col;
+         addTo.appendChild(catBox);            
+      }
+      var selectAll = createCheckbox(catName + "Select_all", "Select or Deselect All " + catName, (catOrder + 1)*100)
+      selectAll.firstChild.onclick = function() {toggle_cat(this, catList);}
+      selectAll.classList.add("fullwidth", "selectAllSetting");
+      addTo.appendChild(selectAll);
+   }
+
+   function init_checkboxes(){
+      var selectCategories = getID("selectCategories");
+      var catSection = 0;
+
+      if (settings.usingImages){
+         var toggleImgs = createCheckbox("showImages", "Show Album Covers", catSection);
+         toggleImgs.firstChild.onclick = function() {toggle_imgs();}
+         toggleImgs.firstChild.checked = settings.usingImagesDefault;
+         toggleImgs.classList.add("selectSetting")
+         selectCategories.appendChild(toggleImgs);
+      }
+      var toggleShuffle = createCheckbox("shuffle", "Shuffle Data Before Sort", catSection);
+      toggleShuffle.style.gridColumn = "span 2";
+      toggleShuffle.classList.add("selectSetting")
+      selectCategories.appendChild(toggleShuffle);
+
+      var selectAll = createCheckbox("Select_all", "Select or Deselect All Releases", catSection)
+      selectAll.firstChild.onclick = function() {toggle_all(this);}
+      selectAll.classList.add("fullwidth", "selectSetting");
+      selectCategories.appendChild(selectAll);
+
+      // supercategory select-alls
+      for (var name of map_SuperCategories.keys()) {
+         catSection ++;
+          init_checkbox_bank(map_SuperCategories.get(name), name, catSection, selectCategories);
+      }
+   }
+
+   function init_display(){
+      getID("lblCount").innerHTML = int_Battles;
+      getID("lblPercent").innerHTML = "0";
+      // initialize checkboxes
+      var inputs = document.getElementsByTagName('input');
+      for (var checkbox of inputs) {
+         if (checkbox.id != "showImages"){
+            checkbox.disabled = true;
+         }
+      }
+      // enable buttons
+      var buttons = document.getElementsByClassName('button');
+      for (var button of buttons){
+         button.classList.remove("disabled");
+      }
+      getID("tieChoice").innerHTML = "";
+      getID("sorterButtons").classList.add("activeSort");
+      getID("restart").style.display = "block";
+   }
+
+   function reset_display(){
+      getID("lblCount").innerHTML = "-";
+      getID("lblPercent").innerHTML = "-";
+      var inputs = document.getElementsByTagName('input');
+      for (var checkbox of inputs) {
+         checkbox.disabled = false;
+      }
+      getID("sorterButtons").classList.remove("activeSort");
+      getID("tieChoice").innerHTML = settings.usingCategoryCheckboxes ? "<p>Select Category Checkboxes Below</p><p>Then Click Here To Start</p>" : "<p>Click Here To Start</p>";
+      getID("leftChoice").innerHTML = "<p>Option 1</p>";
+      getID("rightChoice").innerHTML = "<p>Option 2</p>";
+
+      var buttons = document.getElementsByClassName('button');
+      for (var button of buttons){
+         if (button.id != "tieChoice"){
+            button.classList.add("disabled");
+         }
+      }
+      getID("restart").style.display = "none";
+
+      var links = document.getElementsByClassName('link');
+      Array.from(links).forEach((link) => link.remove());
+   }
+
+   // ****************************************************************************
+   // Created elements (checkboxes, infoboxes)
+
+   function createCheckbox(id, value, order = 0, expand = false){
+      var new_div = create('label');
+
+      new_div.style.order = order;
+      var new_CheckBox = create('input');
+      new_CheckBox.type = 'checkbox';
+      new_CheckBox.checked = 'true';
+      new_CheckBox.id = id;
+      new_CheckBox.value = value;
+      new_CheckBox.title = value;
+      new_div.appendChild(new_CheckBox);
+
+      var new_span = create('span');
+      new_span.appendChild(text(value));
+      new_span.title = value;
+      new_span.id = id + "_label";
+      new_div.appendChild(new_span);
+
+      if (expand && value.length > 30){
+         //new_div.style.gridColumn = "span 2";
+      }
+
+      return new_div;
+   }
+
+   // * Toggle all checkboxes on/off.
+   function toggle_all(self) {
+      for (var cat of map_Categories.keys()) {
+         getID('catSelect' + cat).checked = getID('Select_all').checked;
+      }
+      for (var name of map_SuperCategories.keys()) {
+          getID(name+"Select_all").checked = self.checked;
+      }
+   }
+   function toggle_cat(self, catList) {
+      for (var cat of catList.keys()) {
+         getID('catSelect' + cat).checked = self.checked;
+      }
+   }
+
+   function update_options(left, right){
+      // clear all links
+      var links = document.getElementsByClassName('link');
+      Array.from(links).forEach((link) => link.remove());
+      for (i=0; i<2; i++) {
+         var select = getID((i == 0) ? "leftOptions" : "rightOptions");
+         var thing = (i == 0) ? left : right;
+
+         // set links
+         if (settings.usingLinks){
+            var url = getLink(thing);
+            select.prepend(createLink(url));
+         }
+         if (settings.usingYouTubeLookup){
+            var url = getYouTube(thing);
+            select.prepend(createYT(url));
+         }
+      }
+   }
+
+   function createLink(url){
+      var new_link = create('a');
+      new_link.classList.add("button" , "link");
+      new_link.href = url;
+      new_link.target = "_blank";
+      new_link.innerHTML = "?";
+      return new_link;
+   }
+
+   function createYT(url) {
+      var new_link = create('a');
+      new_link.classList.add("button" , "youtube" , "link");
+      new_link.href = url;
+      new_link.target = "_blank";
+      var logo = create('div');
+      logo.classList.add("ytlogo")
+      logo.innerHTML = "&#x25B6";
+      new_link.appendChild(logo);
+      return new_link;
+   }
+
+   // *****************************************************************************
+   // Image display helper functions.
+
+   function init_imgcache(){
+      for (var cat of map_Categories.keys()) {
+         var catData = map_Categories.get(cat);
+         var imgUrl = "";
+         if (catData.length > 1 && catData[1]){
+            imgUrl = catData[1];
+         }
+         var image = new Image();
+         image.src = prefixImage(imgUrl);
+         map_CategoryImgs.set(cat, image);
+      }
+   }
+
+   function getThingImage(thing){
+      // if image exists for thing
+      if (thing.image){
+         var image = new Image();
+         image.src = prefixImage(thing.image);
+         return image;
+      }
+      // if image exists for category
+      if (settings.usingCategoryCheckboxes){
+         for (var cat of thing.categories){
+            var catData = map_Categories.get(cat);
+            if (catData.length > 1 && catData[1]){
+               return map_CategoryImgs.get(cat).cloneNode();
+            }
+         }
+      }
+      // no image
+      return new Image();
+   }
+
+   function prefixImage(url){
+      var checkurl = /^(?:http:|https:)/i;
+      if (settings.imagePrefixURL && !url.match(checkurl)){
+         return settings.imagePrefixURL + url;
+      }
+      return url;
+   }
+
+   function getImgUrl(urls){
+      for (i=0; i<urls.length; i++) {
+         if (isImg(urls[i])){
+            var img = urls.splice(i, 1)[0];
+            return [img, urls]
+         }
+      }
+      return ["", urls]
+   }
+
+   function isImg(url){
+      var imgcheck = /.*\.(?:png|jpg|jpeg|gif|png|svg)/i;
+      return url.match(imgcheck)
+   }
+
+   function toggle_imgs(){
+      for (i=0; i<2; i++) {
+         var select = getID((i == 0) ? "leftChoice" : "rightChoice");
+         var img = select.getElementsByTagName('img')[0];
+         if (img) {
+            img.style.display = img.style.display == "none" ? "block" : "none";
+         }
+      }
+   }
+
+   // *****************************************************************************
+   // Sorting controls.
+   const enum_Status = {
+      Pending: 0,
+      InProgress: 1,
+      Done: 2
+   }
+   var int_Status = enum_Status.Pending; // is sort in progress?
+
+   function decision(num){
+      switch (int_Status) {
+      case enum_Status.Pending: // Initialize sort information at first click.
+         init_sort();
+         break;
+      case enum_Status.Done: // If the sorting has been completed, it is not performed again.
+         break;
+      default:
+         undoHistory.push(new Snapshot());
+         sort(num);
+         break;
+      }
+   }
+    const enum_Choice = {
+         Left: -1,
+         Tie: 0,
+         Right: 1
+      }
+
+   function sort(choice){
+      switch (choice){
+      case enum_Choice.Left:
+         traverseTree(true); // I like the carried node less than the placeholder
+         break;
+      case enum_Choice.Right:
+         traverseTree(false); // I like the carried node more than the placeholder
+         break;
+      case enum_Choice.Tie:
+         tree_Placeholder.tie.push(tree_Next) // Add the carried node as equal to the placeholder
+         int_SortProgress ++;
+         int_SortExclude ++;
+         getNext();
+         break;
+      }
+      save_session();
+      update_display();
+   }
+
+   function exclude(choice) {
+      undoHistory.push(new Snapshot());
+      switch (choice){
+      case enum_Choice.Left: // I do not know the placeholder.
+         tree_HEAD = tree_Next; // Discarding head. only works when head is not connected to others.
+         int_SortProgress ++;
+         save_session();
+         getNext();
+         break;
+      case enum_Choice.Right: // I do not know the carried node.
+         int_SortProgress ++;
+         save_session();
+         getNext(); // Simply drop it and begin back at the start of the tree.
+         break;
+      }
+      int_SortExclude ++;
+      update_display();
+   }
+
+   // *****************************************************************************
+   // Tree sort structure logic.
+   class TreeNode{
+      constructor (data, left = null, right = null, tieParent = null) {
+        this.data = data;
+        this.left = left;
+        this.right = right;
+        this.tie = new Array();
+      }
+   }
+
+   var tree_Placeholder = null; // current place of comparison
+   var tree_Next = null; // next node to be added to tree
+   var tree_SortPath = []; // path taken down the tree this round
+
+   function traverseTree(lesser){
+      let tree_traverse = lesser ? tree_Placeholder.left : tree_Placeholder.right;
+
+      if (tree_traverse == null){ // if null we have found an empty slot for this data point.
+         lesser ? tree_Placeholder.left = tree_Next : tree_Placeholder.right = tree_Next;
+         int_SortProgress ++;
+         getNext();
+      } else { // if not null then continue down the tree.
+         tree_Placeholder = tree_traverse;
+         tree_SortPath.push(tree_Placeholder.data);
+      }
+   }
+
+   function getNext(){
+      // Call up next data point and start back at head of tree.
+      var next = array_SortData[int_SortProgress];
+      if (next != null){
+         if (tree_SortPath.length + 1 > Math.log2(int_SortProgress)){ // optimize when tree actually needs balancing
+            if (settings.debug) console.log((tree_SortPath.length + 1) + " > " + Math.log2(int_SortProgress) + ". Rebalancing...");
+            balanceTree(); 
+         }
+         tree_SortPath = [];
+         tree_Next = new TreeNode(next);
+         tree_Placeholder = tree_HEAD;
+      } else { // if there are no more data points to sort we are done.
+         int_Status = enum_Status.Done;
+         localStorage.clear();
+      }
+   }
+
+   // Uses the Day-Stout-Warren algorithm.
+function balanceTree(){
+   let blank = new TreeNode("");
+   blank.right = tree_HEAD;
+   let count = treeToVine(blank);
+   let height = Math.log2(count + 1);
+   let n = Math.pow(2, height) - 1;
+   compress(blank, count - n);
+   for (n = Math.floor(n/2); n > 0; n = Math.floor(n/2)){
+      compress(blank, n);
+   }
+   tree_HEAD = blank.right;
+}
+
+// Flatten tree, fully right-rotated
+function treeToVine(node){
+   let i = 0;
+   let tree_traverse = node.right;
+   while (tree_traverse != null){
+      if (tree_traverse.left){
+         // right rotate
+         let tree_traverse_temp = tree_traverse;
+         tree_traverse = tree_traverse.left;
+         tree_traverse_temp.left = tree_traverse.right;
+         tree_traverse.right = tree_traverse_temp;
+         node.right = tree_traverse;
+      } else { // continue
+         i++;
+         node = tree_traverse;
+         tree_traverse = tree_traverse.right;
+      }
+   }
+   return i;
+}
+
+function compress(node, n){
+   let tree_traverse = node.right;
+   for (let i = 0; i < n; i++){ // left-rotate n times
+      let tree_traverse_temp = tree_traverse;
+      tree_traverse = tree_traverse.right;
+      node.right = tree_traverse;
+      tree_traverse_temp.right = tree_traverse.left;
+      tree_traverse.left = tree_traverse_temp;
+      node = tree_traverse;
+      tree_traverse = tree_traverse.right;
+   }
+}
+
+// Return a flattened tree as an array
+function vineToArray(parent) {
+  let curr = parent;
+  let arr = [];
+  while (curr !== null) {
+    arr.unshift(curr);
+    curr = curr.right;
+  }
+  return arr;
+}
+
+//via https://www.theodinproject.com/lessons/javascript-binary-search-trees, with some modifications
+const prettyPrint = (node, prefix = '', isLeft = true) => {
+  if (node === null) {
+    return;
+  }
+  if (node.right !== null) {
+    prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
+  }
+  var here = node.data == tree_Placeholder.data ? "*" : "";
+  console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.tie.length > 0 ? getName(node) + " (" + node.tie.map(t => getName(t)).join(", ") + ")" : getName(node)}` + here);
+  if (node.left !== null) {
+    prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
+  }
+};
+
+// *****************************************************************************
+// Update the display.
+function update_display(){
+   // Update battle progress
+   getID("lblCount").innerHTML = int_Battles;
+   getID("lblPercent").innerHTML = percentProgress().toFixed(2);
+   if (int_Status == enum_Status.Done) {
+      localStorage.setItem("saved_SortResults", JSON.stringify(tree_HEAD));
+      showResults();
+   } else {
+      if (settings.debug) prettyPrint(tree_HEAD);
+      update_choices(tree_Placeholder, tree_Next); // Placeholder goes on the left; carried node goes on the right.
+   }
+}
+
+function percentProgress() {
+   var n = array_SortData.length - int_SortExclude; // total # items to be in final tree
+   var nP = int_SortProgress - int_SortExclude; // total # items in current tree
+   var estRemainingBattles = Math.ceil(treeLevels(n) + treeLevels(nP)) * (n - nP)/2 - tree_SortPath.length;
+   var pct = 100 * int_Battles / (int_Battles + estRemainingBattles);
+   return pct;
+}
+
+function treeLevels(n) {
+   return  Math.ceil(Math.log2(n + 1));
+}
+
+function getName(node){
+   return array_ThingData[node.data][0];
+}
+
+function update_choices(leftNode, rightNode){
+   var left = new Thing(...array_ThingData[leftNode.data]);
+   var right = new Thing(...array_ThingData[rightNode.data]);
+   update_options(left, right); // update buttons below each choice
+   for (i=0; i<2; i++) {
+         var obj_SelectItem = getID((i == 0) ? "leftChoice" : "rightChoice");
+         obj_SelectItem.innerHTML = "";
+         var matchup = (i == 0) ? left : right;
+         var matchupNode = (i == 0) ? leftNode : rightNode;
+
+         if(getID("shuffle").checked && matchupNode.tie.length > 0){ // randomly swap with a tied node
+            var shuffleMe = Math.floor(Math.random() * (matchupNode.tie.length + 1));
+            if (shuffleMe < matchupNode.tie.length){
+               matchup = new Thing(...array_ThingData[matchupNode.tie[shuffleMe].data]);
+            }
+         }
+         if (settings.usingImages && getThingImage(matchup).src){
+            var obj_Image = getThingImage(matchup);
+            if (!getID("showImages").checked) obj_Image.style.display = "none";
+            obj_SelectItem.appendChild(obj_Image);
+         }
+         var obj_Item = create("p");
+         obj_Item.appendChild(text(matchup.name));
+         obj_Item.title = matchup.name;
+         obj_SelectItem.appendChild(obj_Item);
+      }
+
+   // toggle exclude availability
+   var excludeButton = getID("leftOptions").getElementsByClassName("exclude")[0];
+   if (int_SortProgress - int_SortExclude > 1 || leftNode.tie.length > 0){
+      excludeButton.classList.add("disabled");
+   } else {
+      excludeButton.classList.remove("disabled");
+   }
+   // toggle undo availability
+   var undoButton = getID("undo");
+   if (undoHistory.length < 1){
+      undoButton.classList.add("disabled");
+   } else {
+      undoButton.classList.remove("disabled");
+   }
+   int_Battles++;
+}
+
+function showResults(){
+   // hide sorter controls
+   getID("sorterButtons").style.display = "none";
+   getID("selectCategories").style.display = "none";
+   getID("restart").style.display = "block";
+   getID("resultTable").style.display = "table";
+   getID("lblPercent").innerHTML = "100";
+
+   let blank = new TreeNode("");
+   blank.right = tree_HEAD;
+   treeToVine(blank);
+   var results = vineToArray(blank).slice(0, -1);
+
+   // populate results table
+   for (i=0; i<results.length; i++) {
+      var row = getID("results").insertRow();
+      var cellL = row.insertCell();
+      cellL.appendChild(text((i+1)));
+      var cellR = row.insertCell();
+
+      var resultName = getName(results[i]);
+      if (results[i].tie.length > 0){
+         cellR.appendChild(text(results[i].tie.map(t => getName(t)).join(", ") +", " + resultName))
+      } else {
+         cellR.appendChild(text(resultName));
+      }
+   }
+}
+</script>
+</html>
