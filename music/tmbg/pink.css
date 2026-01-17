@@ -43,7 +43,7 @@ body{
 	position: relative;
 	font-family: Lato, Arial;
 	font-weight: normal;
-	font-size: calc(10px + (26 - 12) * ((100vh - 300px) / (1600 - 300)));
+	font-size: 15px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) inset;
 }
 @media (orientation:portrait){
@@ -156,6 +156,16 @@ h2{
 	margin-bottom: 8px;
 	font-size: 110%;
 }
+h3{
+	font-weight:600;
+}
+h3 a{
+	color: inherit;
+	text-decoration-color: #4b956c;
+}
+h3 a:hover{
+	color: #4b956c;
+}
 h1 a, h2 a{
 	color: white;
 }
@@ -170,7 +180,7 @@ h1 a:hover, h1 a:active, h2 a:hover, h2 a:active{
 	text-align: center;
 	font-weight: bold;
 }
-p{padding: 5px 8px 5px;}
+p, h3{padding: 5px 8px 5px;}
 ul, ol{padding: 5px 8px 5px;}
 li{
 	display: list-item;
