@@ -255,6 +255,7 @@ article a:hover{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .pagemap li{
@@ -263,7 +264,7 @@ article a:hover{
   text-align: center;
   font-weight: 600;
   display: inline-block;
-  width: 120px;
+  min-width: 120px;
   overflow: hidden;
   padding: 3px;
   margin: 4px 3px 4px;
@@ -334,7 +335,7 @@ footer{
   justify-content: center;
   overflow-x: hidden;
 }
-.frontpage-gallery img, .image-gallery img{
+.frontpage-gallery img{
   margin: 0px;
   /*width: calc(20% - 6px);*/
   max-height: calc(var(--width)/5 - 6px);
@@ -410,8 +411,18 @@ figure img {
   }
 
   /*lightbox stuff*/
-
-.image-gallery img{
+.image-gallery {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  gap: 5px;
+  line-height: 0;
+  margin-bottom:2em;
+}
+.image-gallery > * {
+  display:block;
+}
+.gallery{
   height: min(30vh, 25vw);
   width: auto;
   max-width: none;
@@ -419,8 +430,7 @@ figure img {
   padding: 2px;
   transition: 0.15s;
 }
-
-.image-gallery img:hover{
+.gallery:hover{
   border: 2px solid var(--accent2b);
   cursor: pointer;
 }

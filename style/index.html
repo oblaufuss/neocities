@@ -5,6 +5,7 @@
   <title>bees laugh in atbash</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="classic.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="stylesheet" href="../utilities/simple-lightbox.css?v2.2.1.2" />
 </head>
 
 <body>
@@ -112,27 +113,27 @@
             </figure>
           </section>
 
-<!-- Must be outside the Section tag to work!-->
-        <div class="container" id="imagebg"  onclick="closeModal()">
-            <a id="prev"  onclick="plusSlides(-1)" style="display:none">&#10094;</a><h4 id="imgtext"></h4><a id="next"  onclick="plusSlides(1)" style="display:none">&#10095;</a>
-            <img src="" alt="" id="expandedImg" style="border:0px">
-          </div>
-
-          <script type="text/javascript" src="../lightbox.js"></script>
-
-        <section class="image-gallery">
+        <section>
           <h2>Lightbox image preview gallery</h2>
-            <img src="../art/illustrations/2021-robot.png" title="Here's hoping you don't become a robot" alt="A frenetic robot with many eyes and many arms runs across a strange, webbed floor. Beams of energy shoot from its antenna." class="gallery" height="200px" onclick="display(this);">
-            <img src="../art/illustrations/2021-otto.png" title="Doctor Octopus" alt="Doc Ock as played by Alfred Molina sits with legs crossed & stares intensely at the viewer, smiling subtly & smoking a cigar held in a tentacle claw. He says: Hello Peter. Rough digital painterly style." class="gallery" height="200px" onclick="display(this);">
-            <img src="../art/illustrations/2021-moon.png" title="Bad Day on the Moon" alt="Ink drawing in the style of Sam & Max. Sam kneels in front of a heap of smoking ash on a cartoonishly small moon. On the dark side is a city of tall buildings and an equally tall cockroach. Satellites and stars fly past." class="gallery" height="200px" onclick="display(this);">
-            <img src="../art/illustrations/2021-killwizard.png" title="Killwizard 2000 goes acid west" alt="Fluorescently colored drawing of a skeleton in a wizard hat and cape, grinning as it holds up a green crystal. One cowboy-booted foot rests on a glowing treasure chest. A night desert landscape is behind. Digital art." class="gallery" height="200px" onclick="display(this);">
-            <img src="../art/illustrations/2021-edu.png" title="edu" alt="Black and white line drawing of a man in glasses sitting in a dense woodland setting. In his lap is a xylophone." class="gallery" height="200px" onclick="display(this);">
+          <div class="image-gallery">
+            <a><img src="../art/illustrations/2021-robot.png" title="Here's hoping you don't become a robot" alt="A frenetic robot with many eyes and many arms runs across a strange, webbed floor. Beams of energy shoot from its antenna." class="gallery"></a>
+            <a><img src="../art/illustrations/2021-otto.png" title="Doctor Octopus" alt="Doc Ock as played by Alfred Molina sits with legs crossed & stares intensely at the viewer, smiling subtly & smoking a cigar held in a tentacle claw. He says: Hello Peter. Rough digital painterly style." class="gallery"></a>
+            <a><img src="../art/illustrations/2021-moon.png" title="Bad Day on the Moon" alt="Ink drawing in the style of Sam & Max. Sam kneels in front of a heap of smoking ash on a cartoonishly small moon. On the dark side is a city of tall buildings and an equally tall cockroach. Satellites and stars fly past." class="gallery"></a>
+            <a><img src="../art/illustrations/2021-killwizard.png" title="Killwizard 2000 goes acid west" alt="Fluorescently colored drawing of a skeleton in a wizard hat and cape, grinning as it holds up a green crystal. One cowboy-booted foot rests on a glowing treasure chest. A night desert landscape is behind. Digital art." class="gallery"></a>
+            <a><img src="../art/illustrations/2021-edu.png" title="edu" alt="Black and white line drawing of a man in glasses sitting in a dense woodland setting. In his lap is a xylophone." class="gallery"></a>
+          </div>
         </section>
 
         
       </main>
 
       <footer></footer>
+      <script src="../utilities/simple-lightbox.js?v2.14.3"></script>
+      <script>
+        (function() {
+          var $gallery = new SimpleLightbox('.image-gallery a', {dark:true});
+        })();
+    </script>
       <script type="text/javascript" src="../styling.js"></script>
       <script type="text/javascript" src="../formatting.js"></script>
     </body>

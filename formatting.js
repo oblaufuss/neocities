@@ -1,5 +1,5 @@
 //add favicon
-document.getElementsByTagName("head").item(0).innerHTML +=  '<link rel="icon" href="http://bluef00t.neocities.org/favicon.ico" type="image/x-icon"/>';
+document.getElementsByTagName("head").item(0).innerHTML +=  '<link rel="icon" href="https://bluef00t.neocities.org/favicon.ico" type="image/x-icon"/>';
 
 var html = '';
 
